@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Louis George Cafe';
+    src: url('LouisGeorgeCafe.eot');
+    src: url('LouisGeorgeCafe.eot?#iefix') format('embedded-opentype'),
+        url('LouisGeorgeCafe.woff2') format('woff2'),
+        url('LouisGeorgeCafe.woff') format('woff'),
+        url('LouisGeorgeCafe.ttf') format('truetype'),
+        url('LouisGeorgeCafe.svg#LouisGeorgeCafe') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

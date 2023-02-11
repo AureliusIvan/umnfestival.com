@@ -1,0 +1,157 @@
+@use 'src/index' as index;
+
+.counter {
+    @include index.center;
+    text-align: center;
+    position: relative;
+    z-index: index.$z-index-3 !important;
+    height: 120px;
+    margin-bottom: 20px;
+
+    &.welcome {
+        transform: scale(0.9);
+    }
+
+    &.about {
+        transform: scale(1);
+
+        @media screen and (max-width: 600px) {
+            transform: scale(0.7);
+        }
+
+        @media screen and (max-width: 400px) {
+            transform: scale(0.5);
+            margin-bottom: 0px;
+        }
+
+    }
+
+    .svgtest {
+        position: absolute;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        -webkit-filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.5));
+        filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.5));
+
+        @media screen and (max-width: 600px) {
+            transform: scale(0.7);
+        }
+
+        .text-path1 {
+            @include index.prevent-select;
+            text-align: center;
+            font: index.$font;
+            transform-origin: center 40%;
+            display: block;
+            fill-opacity: 0;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke: rgb(137, 8, 223);
+            stroke-width: 0px;
+            $nth: 1;
+            $delay: 0.5;
+            text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.5);
+
+            @while $nth <14 {
+                &:nth-child(#{$nth}) {
+                    animation: textanimate1 2.0s linear forwards;
+                    animation-delay:#{$delay}s;
+                    stroke-dasharray: 800;
+                    stroke-dashoffset: 800;
+                }
+
+                $nth: $nth+1;
+                $delay: $delay+0.25;
+            }
+
+            @while $nth <35 {
+                &:nth-child(#{$nth}) {
+                    animation: textanimate2 2.0s linear forwards;
+                    animation-delay:#{$delay}s;
+                    stroke-dasharray: 800;
+                    stroke-dashoffset: 800;
+                }
+
+                $nth: $nth+1;
+                $delay: $delay+0.25;
+            }
+        }
+
+        @keyframes textanimate1 {
+            0% {
+                stroke-dashoffset: 800;
+                stroke-width: 3px;
+            }
+
+            50% {
+                stroke-dashoffset: 1600;
+                stroke-width: 0.1px;
+            }
+
+            50.1% {
+                stroke-dashoffset: 800;
+            }
+
+            80% {
+                stroke-width: 2px;
+                fill: #d2b;
+                fill-opacity: 0;
+            }
+
+            100% {
+                stroke-dashoffset: 0;
+                stroke: index.$blue;
+
+                fill-opacity: 1;
+                stroke-dasharray: 400;
+            }
+        }
+
+        @keyframes textanimate2 {
+            0% {
+                stroke-dashoffset: 800;
+                stroke-width: 3px;
+            }
+
+            50% {
+                stroke-dashoffset: 1600;
+                stroke-width: 0.1px;
+            }
+
+            50.1% {
+                stroke-dashoffset: 800;
+            }
+
+            80% {
+                stroke-width: 2px;
+                fill: #d2b;
+                fill-opacity: 0;
+            }
+
+            100% {
+                stroke-dashoffset: 0;
+                stroke: index.$blue;
+                fill-opacity: 1;
+                stroke-dasharray: 400;
+            }
+        }
+
+    }
+
+}
+
+.mousebody {
+    background-color: #d2b;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: index.$z-index-7 !important;
+}

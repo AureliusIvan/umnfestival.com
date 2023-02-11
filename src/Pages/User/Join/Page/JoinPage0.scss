@@ -1,0 +1,18 @@
+@use 'src/index.scss' as index;
+
+.JoinPage0 {
+    // padding-top: 20px;
+
+    .desc {
+        font-family: index.$font2;
+
+        @media screen and (max-width: index.$sm) {
+            display: none;
+        }
+    }
+
+    .title {
+        // font-weight: bold;
+        font-family: index.$font2;
+    }
+}

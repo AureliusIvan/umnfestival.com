@@ -1,0 +1,72 @@
+@use "../../../index.scss" as index;
+
+.Navbar-Desktop-Button {
+    @include index.center;
+    font-family: index.$font;
+    pointer-events: all;
+    cursor: pointer;
+    overflow: visible;
+    background: none;
+    // width: 145px;
+    height: 40px;
+    border: none;
+    position: relative;
+
+    .active {
+        color: index.$yellow;
+    }
+
+    .Title {
+        @include index.prevent-select;
+        overflow: visible;
+        color: index.$white;
+        text-transform: none;
+        position: relative;
+        font-size: 30px !important;
+        padding-inline: 10px;
+        z-index: index.$z-index-1;
+        transform-origin: left;
+        transition: 1s;
+
+        &.Active {
+            color: index.$yellow;
+
+
+
+        }
+
+        .notif {
+            position: absolute !important;
+            left: 0px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: index.$yellow;
+            transition: transform 0.45s ease-out;
+            background-color: rgb(0, 230, 11);
+        }
+
+
+    }
+
+
+    .ActiveLine {
+        // width: 100%;
+        position: absolute;
+        bottom: 0px;
+
+        .path {
+            stroke-dasharray: 100;
+            stroke-dashoffset: 100;
+            animation: ActiveLine 0.6s linear forwards;
+        }
+
+        @keyframes ActiveLine {
+            to {
+                stroke-dashoffset: 0;
+
+            }
+        }
+    }
+}

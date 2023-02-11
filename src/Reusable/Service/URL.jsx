@@ -1,0 +1,1 @@
+export let URL = "https://databaseufest.aureliusivan.my.id" 

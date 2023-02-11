@@ -1,0 +1,28 @@
+@use "src/index" as index;
+
+
+.Social-Media-Navbar {
+    // position: absolute;
+    transform: translateY(20vh);
+    bottom: 0;
+    @include index.center;
+
+    .Social-Media-Link-Card {
+        top: 0;
+        // margin-left: 15px;
+        @include index.prevent-select;
+        @include index.center;
+        position: relative;
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        pointer-events: all;
+        transition: 0.9s;
+    }
+
+    .Card-Image {
+        filter: invert(1);
+        width: 25px;
+        height: 25px;
+    }
+}

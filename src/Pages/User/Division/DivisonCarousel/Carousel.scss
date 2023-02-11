@@ -1,0 +1,220 @@
+@use "src/index" as index;
+
+#Carousel {
+
+    .Carousel-Swiper {
+        width: 70vw;
+        height: 400px;
+        z-index: index.$z-index-1;
+
+        @media screen and (max-width: index.$sm) {
+            width: 100vh
+        }
+
+        .Carousel-Swiper-Slide {
+            @include index.prevent-select;
+            @include index.center;
+            width: 150px;
+            height: auto;
+            background-color: rgb(252, 199, 199, 0);
+            margin: 0;
+            height: 100%;
+
+            @keyframes spin {
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+
+            @media screen and (max-width: index.$sm) {
+                width: 100%;
+            }
+
+
+            .Carousel-Image {
+                image-resolution: 300dpi;
+                height: 90%;
+                width: auto;
+                object-fit: cover;
+                position: relative;
+                animation: spin 20s linear infinite;
+            }
+        }
+    }
+
+    .swiper-slide {
+        height: 300px !important;
+        @include index.center;
+        text-align: center;
+        font-size: 18px;
+        background: index.$white;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+    }
+}
+
+
+
+.Modal-Carousel {
+    height: 500px !important;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 40px !important;
+    opacity: 1 !important;
+    width: 60vw !important;
+    overflow-y: visible;
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+
+
+    &::after {
+        @include index.prevent-select;
+        pointer-events: none;
+        background-image: url(./../../../../Asset/Image/OtherIcon/paperfull.webp);
+        overflow: hidden !important;
+        z-index: -1;
+        transform: scaleX(2.4) scaleY(1.14) translateX(0px);
+        transform-origin: center center;
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 400px !important;
+        height: 660px !important;
+        background-position: center;
+        // background-size: cover;
+        background-size: 150%;
+        background-repeat: no-repeat;
+        overflow: visible;
+        // border: 1px solid red;
+
+
+
+        @media screen and (max-width: index.$lg) {
+            transform: scaleX(1.55) scaleY(1.14);
+            transform-origin: center center;
+        }
+
+        @media screen and (max-width: index.$md) {
+            height: 700px !important;
+            transform: scaleX(0.75) scaleY(1.05) translateX(-20%);
+            transform-origin: center center;
+        }
+
+
+    }
+
+    @media screen and (max-width: index.$md) {
+        height: 450px !important;
+        padding: 20px !important;
+        width: 250px !important;
+
+    }
+
+    .Content-Modal {
+        margin: 10px;
+        padding: 20px;
+
+        &::-webkit-scrollbar-track {
+            background-color: rgb(255, 0, 0, 0) !important;
+        }
+
+        @media screen and (max-width: index.$md) {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding-inline: 10px;
+            overflow: scroll;
+            height: 80%;
+            overflow-x: hidden;
+        }
+
+        @media screen and (min-width: index.$lg) {
+            padding: 30px;
+            padding-inline: 100px;
+
+        }
+
+        .Name {
+            font-family: index.$font;
+
+            .Name-Title {
+                font-size: 60px;
+                color: index.$blue;
+
+                @media screen and (max-width: index.$sm) {
+                    font-size: 40px;
+                }
+            }
+
+            .Name-subTitle {
+                font-size: 30px;
+                font-weight: bolder;
+                color: index.$blue;
+
+                @media screen and (max-width: index.$sm) {
+                    font-size: 20px;
+                }
+            }
+        }
+
+        .role {
+            @include index.center;
+            display: block;
+            font-family: index.$font;
+            font-size: 20px;
+            font-weight: 1000;
+            color: index.$blue;
+            text-shadow: none !important;
+        }
+
+        .Image {
+            @include index.center;
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+            object-fit: cover;
+            background-color: rgb(255, 255, 255, 0.7);
+            border-radius: 50%;
+        }
+
+        .NameDesc {
+            color: #87181D;
+            margin-top: 10px;
+            font-family: index.$font;
+        }
+
+        .Jobdesk {
+            color: #87181D;
+            flex-direction: column;
+            margin-top: 10px;
+            font-family: index.$font;
+        }
+    }
+
+
+}
+
+
+.Carousel-Detail {
+    @include index.center;
+    width: 300px;
+    height: 300px;
+
+    .Carousel-Image {
+        object-fit: cover !important;
+        background-position: center !important;
+    }
+}

@@ -1,0 +1,368 @@
+$shadow: rgb(56, 5, 5);
+$hitboxW: 400px;
+$animSpeed: 1s;
+$cloudW: 200px;
+
+#dragonwrap {
+    animation: fly 10s infinite;
+}
+
+
+#dragon {
+    transform: scale(0.3) !important;
+    top: 33%;
+    left: 0;
+    right: 0;
+    position: absolute;
+    height: 100px;
+    width: $hitboxW;
+    margin: auto;
+    animation: bounce $animSpeed infinite;
+}
+
+#front,
+#head,
+#eye,
+#neck,
+#body,
+#armL,
+#armR,
+.hand,
+#wingL,
+#wingR,
+#legL,
+#legR,
+.foot,
+#tail,
+#outer,
+#inner,
+#tip {
+    position: absolute;
+}
+
+#front {
+    left: $hitboxW - 135px;
+    width: 85px;
+    transform-origin: 0% 50%;
+    animation: rotHead $animSpeed infinite;
+
+    #head {
+        background: $shadow;
+        border-radius: 0 60px 25px 65px;
+        width: 65px;
+        height: 40px;
+        top: 30px;
+        left: 70px;
+        transform-origin: 0% 50%;
+        animation: rotHead $animSpeed infinite;
+        z-index: 2;
+
+        #eye {
+            background: #dd0;
+            border-radius: 0 100%;
+            top: 8px;
+            left: 30px;
+            width: 20px;
+            height: 12px;
+        }
+    }
+
+    #neck {
+        background: $shadow;
+        width: 90px;
+        height: 20px;
+        top: 40px;
+        z-index: 1;
+    }
+}
+
+#body {
+    background: $shadow;
+    border-radius: 50%;
+    top: 30px;
+    left: $hitboxW - 270px;
+    width: 160px;
+    height: 40px;
+    perspective: 270px;
+    -webkit-perspective: 270px;
+    z-index: 2;
+
+    #armL,
+    #armR {
+        background: $shadow;
+        top: 25px;
+        left: 125px;
+        width: 45px;
+        height: 10px;
+        transform-origin: 0% 0%;
+
+        .hand {
+            background: $shadow;
+            border-radius: 50%;
+            top: -2px;
+            left: 33px;
+            width: 18px;
+            height: 18px;
+        }
+    }
+
+    #armL {
+        transform: rotate(15deg);
+        animation: rotArmL $animSpeed infinite;
+    }
+
+    #armR {
+        transform: rotate(45deg);
+        animation: rotArmR $animSpeed infinite;
+    }
+
+    #wingL,
+    #wingR {
+        background: $shadow;
+        border-radius: 0 50% 50% 0;
+        top: 15px;
+        left: $hitboxW - 360px;
+        width: 90px;
+        height: 180px;
+        transform-origin: 0% 0%;
+    }
+
+    #wingL {
+        transform: rotateX(60deg);
+        animation: flapL $animSpeed ease-out infinite;
+    }
+
+    #wingR {
+        transform: rotateX(-60deg);
+        animation: flapR $animSpeed ease-out infinite;
+    }
+
+    #legL,
+    #legR {
+        background: $shadow;
+        top: 18px;
+        left: -40px;
+        width: 80px;
+        height: 18px;
+        transform-origin: 100% 100%;
+
+        .foot {
+            background: $shadow;
+            border-radius: 0 0 50% 25%;
+            width: 20px;
+            height: 45px;
+        }
+    }
+
+    #legL {
+        transform: rotate(-5deg);
+        animation: rotLegL $animSpeed infinite;
+    }
+
+    #legR {
+        transform: rotate(-25deg);
+        animation: rotLegR $animSpeed infinite;
+    }
+}
+
+#tail {
+    top: 42px;
+    left: $hitboxW - 400px;
+    height: 10px;
+
+    #inner {
+        background: $shadow;
+        width: 70px;
+        height: 17px;
+        left: 70px;
+        transform-origin: 100% 100%;
+        transform: rotate(3deg);
+        animation: bendTail $animSpeed infinite;
+
+        #outer {
+            background: $shadow;
+            top: 1px;
+            left: -65px;
+            width: 70px;
+            height: 15px;
+            transform-origin: 100% 100%;
+            transform: rotate(3deg);
+            animation: bendTail $animSpeed infinite;
+
+            #tip {
+                background: $shadow;
+                border-radius: 50% 0 0 50%;
+                top: 1px;
+                left: -45px;
+                width: 50px;
+                height: 13px;
+                transform-origin: 100% 100%;
+                transform: rotate(5deg);
+                animation: rotTip $animSpeed infinite;
+            }
+        }
+    }
+}
+
+@keyframes flapL {
+    0% {
+        transform: rotateX(60deg);
+    }
+
+    50% {
+        transform: rotateX(100deg);
+    }
+
+    100% {
+        transform: rotateX(60deg);
+    }
+}
+
+@keyframes flapR {
+    0% {
+        transform: rotateX(-90deg);
+    }
+
+    50% {
+        transform: rotateX(-120deg);
+    }
+
+    100% {
+        transform: rotateX(-90deg);
+    }
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(4px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes rotHead {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(3deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes rotArmL {
+    0% {
+        transform: rotate(15deg);
+    }
+
+    50% {
+        transform: rotate(12deg);
+    }
+
+    100% {
+        transform: rotate(15deg);
+    }
+}
+
+@keyframes rotArmR {
+    0% {
+        transform: rotate(45deg);
+    }
+
+    50% {
+        transform: rotate(42deg);
+    }
+
+    100% {
+        transform: rotate(45deg);
+    }
+}
+
+@keyframes rotLegL {
+    0% {
+        transform: rotate(-5deg);
+    }
+
+    50% {
+        transform: rotate(-2deg);
+    }
+
+    100% {
+        transform: rotate(-5deg);
+    }
+}
+
+@keyframes rotLegR {
+    0% {
+        transform: rotate(-25deg);
+    }
+
+    50% {
+        transform: rotate(-22deg);
+    }
+
+    100% {
+        transform: rotate(-25deg);
+    }
+}
+
+@keyframes bendTail {
+    0% {
+        transform: rotate(3deg);
+    }
+
+    50% {
+        transform: rotate(-1deg);
+    }
+
+    100% {
+        transform: rotate(3deg);
+    }
+}
+
+@keyframes rotTip {
+    0% {
+        transform: rotate(5deg);
+    }
+
+    50% {
+        transform: rotate(-2deg);
+    }
+
+    100% {
+        transform: rotate(5deg);
+    }
+}
+
+@keyframes cloudShift {
+    from {
+        right: 0 - $cloudW;
+    }
+
+    to {
+        right: 100%;
+    }
+}
+
+;
+
+@keyframes fly {
+    from {
+        transform: translateY(-100px) translateX(-100vw);
+    }
+
+    to {
+        transform: translateY(-100px) translateX(100vw);
+    }
+
+}

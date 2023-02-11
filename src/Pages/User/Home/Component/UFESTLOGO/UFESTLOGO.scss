@@ -1,0 +1,125 @@
+@use "src/index.scss" as index;
+
+.LOGOWRAP {
+    @include index.center;
+    margin-top: 10vh;
+    z-index: index.$z-index-2;
+
+
+    .UFESTLOGO {
+        position: static;
+        height: 400px;
+        width: 400px;
+        margin-top: 10vh;
+        -webkit-filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.5));
+        filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.5));
+
+        @media screen and (min-width: index.$xxl) {
+            margin-top: 5vh;
+            height: 370px;
+            width: 370px;
+        }
+
+        @media screen and (max-width: index.$xxl) {
+            margin-top: 5vh;
+            height: 350px;
+            width: 350px;
+        }
+
+        @media screen and (max-width: index.$xl) {
+            margin-top: 10vh;
+            height: 325px;
+            width: 325px;
+        }
+
+        @media screen and (max-width: index.$lg) {
+            // margin-top: 10vh;
+            height: 315px;
+            width: 315px;
+        }
+
+        @media screen and (max-width: index.$md) {
+            margin-top: 10vh;
+            height: 300px;
+            width: 300px;
+        }
+
+        @media screen and (max-width: index.$sm) {
+            margin-top: 10vh;
+            height: 250px;
+            width: 250px;
+        }
+
+        @media screen and (max-width: index.$xs) {
+            margin-top: 10vh;
+            height: 200px;
+            width: 200px;
+        }
+
+
+
+        .text-path1 {
+            transform: scale(1.7);
+            transform-origin: center 40%;
+            display: block;
+            fill-opacity: 0;
+            stroke: url(#gradation-1);
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke: rgb(137, 8, 223);
+            stroke-width: 0px;
+            // will-change: stroke-dashoffset, stroke-dasharray, stroke, fill-opacity, filter;
+            $nth: 1;
+            $delay: 0;
+
+            @while $nth <=120 {
+                &:nth-child(#{$nth}) {
+                    animation: logodash 2.0s linear forwards;
+                    -webkit-animation: logodash 2.0s linear forwards;
+                    -webkit-animation-timing-function: linear;
+                    animation-timing-function: linear;
+                    animation-delay:#{$delay}s;
+                    stroke-dasharray: 800;
+                    stroke-dashoffset: 800;
+                    will-change: stroke-dashoffset, stroke-dasharray, stroke, fill-opacity, filter;
+                }
+
+                $nth: $nth+1;
+                $delay: $delay+0.01;
+            }
+
+            $nth: 120;
+            $delay: 0;
+        }
+
+        @keyframes logodash {
+            0% {
+                stroke-dashoffset: 800;
+                stroke-width: 12px;
+            }
+
+            50% {
+                stroke-dashoffset: 1600;
+                stroke-width: 1px;
+            }
+
+            50.1% {
+                stroke-dashoffset: 800;
+            }
+
+            80% {
+                stroke-width: 2px;
+                fill: rgb(63, 97, 0);
+                fill-opacity: 0;
+            }
+
+            100% {
+                stroke-dashoffset: 0;
+                stroke-width: 0.5;
+                fill-opacity: 1;
+                stroke-dasharray: 400;
+            }
+
+        }
+    }
+}

@@ -1,0 +1,55 @@
+@use "src/index" as index;
+
+.Loading-Screen {
+    @include index.full-screen;
+    @include index.center;
+    position: fixed;
+    z-index: index.$z-index-7;
+    filter: brightness(0.8);
+
+    &::after {
+        @include index.full-screen;
+        background-image: url(./../../Asset/Image/Background/Homebg.webp);
+        background-size: cover;
+        background-position: center;
+        content: '';
+    }
+
+
+    .Caption {
+        font-family: index.$font;
+        position: absolute;
+        text-align: center;
+        font-weight: bold;
+        font-size: 25px;
+        color: index.$white;
+        text-shadow: 5px 0px 9px index.$black;
+    }
+
+}
+
+
+.Loading-Screen-Initial {
+    @include index.full-screen;
+    @include index.center;
+    position: fixed;
+    z-index: index.$z-index-7;
+    background-color: index.$yellow;
+    opacity: 0.8;
+    transition: 0.5s;
+    animation: fadeOut 0.5s forwards;
+    flex-direction: column;
+
+    .Caption {
+        margin: 5px;
+        font-family: index.$font;
+        font-size: 30px;
+        color: index.$white;
+        text-shadow: 5px 0px 9px index.$black;
+    }
+
+    .btn-choice {
+        @include index.center;
+        gap: 10px;
+    }
+}

@@ -1,0 +1,23 @@
+.DivisionNav {
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+
+    :hover {
+        opacity: 0.5;
+    }
+}
+
+.DivisionNavCard {
+    height: 130px;
+    width: 200px;
+    font-size: 20px;
+    font-weight: bold;
+    border: 10px solid white;
+    background-color: rgb(32, 30, 30);
+    margin: 10px;
+    padding: 10px;
+    color: white;
+    border-radius: 30px !important;
+    filter: grayscale(50%);
+}

@@ -1,0 +1,23 @@
+.video-responsive {
+    overflow: hidden;
+    // padding-bottom: 56.25%;
+    position: relative;
+    z-index: 8;
+    // height: 50px;
+    // width: 50px;
+
+    .video-responsive-item {
+        height: 300px;
+        width: 400px;
+        border-radius: 40px;
+        border: 10px solid brown;
+    }
+}
+
+// .video-responsive iframe {
+//     left: 0;
+//     top: 0;
+//     height: 100%;
+//     width: 100%;
+//     position: absolute;
+// }

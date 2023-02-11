@@ -1,0 +1,17 @@
+// vite.config.js
+import { defineConfig } from "file:///D:/xampp/htdocs/midterm/Oprec-Ufest-FrontEND/Oprec-web/node_modules/vite/dist/node/index.js";
+import react from "file:///D:/xampp/htdocs/midterm/Oprec-Ufest-FrontEND/Oprec-web/node_modules/@vitejs/plugin-react/dist/index.mjs";
+import { VitePluginFonts } from "file:///D:/xampp/htdocs/midterm/Oprec-Ufest-FrontEND/Oprec-web/node_modules/vite-plugin-fonts/dist/index.js";
+var vite_config_default = defineConfig({
+  plugins: [
+    react()
+    // VitePluginFonts([
+    //   './src/Asset/Font/Rocket Vintage.ttf',
+    //   './src/Asset/Font/Louis George Cafe.ttf',
+    // ])
+  ]
+});
+export {
+  vite_config_default as default
+};
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsidml0ZS5jb25maWcuanMiXSwKICAic291cmNlc0NvbnRlbnQiOiBbImNvbnN0IF9fdml0ZV9pbmplY3RlZF9vcmlnaW5hbF9kaXJuYW1lID0gXCJEOlxcXFx4YW1wcFxcXFxodGRvY3NcXFxcbWlkdGVybVxcXFxPcHJlYy1VZmVzdC1Gcm9udEVORFxcXFxPcHJlYy13ZWJcIjtjb25zdCBfX3ZpdGVfaW5qZWN0ZWRfb3JpZ2luYWxfZmlsZW5hbWUgPSBcIkQ6XFxcXHhhbXBwXFxcXGh0ZG9jc1xcXFxtaWR0ZXJtXFxcXE9wcmVjLVVmZXN0LUZyb250RU5EXFxcXE9wcmVjLXdlYlxcXFx2aXRlLmNvbmZpZy5qc1wiO2NvbnN0IF9fdml0ZV9pbmplY3RlZF9vcmlnaW5hbF9pbXBvcnRfbWV0YV91cmwgPSBcImZpbGU6Ly8vRDoveGFtcHAvaHRkb2NzL21pZHRlcm0vT3ByZWMtVWZlc3QtRnJvbnRFTkQvT3ByZWMtd2ViL3ZpdGUuY29uZmlnLmpzXCI7aW1wb3J0IHsgZGVmaW5lQ29uZmlnIH0gZnJvbSAndml0ZSdcbmltcG9ydCByZWFjdCBmcm9tICdAdml0ZWpzL3BsdWdpbi1yZWFjdCdcbmltcG9ydCB7IFZpdGVQbHVnaW5Gb250cyB9IGZyb20gJ3ZpdGUtcGx1Z2luLWZvbnRzJ1xuLy8gaW1wb3J0ICd2aXJ0dWFsOmluZGV4LnNjc3MnO1xuLy8gaW1wb3J0IFwiLi9zcmMvQXNzZXQvRm9udC9Sb2NrZXQgVmludGFnZS50dGZcIlxuXG4vLyBodHRwczovL3ZpdGVqcy5kZXYvY29uZmlnL1xuZXhwb3J0IGRlZmF1bHQgZGVmaW5lQ29uZmlnKHtcbiAgcGx1Z2luczogW3JlYWN0KCksXG4gICAgLy8gVml0ZVBsdWdpbkZvbnRzKFtcbiAgICAvLyAgICcuL3NyYy9Bc3NldC9Gb250L1JvY2tldCBWaW50YWdlLnR0ZicsXG4gICAgLy8gICAnLi9zcmMvQXNzZXQvRm9udC9Mb3VpcyBHZW9yZ2UgQ2FmZS50dGYnLFxuICAgIC8vIF0pXG4gIF0sXG59KVxuIl0sCiAgIm1hcHBpbmdzIjogIjtBQUFnVyxTQUFTLG9CQUFvQjtBQUM3WCxPQUFPLFdBQVc7QUFDbEIsU0FBUyx1QkFBdUI7QUFLaEMsSUFBTyxzQkFBUSxhQUFhO0FBQUEsRUFDMUIsU0FBUztBQUFBLElBQUMsTUFBTTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUEsRUFLaEI7QUFDRixDQUFDOyIsCiAgIm5hbWVzIjogW10KfQo=

@@ -35,10 +35,30 @@
     position: fixed;
     z-index: index.$z-index-7;
     background-color: index.$yellow;
+    // background-image: url(./../../Asset/Image/OtherIcon/paperfull.webp);
+    // background-size: 145vw 120vh;
+    // background-position: center;
+    // background-repeat: no-repeat;
     opacity: 0.8;
     transition: 0.5s;
     animation: fadeOut 0.5s forwards;
     flex-direction: column;
+
+    .logo {
+        background-image: url("./../../Asset/Image/Ufest\ Logo/ufestlogocolor.webp");
+        background-size: 70px 70px;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 70px;
+        width: 70px;
+        // position: absolute;
+        // top: 10vh;
+        background-color: white;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        border-radius: 50%;
+    }
 
     .Caption {
         margin: 5px;

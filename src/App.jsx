@@ -2,24 +2,22 @@
 import { useEffect, Suspense, lazy, useState } from "react";
 // redux
 import { userRoleAdded } from "./Redux/features/users/userRoleSlice";
-// import { pageChanged } from "./Redux/features/page/pageSlice";
 import { useSelector, useDispatch } from "react-redux";
-import { selectuserRole } from "./Redux/features/users/userRoleSlice";
+// import { selectuserRole } from "./Redux/features/users/userRoleSlice";
 import { userDataAdded } from "./Redux/features/users/userRoleSlice";
 // Loading Screen
 import LoadingScreen from "./Reusable/LoadingScreen/LoadingScreen";
 import { getRequest } from "./Reusable/Service/AxiosClient";
-import { BrowserRouter as Router, Outlet, Route, Routes, useNavigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ProtectedRoute from "./Route/ProtectedRoute";
-import { selectCanPlay, userCanPlay } from "./Redux/features/users/userSoundSlice";
-// import { LoadingScreenInitial } from "./Reusable/LoadingScreen/LoadingScreen";
+import { selectCanPlay } from "./Redux/features/users/userSoundSlice";
 import { LoadingScreenInitial } from "./Reusable/LoadingScreen/LoadingScreenInitial";
 import { getCookie } from "react-use-cookie";
 import { useLocation, Navigate } from "react-router-dom";
 import useSound from "use-sound";
 import BGM from "./Asset/Sound/BGM.mp3";
-import ComingSoon from "./Pages/User/ComingSoon/ComingSoon";
-// const Join = lazy(() => import("./Pages/User/Join/Join"));
+import { isVerifyAdded } from "./Redux/features/users/userRoleSlice";
+import ProtectedRoutePathVerify from "./Route/ProtectedRouteVerify";
 const User = lazy(() => import("./Pages/User/User"));
 const Admin = lazy(() => import("./Pages/Admin/Admin"));
 
@@ -30,7 +28,6 @@ const Admin = lazy(() => import("./Pages/Admin/Admin"));
 function App() {
   const dispatch = useDispatch();
   const [loading, setloading] = useState(true);
-  const userRole = useSelector(selectuserRole);
   const CanPlay = useSelector(selectCanPlay);
   const AllowSound = getCookie('AllowSound');
   const location = useLocation();
@@ -50,7 +47,6 @@ function App() {
       }
     }
   }
-  // 
   useEffect(() => {
     async function fetchUser() {
       try {
@@ -62,6 +58,7 @@ function App() {
               nim: res.data.user.nim,
               email: res.data.user.email,
             }));
+            dispatch(isVerifyAdded(res.data.user.email_verified_at));
             if (res.data.user.role_id === 1) {
               dispatch(userRoleAdded("admin"));
             } else if (res.data.user.role_id === 2) {
@@ -69,7 +66,7 @@ function App() {
             }
           })
       } catch (error) {
-        console.error(error);
+        // console.error(error);
         dispatch(userRoleAdded("guest"));
       }
     }
@@ -99,10 +96,8 @@ function App() {
               </ProtectedRoute>
             </>
             } />
-
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
-
         }
       </Suspense>
     </div>

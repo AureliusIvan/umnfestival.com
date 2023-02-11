@@ -24,9 +24,4 @@ export const NavbarMobileMenuList = [
         link: '/login',
         state: 'login',
     },
-    // {
-    //     name: 'Register',
-    //     link: '/register',
-    //     state: 'register',
-    // },
 ]

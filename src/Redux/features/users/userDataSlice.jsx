@@ -13,6 +13,7 @@ const initialState = {
     isLogin: false,
     isRegister: false,
     isJoin: false,
+    
 };
 
 const userDataSlice = createSlice({

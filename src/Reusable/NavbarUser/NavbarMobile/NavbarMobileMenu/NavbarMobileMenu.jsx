@@ -10,6 +10,9 @@ import icon_youtube from './../../../../Asset/Image/OtherIcon/icon-youtube.svg';
 import icon_tiktok from './../../../../Asset/Image/OtherIcon/icon-tiktok.svg';
 import icon_line from './../../../../Asset/Image/OtherIcon/icon-line.svg';
 import icon_instagram from './../../../../Asset/Image/OtherIcon/icon-instagram.svg';
+import { useDispatch } from 'react-redux';
+import { getRequest } from '../../../Service/AxiosClient';
+import { userRoleAdded } from '../../../../Redux/features/users/userRoleSlice';
 
 function Card(props) {
     const navigate = useNavigate();
@@ -50,8 +53,23 @@ function Card(props) {
     )
 }
 
+
+
 export default function NavbarMobileMenu(props) {
     const roleselector = useSelector(selectuserRole);
+
+    const dispatch = useDispatch();
+    const asyncLogout = async () => {
+        const logout = await getRequest("logout");
+        console.log(logout);
+        if (logout.data.success === true) {
+            localStorage.removeItem('LoginID');
+            dispatch(userRoleAdded('guest'));
+            window.location.reload();
+        }
+    }
+
+
     return (
         <LazyMotion features={domAnimation}>
             <m.div
@@ -76,6 +94,18 @@ export default function NavbarMobileMenu(props) {
 
                             )
                         })}
+                    {roleselector === 'guest' ? "" :
+                        <Grid item
+                            xs={12}
+                            className="Navbar-Mobile-Menu-Card"
+                        >
+                            <button
+                                onTouchStartCapture={asyncLogout}
+                                className='Navbar-Menu-Button'>
+                                Logout
+                            </button>
+                        </Grid >}
+
                     <Grid item xs={3} className="Social-Media-Navbar" >
                         <a className="Social-Media-Link-Card" href={'https://www.youtube.com/channel/UCnXYSFlUeQn8dFDtYo4HABQ'}>
                             <img loading="lazy" alt="social media icon"

@@ -9,13 +9,10 @@ import styled from 'styled-components';
 import './JoinPage0.scss';
 
 const CustomListItemText = styled(ListItemText)(({ theme }) => ({
-    // fontFamily: "Rocket-Vintage",
     margin: "10px",
 }));
 
 const CustomList = styled(List)(({ theme }) => ({
-    // fontFamily: "Rocket-Vintage",
-    // margin: "10px",
     background: "rgb(0 0 0 0)"
 }));
 

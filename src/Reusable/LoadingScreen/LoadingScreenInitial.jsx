@@ -21,6 +21,7 @@ export function LoadingScreenInitial(props) {
 
     return (
         <div className="Loading-Screen-Initial">
+            <div className="logo" />
             <p className="Caption">
                 Allow Sound ?
             </p>

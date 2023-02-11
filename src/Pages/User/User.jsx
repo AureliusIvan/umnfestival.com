@@ -13,6 +13,7 @@ import ProtectedRoutePath from "../../Route/ProtectedRoutePath";
 import { LazyMotion, domAnimation, m } from 'framer-motion';
 import EnterAnimation from "../../Reusable/Animation/EnterAnimation/EnterAnimation";
 import ComingSoon from "./ComingSoon/ComingSoon";
+import ProtectedRoutePathVerify from "../../Route/ProtectedRouteVerify";
 const NavbarUser = lazy(() => import("../../Reusable/NavbarUser/Navbar"));
 const NavbarMobile = lazy(() => import("../../Reusable/NavbarUser/NavbarMobile/NavbarMobile"));
 const Footer = lazy(() => import("../../Reusable/Footer/Footer"));
@@ -89,16 +90,23 @@ export default function User(props) {
                             </ProtectedRoute>
                         } />
                         <Route path="register/verify" element={
-                            <ProtectedRoutePath path="/register/verify">
-                                <VerifyEmail />
-                            </ProtectedRoutePath>
+                            // <ProtectedRoutePath path="/register/verify">
+                            <VerifyEmail />
+                            // </ProtectedRoutePath>
                         } />
-                        <Route path="recruit" element={<>
-                            {/* <ProtectedRoute user={"user"}> */}
-                            <Suspense fallback={<LoadingScreen />}>
-                                <Join />
-                            </Suspense>
-                            {/* </ProtectedRoute> */}
+                        <Route path="verify" element={
+                            // <ProtectedRoutePath path="/register/verify">
+                            <VerifyEmail />
+                            // </ProtectedRoutePath>
+                        } />
+                        <Route path="join" element={<>
+                            <ProtectedRoute user={"user"}>
+                                <ProtectedRoutePathVerify>
+                                    <Suspense fallback={<LoadingScreen />}>
+                                        <Join />
+                                    </Suspense>
+                                </ProtectedRoutePathVerify>
+                            </ProtectedRoute>
                         </>
                         } />
                         <Route path="/comingsoon" element={<ComingSoon />} />

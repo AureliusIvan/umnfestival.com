@@ -14,7 +14,7 @@ export default function NavbarButtonAdmin(props) {
             onClick={handler}
             style={{
                 color: location.pathname === `/admin/${props.state}` ? "red" : "white"
-                }}
+            }}
         >
             {props.Title}
         </button >

@@ -75,10 +75,10 @@ export default function Join() {
     const [joinpage, Setjoinpage] = useState(0);
     useEffect(() => {
         setCookie('join', 'join', { path: '/' });
-        window.scrollTo(0, 0);
         if (joinned === true) {
             Setjoinpage(7)
         }
+        window.scrollTo(0, 0)
     }, [joinpage])
     function Prev(props) {
         return (
@@ -173,7 +173,7 @@ export default function Join() {
                             {joinpage === 0 ? "" :
                                 <Suspense fallback="">
                                     <div className="proggress-bar">
-                                        <BorderLinearProgress variant="determinate" value={(100 / 6) * joinpage} />
+                                        <BorderLinearProgress variant="determinate" value={(100 / 7) * joinpage} />
                                     </div>
                                 </Suspense>
                             }
@@ -212,7 +212,6 @@ export default function Join() {
                                                                 <div className="center">
                                                                     <CustomButton type="button" onClick={() => {
                                                                         Setjoinpage(1)
-                                                                        titleRef.current.scrollIntoView({ behavior: 'smooth' })
                                                                     }}>Let's GO</CustomButton>
                                                                 </div>
                                                             </div>
@@ -328,7 +327,6 @@ export default function Join() {
                                                             disabled={!(values.jurusan && values.angkatan && values.alamat && values.domisili)}
                                                             onClick={() => {
                                                                 Setjoinpage(2);
-                                                                titleRef.current.scrollIntoView({ behavior: 'smooth' });
                                                             }}>NEXT</CustomButton>
                                                     </div>
                                                 </Suspense>
@@ -414,7 +412,7 @@ export default function Join() {
                                                         onChange={handleChange}
                                                         onBlur={handleBlur}
                                                         value={values.ig}
-                                                        placeholder="E.g. https://www.instagram.com/username"
+                                                        placeholder="E.g. username"
                                                         className="form-control inp_text"
                                                         id="ig"
                                                         label="Link Instagram Aktif"
@@ -585,6 +583,7 @@ export default function Join() {
                                                     <CustomButton
                                                         variant="contained"
                                                         type="submit"
+                                                        disabled={!(values.jawaban2)}
                                                     >
                                                         {loading ? (<CircularProgress />) : "Submit"}
                                                     </CustomButton>

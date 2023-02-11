@@ -64,9 +64,10 @@ export default function Register() {
                                         nim: response.data.users.nim,
                                         email: response.data.users.email,
                                     }));
-                                    navigate('/register/verify', {
+                                    navigate('/join', {
                                         state: { previousPath: pathname }
                                     });
+                                    window.location.reload();
                                 }
                                 else {
                                     alert("error, email already exist");

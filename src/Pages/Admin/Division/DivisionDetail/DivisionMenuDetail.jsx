@@ -8,7 +8,6 @@ import { TableHead } from '../../../../Reusable/MaterialUICoreLazy/MaterialUICor
 import { TableRow } from '../../../../Reusable/MaterialUICoreLazy/MaterialUICoreLazy';
 import { Paper } from '../../../../Reusable/MaterialUICoreLazy/MaterialUICoreLazy';
 import { Button } from '../../../../Reusable/MaterialUICoreLazy/MaterialUICoreLazy';
-// import { Modal } from '@mui/joy';
 
 // URL
 import { getRequest } from '../../../../Reusable/Service/AxiosClient';
@@ -36,20 +35,49 @@ function DetailModal({ status, props }) {
                     <div className='Name'>
                         {props.name} ({props.nim})
                     </div>
-                    <div className='reason_1'>
-                        Apa yang kamu ketahui tentang UFEST? &ldquo;{props.reason_1}&rdquo;
+                    <div className='biodata'>
+                        <div className=''>
+                            Jurusan : {props.program_studi}
+                        </div>
+                        <div className=''>
+                            Angkatan : {props.angkatan}
+                        </div>
+                        <div className=''>
+
+                            Email : {props.email}
+                        </div>
+                        <div className=''>
+                            Domisili : {props.city}
+                        </div>
+
+                        <div className=''>
+                            Divisi 1 : {props.division_1}
+                        </div>
+                        <div className=''>
+                            Divisi 2 : {props.division_2}
+                        </div>
+
+                    </div>
+                    <div className='section reason_1'>
+                        <span className='question'>Apa yang kamu ketahui tentang UFEST? </span> &ldquo;{props.reason_1}&rdquo;
                         <br />
                     </div>
-                    <div className='reason_2'>
+                    <div className='section reason_2'>
 
                         {props.reason_2}
                     </div>
                     <br />
-                    <div className='Instagram'>
-                        <a href={props.instagram_account} >Instagram Link</a>
-                    </div>
-                    <div className=' portfolio'>
-                        <a href={props.portofolio}>Link Portofolio</a>
+                    <div className='section'>
+                        <div className='link Instagram'>
+                            <a href={props.instagram_account} >Instagram Link</a>
+                        </div>
+                        <div className='link portfolio'>
+                            <a href={props.portofolio}>Link Portofolio</a>
+                        </div>
+                        <div className='link line'>
+                            {/* <a href={props.instagram_account} >Instagram Link</a> */}
+                            {props.id_line}
+                        </div>
                     </div>
                     <div className='accept'>
                         <Button onClick={handleClose}>

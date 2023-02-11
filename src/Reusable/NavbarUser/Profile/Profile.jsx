@@ -11,9 +11,11 @@ import CustomButton from '../../CustomComponent/CustomButton';
 import Avatar from '@mui/material/Avatar';
 import { CircularProgress } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { checkVerify } from '../../../Redux/features/users/userRoleSlice';
 
 export default function Profile(props) {
     const dispatch = useDispatch();
+    const Verify = useSelector(checkVerify);
     const name = useSelector(selectuserName);
     const nim = useSelector(selectuserNim);
     const [open, setOpen] = useState(false);
@@ -59,10 +61,14 @@ export default function Profile(props) {
                     </Avatar>
                     <br />
                     <div className=''>
-                        {name}({nim})
+                        {name} ({nim})
                     </div>
-                    <div className='NameDesc'>
-                        account status : {/* {nim} */}
+                    <div className='NameDesc' style={{
+                        backgroundColor: Verify !== null ? "green" : "red",
+                    }}>
+                        account status :
+                        {Verify !== null ? " Verified" : " Not Verified"}
+                        {/* {nim} */}
                     </div>
                     <br />
                     <div className='Desc'>
@@ -73,6 +79,7 @@ export default function Profile(props) {
                 </div>
             </Modal>
             <button onClick={handleOpen} className='Profile-Button'>
+                <Avatar sx={{ bgcolor: "green", width: "40px", height: "40px" }} />
             </button>
         </>
     );

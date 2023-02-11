@@ -22,7 +22,8 @@ const columns = [
     { field: 'divisi', headerName: 'Divisi', width: 130, editable: true },
     { field: 'divisialt', headerName: 'Divisi Alternatif', width: 130, editable: true },
     { field: 'status', headerName: 'Status', width: 130, editable: true },
-    { field: 'id_line', headerName: 'Status', width: 130, editable: true },
+    { field: 'id_line', headerName: 'Line', width: 130, editable: true },
+    { field: 'created_at', headerName: 'Action', width: 130, editable: true },
 ];
 
 export default function Database(props) {
@@ -59,13 +60,16 @@ export default function Database(props) {
                                     divisialt: post.division_2,
                                     status: status,
                                     id_line: post.id_line,
+                                    created_at: post.created_at,
                                 }
                             )
                         })
                     }
                     columns={columns}
                     components={{ Toolbar: GridToolbar }}
-                />
+                >
+
+                </CustomGridLazy>
             </Suspense>
         </div>)
 }

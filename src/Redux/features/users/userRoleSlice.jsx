@@ -14,6 +14,7 @@ const initialState = {
     success: false,
     isLogin: false,
     isJoin: false,
+    isVerify: null,
     file: null,
 };
 
@@ -41,6 +42,9 @@ const userRoleSlice = createSlice({
         },
         userfileAdded(state, action) {
             state.file = action.payload;
+        },
+        isVerifyAdded(state, action) {
+            state.isVerify = action.payload;
         }
     },
 
@@ -64,6 +68,8 @@ export const selectLoading = (state) => state.userRole.loading;
 
 export const selectuserFile = (state) => state.userRole.file;
 
-export const { userDataAdded, userRoleAdded, userLoadingAdded, userTokenAdded, userDivisionAdded, userfileAdded } = userRoleSlice.actions;
+export const checkVerify = (state) => state.userRole.isVerify;
+
+export const { isVerifyAdded, userDataAdded, userRoleAdded, userLoadingAdded, userTokenAdded, userDivisionAdded, userfileAdded } = userRoleSlice.actions;
 
 export default userRoleSlice.reducer;

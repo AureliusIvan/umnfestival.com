@@ -18,8 +18,8 @@ export const JoinSchema = Yup.object().shape({
     idline: Yup.string()
         .required("ID Line is a required field"),
     ig: Yup.string()
-        .required("Instagram is a required field")
-        .matches(/^https:\/\/www\.instagram\.com\/[a-zA-Z0-9_.]+\/?$/, "Enter a valid Instagram link"),
+        .required("Instagram is a required field"),
+    // .matches(/^https:\/\/www\.instagram\.com\/[a-zA-Z0-9_.]+\/?$/, "Enter a valid Instagram link"),
     domisili: Yup.string()
         .required("Domisili is a required field"),
     divisi: Yup.string()

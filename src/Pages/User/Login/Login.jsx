@@ -61,6 +61,7 @@ export default function Login() {
                             email: values.email,
                             password: values.password
                         }).then((res) => {
+                            console.log(res);
                             if (res.status === 201) {
                                 if (res.data.user.role_id === 1) {
                                     dispatch(userRoleAdded("admin"));
@@ -74,7 +75,7 @@ export default function Login() {
                                     localStorage.setItem('LoginID', res.data.login_token);
                                     localStorage.setItem('Email', res.data.user.email);
                                     Setloading(false);
-                                    navigate('/');
+                                    navigate('/join ');
                                     window.location.reload();
                                 } else {
                                     Setloading(false);
@@ -86,6 +87,7 @@ export default function Login() {
                             }
                         })
                     } catch (error) {
+                        console.log(error);
                         Setloading(false);
                         Seterror(true);
                     }

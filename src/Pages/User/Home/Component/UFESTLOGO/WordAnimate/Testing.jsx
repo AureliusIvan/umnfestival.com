@@ -1,15 +1,15 @@
 import React, { useCallback, useEffect } from 'react'
 import { WelcomeWord } from './WelcomeWord';
 import { WhatIsWord } from './WhatIs';
-import Sparkles from '../../../../../../Reusable/Animation/Sparkle/Sparkle';
+// import Sparkles from '../../../../../../Reusable/Animation/Sparkle/Sparkle';
 import "./Testing.scss"
-import { useState } from 'react';
+// import { useState } from 'react';
 
 
-const gap = 1.7;
+// const gap = 1.7;
 
 export const CounterTesting = (props) => {
-    const [word, setWord] = useState([...WelcomeWord]);
+    // const [word, setWord] = useState([...WelcomeWord]);
     const finalword = props.choice === 'welcome' ? [...WelcomeWord] : [...WhatIsWord];
     const width = props.choice === 'welcome' ? '420px' : '690px';
     const text = finalword.map((letter, index) => {
@@ -28,12 +28,7 @@ export const CounterTesting = (props) => {
         </text>
     })
     return (<>
-        <div
-            style={{
-                width: word[0].length * 40
-            }}
-            className={`counter ${props.choice}`}>
-
+        <div className={`counter ${props.choice}`}>
             <svg className='svgtest'
                 width={width}
                 alignmentBaseline="middle"

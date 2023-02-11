@@ -46,7 +46,7 @@ export default function NavbarUser(props) {
         console.log(logout);
         if (logout.data.success === true) {
             localStorage.removeItem('LoginID');
-            dispatch(pageChanged('login'));
+            // dispatch(pageChanged('login'));
             dispatch(userRoleAdded('guest'));
         }
     }

@@ -1,11 +1,11 @@
 import "./User.scss";
-import { useSelector } from 'react-redux';
-import { selectPage } from '../../Redux/features/page/pageSlice';
+// import { useSelector } from 'react-redux';
+// import { selectPage } from '../../Redux/features/page/pageSlice';
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { Suspense, lazy, useCallback, useRef } from "react";
 import LoadingScreen from "../../Reusable/LoadingScreen/LoadingScreen";
 import { Route, Routes, Navigate } from "react-router-dom";
-import { selectuserRole } from "../../Redux/features/users/userRoleSlice";
+// import { selectuserRole } from "../../Redux/features/users/userRoleSlice";
 import { Outlet } from "react-router-dom";
 import VerifyEmail from "./VerifyEmail/VerifyEmail";
 import ProtectedRoute from "../../Route/ProtectedRoute";
@@ -14,6 +14,7 @@ import { LazyMotion, domAnimation, m } from 'framer-motion';
 import EnterAnimation from "../../Reusable/Animation/EnterAnimation/EnterAnimation";
 import ComingSoon from "./ComingSoon/ComingSoon";
 import ProtectedRoutePathVerify from "../../Route/ProtectedRouteVerify";
+
 const NavbarUser = lazy(() => import("../../Reusable/NavbarUser/Navbar"));
 const NavbarMobile = lazy(() => import("../../Reusable/NavbarUser/NavbarMobile/NavbarMobile"));
 const Footer = lazy(() => import("../../Reusable/Footer/Footer"));
@@ -90,16 +91,21 @@ export default function User(props) {
                             </ProtectedRoute>
                         } />
                         <Route path="register/verify" element={
-                            // <ProtectedRoutePath path="/register/verify">
-                            <VerifyEmail />
-                            // </ProtectedRoutePath>
+                            <ProtectedRoute user={"user"}>
+                                {/* <ProtectedRoutePath path="/register/verify"> */}
+                                <VerifyEmail />
+                                {/* </ProtectedRoutePath> */}
+                            </ProtectedRoute>
                         } />
                         <Route path="verify" element={
-                            // <ProtectedRoutePath path="/register/verify">
-                            <VerifyEmail />
-                            // </ProtectedRoutePath>
-                        } />
-                        <Route path="join" element={<>
+                            <ProtectedRoute user={"user"}>
+                                {/* <ProtectedRoutePath path="/register/verify"> */}
+                                <VerifyEmail />
+                                {/* </ProtectedRoutePath> */}
+                            </ProtectedRoute>
+                        }
+                        />
+                        <Route path="recruitment" element={<>
                             <ProtectedRoute user={"user"}>
                                 <ProtectedRoutePathVerify>
                                     <Suspense fallback={<LoadingScreen />}>

@@ -133,7 +133,7 @@ export const DivisionData = [
         "role": "goddess of music, poetry, eloquence and song",
         "role2": "Lyre",
         "namedesc": "Muses atau Musai (Μοῦσᾰ) merupakan kelompok dewi yang melambangkan seni sehingga mereka dianggap sebagai sumber ilmu pengetahuan dan inspirasi seni.",
-        "jobdesk": "Divisi visual bertanggung jawab untuk menciptakan visualisasi yang dapat menggambarkan UMN Festival 2023. Hal tersebut diumpamakan sebagai sosok Muses yang digambarkan dengan sebuah Vintage Compass Rose yang mengarahkan arah sang pengguna.",
+        "jobdesk": "Divisi visual bertanggung jawab terhadap segala estetika elemen seni dalam desain UMN Festival 2023. Hal tersebut diumpamakan sebagai sosok Apollo, dewa musik dalam kelompok Muses yang digambarkan tengah memainkan alat musik Lyre.",
         "image": Muses
     },
     {

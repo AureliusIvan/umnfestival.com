@@ -56,6 +56,10 @@ function DetailModal({ status, props }) {
                         <div className=''>
                             Divisi 2 : {props.division_2}
                         </div>
+                        <div className=''>
+                            Sertifikat Vaksin :
+                            <img className='vaksin-img' src={props.vaccine_certificate} alt="vaccine_certificate" />
+                        </div>
 
                     </div>
                     <div className='section reason_1'>
@@ -63,8 +67,8 @@ function DetailModal({ status, props }) {
                         <br />
                     </div>
                     <div className='section reason_2'>
-
-                        {props.reason_2}
+                        <span className='question'>
+                            Sikap apa yang dibutuhkan untuk menjadi bagian dari divisi yang kamu pilih ? </span>&ldquo;{props.reason_2}&rdquo;
                     </div>
                     <br />
                     <div className='section'>
@@ -79,11 +83,11 @@ function DetailModal({ status, props }) {
                             {props.id_line}
                         </div>
                     </div>
-                    <div className='accept'>
+                    {/* <div className='accept'>
                         <Button onClick={handleClose}>
                             {props.is_accepted === 1 ? 'Di terima' : "Di tolak"}
                         </Button>
-                    </div>
+                    </div> */}
                 </div>
             </Modal>
         </div>
@@ -121,16 +125,16 @@ export default function DivisionMenu(props) {
             try {
                 await getRequest('panitia')
                     .then((result) => {
-                        console.log(props.name);
-                        console.log(result.data.data);
+                        // console.log(props.name);
+                        // console.log(result.data.data);
                         SetuserData(result.data.data);
                     })
                     .catch((err) => {
-                        console.log(err);
+                        // console.log(err);
                     })
             }
             catch (err) {
-                console.log(err);
+                // console.log(err);
             }
         }
         getData();

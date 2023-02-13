@@ -1,7 +1,7 @@
 // react
 import { useEffect, Suspense, lazy, useState } from "react";
 // redux
-import { userRoleAdded } from "./Redux/features/users/userRoleSlice";
+import { isJoinAdded, userRoleAdded } from "./Redux/features/users/userRoleSlice";
 import { useSelector, useDispatch } from "react-redux";
 // import { selectuserRole } from "./Redux/features/users/userRoleSlice";
 import { userDataAdded } from "./Redux/features/users/userRoleSlice";
@@ -17,7 +17,8 @@ import { useLocation, Navigate } from "react-router-dom";
 import useSound from "use-sound";
 import BGM from "./Asset/Sound/BGM.mp3";
 import { isVerifyAdded } from "./Redux/features/users/userRoleSlice";
-import ProtectedRoutePathVerify from "./Route/ProtectedRouteVerify";
+// import { isJoinAdded } from "./Redux/features/users/userRoleSlice";
+// import ProtectedRoutePathVerify from "./Route/ProtectedRouteVerify";
 const User = lazy(() => import("./Pages/User/User"));
 const Admin = lazy(() => import("./Pages/Admin/Admin"));
 
@@ -52,13 +53,15 @@ function App() {
       try {
         await getRequest('me')
           .then((res) => {
-            console.log(res);
+            console.log(res.data.user.role_id);
             dispatch(userDataAdded({
               name: res.data.user.name,
               nim: res.data.user.nim,
               email: res.data.user.email,
             }));
             dispatch(isVerifyAdded(res.data.user.email_verified_at));
+            dispatch(isJoinAdded(res.data.panitia));
+            // console.log(res.data.panitia)
             if (res.data.user.role_id === 1) {
               dispatch(userRoleAdded("admin"));
             } else if (res.data.user.role_id === 2) {

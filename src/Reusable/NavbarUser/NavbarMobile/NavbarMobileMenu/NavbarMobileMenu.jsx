@@ -81,11 +81,11 @@ export default function NavbarMobileMenu(props) {
                         Menus.filter(
                             (item) => {
                                 if (roleselector === 'guest') {
-                                    return item.state !== 'join';
+                                    return item.state !== 'recruitment';
                                 } else if (roleselector === 'user') {
                                     return item.state !== 'login' && item.state !== 'register';
                                 } else if (roleselector === 'admin') {
-                                    return item.state !== 'login' && item.state !== 'join' && item.state !== 'r egister';
+                                    return item.state !== 'login' && item.state !== 'join' && item.state !== 'register';
                                 }
                             }
                         ).map((item, index) => {

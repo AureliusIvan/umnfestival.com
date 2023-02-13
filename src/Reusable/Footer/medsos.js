@@ -11,49 +11,49 @@ export const MedsosList = (
     [
         {
             image: icon_email,
-            title: 'umnfestival@umn.ac.id',
+            title: 'Email UMN Festival',
             href: 'mailto:umnfestival@umn.ac.id',
             color: '#de3535'
         },
         {
             image: icon_instagram,
-            title: '@umnfestival',
+            title: 'Instagram UMN Festival',
             href: 'https://www.instagram.com/umnfestival/',
             color: '#962fbf'
         },
         {
             image: icon_tiktok,
-            title: '@umnfestival',
+            title: 'Tiktok UMN Festival',
             href: 'https://www.tiktok.com/@umnfestival',
             color: '#ff0050'
         },
         {
             image: icon_line,
-            title: '@877tuixh',
+            title: 'Line UMN Festival',
             href: 'https://page.line.me/?accountId=877tuixh',
             color: '#00B900'
         },
         {
             image: icon_youtube,
-            title: 'UMN Festival',
+            title: 'Youtube UMN Festival',
             href: 'https://www.youtube.com/channel/UCnXYSFlUeQn8dFDtYo4HABQ',
             color: "#FF0000"
         },
         {
             image: icon_website,
-            title: 'UMN Festival',
+            title: 'Website UMN Festival',
             href: 'https://ufest.umn.ac.id',
             color: "#282828"
         },
         {
             image: icon_linkedin,
-            title: 'LinkedIn',
+            title: 'Linkedin UMN Festival',
             href: 'https://www.linkedin.com/company/umn-festival-sparta/',
             color: "#282828"
         },
         {
             image: icon_star,
-            title: 'Star',
+            title: 'Star UMN Festival',
             href: '#',
             color: "#282828"
         }

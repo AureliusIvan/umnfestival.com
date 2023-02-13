@@ -12,6 +12,7 @@ import Avatar from '@mui/material/Avatar';
 import { CircularProgress } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { checkVerify } from '../../../Redux/features/users/userRoleSlice';
+import { Button } from '../../MaterialUICoreLazy/MaterialUIMaterialLazy';
 
 export default function Profile(props) {
     const dispatch = useDispatch();
@@ -46,6 +47,11 @@ export default function Profile(props) {
             Setloading(false);
         }
     }
+
+    function goto() {
+        navigate("/verify");
+        handleClose();
+    }
     return (
         <>
             <Modal
@@ -67,9 +73,16 @@ export default function Profile(props) {
                         backgroundColor: Verify !== null ? "green" : "red",
                     }}>
                         account status :
-                        {Verify !== null ? " Verified" : " Not Verified"}
-                        {/* {nim} */}
+                        {Verify !== null ? " Verified" : <>
+                            <Button variant="contained" color="error" onClick={goto}>
+                                Not Verified, Verify Now
+                            </Button>
+                        </>}
                     </div>
+                    <br />
+                    {Verify !== null ? "" : <>
+
+                    </>}
                     <br />
                     <div className='Desc'>
                         <CustomButton onClick={LogOut}>

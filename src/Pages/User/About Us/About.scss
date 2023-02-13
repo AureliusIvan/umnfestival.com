@@ -12,9 +12,7 @@
 #About {
     @include index.center;
     flex-direction: column;
-    // padding-top: 10vh;
     min-height: 100vh;
-    // padding-bottom: 20vh;
     position: relative;
     overflow-x: hidden;
     pointer-events: all;

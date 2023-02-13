@@ -6,6 +6,7 @@ import { m, LazyMotion, domAnimation } from "framer-motion";
 import { useMediaQuery } from "@mui/material";
 import { setCookie } from "react-use-cookie";
 import { CounterTesting } from "./Component/UFESTLOGO/WordAnimate/Testing";
+import { Helmet } from "react-helmet-async";
 const HomeButton = lazy(() => import("./Component/HomeButton/HomeButton"));
 const UFESTLOGO = lazy(() => import("./Component/UFESTLOGO/UFESTLOGO"));
 const PilarHome = lazy(() => import("./pilar"));
@@ -28,7 +29,12 @@ export default function Home(props) {
         return <CounterTesting choice={'welcome'} />
     }, [])
 
-    return (
+    return (<>
+        <Helmet>
+            <title>Home | UMN Festival 2023</title>
+            <meta name="description" content="Home | Click let's go sparta to start your journey!" />
+            <link rel="canonical" href="https://www.umnfestival.com/home" />
+        </Helmet>
         <div className="home">
             {isMobile ?
                 <>
@@ -54,5 +60,6 @@ export default function Home(props) {
                 </>
             }
         </div>
+    </>
     )
 }

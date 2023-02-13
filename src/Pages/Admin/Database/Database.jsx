@@ -21,9 +21,13 @@ const columns = [
     { field: 'email', headerName: 'Email', width: 130, editable: true },
     { field: 'divisi', headerName: 'Divisi', width: 130, editable: true },
     { field: 'divisialt', headerName: 'Divisi Alternatif', width: 130, editable: true },
-    { field: 'status', headerName: 'Status', width: 130, editable: true },
+    {
+        field: 'ig', headerName: 'Instagram', width: 130, editable: true, renderCell: (params) => (
+            <a href={`https://www.instagram.com/${params.value}`} target="_blank" rel="noreferrer">{params.value}</a>
+        )
+    },
     { field: 'id_line', headerName: 'Line', width: 130, editable: true },
-    { field: 'created_at', headerName: 'Action', width: 130, editable: true },
+    { field: 'created_at', headerName: 'Time', width: 130, editable: true },
 ];
 
 export default function Database(props) {
@@ -59,6 +63,7 @@ export default function Database(props) {
                                     divisi: post.division_1,
                                     divisialt: post.division_2,
                                     status: status,
+                                    ig: post.instagram_account,
                                     id_line: post.id_line,
                                     created_at: post.created_at,
                                 }

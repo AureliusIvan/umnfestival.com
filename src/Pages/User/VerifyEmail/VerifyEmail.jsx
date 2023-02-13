@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import './VerifyEmail.scss'
 // import { useNavigate } from 'react-router-dom';
-import { postRequest } from '../../../Reusable/Service/AxiosClient';
-import CustomButton from '../../../Reusable/CustomComponent/CustomButton';
+// import { postRequest } from '../../../Reusable/Service/AxiosClient';
+// import CustomButton from '../../../Reusable/CustomComponent/CustomButton';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { CircularProgress } from '../../../Reusable/MaterialUICoreLazy/MaterialUICoreLazy';
 import axios from 'axios';
@@ -11,7 +11,7 @@ import { checkVerify } from '../../../Redux/features/users/userRoleSlice';
 
 
 function VerifyEmail() {
-    const pathname = useLocation();
+    // const pathname = useLocation();
     const verify = useSelector(checkVerify);
     let email;
     let ID;
@@ -21,11 +21,10 @@ function VerifyEmail() {
         if (verify !== null) {
             navigate("/");
         }
-        // console.log(pathname);
         window.scrollTo(0, 0);
         email = localStorage.getItem('Email');
         ID = localStorage.getItem('LoginID');
-        console.log(email);
+        // console.log(email);
     }, [])
 
     const [sent, setSent] = useState(false);

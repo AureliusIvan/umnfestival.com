@@ -33,6 +33,7 @@ function LinkCard(props) {
                 <img loading="lazy" alt="social media icon"
                     className="Card-Image"
                     decoding='async'
+                    title={props.title}
                     src={props.image} />
             </a>
 
@@ -49,7 +50,7 @@ export default function Footer() {
                 <GridItem item md={4} xs={12}>
                     <div className="Footer-Section">
                         <div className='Logo-Wrap'>
-                            <img loading="lazy" alt="UMN FESTIVAL 2023 Logo" className="UFEST-LOGO" src={Logo} />
+                            <img loading="lazy" alt="UMN FESTIVAL 2023 Logo" className="UFEST-LOGO" title='UMN Festival 2023 Logo White' src={Logo} />
                         </div>
                     </div>
                     <div className="divider" />

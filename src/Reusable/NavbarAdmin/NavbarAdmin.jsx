@@ -40,7 +40,7 @@ export default function NavbarAdmin(props) {
             await getRequest('spreadsheet')
                 .then((res) => {
                     console.log(res);
-                    
+
                 }
                 )
         } catch (error) {
@@ -51,8 +51,8 @@ export default function NavbarAdmin(props) {
         <div className="NavbarAdminDesktop">
             <NavbarButtonAdmin state={'database'} color={page === "database" ? "red" : "white"} className="NavbarMenu" Title={"Database"} onClick={() => { dispatch(pageChanged('database')) }} />
             <NavbarButtonAdmin state='division' color={page === "division" ? "red" : "white"} className="NavbarMenu" Title={"Division"} onClick={() => { dispatch(pageChanged('division')) }} />
-            <NavbarButtonAdmin state='feature' color={page === "feature" ? "red" : "white"} className="NavbarMenu" Title={"Feature"} onClick={() => { dispatch(pageChanged('feature')) }} />
-            <NavbarButtonAdmin className="NavbarMenu" Title={"Sheet"} />
+            {/* <NavbarButtonAdmin state='feature' color={page === "feature" ? "red" : "white"} className="NavbarMenu" Title={"Feature"} onClick={() => { dispatch(pageChanged('feature')) }} /> */}
+            {/* <NavbarButtonAdmin className="NavbarMenu" Title={"Sheet"} /> */}
 
             {/* <Profile /> */}
             <button className="buttonLogout" color="black" onClick={logouthandler}>Log Out</button>

@@ -3,7 +3,7 @@ import "./Join.scss";
 // Material UI Material
 import { Autocomplete, Divider } from "../../../Reusable/MaterialUICoreLazy/MaterialUIMaterialLazy";
 // Material UI Core
-import { Button, CircularProgress, Grid } from "../../../Reusable/MaterialUICoreLazy/MaterialUICoreLazy";
+import { CircularProgress } from "../../../Reusable/MaterialUICoreLazy/MaterialUICoreLazy";
 import { CustomTextField } from "../../../Reusable/TextField/CustomTextField";
 import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
 import { styled } from '@mui/material/styles';
@@ -19,7 +19,7 @@ import { m, domAnimation, LazyMotion } from "framer-motion";
 // Redux
 import { useSelector, useDispatch } from "react-redux";
 import { userSetJoin } from "../../../Redux/features/users/userDataSlice";
-import { selectuserName, selectuserEmail, selectuserNim } from "../../../Redux/features/users/userRoleSlice";
+import { selectuserName, selectuserEmail, selectuserNim, checkVerify } from "../../../Redux/features/users/userRoleSlice";
 import { selectUser } from "../../../Redux/features/users/userDataSlice";
 import { useEffect } from "react";
 // Styling
@@ -30,6 +30,10 @@ import { postRequest } from "../../../Reusable/Service/AxiosClient";
 import CustomButton from "../../../Reusable/CustomComponent/CustomButton";
 import { setCookie } from 'react-use-cookie';
 import Pilar from "../../../Reusable/ComponentItems/Pilar/Pilar";
+import { checkJoin } from "../../../Redux/features/users/userRoleSlice";
+import Alert from "@mui/material/Alert";
+import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 const JoinPage0 = lazy(() => import("./Page/JoinPage0"));
 const Sparkles = lazy(() => import("../../../Reusable/Animation/Sparkle/Sparkle"));
 
@@ -59,24 +63,29 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
 
 
 export default function Join() {
+    // declare state
     const [loading, Setloading] = useState(false);
+    const [joinpage, Setjoinpage] = useState(0);
+    // error handling 
+    const [error, Seterror] = useState(false);
+    const [errormessage, Seterrormessage] = useState("");
+    // get data from redux for submiting
     const name = useSelector(selectuserName);
     const nim = useSelector(selectuserNim);
     const email = useSelector(selectuserEmail);
-    const formInput = useRef(null);
-    const titleRef = useRef(null);
-    const EnterHandleClick = (e) => {
-        if (e.key === 'Enter') {
-            formInput.current.focus()
-        }
-    }
-    const dispatch = useDispatch();
+    const verify = useSelector(checkVerify);
+    // check if user already join
     const joinned = useSelector(selectUser).isJoin;
-    const [joinpage, Setjoinpage] = useState(0);
+    const isJoin = useSelector(checkJoin);
+    // dispatch
+    const dispatch = useDispatch();
+    // const formInput = useRef(null);
+    const navigate = useNavigate;
+    // start when
     useEffect(() => {
-        setCookie('join', 'join', { path: '/' });
-        if (joinned === true) {
-            Setjoinpage(7)
+        setCookie('recruitment', 'recruitment', { path: '/' });
+        if (joinned === true || isJoin !== null) {
+            Setjoinpage(7);
         }
         window.scrollTo(0, 0)
     }, [joinpage])
@@ -141,17 +150,21 @@ export default function Join() {
                                 instagram_account: values.ig,
                                 city: values.domisili,
                             })
-                            console.log(response);
+                            // console.log(response);
                             if (response.status === 201) {
                                 dispatch(userSetJoin());
                                 Setjoinpage(7);
                                 Setloading(false);
                             } else {
+                                Seterror(true);
+                                Seterrormessage(error.response.data.message);
                                 Setloading(false);
                             }
-                            console.log(response)
+                            // console.log(response)
                         } catch (error) {
-                            console.log(error);
+                            // console.log(error);
+                            Seterror(true);
+                            Seterrormessage(error.response.data.message);
                             Setloading(false);
                         }
                     }
@@ -168,7 +181,19 @@ export default function Join() {
                     setFieldValue,
                 }) => (
                     <div className="join" padding={"10px"}>
-
+                        {error === true && loading === false ?
+                            <>
+                                <Alert severity="error" sx={{
+                                    margin: '10px',
+                                    width: '80%',
+                                    position: 'absolute',
+                                    top: '8vh',
+                                    zIndex: '4',
+                                }}>
+                                    {errormessage ? errormessage : "Error"}
+                                </Alert>
+                            </>
+                            : ""}
                         <div className="form">
                             {joinpage === 0 ? "" :
                                 <Suspense fallback="">
@@ -225,8 +250,6 @@ export default function Join() {
                                                 {/* jurusan */}
                                                 <Autocomplete
                                                     options={JurusanData}
-                                                    // ref={formInput}
-                                                    onKeyDownCapture={EnterHandleClick}
                                                     onBlur={handleBlur}
                                                     type="text"
                                                     value={values.jurusan}
@@ -258,13 +281,11 @@ export default function Join() {
                                                         value={values.angkatan}
                                                         id="angkatan"
                                                         onBlur={handleBlur}
-                                                        onKeyDownCapture={EnterHandleClick}
                                                         renderInput={(params) =>
                                                             <Suspense fallback={<div>Loading...</div>}>
                                                                 <CustomTextField
                                                                     {...params}
                                                                     label="Angkatan"
-                                                                    // ref={formInput}
                                                                     type="text"
                                                                     name="angkatan"
 
@@ -286,9 +307,7 @@ export default function Join() {
                                                 <Suspense fallback={<div>Loading...</div>}>
                                                     <CustomTextField
                                                         id="alamat"
-                                                        // ref={formInput}
                                                         value={values.alamat}
-                                                        onKeyDownCapture={EnterHandleClick}
                                                         type="text"
                                                         name="alamat"
                                                         onChange={handleChange}
@@ -304,8 +323,6 @@ export default function Join() {
                                                 {/* Kota Domisili */}
                                                 <Suspense fallback={<div>Loading...</div>}>
                                                     <CustomTextField
-                                                        // ref={formInput}
-                                                        onKeyDownCapture={EnterHandleClick}
                                                         type="text"
                                                         name="domisili"
                                                         onChange={handleChange}
@@ -373,7 +390,6 @@ export default function Join() {
                                                     </p>
                                                     {/* No Handphone */}
                                                     <CustomTextField
-                                                        onKeyDownCapture={EnterHandleClick}
                                                         type="text"
                                                         name="nohp"
                                                         onChange={handleChange}
@@ -382,20 +398,19 @@ export default function Join() {
                                                         placeholder="E.g +628123456789"
                                                         className="form-control inp_text"
                                                         id="nohp"
-                                                        label="Nomor Telepon Aktif"
+                                                        label="Phone number (with +62)"
                                                     />
                                                     <p className="error">
                                                         {errors.nohp && touched.nohp && errors.nohp}
                                                     </p>
                                                     {/* ID Line */}
                                                     <CustomTextField
-                                                        onKeyDownCapture={EnterHandleClick}
                                                         type="text"
                                                         name="idline"
                                                         onChange={handleChange}
                                                         onBlur={handleBlur}
                                                         value={values.idline}
-                                                        placeholder="Masukan ID Line Aktif"
+                                                        placeholder="Enter Active ID Line"
                                                         className="form-control inp_text"
                                                         id="idline"
                                                         label="ID Line"
@@ -405,17 +420,15 @@ export default function Join() {
                                                     </p>
                                                     {/* Instagram */}
                                                     <CustomTextField
-
-                                                        onKeyDownCapture={EnterHandleClick}
                                                         type="text"
                                                         name="ig"
                                                         onChange={handleChange}
                                                         onBlur={handleBlur}
                                                         value={values.ig}
-                                                        placeholder="E.g. username"
+                                                        placeholder="Active Instagram account (without @)"
                                                         className="form-control inp_text"
                                                         id="ig"
-                                                        label="Link Instagram Aktif"
+                                                        label="Instagram username (without @)"
 
                                                     />
                                                     <p className="error">
@@ -436,7 +449,6 @@ export default function Join() {
                                                 {/* divisi */}
                                                 <Autocomplete
                                                     options={DivisiData}
-                                                    onKeyDownCapture={EnterHandleClick}
                                                     onBlur={handleBlur}
                                                     value={values.divisi}
                                                     id="jurusan"
@@ -461,7 +473,6 @@ export default function Join() {
                                                 {/* Divisi Alternatif */}
                                                 <Autocomplete
                                                     options={DivisiData}
-                                                    onKeyDownCapture={EnterHandleClick}
                                                     onBlur={handleBlur}
                                                     type="text"
                                                     value={values.divisialt}
@@ -502,8 +513,6 @@ export default function Join() {
                                             return (<>
                                                 <p className="Wrapper">Upload Portofolio</p>
                                                 <CustomTextField
-                                                    // ref={formInput}
-                                                    onKeyDownCapture={EnterHandleClick}
                                                     type="text"
                                                     label="Portofolio"
                                                     name="portofolio"
@@ -529,7 +538,6 @@ export default function Join() {
                                             return (<>
                                                 <p className="Wrapper">Apa yang kamu ketahui tentang U-FEST?</p>
                                                 <CustomTextField
-                                                    onKeyDownCapture={EnterHandleClick}
                                                     type="text"
                                                     name="jawaban"
                                                     onChange={handleChange}
@@ -560,8 +568,6 @@ export default function Join() {
                                                 <p className="Wrapper">Berdasarkan Divisi yang kamu pilih, menurut kamu sifat apa saja yang diperlukan untuk menjadi bagian dari divisi tersebut?</p>
                                                 <br />
                                                 <CustomTextField
-                                                    // ref={formInput}
-                                                    onKeyDownCapture={EnterHandleClick}
                                                     type="text"
                                                     name="jawaban2"
                                                     onChange={handleChange}
@@ -572,9 +578,7 @@ export default function Join() {
                                                     placeholder="Masukan Jawaban"
                                                     id="jawaban2"
                                                     multiline
-                                                    minRows={4}
-                                                // rows={4}
-                                                />
+                                                    minRows={4} />
                                                 <p className="error">
                                                     {errors.jawaban2 && touched.jawaban2 && errors.jawaban2}
                                                 </p>

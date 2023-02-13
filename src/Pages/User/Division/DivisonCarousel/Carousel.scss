@@ -178,6 +178,10 @@
             font-weight: 1000;
             color: index.$blue;
             text-shadow: none !important;
+
+            @media screen and (min-width: index.$lg) {
+                font-size: 30px;
+            }
         }
 
         .Image {
@@ -194,6 +198,11 @@
             color: #87181D;
             margin-top: 10px;
             font-family: index.$font;
+
+            @media screen and (min-width: index.$lg) {
+                font-size: 20px;
+            }
+
         }
 
         .Jobdesk {
@@ -201,6 +210,10 @@
             flex-direction: column;
             margin-top: 10px;
             font-family: index.$font;
+
+            @media screen and (min-width: index.$lg) {
+                font-size: 20px;
+            }
         }
     }
 

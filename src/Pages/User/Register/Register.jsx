@@ -15,11 +15,12 @@ import { CustomTextField } from "../../../Reusable/TextField/CustomTextField";
 // animation
 import { domAnimation, LazyMotion, m } from "framer-motion";
 import { userDataAdded } from "../../../Redux/features/users/userRoleSlice";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { postRequest } from "../../../Reusable/Service/AxiosClient";
 import CustomButton from "../../../Reusable/CustomComponent/CustomButton";
-import { useLocation } from "react-router-dom";
+import Alert from "@mui/material/Alert";
 import Pilar from "../../../Reusable/ComponentItems/Pilar/Pilar";
+import { Helmet } from "react-helmet-async";
 
 export default function Register() {
     // use dispatch to change page
@@ -32,17 +33,30 @@ export default function Register() {
             formInput.current.focus()
         }
     }
+    // error handling
+    const [error, Seterror] = useState(false);
+    const [errorText, SeterrorText] = useState("");
     const navigate = useNavigate();
     const pathname = useLocation();
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [])
-    return (
+    return (<>
+        <Helmet>
+            <title>Register | UMN Festival 2023</title>
+            <meta name="description" content="Register | Register now to start your journey on UMN Festival 2023" />
+            <link rel="canonical" href="https://www.umnfestival.com/Register" />
+        </Helmet>
         <Formik
+            // include validation schema
             validationSchema={RegisterSchema}
+            // initial value
             initialValues={{ email: "", password: "", fullname: "", nim: "", repassword: "" }}
+            // on submit function
             onSubmit={(values) => {
+                // start loading when submitted
                 Setloading(true);
+                // send data to backend
                 const sendData = async () => {
                     try {
                         await postRequest('register', {
@@ -52,9 +66,9 @@ export default function Register() {
                             email: values.email,
                         })
                             .then((response) => {
-                                console.log(response);
+                                // console.log(response);
                                 if (response.data.success === true) {
-                                    console.log(response.data);
+                                    // console.log(response.data);
                                     localStorage.setItem('LoginID', response.data.login_token);
                                     localStorage.setItem('Email', response.data.users.email);
                                     dispatch(userTokenAdded(response.data.login_token));
@@ -64,24 +78,28 @@ export default function Register() {
                                         nim: response.data.users.nim,
                                         email: response.data.users.email,
                                     }));
-                                    navigate('/join', {
+                                    navigate('/recruitment', {
                                         state: { previousPath: pathname }
                                     });
                                     window.location.reload();
                                 }
                                 else {
-                                    alert("error, email already exist");
+                                    Seterror(true);
                                 }
                                 Setloading(false);
 
                             })
                             .catch((error) => {
-                                console.log(error);
+                                SeterrorText(error.response.data.message);
+                                Seterror(true);
+                                // console.log(error.response.data.message);
                                 Setloading(false);
                             })
                     }
                     catch (error) {
-                        console.log(error);
+                        SeterrorText(error.response.data.message);
+                        Seterror(true);
+                        // console.log(error.response.data.message);
                         Setloading(false);
                     }
                 }
@@ -98,7 +116,22 @@ export default function Register() {
                 handleSubmit
             }) => (
                 <div id="Register">
+                    {/* pop up on error */}
+                    {error === true && loading === false ?
+                        <>
+                            <Alert severity="error" sx={{
+                                margin: '10px',
+                                width: '80%',
+                                position: 'absolute',
+                                top: '8vh',
+                                zIndex: '4',
+                            }}>
+                                {errorText ? errorText : "Registration Failed, re-check your data"}
+                            </Alert>
+                        </>
+                        : ""}
                     <Pilar />
+                    {/* form start here */}
                     <Box className="form" paddingX={["20px", "30px", "45px"]}>
                         <LazyMotion features={domAnimation}>
                             <m.div
@@ -138,7 +171,6 @@ export default function Register() {
                                     </p>
                                     <CustomTextField
                                         id="email"
-                                        // ref={formInput}
                                         value={values.email}
                                         onKeyDownCapture={EnterHandleClick}
                                         type="email"
@@ -184,9 +216,7 @@ export default function Register() {
                                     <div className="center">
                                         <CustomButton
                                             disabled={(errors.fullname || errors.nim || errors.email || errors.password || errors.repassword) ? true : false}
-                                            type="submit"
-                                        // onClick={handleSubmit}
-                                        >
+                                            type="submit">
                                             {loading ? (<CircularProgress />) : "Register"}
                                         </CustomButton>
                                     </div>
@@ -207,6 +237,7 @@ export default function Register() {
             )
             }
         </Formik >
+    </>
 
     );
 }

@@ -13,7 +13,7 @@ export default function HomeButton() {
     function handler() {
         console.log(loading);
         if (userRole === "user") {
-            navigate('/join');
+            navigate('/recruitment');
         } else {
             navigate('/login');
         }
@@ -33,7 +33,7 @@ export default function HomeButton() {
                     }
                 }}
             >
-                <img className='background' src={ButtonIMG} />
+                <img className='background' width={'auto'} height="auto" src={ButtonIMG} alt="Home Button" loading='lazy' />
                 <span className="front">
                     LET'S GO SPARTA!
                 </span>

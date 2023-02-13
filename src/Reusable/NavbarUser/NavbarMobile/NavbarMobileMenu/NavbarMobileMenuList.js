@@ -16,8 +16,8 @@ export const NavbarMobileMenuList = [
     },
     {
         name: 'Recruitment',
-        link: '/join',
-        state: 'join',
+        link: '/recruitment',
+        state: 'recruitment',
     },
     {
         name: 'Login',

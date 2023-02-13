@@ -8,15 +8,12 @@ const ProtectedRoute = ({ children, user }) => {
     let loop = setInterval(() => {
         if (userRole !== null) {
             if (userRole !== user) {
-                console.log("keluar");
-                console.log(userRole);
                 clearInterval(loop);
                 return <Navigate to="/" />
             }
         }
     }, 100);
     loop;
-    console.log("masuk");
     return children;
 
 }

@@ -10,7 +10,7 @@
 
     cursor: default;
 
-    @media screen and (min-width: 740px) {
+    @media screen and (min-width: 960px) {
         cursor: url("/Asset/Image/cursor.png"), pointer !important;
     }
 
@@ -287,7 +287,7 @@ $text-shadow: 2px 3px 9px rgba(0, 0, 0, 1);
             width: 220px !important;
         }
 
-        
+
 
     }
 

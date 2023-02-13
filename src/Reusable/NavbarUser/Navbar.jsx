@@ -46,7 +46,6 @@ export default function NavbarUser(props) {
         console.log(logout);
         if (logout.data.success === true) {
             localStorage.removeItem('LoginID');
-            // dispatch(pageChanged('login'));
             dispatch(userRoleAdded('guest'));
         }
     }
@@ -56,13 +55,12 @@ export default function NavbarUser(props) {
     return (
         <>
             <GridContainer container className="NavbarUser">
-                {/* <GridItem item xs={2} sm={2} md={3} lg={1}> */}
                 <img
                     src={Logo}
                     alt="Logo"
                     className="Logo"
+                    title="UMN Festival 2023 Logo White"
                 />
-                {/* </GridItem> */}
                 <GridItem item xs={1} sm={1} md={4} lg={userRole === 'user' ? 5 : 3} xl={'auto'}></GridItem>
 
                 <GridItem item md={'auto'} lg={'auto'}>
@@ -82,7 +80,7 @@ export default function NavbarUser(props) {
                 {user === "user" ?
                     <GridItem item md={'auto'}>
                         <Sparkles>
-                            <NavbarButton state="join" Title={"Recruitment"} />
+                            <NavbarButton state="recruitment" Title={"Recruitment"} />
                         </Sparkles>
                     </GridItem>
                     : ""}

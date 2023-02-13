@@ -18,15 +18,10 @@ const CustomList = styled(List)(({ theme }) => ({
 
 
 
-const title1 = <p className='title'>Third COVID-19 Vaccine Certificate</p>;
-const title2 = <p className='title'>Portofolio (for Visual and Documentation Division)</p>;
-const desc1 = <p className='desc'>Third COVID-19 vaccine certificate, in jpg or png format. Maks size is 1 MB.</p>
-
-
 export default function JoinPage0() {
     return (
         <div className='JoinPage0'>
-            <p><strong>Before we start, prepare :</strong></p>
+            <div><strong>Before we start, prepare :</strong></div>
             <Divider />
             <CustomList >
                 <ListItem alignItems="flex-start">
@@ -34,8 +29,8 @@ export default function JoinPage0() {
                         <Avatar sx={{ bgcolor: "green" }}>1</Avatar>
                     </ListItemAvatar>
                     <CustomListItemText
-                        primary={title1}
-                        secondary={desc1}
+                        primary={<p className='title'>Third COVID-19 Vaccine Certificate</p>}
+                        secondary={<p className='desc'>Third COVID-19 vaccine certificate, in jpg or png format. Maks size is 1 MB.</p>}
                     />
                 </ListItem>
                 <Divider variant="inset" component="li" />
@@ -44,7 +39,7 @@ export default function JoinPage0() {
                         <Avatar sx={{ bgcolor: "green" }}>2</Avatar>
                     </ListItemAvatar>
                     <CustomListItemText
-                        primary={title2}
+                        primary={<p className='title'>Portofolio (for Visual and Documentation Division)</p>}
                         secondary={
                             <p className='desc'>
                                 {"Specifically for the Visual and Documentation division. "}

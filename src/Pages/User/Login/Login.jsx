@@ -68,6 +68,7 @@ export default function Login() {
                                 email: values.email,
                                 password: values.password
                             }).then((res) => {
+                                console.log(res);
                                 if (res.status === 201) {
                                     if (res.data.user.role_id === 1) {
                                         dispatch(userRoleAdded("admin"));
@@ -96,6 +97,7 @@ export default function Login() {
                                 }
                             })
                         } catch (error) {
+                            console.log(error);
                             SeterrorText(error.response.data.message);
                             Setloading(false);
                             Seterror(true);
@@ -165,7 +167,6 @@ export default function Login() {
                                             <CustomButton
                                                 type="submit"
                                                 disabled={!(errors.email === undefined && errors.password === undefined) || (loading === true)}
-                                                // onClick={onSubmit}
                                                 onClick={handleSubmit}
                                             >
                                                 {loading ? (<CircularProgress

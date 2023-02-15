@@ -2,7 +2,6 @@ import "./Navbar.scss";
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectuserRole } from "../../Redux/features/users/userRoleSlice";
-import { pageChanged } from "../../Redux/features/page/pageSlice";
 import { NavbarButton } from "./NavbarButton/NavbarButton";
 import { Grid } from "../MaterialUICoreLazy/MaterialUICoreLazy";
 // use Cookie
@@ -14,10 +13,6 @@ import { getRequest } from "../Service/AxiosClient";
 import { userRoleAdded } from "../../Redux/features/users/userRoleSlice";
 import styled from "styled-components";
 import Logo from "./../../Asset/Image/Ufest Logo/ufestlogowhite.webp"
-
-const StyledContainer = styled(Container)`
-
-`;
 
 const GridContainer = styled(Grid)(({ theme }) => ({
     display: 'flex',
@@ -43,7 +38,6 @@ export default function NavbarUser(props) {
     const dispatch = useDispatch();
     const asyncLogout = async () => {
         const logout = await getRequest("logout");
-        console.log(logout);
         if (logout.data.success === true) {
             localStorage.removeItem('LoginID');
             dispatch(userRoleAdded('guest'));
@@ -75,8 +69,7 @@ export default function NavbarUser(props) {
                 {user === "user" ? "" :
                     <GridItem item md={'auto'} lg={'auto'}>
                         <NavbarButton state="login" Title={"Login"} />
-                    </GridItem>
-                }
+                    </GridItem>}
                 {user === "user" ?
                     <GridItem item md={'auto'}>
                         <Sparkles>
@@ -90,7 +83,6 @@ export default function NavbarUser(props) {
                             <NavbarButton Title={"Log Out"} onClick={asyncLogout} />
                         </Profile>
                     </GridItem>
-
                     : ""
                 }
             </GridContainer>

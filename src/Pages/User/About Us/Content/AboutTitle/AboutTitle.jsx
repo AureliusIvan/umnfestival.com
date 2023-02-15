@@ -1,10 +1,8 @@
-import React, { useCallback, useEffect } from 'react'
-import { m, domAnimation, LazyMotion } from 'framer-motion'
-import "./AboutTitle.scss"
-
+import React from 'react';
+import { m, domAnimation, LazyMotion } from 'framer-motion';
+import "./AboutTitle.scss";
 
 export const AboutTitle = (props) => {
-
     return (
         <>
             <LazyMotion features={domAnimation}>
@@ -64,7 +62,6 @@ export const AboutTitle = (props) => {
                     <div className="mouse"></div>
                 </m.div>
             </LazyMotion>
-
         </>
     )
 }

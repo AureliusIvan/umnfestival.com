@@ -3,7 +3,7 @@ import "./ComingSoon.scss"
 import Sparkles from '../../../Reusable/Animation/Sparkle/Sparkle'
 import Pilar from '../../../Reusable/ComponentItems/Pilar/Pilar'
 
-function ComingSoon() {
+export default function ComingSoon() {
     useEffect(() => {
         window.scroll(0, 0)
     })
@@ -22,5 +22,3 @@ function ComingSoon() {
         </div>
     )
 }
-
-export default ComingSoon;

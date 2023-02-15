@@ -20,7 +20,6 @@ export default function Division(props) {
             <Pilar />
             <h1>Our Division</h1>
             <DivisonCarousel />
-
         </div>
     </>)
 }

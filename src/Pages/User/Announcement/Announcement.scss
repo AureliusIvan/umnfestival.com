@@ -1,0 +1,26 @@
+@use "src/index" as index;
+
+.Announcement {
+    @include index.center;
+    position: relative;
+    flex-direction: column;
+    overflow: hidden;
+    will-change: height;
+    height: 100vh;
+    padding-bottom: 10vh;
+
+    &::before {
+        background-image: url('./../../../Asset/Image/Background/Homebg.webp');
+        background-size: cover;
+        background-position: center;
+        background-attachment: local;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: index.$black;
+    }
+
+}

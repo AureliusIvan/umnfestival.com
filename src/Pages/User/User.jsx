@@ -14,6 +14,7 @@ import { LazyMotion, domAnimation, m } from 'framer-motion';
 import EnterAnimation from "../../Reusable/Animation/EnterAnimation/EnterAnimation";
 import ComingSoon from "./ComingSoon/ComingSoon";
 import ProtectedRoutePathVerify from "../../Route/ProtectedRouteVerify";
+import Announcement from "./Announcement/Announcement";
 
 const NavbarUser = lazy(() => import("../../Reusable/NavbarUser/Navbar"));
 const NavbarMobile = lazy(() => import("../../Reusable/NavbarUser/NavbarMobile/NavbarMobile"));
@@ -72,7 +73,12 @@ export default function User(props) {
                         <Footer />
                     </>}>
                         <Route path="/" element={<Suspense fallback={<LoadingScreen />}><HomeCallback /></Suspense>} />
-                        <Route path="home" element={<Suspense fallback={<LoadingScreen />}><HomeCallback /></Suspense>} />
+                        <Route path="home" element={<Suspense fallback={<LoadingScreen />}>
+                            <HomeCallback />
+                        </Suspense>} />
+                        <Route path="Announcement" element={<Suspense fallback={<LoadingScreen />}>
+                            <Announcement />
+                        </Suspense>} />
                         <Route path="about" element={<Suspense fallback={<LoadingScreen />}><AboutCallback /></Suspense>} />
                         <Route path="division" element={<Suspense fallback={<LoadingScreen />}><DivisionCallback /></Suspense>} />
                         <Route path="login" element={

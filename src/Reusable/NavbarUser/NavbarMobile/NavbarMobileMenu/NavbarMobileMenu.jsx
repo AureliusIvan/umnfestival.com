@@ -76,7 +76,6 @@ export default function NavbarMobileMenu(props) {
                 animate={props.animate}
             >
                 <Grid container className='Navbar-Mobile-Menu'>
-
                     {
                         Menus.filter(
                             (item) => {

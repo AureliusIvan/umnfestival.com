@@ -10,7 +10,7 @@ import { styled } from '@mui/material/styles';
 // Form Control
 import { Formik } from "formik";
 // React
-import { Suspense, lazy, useRef, useState } from "react";
+import { Suspense, lazy, useState } from "react";
 // Module
 import Thankyou from "./Thankyou/Thankyou";
 import { DivisiData, JurusanData } from "./AutoComplete/AutoComplete";
@@ -19,7 +19,7 @@ import { m, domAnimation, LazyMotion } from "framer-motion";
 // Redux
 import { useSelector, useDispatch } from "react-redux";
 import { userSetJoin } from "../../../Redux/features/users/userDataSlice";
-import { selectuserName, selectuserEmail, selectuserNim, checkVerify } from "../../../Redux/features/users/userRoleSlice";
+import { selectuserName, selectuserEmail, selectuserNim } from "../../../Redux/features/users/userRoleSlice";
 import { selectUser } from "../../../Redux/features/users/userDataSlice";
 import { useEffect } from "react";
 // Styling
@@ -31,9 +31,7 @@ import CustomButton from "../../../Reusable/CustomComponent/CustomButton";
 import { setCookie } from 'react-use-cookie';
 import Pilar from "../../../Reusable/ComponentItems/Pilar/Pilar";
 import { checkJoin } from "../../../Redux/features/users/userRoleSlice";
-import Alert from "@mui/material/Alert";
-import { useNavigate } from "react-router-dom";
-import { Navigate } from "react-router-dom";
+const Alert = lazy(() => import("@mui/material/Alert"));
 const JoinPage0 = lazy(() => import("./Page/JoinPage0"));
 const Sparkles = lazy(() => import("../../../Reusable/Animation/Sparkle/Sparkle"));
 
@@ -73,15 +71,12 @@ export default function Join() {
     const name = useSelector(selectuserName);
     const nim = useSelector(selectuserNim);
     const email = useSelector(selectuserEmail);
-    const verify = useSelector(checkVerify);
+    // const verify = useSelector(checkVerify);
     // check if user already join
     const joinned = useSelector(selectUser).isJoin;
     const isJoin = useSelector(checkJoin);
     // dispatch
     const dispatch = useDispatch();
-    // const formInput = useRef(null);
-    const navigate = useNavigate;
-    // start when
     useEffect(() => {
         setCookie('recruitment', 'recruitment', { path: '/' });
         if (joinned === true || isJoin !== null) {
@@ -108,8 +103,6 @@ export default function Join() {
                 }}>NEXT</CustomButton>
         )
     }
-
-
     return (
         <div>
             <Formik
@@ -145,12 +138,11 @@ export default function Join() {
                                 reason_1: values.jawaban,
                                 reason_2: values.jawaban2,
                                 portofolio: values.portofolio,
-                                vaccine_certificate: values.vaksin,
+                                // vaccine_certificate: values.vaksin,
                                 id_line: values.idline,
                                 instagram_account: values.ig,
                                 city: values.domisili,
                             })
-                            // console.log(response);
                             if (response.status === 201) {
                                 dispatch(userSetJoin());
                                 Setjoinpage(7);
@@ -160,7 +152,6 @@ export default function Join() {
                                 Seterrormessage(error.response.data.message);
                                 Setloading(false);
                             }
-                            // console.log(response)
                         } catch (error) {
                             // console.log(error);
                             Seterror(true);
@@ -182,7 +173,7 @@ export default function Join() {
                 }) => (
                     <div className="join" padding={"10px"}>
                         {error === true && loading === false ?
-                            <>
+                            <Suspense fallback="">
                                 <Alert severity="error" sx={{
                                     margin: '10px',
                                     width: '80%',
@@ -192,7 +183,7 @@ export default function Join() {
                                 }}>
                                     {errormessage ? errormessage : "Error"}
                                 </Alert>
-                            </>
+                            </Suspense>
                             : ""}
                         <div className="form">
                             {joinpage === 0 ? "" :
@@ -352,7 +343,7 @@ export default function Join() {
                                             return (
                                                 <div className="page2">
                                                     {/* Sudah Vaksin ke-3 */}
-                                                    <div>
+                                                    {/* <div>
                                                         <p className="TextLabel">
                                                             Upload Sertifikat Vaksin Covid-19 ke-3
                                                         </p>
@@ -387,7 +378,7 @@ export default function Join() {
                                                     </div>
                                                     <p className="error">
                                                         {errors.vaksin && touched.vaksin && errors.vaksin}
-                                                    </p>
+                                                    </p> */}
                                                     {/* No Handphone */}
                                                     <CustomTextField
                                                         type="text"
@@ -438,7 +429,7 @@ export default function Join() {
                                                     <div className="space-between">
                                                         <Prev page={1} />
                                                         <Next page={3}
-                                                            disabled={!(values.nohp && values.idline && values.ig && values.vaksin)}
+                                                            disabled={!(values.nohp && values.idline && values.ig)}
                                                         />
                                                     </div>
                                                 </div>)
@@ -524,14 +515,15 @@ export default function Join() {
                                                     id="portofolio"
                                                     multiline
                                                     minRows={3}
-                                                // rows={3}
                                                 />
                                                 <p className="error">
                                                     {errors.portofolio && touched.portofolio && errors.portofolio}
                                                 </p>
                                                 <div className="space-between">
                                                     <Prev page={3} />
-                                                    <Next page={5} />
+                                                    <Next
+                                                        disabled={!(values.portofolio)}
+                                                        page={5} />
                                                 </div>
                                             </>)
                                         case 5:

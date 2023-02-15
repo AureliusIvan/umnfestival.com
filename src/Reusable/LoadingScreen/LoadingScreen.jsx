@@ -6,8 +6,6 @@ export default function LoadingScreen() {
         <div
             className="Loading-Screen"
         >
-
-           
             <p className="Caption">
                 Now loading...
             </p>

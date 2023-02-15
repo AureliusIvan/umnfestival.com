@@ -2,7 +2,6 @@
 import { Suspense, lazy, useEffect, useState, useCallback } from "react";
 // styling
 import "./Home.scss";
-import { m, LazyMotion, domAnimation } from "framer-motion";
 import { useMediaQuery } from "@mui/material";
 import { setCookie } from "react-use-cookie";
 import { CounterTesting } from "./Component/UFESTLOGO/WordAnimate/Testing";
@@ -10,9 +9,6 @@ import { Helmet } from "react-helmet-async";
 const HomeButton = lazy(() => import("./Component/HomeButton/HomeButton"));
 const UFESTLOGO = lazy(() => import("./Component/UFESTLOGO/UFESTLOGO"));
 const PilarHome = lazy(() => import("./pilar"));
-
-
-
 
 // start from here
 export default function Home(props) {
@@ -38,14 +34,12 @@ export default function Home(props) {
         <div className="home">
             {isMobile ?
                 <>
-                    <LazyMotion features={domAnimation}>
-                        <m.div
-                            rel="preload"
-                            loading="lazy"
-                            decoding="async"
-                            className="home-image"
-                        />
-                    </LazyMotion>
+                    <div
+                        rel="preload"
+                        loading="lazy"
+                        decoding="async"
+                        className="home-image"
+                    />
                     <MemoTag />
                     <HomeButton />
                 </>

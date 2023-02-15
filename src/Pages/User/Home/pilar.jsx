@@ -31,8 +31,7 @@ function PilarHome() {
                         duration: 0.5
                     }
                 }}
-                rel="preload" decoding="async" className="pilar right"
-            >
+                rel="preload" decoding="async" className="pilar right">
             </m.div>
         </LazyMotion>
     )

@@ -3,27 +3,21 @@ import { useEffect, Suspense, lazy, useState } from "react";
 // redux
 import { isJoinAdded, userRoleAdded } from "./Redux/features/users/userRoleSlice";
 import { useSelector, useDispatch } from "react-redux";
-// import { selectuserRole } from "./Redux/features/users/userRoleSlice";
 import { userDataAdded } from "./Redux/features/users/userRoleSlice";
 // Loading Screen
 import LoadingScreen from "./Reusable/LoadingScreen/LoadingScreen";
 import { getRequest } from "./Reusable/Service/AxiosClient";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation, Navigate } from "react-router-dom";
 import ProtectedRoute from "./Route/ProtectedRoute";
 import { selectCanPlay } from "./Redux/features/users/userSoundSlice";
 import { LoadingScreenInitial } from "./Reusable/LoadingScreen/LoadingScreenInitial";
 import { getCookie } from "react-use-cookie";
-import { useLocation, Navigate } from "react-router-dom";
 import useSound from "use-sound";
 import BGM from "./Asset/Sound/BGM.mp3";
 import { isVerifyAdded } from "./Redux/features/users/userRoleSlice";
-// import { isJoinAdded } from "./Redux/features/users/userRoleSlice";
-// import ProtectedRoutePathVerify from "./Route/ProtectedRouteVerify";
+// Pages
 const User = lazy(() => import("./Pages/User/User"));
 const Admin = lazy(() => import("./Pages/Admin/Admin"));
-
-
-
 
 
 function App() {
@@ -53,7 +47,7 @@ function App() {
       try {
         await getRequest('me')
           .then((res) => {
-            console.log(res.data.user.role_id);
+            // console.log(res.data.user.role_id);
             dispatch(userDataAdded({
               name: res.data.user.name,
               nim: res.data.user.nim,
@@ -61,7 +55,6 @@ function App() {
             }));
             dispatch(isVerifyAdded(res.data.user.email_verified_at));
             dispatch(isJoinAdded(res.data.panitia));
-            // console.log(res.data.panitia)
             if (res.data.user.role_id === 1) {
               dispatch(userRoleAdded("admin"));
             } else if (res.data.user.role_id === 2) {
@@ -69,7 +62,6 @@ function App() {
             }
           })
       } catch (error) {
-        // console.error(error);
         dispatch(userRoleAdded("guest"));
       }
     }

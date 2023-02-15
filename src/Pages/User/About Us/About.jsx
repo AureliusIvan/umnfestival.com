@@ -2,34 +2,19 @@
 import React, { useEffect, lazy, Suspense } from "react";
 // Styling  & Animation 
 import "./About.scss"
-// MUI
-// import { Grid } from "../../../Reusable/MaterialUICoreLazy/MaterialUICoreLazy";
 // Cookies
 import { setCookie } from "react-use-cookie";
 import { AboutData } from "./AboutData";
 import LoadingScreen from "../../../Reusable/LoadingScreen/LoadingScreen";
 import Pilar from "../../../Reusable/ComponentItems/Pilar/Pilar";
-import {
-  motion,
-  useScroll,
-  useSpring,
-} from "framer-motion";
-// import YoutubeEmbed from "../../../Reusable/ComponentItems/Youtube/YoutubeEmbed";
 import { CounterTesting } from "../Home/Component/UFESTLOGO/WordAnimate/Testing";
-import { Swiper, SwiperSlide } from "swiper/react";
-// Import Swiper styles
+import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, FreeMode, Mousewheel } from "swiper";
 import { AboutTitle } from "./Content/AboutTitle/AboutTitle";
 import { Helmet } from "react-helmet-async";
-// const AboutCard = lazy(() => import("./AboutCard/AboutCard"));
 const AboutCardMobile = lazy(() => import("./AboutCard/AboutCard"));
-
-
-
-
-
 
 
 export default function About() {
@@ -45,6 +30,7 @@ export default function About() {
         <meta name="description" content="About | About series of events that going to held on UMN festival 2023 " />
         <link rel="canonical" href="https://www.umnfestival.com/about" />
       </Helmet>
+
       <div id="About">
         <Pilar />
         <Suspense fallback={<LoadingScreen />}>
@@ -78,7 +64,6 @@ export default function About() {
             <SwiperSlide>
               <div className="About-Title">
                 <AboutTitle />
-                {/* <CounterTesting choice={'about'} /> */}
               </div>
             </SwiperSlide>
             {AboutData.map((item, index) => {
@@ -93,8 +78,6 @@ export default function About() {
                 </SwiperSlide>
               )
             })}
-
-
           </Swiper>
         </Suspense>
       </div>

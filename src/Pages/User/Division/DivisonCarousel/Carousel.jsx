@@ -66,7 +66,6 @@ export default function DivisonCarousel(props) {
                     slidesPerView={window.innerWidth > 1168 ? 3 : 1}
                     modules={[Pagination,
                         Mousewheel,
-                        // FreeMode
                     ]}
                     direction="horizontal"
                     keyboard={{
@@ -89,13 +88,11 @@ export default function DivisonCarousel(props) {
                         draggable: true,
                         dragSize: 100,
                     }}
-
                 >
                     {DivisionData.filter((item) => item.image).map((item, index) => {
                         return <SwiperSlide key={item.id} className="Carousel-Swiper-Slide">
                             <CarouselDetail
-                                props={item}
-                            />
+                                props={item} />
                         </SwiperSlide>
                     })}
                 </Swiper>

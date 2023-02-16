@@ -4,8 +4,6 @@
 #User-Page {
     height: 100vh;
     @include index.prevent-select;
-    // pointer-events: none;
-
 }
 
 .slash {

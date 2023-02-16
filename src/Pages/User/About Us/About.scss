@@ -1,6 +1,5 @@
 @use "src/index" as index;
 
-
 * {
 
     input:-webkit-autofill,
@@ -85,8 +84,6 @@
                 left: 0;
                 color: white;
                 font-size: 20px;
-                // z-index: index.$z-index-4;
-
             }
         }
 
@@ -124,7 +121,6 @@
 
     .GridItem {
         @include index.center;
-        // margin: 10px;
     }
 
     .Title {

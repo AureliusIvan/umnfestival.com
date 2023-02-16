@@ -6,7 +6,6 @@ function Announcement() {
     return (
         <div className='Announcement'>
             <Pilar />
-            test
             <h1 className='Title'>Announcement</h1>
         </div>
     )

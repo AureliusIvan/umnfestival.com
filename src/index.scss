@@ -251,6 +251,7 @@ $text-shadow: 2px 3px 9px rgba(0, 0, 0, 1);
 
 
     &::after {
+        filter: brightness(90%);
         position: absolute;
         top: 0;
         bottom: 0;
@@ -270,20 +271,13 @@ $text-shadow: 2px 3px 9px rgba(0, 0, 0, 1);
         background-repeat: no-repeat;
 
 
-
-
-        // @media screen and (max-width: $sm) {
-
-        //     transform: scaleX(1.5) scaleY(2.3) !important;
-        // }
-
         @media screen and (max-width: 400px) {
             transform: scaleX(1.5) scaleY(2.3);
         }
 
 
         @media screen and (min-width: $xs) and (max-width: 364px) {
-            transform: scaleX(1.39) scaleY(2.3);
+            transform: scaleX(1.47) scaleY(2.3);
             width: 220px !important;
         }
 

@@ -1,6 +1,8 @@
 @use "src/index" as index;
 
-
+textarea {
+    resize: none;
+}
 
 .join {
     @include index.background("./../../../Asset/Image/Background/Homebg.webp");

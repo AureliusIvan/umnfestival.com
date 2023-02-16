@@ -1,8 +1,10 @@
 import React from 'react'
+import './AnnouncementCard.scss'
 
 function AnnouncementCard() {
   return (
-    <div>AnnouncementCard</div>
+    <div className='AnnouncementCard'>
+    </div>
   )
 }
 

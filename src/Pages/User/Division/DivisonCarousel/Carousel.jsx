@@ -77,7 +77,6 @@ export default function DivisonCarousel(props) {
                         sensitivity: 1,
                     }}
                     parallax={true}
-                    // spaceBetween={30}
                     pagination={{
                         clickable: true,
                     }}

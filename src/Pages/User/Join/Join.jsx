@@ -541,7 +541,6 @@ export default function Join() {
                                                     id="jawaban"
                                                     multiline
                                                     minRows={4}
-                                                // rows={4}
                                                 />
                                                 <p className="error">
                                                     {errors.jawaban && touched.jawaban && errors.jawaban}

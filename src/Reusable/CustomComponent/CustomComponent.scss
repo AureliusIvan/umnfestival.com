@@ -3,9 +3,10 @@
 $primary-color: #19be5e;
 $secondary-color: #279153;
 $disabled-color: #e6e6e6;
-$outline: 2px dashed;
+$outline: 3px solid;
 
 .CustomButton {
+    box-shadow: 0px 0px 50px 5px rgba(0, 0, 0, 0.4);
     @include index.prevent-select;
     @include index.center;
     text-transform: uppercase;
@@ -23,7 +24,7 @@ $outline: 2px dashed;
     font-size: 20px;
     height: 50px;
     color: #FFFFFF;
-    border: 5px solid index.$white;
+    border: 3px dashed index.$white;
     outline: $outline $primary-color;
     transition: 0.1s all;
 

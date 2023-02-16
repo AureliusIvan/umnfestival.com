@@ -3,7 +3,11 @@ import React from 'react'
 export function Heartface() {
     return (
         <div className='Heart-Face'>
-            <svg width="45" height="13" viewBox="0 0 456 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg
+                // style={{
+                //     boxShadow: "inset 0px 0px 5px 5px rgba(0, 0, 0, 0.2)"
+                // }}
+                width="45" height="13" viewBox="0 0 456 130" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g filter="url(#filter0_d_0_1)">
                     <line x1="92.5" y1="121.5" x2="347.549" y2="121.5" stroke="black" strokeLinecap="round" />
                 </g>

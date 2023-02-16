@@ -47,7 +47,6 @@ function App() {
       try {
         await getRequest('me')
           .then((res) => {
-            // console.log(res.data.user.role_id);
             dispatch(userDataAdded({
               name: res.data.user.name,
               nim: res.data.user.nim,

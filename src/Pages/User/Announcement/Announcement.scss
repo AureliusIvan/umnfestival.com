@@ -23,4 +23,10 @@
         background-color: index.$black;
     }
 
+    .Title {
+        z-index: 0;
+        font-family: index.$font;
+        color: index.$yellow;
+        text-shadow: index.$text-shadow;
+    }
 }

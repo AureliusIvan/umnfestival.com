@@ -24,9 +24,27 @@
     }
 
     .Title {
-        z-index: 0;
+        z-index: 1;
         font-family: index.$font;
         color: index.$yellow;
         text-shadow: index.$text-shadow;
+        font-size: 40px !important;
     }
 }
+
+.Content {
+    z-index: 1;
+
+    .image {
+        background-color: aqua;
+        height: 400px;
+        width: 400px;
+
+        @media screen and (max-width: 768px) {
+            height: 300px;
+            width: 300px;
+
+        }
+    }
+}
+

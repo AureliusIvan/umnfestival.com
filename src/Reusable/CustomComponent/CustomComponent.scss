@@ -39,4 +39,11 @@ $outline: 3px solid;
         outline: $outline $disabled-color;
         pointer-events: none;
     }
+
+
+    @media screen and (max-width: index.$sm) {
+        width: 100px;
+        height: 40px;
+        font-size: 16px;
+    }
 }

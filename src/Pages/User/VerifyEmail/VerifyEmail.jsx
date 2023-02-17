@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './VerifyEmail.scss'
-// import { useNavigate } from 'react-router-dom';
-// import { postRequest } from '../../../Reusable/Service/AxiosClient';
-// import CustomButton from '../../../Reusable/CustomComponent/CustomButton';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { CircularProgress } from '../../../Reusable/MaterialUICoreLazy/MaterialUICoreLazy';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
@@ -11,7 +8,6 @@ import { checkVerify } from '../../../Redux/features/users/userRoleSlice';
 
 
 function VerifyEmail() {
-    // const pathname = useLocation();
     const verify = useSelector(checkVerify);
     let email;
     let ID;

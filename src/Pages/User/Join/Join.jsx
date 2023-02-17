@@ -202,23 +202,7 @@ export default function Join() {
                                         case 0:
                                             return (
                                                 <Suspense fallback={<div>Loading...</div>}>
-                                                    <LazyMotion features={domAnimation}>
-                                                        <m.div
-                                                            initial={{
-                                                                opacity: 0,
-                                                                x: -100
-                                                            }}
-                                                            animate={{
-                                                                opacity: 1,
-                                                                x: 0
-                                                            }}
-                                                            transition={{
-                                                                type: "spring",
-                                                                stiffness: 260,
-                                                                damping: 20
-                                                            }}
-
-                                                        >
+                                                        <div>
                                                             <div className="page1">
                                                                 <Sparkles>
                                                                     <span className="JoinTitle">JOIN US!</span>
@@ -232,8 +216,7 @@ export default function Join() {
                                                                 </div>
                                                             </div>
 
-                                                        </m.div>
-                                                    </LazyMotion>
+                                                        </div>
                                                 </Suspense>
                                             )
                                         case 1:
@@ -487,13 +470,14 @@ export default function Join() {
 
                                                 <div className="space-between">
                                                     <Prev page={2} />
-                                                    <Next page={
-                                                        values.divisi === "Visual" ||
-                                                            values.divisi === "Dokumentasi" ||
-                                                            values.divisialt === "Dokumentasi" ||
-                                                            values.divisialt === "Visual" ? 4 : 5
-                                                    }
-                                                        disabled={!(values.divisi && values.divisialt)}
+                                                    <Next
+                                                        page={
+                                                            values.divisi === "Visual" ||
+                                                                values.divisi === "Dokumentasi" ||
+                                                                values.divisialt === "Dokumentasi" ||
+                                                                values.divisialt === "Visual" ? 4 : 5
+                                                        }
+                                                        disabled={!(values.divisi && values.divisialt) || !(values.divisi !== values.divisialt)}
                                                     />
                                                 </div>
 
@@ -514,7 +498,7 @@ export default function Join() {
                                                     className="textarea"
                                                     id="portofolio"
                                                     multiline
-                                                    minRows={3}
+                                                    maxRows={3}
                                                 />
                                                 <p className="error">
                                                     {errors.portofolio && touched.portofolio && errors.portofolio}
@@ -540,7 +524,7 @@ export default function Join() {
                                                     className="textarea"
                                                     id="jawaban"
                                                     multiline
-                                                    minRows={4}
+                                                    maxRows={3}
                                                 />
                                                 <p className="error">
                                                     {errors.jawaban && touched.jawaban && errors.jawaban}
@@ -569,7 +553,8 @@ export default function Join() {
                                                     placeholder="Masukan Jawaban"
                                                     id="jawaban2"
                                                     multiline
-                                                    minRows={4} />
+                                                    maxRows={3}
+                                                />
                                                 <p className="error">
                                                     {errors.jawaban2 && touched.jawaban2 && errors.jawaban2}
                                                 </p>

@@ -1,4 +1,3 @@
-
 import { Suspense, useEffect, useState, lazy } from "react";
 import "./Database.scss";
 import { GridToolbar } from "../../../Reusable/MaterialUICoreLazy/MaterialX"
@@ -19,8 +18,8 @@ const columns = [
     { field: 'angkatan', headerName: 'Angkatan', width: 130, editable: true },
     { field: 'nim', headerName: 'NIM', width: 130, editable: true },
     { field: 'email', headerName: 'Email', width: 130, editable: true },
-    { field: 'divisi', headerName: 'Divisi', width: 130, editable: true },
-    { field: 'divisialt', headerName: 'Divisi Alternatif', width: 130, editable: true },
+    { field: 'divisialt', headerName: 'Divisi', width: 130, editable: true },
+    { field: 'divisi', headerName: 'Divisi Alternatif', width: 130, editable: true },
     {
         field: 'ig', headerName: 'Instagram', width: 130, editable: true, renderCell: (params) => (
             <a href={`https://www.instagram.com/${params.value}`} target="_blank" rel="noreferrer">{params.value}</a>

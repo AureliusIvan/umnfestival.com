@@ -1,15 +1,21 @@
 @use "src/index" as index;
 
+
+$height : 200vh;
+
 .Announcement {
     @include index.center;
     position: relative;
     flex-direction: column;
     overflow: hidden;
-    will-change: height;
-    height: 100vh;
+    // will-change: height;
+    padding-top: 15vh;
+    min-height: $height;
+    height: fit-content;
     padding-bottom: 10vh;
 
     &::before {
+        filter: brightness(0.5) invert(0.7) hue-rotate(45deg);
         background-image: url('./../../../Asset/Image/Background/Homebg.webp');
         background-size: cover;
         background-position: center;
@@ -24,27 +30,42 @@
     }
 
     .Title {
+        margin: 0;
         z-index: 1;
         font-family: index.$font;
         color: index.$yellow;
         text-shadow: index.$text-shadow;
-        font-size: 40px !important;
+        font-size: 60px !important;
     }
 }
 
 .Content {
     z-index: 1;
+    height: fit-content;
+    min-height: 100vh;
+    min-width: max-content;
+    width: 50vw;
+    // border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    .image {
-        background-color: aqua;
-        height: 400px;
-        width: 400px;
-
-        @media screen and (max-width: 768px) {
-            height: 300px;
-            width: 300px;
-
-        }
+    .iframe {
+        overflow: visible;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: $height;
+        min-height: fit-content;
+        width: 100%;
+        border: none;
+        transform: scale(0.5);
     }
-}
 
+    @media screen and (max-width: 768px) {
+        height: 300px;
+        width: 300px;
+
+    }
+
+}

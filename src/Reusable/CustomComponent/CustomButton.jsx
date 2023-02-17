@@ -1,4 +1,3 @@
-import React from 'react'
 import './CustomComponent.scss'
 
 export default function CustomButton(props) {

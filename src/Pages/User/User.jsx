@@ -6,9 +6,10 @@ import { Route, Routes, Navigate, Outlet } from "react-router-dom";
 import VerifyEmail from "./VerifyEmail/VerifyEmail";
 import ProtectedRoute from "../../Route/ProtectedRoute";
 import EnterAnimation from "../../Reusable/Animation/EnterAnimation/EnterAnimation";
-import ComingSoon from "./ComingSoon/ComingSoon";
+
 import ProtectedRoutePathVerify from "../../Route/ProtectedRouteVerify";
-import Announcement from "./Announcement/Announcement";
+const Announcement = lazy(() => import("./Announcement/Announcement"));
+const ComingSoon = lazy(() => import("./ComingSoon/ComingSoon"));
 const NavbarUser = lazy(() => import("../../Reusable/NavbarUser/Navbar"));
 const NavbarMobile = lazy(() => import("../../Reusable/NavbarUser/NavbarMobile/NavbarMobile"));
 const Footer = lazy(() => import("../../Reusable/Footer/Footer"));
@@ -20,8 +21,10 @@ const Register = lazy(() => import("./Register/Register"));
 const Join = lazy(() => import("./Join/Join"));
 
 
-export default function User(props) {
+export default function User() {
+    // Check if screen is mobile
     const isMobile = useMediaQuery("(max-width: 960px)")
+    // Callback
     const HomeCallback = useCallback(() => {
         return <Home />
     }, [])
@@ -37,7 +40,6 @@ export default function User(props) {
 
 
     return (
-
         <div id="User-Page">
             <Routes>
                 <Route path="/" element={<>

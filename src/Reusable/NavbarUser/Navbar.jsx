@@ -66,6 +66,9 @@ export default function NavbarUser(props) {
                 <GridItem item md={'auto'} lg={'auto'}>
                     <NavbarButton state="division" Title={"Division"} />
                 </GridItem>
+                <GridItem item md={'auto'} lg={'auto'}>
+                    <NavbarButton state="announcement" Title={"announcement"} />
+                </GridItem>
                 {user === "user" ? "" :
                     <GridItem item md={'auto'} lg={'auto'}>
                         <NavbarButton state="login" Title={"Login"} />

@@ -15,7 +15,6 @@ import { Suspense, lazy, useState } from "react";
 import Thankyou from "./Thankyou/Thankyou";
 import { DivisiData, JurusanData } from "./AutoComplete/AutoComplete";
 import { JoinSchema } from "./JoinSchema";
-import { m, domAnimation, LazyMotion } from "framer-motion";
 // Redux
 import { useSelector, useDispatch } from "react-redux";
 import { userSetJoin } from "../../../Redux/features/users/userDataSlice";
@@ -23,7 +22,6 @@ import { selectuserName, selectuserEmail, selectuserNim } from "../../../Redux/f
 import { selectUser } from "../../../Redux/features/users/userDataSlice";
 import { useEffect } from "react";
 // Styling
-import { FileUploader } from "react-drag-drop-files";
 import "./UploadImage/UploadImage.scss"
 // URL
 import { postRequest } from "../../../Reusable/Service/AxiosClient";
@@ -31,18 +29,10 @@ import CustomButton from "../../../Reusable/CustomComponent/CustomButton";
 import { setCookie } from 'react-use-cookie';
 import Pilar from "../../../Reusable/ComponentItems/Pilar/Pilar";
 import { checkJoin } from "../../../Redux/features/users/userRoleSlice";
+import CoolTitle from "../../../Reusable/ComponentItems/CoolTitle/CoolTitle";
+// Lazy load to optimizing load speed
 const Alert = lazy(() => import("@mui/material/Alert"));
 const JoinPage0 = lazy(() => import("./Page/JoinPage0"));
-const Sparkles = lazy(() => import("../../../Reusable/Animation/Sparkle/Sparkle"));
-
-
-const fileTypes = [
-    "JPEG",
-    "JPG",
-    "PNG",
-    "IMG",
-];
-
 
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
@@ -77,6 +67,8 @@ export default function Join() {
     const isJoin = useSelector(checkJoin);
     // dispatch
     const dispatch = useDispatch();
+
+    // declare useEffect hook
     useEffect(() => {
         setCookie('recruitment', 'recruitment', { path: '/' });
         if (joinned === true || isJoin !== null) {
@@ -84,6 +76,7 @@ export default function Join() {
         }
         window.scrollTo(0, 0)
     }, [joinpage])
+
     function Prev(props) {
         return (
             <CustomButton
@@ -93,6 +86,7 @@ export default function Join() {
                 }}>PREV</CustomButton>
         )
     }
+
     function Next(props) {
         return (
             <CustomButton
@@ -103,6 +97,8 @@ export default function Join() {
                 }}>NEXT</CustomButton>
         )
     }
+
+    // return here
     return (
         <div>
             <Formik
@@ -202,21 +198,21 @@ export default function Join() {
                                         case 0:
                                             return (
                                                 <Suspense fallback={<div>Loading...</div>}>
-                                                        <div>
-                                                            <div className="page1">
-                                                                <Sparkles>
-                                                                    <span className="JoinTitle">JOIN US!</span>
-                                                                </Sparkles>
-                                                                <Divider />
-                                                                <JoinPage0 />
-                                                                <div className="center">
-                                                                    <CustomButton type="button" onClick={() => {
-                                                                        Setjoinpage(1)
-                                                                    }}>Let's GO</CustomButton>
-                                                                </div>
+                                                    <div>
+                                                        <div className="page1">
+                                                            <CoolTitle>
+                                                                JOIN US!
+                                                            </CoolTitle>
+                                                            <Divider />
+                                                            <JoinPage0 />
+                                                            <div className="center">
+                                                                <CustomButton type="button" onClick={() => {
+                                                                    Setjoinpage(1)
+                                                                }}>Let's GO</CustomButton>
                                                             </div>
-
                                                         </div>
+
+                                                    </div>
                                                 </Suspense>
                                             )
                                         case 1:
@@ -235,10 +231,10 @@ export default function Join() {
                                                                 placeholder="Masukan Jurusan"
                                                                 name="jurusan"
                                                                 fullWidth
-                                                            /></Suspense>}
+                                                            />
+                                                        </Suspense>}
                                                     isOptionEqualToValue={(option, value) =>
-                                                        value === undefined || value === "" || option.id === value.id
-                                                    }
+                                                        value === undefined || value === "" || option.id === value.id}
                                                     onChange={(_, data) => setFieldValue("jurusan", data.label)}
                                                 />
                                                 <p className="error">

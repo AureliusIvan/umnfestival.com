@@ -1,21 +1,19 @@
 @use "src/index" as index;
 
 
-$height : 200vh;
+$height : 100vh;
 
 .Announcement {
     @include index.center;
     position: relative;
     flex-direction: column;
     overflow: hidden;
-    // will-change: height;
-    padding-top: 15vh;
+    padding-top: 5vh;
     min-height: $height;
     height: fit-content;
     padding-bottom: 10vh;
 
     &::before {
-        filter: brightness(0.5) invert(0.7) hue-rotate(45deg);
         background-image: url('./../../../Asset/Image/Background/Homebg.webp');
         background-size: cover;
         background-position: center;
@@ -27,45 +25,18 @@ $height : 200vh;
         width: 100%;
         height: 100%;
         background-color: index.$black;
+        z-index: -1;
     }
 
-    .Title {
-        margin: 0;
-        z-index: 1;
-        font-family: index.$font;
-        color: index.$yellow;
-        text-shadow: index.$text-shadow;
-        font-size: 60px !important;
+    .object {
+        height: 100vh;
+        width: 90vw;
+        // padding: 20px;
+        margin: 20px;
     }
-}
-
-.Content {
-    z-index: 1;
-    height: fit-content;
-    min-height: 100vh;
-    min-width: max-content;
-    width: 50vw;
-    // border: 1px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
     .iframe {
-        overflow: visible;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: $height;
-        min-height: fit-content;
-        width: 100%;
-        border: none;
-        transform: scale(0.5);
+        // height: 600px;
+        // width: 50vw;
     }
-
-    @media screen and (max-width: 768px) {
-        height: 300px;
-        width: 300px;
-
-    }
-
 }

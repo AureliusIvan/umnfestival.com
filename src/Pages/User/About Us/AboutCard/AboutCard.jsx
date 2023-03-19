@@ -1,15 +1,14 @@
 import "./AboutCard.scss"
-import Sparkles from "../../../../Reusable/Animation/Sparkle/Sparkle";
-
+import CoolTitle from "../../../../Reusable/ComponentItems/CoolTitle/CoolTitle";
 
 export default function AboutCard(props) {
     return (
         <div className='About-Card'>
             <img src={props.logo} alt="event logo" className="Image" />
             <div className='Title'>
-                <Sparkles>
+                <CoolTitle>
                     {props.title}
-                </Sparkles>
+                </CoolTitle>
             </div>
             <div className='Desc'>
                 <span className="quo">&ldquo;</span>

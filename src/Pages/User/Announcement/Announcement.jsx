@@ -5,6 +5,8 @@ import "./Announcement.scss";
 import File from "./File/pengumuman.pdf";
 import React, { useState } from 'react';
 import Sparkles from '../../../Reusable/Animation/Sparkle/Sparkle';
+import CoolTitle from '../../../Reusable/ComponentItems/CoolTitle/CoolTitle';
+import CustomButton from '../../../Reusable/CustomComponent/CustomButton';
 // import { Document, Page } from 'react-pdf';
 // const reactPdf = require('react-pdf/dist/esm/entry.webpack5')
 // const { Document, Page } = reactPdf
@@ -36,13 +38,7 @@ import Sparkles from '../../../Reusable/Animation/Sparkle/Sparkle';
 function Content() {
   return (
     <div className='Content'>
-      {/* <Document file={'https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjuyb70kpz9AhW7Z2wGHZ6rC1IQFnoECBIQAQ&url=http%3A%2F%2Feprints.umsida.ac.id%2F3295%2F1%2FTeknik%2520Penelusuran%2520Artikel%2520Ilmiah.pdf&usg=AOvVaw3r1OlGq1jP6iIOUsqKBTGi'}
-        // onLoadSuccess={onDocumentLoadSuccess}
-        onLoadError={console.error}
-      >
-        <Page />
-      </Document> */}
-      {/* <DisplayPDF /> */}
+      <iframe src="https://docs.google.com/document/d/e/2PACX-1vQYKTpBkTMAoAwusT-RNKkXSiHWl8XU7oXoJT6q9VRGPxQiY9T6zXyazpFtUXJ3yENB8VteS0tyU8E9/pub?embedded=true"></iframe>
     </div>
   )
 }
@@ -51,12 +47,23 @@ function Announcement() {
   return (
     <div className='Announcement'>
       <Pilar />
-      <Sparkles>
-        <h1 className='Title'>
-          Annoucement
-        </h1>
-      </Sparkles>
-      <Content />
+      <CoolTitle>
+        Announcement!
+      </CoolTitle>
+      {/* <object className='object' data={File} type="application/pdf" width="50vw" height="500px">
+      </object>
+      <iframe src="">
+      </iframe> */}
+      <br />
+      <a style={{
+        textDecoration: 'none',
+      }} href="https://drive.google.com/drive/folders/1lszNte3vX4iQA06Wn22usT9neYkJFwXT">
+        <CustomButton style={{
+          width: 'fit-content',
+        }}>
+          Check your name here!
+        </CustomButton>
+      </a>
     </div>
   )
 }

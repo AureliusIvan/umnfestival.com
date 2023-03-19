@@ -1,14 +1,15 @@
 import React, { useEffect } from 'react'
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { checkVerify } from '../Redux/features/users/userRoleSlice';
 
 const ProtectedRoutePathVerify = ({ children, path }) => {
     const Verify = useSelector(checkVerify);
+    const navigate = useNavigate();
     if (Verify !== null) {
         return children
     }
-    return <Navigate to="/verify" /> ;
+    return navigate('/verify');
 }
 
 export default ProtectedRoutePathVerify;

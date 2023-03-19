@@ -1,12 +1,18 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { selectuserRole } from '../../../../../Redux/features/users/userRoleSlice';
+import {
+    useDispatch,
+    useSelector
+} from 'react-redux';
+import {
+    selectuserRole
+} from '../../../../../Redux/features/users/userRoleSlice';
 import './HomeButton.scss';
 import ButtonIMG from "./../../../../../Asset/Image/OtherIcon/Button.webp";
 import { LazyMotion, domAnimation, m } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { selectPageLoading } from '../../../../../Redux/features/users/userSoundSlice';
+// import { Button } from '@material-ui/core';
 
-export default function HomeButton() {
+export default function HomeButton(props) {
     const navigate = useNavigate();
     const userRole = useSelector(selectuserRole);
     const loading = useSelector(selectPageLoading);
@@ -14,14 +20,18 @@ export default function HomeButton() {
         console.log(loading);
         if (userRole === "user") {
             navigate('/recruitment');
+            // return <Navigate to="/recruitment" />
         } else {
             navigate('/login');
         }
     }
     return (
+
         <LazyMotion features={domAnimation}>
-            <m.div className="HomeButton"
-                onClick={handler}
+            <m.a
+                // href="https://drive.google.com/drive/folders/1hmgumWrge7PrqRTGw9ONISu12gFUtjsl?usp=sharing"
+                href={props.href ? props.href : ""}
+                className="HomeButton"
                 initial={{
                     opacity: 0,
                 }}
@@ -32,12 +42,16 @@ export default function HomeButton() {
                         duration: 1
                     }
                 }}
+                onClick={props.onClick ? props.onClick : handler}
+                {...props}
             >
                 <img className='background' width={'auto'} height="auto" src={ButtonIMG} alt="Home Button" loading='lazy' />
                 <span className="front">
-                    LET'S GO SPARTA!
+                    {/* LET'S GO SPARTA! */}
+                    {/* YOU ARE THE CHOOSEN ONE */}
+                    {props.children ? props.children : "Jadwal Interview Batch 2"}
                 </span>
-            </m.div>
-        </LazyMotion>
+            </m.a>
+        </LazyMotion >
     )
 }

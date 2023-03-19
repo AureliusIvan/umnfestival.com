@@ -1,17 +1,17 @@
 @use "src/index" as index;
 
-
 .home {
+    // Page layouting
     @include index.center;
     position: relative;
     flex-direction: column;
     overflow: hidden;
     height: 670px;
-    min-height: 100vh;
+    min-height: 110vh;
     padding-bottom: 10vh;
     overflow: hidden;
+    // Initial background when page load
     background: rgb(0, 0, 0);
-
 
     &::before {
         @include index.prevent-select;
@@ -29,21 +29,15 @@
         height: 100%;
         background-color: index.$black;
         opacity: 0;
-        animation: enteringbg 0.3s ease-in forwards;
+        animation: Bg-from-black-to-light 0.3s ease-in forwards;
         animation-delay: 2.2s;
+        will-change: opacity;
 
-        @keyframes enteringbg {
+        @keyframes Bg-from-black-to-light {
             to {
                 opacity: 1;
             }
         }
-    }
-
-
-    h1 {
-        font-size: 100px;
-        font-weight: bolder;
-        color: index.$black;
     }
 
     .home-image {
@@ -67,49 +61,9 @@
         }
     }
 
-    .heading {
-        @include index.prevent-select;
-        font-family: index.$font;
-        color: index.$yellow;
-        text-shadow: index.$text-shadow;
-        width: auto;
-        height: 45px;
-        overflow: hidden;
-        margin: 20px;
-        margin-top: 50px;
-        z-index: index.$z-index-4;
-        pointer-events: none;
-        font-size: 50px;
-        font-weight: bold;
-
-    }
-
     @media screen and (max-width: index.$sm) {
         .heading {
             font-size: 40px;
-            // height: 40px;
-
-        }
-    }
-
-    .pilar {
-        position: absolute;
-        width: 80vh;
-        height: 110vh;
-        bottom: 0px;
-        transform: scale(1.25) !important;
-        -webkit-filter: drop-shadow(0px 0px 15px rgba(0, 0, 0));
-        filter: drop-shadow(0px 0px 15px rgba(0, 0, 0));
-        z-index: index.$z-index-3;
-
-        &.left {
-            @include index.image('./../../../Asset/Image/Background/pilarLeft.webp');
-            left: -192px;
-        }
-
-        &.right {
-            @include index.image('./../../../Asset/Image/Background/pilarRight.webp');
-            right: -192px;
         }
     }
 }

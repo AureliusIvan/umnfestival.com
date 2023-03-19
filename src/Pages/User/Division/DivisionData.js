@@ -14,6 +14,15 @@ import Tyche from './../../../Asset/Image/divison Logo/Tyche.webp'
 
 
 
+// BPH Atlas
+// Acara Metis
+// Dekorasi Antheia
+// Dokumentasi Mnemosyne
+// Fresh Money Tyche
+// Keamanan Themis
+// Konsumsi Demeter
+
+
 export const DivisionData = [
 
     {

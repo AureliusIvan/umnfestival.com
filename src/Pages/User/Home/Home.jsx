@@ -1,58 +1,100 @@
-// react
+// *Home Page*
+// [Import]
 import { Suspense, lazy, useEffect, useState, useCallback } from "react";
 // styling
 import "./Home.scss";
 import { useMediaQuery } from "@mui/material";
 import { setCookie } from "react-use-cookie";
-import { CounterTesting } from "./Component/UFESTLOGO/WordAnimate/Testing";
+import { CounterTesting as UfestCaption } from "./Component/UFESTLOGO/WordAnimate/Testing";
 import { Helmet } from "react-helmet-async";
+import CustomButton from "../../../Reusable/CustomComponent/CustomButton";
+import { Navigate, useNavigate } from "react-router-dom";
+import Sparkles from "../../../Reusable/Animation/Sparkle/Sparkle";
+// Lazy load to increase page load performance
 const HomeButton = lazy(() => import("./Component/HomeButton/HomeButton"));
-const UFESTLOGO = lazy(() => import("./Component/UFESTLOGO/UFESTLOGO"));
-const PilarHome = lazy(() => import("./pilar"));
+const Ufest_Logo = lazy(() => import("./Component/UFESTLOGO/UFESTLOGO"));
+const PilarHome = lazy(() => import("./Home-Pilar"));
 
-// start from here
+
+// [Main function start here]
 export default function Home(props) {
+    // Check if screen mobile or desktop
     const [isMobile] = useState(useMediaQuery("(max-width: 700px)"));
+    const navigate = useNavigate();
+    // declare useEffect
     useEffect(() => {
         setCookie('home', 'home', { path: '/' });
         window.scrollTo(0, 0)
     }, []);
+    // 
     const MemoLogo = useCallback(() => {
-        return <UFESTLOGO />
+        return <Ufest_Logo />
     }, [])
 
     const MemoTag = useCallback(() => {
-        return <CounterTesting choice={'welcome'} />
+        return <UfestCaption choice={'welcome'} />
     }, [])
 
+    // return start here
     return (<>
+        {/* Helmet for SEO and META TAGS */}
         <Helmet>
             <title>Home | UMN Festival 2023</title>
-            <meta name="description" content="Home | Click let's go sparta to start your journey!" />
-            <link rel="canonical" href="https://www.umnfestival.com/home" />
+            <meta name="description" content="Home | Click button to start your journey with UFEST!" />
+            <link rel="canonical" href="https://www.umnfestival.com" />
         </Helmet>
+        {/* Home component start here */}
         <div className="home">
+            {/* Conditional rendering for mobile and desktop mode*/}
+            {/* Provide better performance on mobile by removing heavy logo animation on desktop ver */}
             {isMobile ?
                 <>
+                    {/* Mobile version */}
                     <div
                         rel="preload"
                         loading="lazy"
                         decoding="async"
                         className="home-image"
                     />
-                    <MemoTag />
-                    <HomeButton />
                 </>
                 :
                 <>
+                    {/* Desktop Version */}
                     <Suspense fallback={""}>
                         <PilarHome />
                     </Suspense>
                     <MemoLogo />
-                    <MemoTag />
-                    <HomeButton />
                 </>
             }
+            <MemoTag />
+
+            <HomeButton onClick={false} href="https://drive.google.com/drive/folders/1p83iax16T0uMPSV7k0XknTbwCsaB58CV" >
+                Welcome Our Spartan
+            </HomeButton>
+            <br />
+            <br />
+            {/* <HomeButton>
+                Your Second Chance To Be A Spartan!
+            </HomeButton> */}
+
+            {/* <a
+                style={{
+                    textDecoration: 'none',
+                    zIndex: 1,
+                }}
+                href="https://drive.google.com/drive/folders/1lszNte3vX4iQA06Wn22usT9neYkJFwXT">
+                <CustomButton
+                    style={{
+                        width: 'fit-content',
+                        zIndex: 1,
+                    }}>
+                    {/* See Interview Schedule here! */}
+            {/* <Sparkles>
+                        YOU ARE THE CHOOSEN ONE
+                    </Sparkles>
+                </CustomButton> */}
+            {/* </a>  */}
+            {/* */}
         </div>
     </>
     )

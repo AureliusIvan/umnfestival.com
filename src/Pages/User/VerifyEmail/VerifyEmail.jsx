@@ -1,3 +1,5 @@
+// *Verify User Email Func*
+// Import start here
 import React, { useEffect, useState } from 'react'
 import './VerifyEmail.scss'
 import { useNavigate } from 'react-router-dom';
@@ -5,32 +7,43 @@ import { CircularProgress } from '../../../Reusable/MaterialUICoreLazy/MaterialU
 import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { checkVerify } from '../../../Redux/features/users/userRoleSlice';
+// end
 
 
-function VerifyEmail() {
+
+// main func start here
+export default function VerifyEmail() {
+    // [Declare and assign variable]
+    // verify is store value to check wheter user account has been verified or haven't
     const verify = useSelector(checkVerify);
-    let email;
-    let ID;
-
+    // navigate with react router
     const navigate = useNavigate();
+    // store value, whether backend already sent the email or not
+    const [sent, setSent] = useState(false);
+    // store value, whether loading is true or false
+    const [loading, setLoading] = useState(false);
+    // store value whether error is true or false
+    const [error, setError] = useState(false);
+    // store email and user ID
+    let email, ID;
+
+    // [useEffect hooks] 
     useEffect(() => {
+        // if user was not verify, it will navigate to home
         if (verify !== null) {
             navigate("/");
         }
+        // scroll windows to top, when page is rendered
         window.scrollTo(0, 0);
+        // store value to allow backend to send email
         email = localStorage.getItem('Email');
         ID = localStorage.getItem('LoginID');
-        // console.log(email);
     }, [])
 
-    const [sent, setSent] = useState(false);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(false);
-
+    // When function is called, function will trying to send email from registered email
     async function verifyEmail() {
         setLoading(true);
         try {
-
             await axios.post('https://databaseufest.aureliusivan.my.id/api/email/verification-notification', { email: email }, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
@@ -50,10 +63,8 @@ function VerifyEmail() {
                     setLoading(false);
                 })
         } catch (error) {
-            console.log(error);
             setSent(false);
             setError(true);
-            console.log(localStorage.getItem('Email'));
             setLoading(false);
 
         }
@@ -88,11 +99,8 @@ function VerifyEmail() {
                     }
                 </div>}
                 <br />
-
                 <br />
             </div>
         </div>
     )
 }
-
-export default VerifyEmail;

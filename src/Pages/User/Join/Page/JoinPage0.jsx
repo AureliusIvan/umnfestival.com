@@ -1,3 +1,5 @@
+// This is Recruitment welcome page
+// Import
 import * as React from 'react';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -17,7 +19,7 @@ const CustomList = styled(List)(({ theme }) => ({
 }));
 
 
-
+// main func
 export default function JoinPage0() {
     return (
         <div className='JoinPage0'>
@@ -44,9 +46,7 @@ export default function JoinPage0() {
                             <p className='desc'>
                                 {"Specifically for the Visual and Documentation division. "}
                                 {"Portfolio is uploaded to Google Drive. Make sure the link is publicly accessible."}
-                            </p>
-                        }
-                    />
+                            </p>} />
                 </ListItem>
             </CustomList>
         </div>

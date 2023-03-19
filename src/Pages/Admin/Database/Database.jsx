@@ -1,15 +1,16 @@
+// *Admin Database Page*
+// Import
 import { Suspense, useEffect, useState, lazy } from "react";
 import "./Database.scss";
 import { GridToolbar } from "../../../Reusable/MaterialUICoreLazy/MaterialX"
 import { getRequest } from "../../../Reusable/Service/AxiosClient";
 
+// 
 const CustomGridLazy = lazy(() =>
     import("./CustomGrid").then((module) => ({
         default: module.CustomGrid,
     }))
 );
-
-
 
 const columns = [
     { field: 'id', headerName: 'ID', width: 70 },

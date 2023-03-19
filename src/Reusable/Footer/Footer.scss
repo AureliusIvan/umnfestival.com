@@ -1,5 +1,6 @@
 @use "src/index" as index;
 
+// Declare scss local variable
 $title-font-size: 30px;
 $font-size: 20px;
 $margin-start: 20px;
@@ -22,20 +23,7 @@ $margin-start: 20px;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#b28a67", endColorstr="#926445", GradientType=1);
     z-index: index.$z-index-2;
     position: relative;
-    // -webkit-mask-image: url("https://ucarecdn.com/9514f9b1-3bf9-4b7c-b31d-9fb8cd6af8bf/");
-    // mask-image: url("https://ucarecdn.com/9514f9b1-3bf9-4b7c-b31d-9fb8cd6af8bf/");
-
-
-    // &::after {
-    //     content: "";
-    //     position: absolute;
-    //     top: 0;
-    //     z-index: index.$z-index-3;
-    //     height: 100%;
-    //     width: 100%;
-
-    // }
-
+    
     .title {
         @include index.prevent-select;
         color: index.$yellow;

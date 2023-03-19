@@ -1,9 +1,5 @@
 @use "src/index" as index;
 
-textarea {
-    resize: none;
-}
-
 .join {
     @include index.background("./../../../Asset/Image/Background/Homebg.webp");
     @include index.center;
@@ -54,7 +50,6 @@ textarea {
         @include index.form-layout("./../../../Asset/Image/OtherIcon/paperfull.webp");
         height: fit-content;
         position: relative;
-
 
 
         @media screen and (max-width: index.$md) {
@@ -163,6 +158,14 @@ textarea {
         .Img-Placeholder {
             max-width: 50px;
             max-height: 50px;
+        }
+
+        // special for join closed page
+        .join-closed-content {
+            font-family: index.$font;
+            color: index.$yellow;
+            text-shadow: index.$text-shadow;
+            font-size: 25px;
         }
     }
 }

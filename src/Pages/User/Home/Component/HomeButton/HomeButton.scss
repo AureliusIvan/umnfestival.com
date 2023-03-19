@@ -48,7 +48,8 @@
         text-align: center;
         text-shadow: 2px 3px 9px rgba(0, 0, 0, 0.5);
         font-family: index.$font;
-        font-size: 27px;
+        // default is 27px
+        font-size: 18px;
         transform: scale(1.4) translateX(5px);
         position: absolute;
         z-index: index.$z-index-4;
@@ -59,9 +60,10 @@
         pointer-events: none;
 
         @media screen and (max-width: index.$sm) {
-            font-size: 27.1px;
-            width: 300px;
+            font-size: 19.1px;
+            // width: 200px;
             transform: translateY(-25px);
+            // border: 1px solid black;
 
         }
     }
@@ -71,3 +73,9 @@
 .HomeButton:hover {
     transform: scale(1.1);
 }
+
+// a {
+//     margin: 0;
+//     padding: 0;
+//     height: fit-content;
+// }

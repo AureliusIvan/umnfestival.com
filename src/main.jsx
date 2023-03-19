@@ -19,6 +19,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         </div>
       </BrowserRouter>
     </Provider >
-  </HelmetProvider>
-  ,
+  </HelmetProvider>,
 )

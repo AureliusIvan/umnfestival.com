@@ -16,8 +16,6 @@ import React, { useState, useEffect } from "react";
 // Redux
 import { useDispatch } from "react-redux";
 import { userRoleAdded } from "../../../Redux/features/users/userRoleSlice";
-// animation
-import { m, domAnimation, LazyMotion } from "framer-motion";
 // URL
 import { postRequest } from "../../../Reusable/Service/AxiosClient";
 import { useNavigate, Navigate } from "react-router-dom";
@@ -28,6 +26,7 @@ import { Helmet } from "react-helmet-async";
 import Sparkles from "../../../Reusable/Animation/Sparkle/Sparkle";
 
 
+// this is main func
 export default function Login() {
     // state
     useEffect(() => {
@@ -42,13 +41,16 @@ export default function Login() {
     // animation
     const navigate = useNavigate();
 
+    // return here
     return (
         <>
+            {/* Helmet for SEO opt */}
             <Helmet>
                 <title>Login | UMN Festival 2023</title>
                 <meta name="description" content="Login | Login now to complete your journey sparta!" />
                 <link rel="canonical" href="https://www.umnfestival.com/login" />
             </Helmet>
+            {/* Login start here */}
             <Formik
                 validationSchema={Loginschema}
                 initialValues={{
@@ -168,13 +170,6 @@ export default function Login() {
                                     </CustomButton>
                                 </div>
                             </form>
-                            <div className="center">
-                                {/* <p
-                                        className="ForgotPass"
-                                        onClick={() => { dispatch(pageChanged("register")) }}>
-                                        Forgot Password?
-                                    </p> */}
-                            </div>
                             <br />
                             <Box className="center bold" fontSize={["13px", "14px", "15px"]}>
                                 Don't have account?&nbsp;

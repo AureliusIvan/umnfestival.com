@@ -6,10 +6,10 @@ import { Suspense, lazy, useCallback } from "react";
 import LoadingScreen from "../../Reusable/LoadingScreen/LoadingScreen";
 import { Route, Routes, Navigate, Outlet } from "react-router-dom";
 import VerifyEmail from "./VerifyEmail/VerifyEmail";
-import ProtectedRoute from "../../Route/ProtectedRoute";
+import ProtectedRoute from "../../Route/Components/ProtectedRoute";
 import EnterAnimation from "../../Reusable/Animation/EnterAnimation/EnterAnimation";
-import ProtectedRoutePathVerify from "../../Route/ProtectedRouteVerify";
-import ProtectedRouteClosed from "../../Route/ProtectedRouteClosed";
+import ProtectedRoutePathVerify from "../../Route/Components/ProtectedRouteVerify";
+import ProtectedRouteClosed from "../../Route/Components/ProtectedRouteClosed";
 import JoinClosed from "./Join/JoinClosed";
 // Bellow is code spliting using react lazy load and react suspense
 // This method aim to make the code more easy to load on deployment by separating them into several smaller chunk

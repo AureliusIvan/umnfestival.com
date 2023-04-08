@@ -25,7 +25,7 @@ import { useEffect } from "react";
 import "./UploadImage/UploadImage.scss"
 // URL
 import { postRequest } from "../../../Reusable/Service/AxiosClient";
-import CustomButton from "../../../Reusable/CustomComponent/CustomButton";
+import CustomButton from "../../../Reusable/Button/Button";
 import { setCookie } from 'react-use-cookie';
 import Pilar from "../../../Reusable/ComponentItems/Pilar/Pilar";
 import { checkJoin } from "../../../Redux/features/users/userRoleSlice";

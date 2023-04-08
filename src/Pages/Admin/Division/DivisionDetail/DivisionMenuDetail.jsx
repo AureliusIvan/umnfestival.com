@@ -13,7 +13,7 @@ import { Button } from '../../../../Reusable/MaterialUICoreLazy/MaterialUICoreLa
 import { getRequest } from '../../../../Reusable/Service/AxiosClient';
 import { Modal } from '@mui/material';
 import "./DivisionMenuDetail.scss";
-import CustomButton from '../../../../Reusable/CustomComponent/CustomButton';
+import CustomButton from '../../../../Reusable/Button/Button';
 
 function DetailModal({ status, props }) {
     const [open, setOpen] = useState(false);

@@ -17,6 +17,8 @@ import { Helmet } from "react-helmet-async";
 const AboutCardMobile = lazy(() => import("./AboutCard/AboutCard"));
 
 
+
+
 // main func start here
 export default function About() {
   // useEffect hook

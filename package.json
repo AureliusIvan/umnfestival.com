@@ -1,14 +1,12 @@
 {
-  "name": "my-vue-app",
+  "name": "ufest2023-app",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
-    "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
@@ -24,6 +22,7 @@
     "@types/jest": "^29.4.0",
     "@types/node": "^18.11.18",
     "axios": "^1.2.2",
+    "date-fns": "^2.29.3",
     "formik": "^2.2.9",
     "framer-motion": "^8.4.6",
     "material-ui-popup-state": "^5.0.4",
@@ -46,16 +45,6 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.5.16",
-    "@storybook/addon-essentials": "^6.5.16",
-    "@storybook/addon-interactions": "^6.5.16",
-    "@storybook/addon-links": "^6.5.16",
-    "@storybook/builder-webpack5": "^6.5.16",
-    "@storybook/manager-webpack5": "^6.5.16",
-    "@storybook/node-logger": "^6.5.16",
-    "@storybook/preset-create-react-app": "^4.1.2",
-    "@storybook/react": "^6.5.16",
-    "@storybook/testing-library": "^0.0.13",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-react": "^3.0.0",

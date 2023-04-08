@@ -1,6 +1,6 @@
 
 import React from 'react'
-import CustomButton from '../CustomComponent/CustomButton'
+import CustomButton from '../Button/Button'
 import { setCookie } from "react-use-cookie";
 import { useDispatch } from 'react-redux';
 import { userCanPlay } from '../../Redux/features/users/userSoundSlice';

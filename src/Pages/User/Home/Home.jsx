@@ -1,26 +1,22 @@
 // *Home Page*
-// [Import]
 import { Suspense, lazy, useEffect, useState, useCallback } from "react";
-// styling
-import "./Home.scss";
+import style from "./Home.module.scss"
 import { useMediaQuery } from "@mui/material";
 import { setCookie } from "react-use-cookie";
 import { CounterTesting as UfestCaption } from "./Component/UFESTLOGO/WordAnimate/Testing";
 import { Helmet } from "react-helmet-async";
-import CustomButton from "../../../Reusable/CustomComponent/CustomButton";
-import { Navigate, useNavigate } from "react-router-dom";
-import Sparkles from "../../../Reusable/Animation/Sparkle/Sparkle";
+import { useNavigate } from "react-router-dom";
 // Lazy load to increase page load performance
 const HomeButton = lazy(() => import("./Component/HomeButton/HomeButton"));
 const Ufest_Logo = lazy(() => import("./Component/UFESTLOGO/UFESTLOGO"));
-const PilarHome = lazy(() => import("./Home-Pilar"));
+const PilarHome = lazy(() => import("./Component/HomePilar/Home-Pilar"));
 
 
 // [Main function start here]
-export default function Home(props) {
+export default function Home() {
     // Check if screen mobile or desktop
     const [isMobile] = useState(useMediaQuery("(max-width: 700px)"));
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     // declare useEffect
     useEffect(() => {
         setCookie('home', 'home', { path: '/' });
@@ -44,7 +40,7 @@ export default function Home(props) {
             <link rel="canonical" href="https://www.umnfestival.com" />
         </Helmet>
         {/* Home component start here */}
-        <div className="home">
+        <div className={style.home}>
             {/* Conditional rendering for mobile and desktop mode*/}
             {/* Provide better performance on mobile by removing heavy logo animation on desktop ver */}
             {isMobile ?

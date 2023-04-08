@@ -66,14 +66,10 @@ export default function Database(props) {
                                     ig: post.instagram_account,
                                     id_line: post.id_line,
                                     created_at: post.created_at,
-                                }
-                            )
-                        })
-                    }
+                                })
+                        })}
                     columns={columns}
-                    components={{ Toolbar: GridToolbar }}
-                >
-
+                    components={{ Toolbar: GridToolbar }}>
                 </CustomGridLazy>
             </Suspense>
         </div>)

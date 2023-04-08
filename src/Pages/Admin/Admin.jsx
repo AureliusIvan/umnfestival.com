@@ -1,7 +1,7 @@
 import { lazy, Suspense } from "react";
 import "./Admin.scss"
 import { Routes, Route, Outlet } from "react-router-dom";
-import ProtectedRoute from "../../Route/ProtectedRoute";
+import ProtectedRoute from "../../Route/Components/ProtectedRoute";
 const NavbarAdmin = lazy(() => import("./../../Reusable/NavbarAdmin/NavbarAdmin"));
 const Feature = lazy(() => import("./Feature/Feature"));
 const Division = lazy(() => import("./Division/Division"));

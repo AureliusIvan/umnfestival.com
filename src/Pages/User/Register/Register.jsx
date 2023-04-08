@@ -17,7 +17,7 @@ import { domAnimation, LazyMotion, m } from "framer-motion";
 import { userDataAdded } from "../../../Redux/features/users/userRoleSlice";
 import { useNavigate, useLocation } from "react-router-dom";
 import { postRequest } from "../../../Reusable/Service/AxiosClient";
-import CustomButton from "../../../Reusable/CustomComponent/CustomButton";
+import CustomButton from "../../../Reusable/Button/Button";
 import Alert from "@mui/material/Alert";
 import Pilar from "../../../Reusable/ComponentItems/Pilar/Pilar";
 import { Helmet } from "react-helmet-async";

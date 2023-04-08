@@ -1,16 +1,10 @@
-import {
-    useDispatch,
-    useSelector
-} from 'react-redux';
-import {
-    selectuserRole
-} from '../../../../../Redux/features/users/userRoleSlice';
+import { useSelector } from 'react-redux';
+import { selectuserRole } from '../../../../../Redux/features/users/userRoleSlice';
 import './HomeButton.scss';
 import ButtonIMG from "./../../../../../Asset/Image/OtherIcon/Button.webp";
 import { LazyMotion, domAnimation, m } from 'framer-motion';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { selectPageLoading } from '../../../../../Redux/features/users/userSoundSlice';
-// import { Button } from '@material-ui/core';
 
 export default function HomeButton(props) {
     const navigate = useNavigate();

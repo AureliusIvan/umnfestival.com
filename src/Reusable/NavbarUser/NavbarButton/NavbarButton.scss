@@ -7,7 +7,6 @@
     cursor: pointer;
     overflow: visible;
     background: none;
-    // width: 145px;
     height: 40px;
     border: none;
     position: relative;
@@ -52,7 +51,6 @@
 
 
     .ActiveLine {
-        // width: 100%;
         position: absolute;
         bottom: 0px;
 
@@ -66,6 +64,15 @@
             to {
                 stroke-dashoffset: 0;
 
+            }
+        }
+    }
+
+    @media screen and (min-width: index.$md) {
+        &:hover {
+            .Title {
+                transform: scale(1.1);
+                transition: 0.3s;
             }
         }
     }

@@ -1,22 +1,17 @@
 // Styling
 import "./Login.scss";
-// Material UI
 import {
     Box,
     CircularProgress,
 } from "../../../Reusable/MaterialUICoreLazy/MaterialUICoreLazy";
 import Alert from '@mui/material/Alert';
 import { Divider } from "@mui/material";
-import CustomButton from "../../../Reusable/CustomComponent/CustomButton.jsx";
-// Form Control
+import Button from "../../../Reusable/Button/Button.jsx";
 import { Formik } from "formik";
 import { Loginschema } from "./LoginSchema";
-// React
 import React, { useState, useEffect } from "react";
-// Redux
 import { useDispatch } from "react-redux";
 import { userRoleAdded } from "../../../Redux/features/users/userRoleSlice";
-// URL
 import { postRequest } from "../../../Reusable/Service/AxiosClient";
 import { useNavigate, Navigate } from "react-router-dom";
 import { setCookie } from "react-use-cookie";
@@ -26,7 +21,7 @@ import { Helmet } from "react-helmet-async";
 import Sparkles from "../../../Reusable/Animation/Sparkle/Sparkle";
 
 
-// this is main func
+// this is main function
 export default function Login() {
     // state
     useEffect(() => {
@@ -109,20 +104,17 @@ export default function Login() {
                     handleSubmit,
                     handleChange,
                 }) => (
-                    <div id="Login">
-                        <Pilar />
+                    <div id="Login"><Pilar />
                         {error === true && loading === false ?
-                            <>
-                                <Alert severity="error" sx={{
-                                    margin: '10px',
-                                    width: '80%',
-                                    position: 'absolute',
-                                    top: '8vh',
-                                    zIndex: '4',
-                                }}>
-                                    {errorText ? errorText : "Error"}
-                                </Alert>
-                            </>
+                            <Alert severity="error" sx={{
+                                margin: '10px',
+                                width: '80%',
+                                position: 'absolute',
+                                top: '8vh',
+                                zIndex: '4',
+                            }}>
+                                {errorText ? errorText : "Error"}
+                            </Alert>
                             : ""}
                         <Box className="form" paddingX={["20px", "30px", "45px"]}>
                             <form noValidate onSubmit={handleSubmit}>
@@ -156,7 +148,7 @@ export default function Login() {
                                 </p>
                                 <br />
                                 <div className="center">
-                                    <CustomButton
+                                    <Button
                                         type="submit"
                                         disabled={!(errors.email === undefined && errors.password === undefined) || (loading === true)}
                                         onClick={handleSubmit}
@@ -167,7 +159,7 @@ export default function Login() {
                                                 width: '10px',
                                             }}
                                         />) : "Login"}
-                                    </CustomButton>
+                                    </Button>
                                 </div>
                             </form>
                             <br />

@@ -6,7 +6,7 @@ import File from "./File/pengumuman.pdf";
 import React, { useState } from 'react';
 import Sparkles from '../../../Reusable/Animation/Sparkle/Sparkle';
 import CoolTitle from '../../../Reusable/ComponentItems/CoolTitle/CoolTitle';
-import CustomButton from '../../../Reusable/CustomComponent/CustomButton';
+import CustomButton from '../../../Reusable/Button/Button';
 // import { Document, Page } from 'react-pdf';
 // const reactPdf = require('react-pdf/dist/esm/entry.webpack5')
 // const { Document, Page } = reactPdf

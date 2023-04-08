@@ -2,12 +2,11 @@ import { useState } from 'react';
 import "./Profile.scss"
 import { getRequest } from '../../Service/AxiosClient';
 import { useDispatch, useSelector } from 'react-redux';
-import { pageChanged } from '../../../Redux/features/page/pageSlice';
 import { userRoleAdded } from '../../../Redux/features/users/userRoleSlice';
 import { Modal } from "@mui/material";
 import { selectuserName } from '../../../Redux/features/users/userRoleSlice';
 import { selectuserNim } from '../../../Redux/features/users/userRoleSlice';
-import CustomButton from '../../CustomComponent/CustomButton';
+import CustomButton from '../../Button/Button';
 import Avatar from '@mui/material/Avatar';
 import { CircularProgress } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
@@ -32,7 +31,6 @@ export default function Profile(props) {
                     console.log(res);
                     if (res.data.success === true) {
                         localStorage.removeItem('LoginID');
-                        dispatch(pageChanged('login'));
                         dispatch(userRoleAdded('guest'));
                         Setloading(false);
                         navigate("/");

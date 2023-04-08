@@ -5,7 +5,7 @@
     @include index.center;
     position: fixed;
     z-index: index.$z-index-7;
-    filter: brightness(0.8);
+    filter: brightness(0.6);
 
     &::after {
         @include index.full-screen;
@@ -35,10 +35,6 @@
     position: fixed;
     z-index: index.$z-index-7;
     background-color: index.$yellow;
-    // background-image: url(./../../Asset/Image/OtherIcon/paperfull.webp);
-    // background-size: 145vw 120vh;
-    // background-position: center;
-    // background-repeat: no-repeat;
     opacity: 0.8;
     transition: 0.5s;
     animation: fadeOut 0.5s forwards;

@@ -1,13 +1,5 @@
 @use "src/index" as index;
 
-* {
-
-    input:-webkit-autofill,
-    input:-webkit-autofill:focus {
-        transition: background-color 600000s 0s, color 600000s 0s;
-    }
-}
-
 #About {
     @include index.center;
     flex-direction: column;

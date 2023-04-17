@@ -2,7 +2,7 @@
 import Pilar from '../../../Reusable/ComponentItems/Pilar/Pilar';
 import AnnouncementCard from './Components/AnnouncementCard';
 import "./Announcement.scss";
-import File from "./File/pengumuman.pdf";
+// import File from "./File/pengumuman.pdf";
 import React, { useState } from 'react';
 import Sparkles from '../../../Reusable/Animation/Sparkle/Sparkle';
 import CoolTitle from '../../../Reusable/ComponentItems/CoolTitle/CoolTitle';

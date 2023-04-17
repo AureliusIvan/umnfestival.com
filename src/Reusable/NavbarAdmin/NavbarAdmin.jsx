@@ -1,8 +1,6 @@
 import React from "react";
 import "./NavbarAdmin.scss";
 import { useSelector, useDispatch } from "react-redux";
-import { selectPage } from "../../Redux/features/page/pageSlice";
-import { pageChanged } from "../../Redux/features/page/pageSlice";
 import axios from "axios";
 import { userRoleAdded } from "../../Redux/features/users/userRoleSlice";
 import { URL } from "../Service/URL";
@@ -24,7 +22,7 @@ export default function NavbarAdmin(props) {
         })
             .then((res) => {
                 localStorage.removeItem('LoginID');
-                dispatch(pageChanged('login'));
+                // dispatch(pageChanged('login'));
                 dispatch(userRoleAdded('guest'));
                 navigate('/login');
             }

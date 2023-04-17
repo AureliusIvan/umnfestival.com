@@ -1,7 +1,7 @@
 import "./DivisionNav.scss"
-import { DivisionData } from "../../../User/Division/DivisionData";
-import { useSelector } from "react-redux";
-import { selectPage } from "../../../../Redux/features/page/pageSlice";
+// import { DivisionData } from "../../../User/Division/DivisionData";
+// import { useSelector } from "react-redux";
+// import { selectPage } from "../../../../Redux/features/page/pageSlice";
 
 function DivisionNavCard(props) {
     return (<>

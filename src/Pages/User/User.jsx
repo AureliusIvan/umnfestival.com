@@ -11,6 +11,7 @@ import EnterAnimation from "../../Reusable/Animation/EnterAnimation/EnterAnimati
 import ProtectedRoutePathVerify from "../../Route/Components/ProtectedRouteVerify";
 import ProtectedRouteClosed from "../../Route/Components/ProtectedRouteClosed";
 import JoinClosed from "./Join/JoinClosed";
+import Preulympic from "./Preulympic/Preulympic";
 // Bellow is code spliting using react lazy load and react suspense
 // This method aim to make the code more easy to load on deployment by separating them into several smaller chunk
 const Announcement = lazy(() => import("./Announcement/Announcement"));
@@ -65,7 +66,8 @@ export default function User() {
                     <Outlet />
                     <Footer />
                 </>}>
-                    <Route path="/" element={<Suspense fallback={<LoadingScreen />}><HomeCallback /></Suspense>} />
+                    {/* <Route path="/" element={<Suspense fallback={<LoadingScreen />}><HomeCallback /></Suspense>} /> */}
+                    <Route path="/" element={<Suspense fallback={<LoadingScreen />}><Preulympic /></Suspense>} />
                     <Route path="Announcement" element={<Suspense fallback={<LoadingScreen />}>
                         <Announcement />
                     </Suspense>} />
@@ -105,9 +107,9 @@ export default function User() {
                         <ProtectedRoute user={"user"}>
                             <ProtectedRoutePathVerify>
                                 <ProtectedRouteClosed status={0}>
-                                <Suspense fallback={<LoadingScreen />}>
-                                    <Join />
-                                </Suspense>
+                                    <Suspense fallback={<LoadingScreen />}>
+                                        <Join />
+                                    </Suspense>
                                 </ProtectedRouteClosed>
                             </ProtectedRoutePathVerify>
                         </ProtectedRoute>

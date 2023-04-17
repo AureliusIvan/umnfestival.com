@@ -66,8 +66,8 @@ export default function User() {
                     <Outlet />
                     <Footer />
                 </>}>
-                    {/* <Route path="/" element={<Suspense fallback={<LoadingScreen />}><HomeCallback /></Suspense>} /> */}
-                    <Route path="/" element={<Suspense fallback={<LoadingScreen />}><Preulympic /></Suspense>} />
+                    <Route path="/" element={<Suspense fallback={<LoadingScreen />}><HomeCallback /></Suspense>} />
+                    {/* <Route path="/" element={<Suspense fallback={<LoadingScreen />}><Preulympic /></Suspense>} /> */}
                     <Route path="Announcement" element={<Suspense fallback={<LoadingScreen />}>
                         <Announcement />
                     </Suspense>} />

@@ -12,7 +12,7 @@ import TestLogo from "../Reusable/ComponentItems/Logo/TestLogo"
 export default function Routing() {
     return (
         <Routes>
-                <Route path="/*" element={<TestLogo />} />
+                <Route path="/*" element={<TestLogo/>} />
         </Routes>
 
 

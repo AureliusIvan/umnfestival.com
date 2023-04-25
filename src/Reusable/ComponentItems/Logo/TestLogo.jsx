@@ -1,14 +1,9 @@
-//buat nge view logo-logonya, kalo udah ga kepake di delete aja
-import LogoWhite from "./LogoWhite";
-import LogoColor from "./LogoColor";
-import LogoBlack from "./LogoBlack";
+import Logo from "./Logo"
 
-export default function Logo() {
+export default function TestLogo() {
     return (
-            <div>
-                <LogoColor />
-                <LogoWhite />
-                <LogoBlack />
-            </div>
+        <div>
+            <Logo variant="black" glow={true} width="150px" height="150px"/>
+        </div>
     )
 }

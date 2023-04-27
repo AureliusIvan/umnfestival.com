@@ -11,21 +11,16 @@ export default function Logo(props) {
         "white":LogoWhite
     };
     const selectedLogo = SwitchLogo[variant] || LogoColor;
-    
-    const isGlow = {
-        true: "drop-shadow(0px 0px 50px rgba(246,232,229,255))",
-        false:"drop-shadow(0px 0px 0px rgba(246,232,229,255))"
-    };
 
-
-    console.log(glow);
     const styles = {
         width : props.width || "100%",
-        height : props.height || "auto",
-        'WebkitFilter': isGlow[glow],
-        filter: isGlow[glow] 
+        height : props.height || "auto"
     }
-
+    
+    if(glow){
+        styles["filter"] = "drop-shadow(0px 0px 100px rgba(255, 255, 255, 0.8))";
+    }
+    
 
     return (
             <div className="background">

@@ -1,12 +1,3 @@
-<<<<<<< Updated upstream
-import React from 'react'
-
-export default function Preulympic() {
-    return (
-        <div>Preulympic</div>
-    )
-}
-=======
 //React
 import { Link } from "react-router-dom";
 import "./Preulympic.scss";
@@ -39,7 +30,7 @@ export function PreulympicForm() {
         validationSchema={Loginschema}
         initialValues={{
           teamName: "",
-          number: ""
+          numberOfPlayers: ""
         }}
         onSubmit={(values) => {
           // async function Submit() {
@@ -65,7 +56,7 @@ export function PreulympicForm() {
           // Submit();
           navigate("/PreulympicRegistrationUser");
           setCookie("teamName", values.teamName);
-          setCookie("numberOfPlayers", values.number);
+          setCookie("numberOfPlayers", values.numberOfPlayers);
         }}
       >
         {({
@@ -101,10 +92,11 @@ export function PreulympicForm() {
                     <div className="preulympic-req-group">
                       <label htmlFor="numberOfPlayers">Jumlah Pemain:</label>
                       <input
+                        name="numberOfPlayers"
                         type="number"
                         placeholder="Jumlah Player 5 - 7"
                         id="numberOfPlayers"
-                        value={numberOfPlayers}
+                        // value={numberOfPlayers}
                         onChange={handleChange}
                         autoComplete="off"
                       />
@@ -159,4 +151,3 @@ export default function Preulympic() {
   </>
   );
 }
->>>>>>> Stashed changes

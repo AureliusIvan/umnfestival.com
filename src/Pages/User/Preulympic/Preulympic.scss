@@ -1,0 +1,308 @@
+@use "src/index" as index;
+
+.pre-olympic {
+  padding-top: 10vh;
+  filter: brightness(0.9) contrast(90%);
+  background-color: rgba(131, 71, 16, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+  background-image: url("./../../../Asset/Image/Background/PageUlympic.jpg");
+  background-position: center;
+  background-size: cover;
+
+  &__logo {
+    background-image: url("./../../../Asset/Image/Ufest Logo/ufestlogocolor.webp");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 30vh;
+    height: 30vh;
+
+    // Flexbox properties
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    // box-shadow: 0px 0px 10px 0px #FFFFFF;
+
+    @media screen and (max-width: 768px) {
+      width: 20vh;
+      height: 30vh;
+      margin-top: 20px;
+    }
+  }
+
+  &__title {
+    h1 {
+      font-family: Rocket-Vintage;
+      color: #ffffff;
+      font-size: 48px;
+      font-weight: bold;
+      text-align: center;
+
+      @media screen and (max-width: index.$sm) {
+        font-size: 36px;
+      }
+    }
+  }
+
+  &__description {
+    margin-bottom: 20px;
+    max-width: 600px;
+
+    p {
+      font-family: Louis George Cafe;
+      font-style: normal;
+      letter-spacing: 0.03em;
+      color: #ffffff;
+      font-size: 30px;
+      line-height: 35px;
+      text-align: center;
+      position: absolute;
+      width: 70%; //lebar
+      top: 55%; //jarak dari atas
+      transform: translate(-50%, -50%);
+
+      @media screen and (max-width: 640px) {
+        font-size: 16px;
+        width: 70%;
+        line-height: 20px;
+        top: 50%;
+        text-align: center;
+      }
+    }
+  }
+
+  &__cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    p {
+      font-family: Louis George Cafe;
+      color: #ffffff;
+      font-size: 24px;
+      font-style: italic;
+      font-weight: bold;
+      text-align: center;
+      position: absolute;
+      top: 70%; //jarak dari atas
+
+      @media screen and (max-width: index.$sm) {
+        font-size: 20px;
+        top: 70%;
+      }
+    }
+
+    .btn {
+      font-family: Rocket-Vintage;
+      color: #ffffff;
+      font-size: 25px;
+      padding: 10px 60px;
+      position: absolute;
+      top: 80%;
+      border-radius: 20px;
+      background-color: RGBA(204, 88, 25, 0.53);
+      border: 2px solid #ffffff;
+      text-decoration: none;
+      transition: background 0.3s ease;
+
+      &:hover {
+        cursor: pointer;
+        background: #CC5819;
+        box-shadow: 0 0 5px #CC5819,
+          0 0 20px #CC5819,
+          0 0 60px #CC5819;
+      }
+
+      @media screen and (max-width: index.$sm) {
+        font-size: 20px;
+        top: 80%;
+      }
+    }
+  }
+}
+
+
+.preulympic-registration {
+
+  //ngilangin arrow up down input type number
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .preulympic-req-container {
+    padding-top: 5vh;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("./../../../Asset/Image/Background/PageUlympic.jpg");
+    background-size: cover;
+  }
+
+  .preulympic-req-page {
+    position: absolute;
+    width: 70%; //lebar
+    height: 80%;
+    max-width: 80%;
+    background-color: #fff4ee;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    background-repeat: no-repeat;
+    font-family: Louis George Cafe;
+    color: #903504;
+    border-radius: 20px;
+    opacity: 85%;
+
+    .preulympic-req-logo {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 10px;
+      background-image: url("./../../../Asset/Image/Ufest Logo/ufestlogocolor.webp");
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 20vh;
+      height: 20vh;
+      opacity: 0.5;
+
+      @media (max-width: 1280px) {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        padding: 10px;
+        margin-top: 20px;
+        opacity: 1;
+      }
+    }
+
+    .preulympic-req-group {
+      margin-bottom: 1rem;
+      text-align: left;
+      padding: 50px;
+
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-size: 2em;
+        text-align: left;
+      }
+
+      input {
+        display: block;
+        width: 30%;
+        padding: 0.5rem;
+        outline: 0;
+        border: 0;
+        background: transparent;
+        border-bottom: 1px solid #CC5819;
+        font-size: 2em;
+
+        &:focus {
+          outline: none;
+          border-color: #CC5819;
+        }
+
+        &::placeholder {
+          color: #ccc;
+          opacity: 1;
+        }
+      }
+
+      .preulympic-req-error-message {
+        color: red;
+        margin-top: 0.5rem;
+      }
+
+      @media (max-width: 768px) {
+        padding: 15px;
+
+        label {
+          font-size: 15px;
+          height: 10px;
+          margin-top: 30px;
+        }
+
+        input {
+          font-size: 15px;
+          margin-top: 10px;
+          width: 60%;
+        }
+      }
+    }
+  }
+
+  button {
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #CC581A;
+    color: #fff;
+    margin-top: 1rem;
+    width: 14%;
+    height: 10%;
+    border-radius: 20px;
+    margin-right: 2em;
+    margin-left: auto;
+    font-size: 30px;
+    font-family: Rocket-Vintage;
+    background-color: #e0895a;
+    border: 2px solid #ffffff;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background: #CC5819;
+      box-shadow: 0 0 5px #CC5819,
+        0 0 20px #CC5819,
+        0 0 60px #CC5819;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px #c79242;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    @media screen and (max-width: 960px) {
+      position: absolute;
+      width: 40%;
+      left: 50%;
+      top: 75%;
+      transform: translate(-50%, 50%);
+      opacity: 1;
+      border-radius: 50px;
+      background-color: #CC5819;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .preulympic-req-page {
+      width: 80%;
+    }
+
+    .preulympic-req-group {
+      input {
+        width: 100%;
+        font-size: 1rem;
+      }
+
+      .preulympic-req-error-message {
+        font-size: 1rem;
+      }
+    }
+  }
+}

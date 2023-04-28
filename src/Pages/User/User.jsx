@@ -11,7 +11,15 @@ import EnterAnimation from "../../Reusable/Animation/EnterAnimation/EnterAnimati
 import ProtectedRoutePathVerify from "../../Route/Components/ProtectedRouteVerify";
 import ProtectedRouteClosed from "../../Route/Components/ProtectedRouteClosed";
 import JoinClosed from "./Join/JoinClosed";
+<<<<<<< Updated upstream
 import Preulympic from "./Preulympic/Preulympic";
+=======
+import Preulympic, { PreulympicForm } from "./Preulympic/Preulympic";
+import { PreulympicUser } from "./Preulympic/PreulympicUser";
+import PreulympicRegistration from "./Preulympic/PreulympicRegistration";
+import PreulympicRebelSquad from "./Preulympic/PreulympicRebelSquad";
+import PreulympicPayment from "./Preulympic/PreulympicPayment";
+>>>>>>> Stashed changes
 // Bellow is code spliting using react lazy load and react suspense
 // This method aim to make the code more easy to load on deployment by separating them into several smaller chunk
 const Announcement = lazy(() => import("./Announcement/Announcement"));
@@ -46,6 +54,7 @@ export default function User() {
         return <Division />
     }, [])
 
+<<<<<<< Updated upstream
 
     // return is here
     return (
@@ -123,3 +132,134 @@ export default function User() {
         </div>
     )
 }
+=======
+  // return is here
+  return (
+    <div id="User-Page">
+      {/* must calling Router first before calling Route */}
+      {/* Routes is more like wrapper for the Route */}
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              {isMobile ? (
+                <Suspense fallback={<LoadingScreen />}>
+                  <NavbarMobile />
+                </Suspense>
+              ) : (
+                <Suspense fallback={<LoadingScreen />}>
+                  <EnterAnimation className="NavbarUser-wrap">
+                    <NavbarUser />
+                  </EnterAnimation>
+                </Suspense>
+              )}
+              <Outlet />
+              <Footer />
+            </>
+          }
+        >
+          <Route
+            path="/"
+            element={
+              <Suspense fallback={<LoadingScreen />}>
+                {/* <HomeCallback /> */}
+                <Preulympic />
+              </Suspense>
+            }
+          />
+          <Route path="/preulympic" element={<Preulympic />} />
+          <Route
+            path="Announcement"
+            element={
+              <Suspense fallback={<LoadingScreen />}>
+                <Announcement />
+              </Suspense>
+            }
+          />
+          <Route
+            path="about"
+            element={
+              <Suspense fallback={<LoadingScreen />}>
+                <AboutCallback />
+              </Suspense>
+            }
+          />
+          <Route
+            path="division"
+            element={
+              <Suspense fallback={<LoadingScreen />}>
+                <DivisionCallback />
+              </Suspense>
+            }
+          />
+          <Route
+            path="login"
+            element={
+              <ProtectedRoute user={"guest"}>
+                <Suspense fallback={<LoadingScreen />}>
+                  <Login />
+                  {/* <ComingSoon /> */}
+                </Suspense>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="register"
+            element={
+              <ProtectedRoute user={"guest"}>
+                <Suspense fallback={<LoadingScreen />}>
+                  <Register />
+                </Suspense>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="register/verify"
+            element={
+              <ProtectedRoute user={"user"}>
+                {/* <ProtectedRoutePath path="/register/verify"> */}
+                <VerifyEmail />
+                {/* </ProtectedRoutePath> */}
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="verify"
+            element={
+              <ProtectedRoute user={"user"}>
+                {/* <ProtectedRoutePath path="/register/verify"> */}
+                <VerifyEmail />
+                {/* </ProtectedRoutePath> */}
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="recruitment"
+            element={
+              <>
+                <ProtectedRoute user={"user"}>
+                  <ProtectedRoutePathVerify>
+                    <ProtectedRouteClosed status={0}>
+                      <Suspense fallback={<LoadingScreen />}>
+                        <Join />
+                      </Suspense>
+                    </ProtectedRouteClosed>
+                  </ProtectedRoutePathVerify>
+                </ProtectedRoute>
+              </>
+            }
+          />
+          <Route path="/comingsoon" element={<ComingSoon />} />
+          <Route path="/joinclosed" element={<JoinClosed />} />
+          <Route path="/PreulympicRegistration" element={<PreulympicForm />} />
+          <Route path="/PreulympicRegistrationUser" element={<PreulympicUser />} />
+          <Route path="/PreulympicRebelSquad" element={<PreulympicRebelSquad />} />
+          {/* <Route path="/PreulympicPayment" element={<PreulympicPayment />} /> */}
+          <Route path="*" element={<Navigate to="/" />} />
+        </Route>
+      </Routes>
+    </div>
+  );
+}
+>>>>>>> Stashed changes

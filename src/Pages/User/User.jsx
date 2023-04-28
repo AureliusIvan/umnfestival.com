@@ -15,6 +15,7 @@ import Preulympic from "./Preulympic/Preulympic";
 import PreulympicRegistration from "./Preulympic/PreulympicRegistration";
 import PreulympicRebelSquad from "./Preulympic/PreulympicRebelSquad";
 import PreulympicPayment from "./Preulympic/PreulympicPayment";
+import PreulympicForm from "./Preulympic/PreulympicForm";
 // Bellow is code spliting using react lazy load and react suspense
 // This method aim to make the code more easy to load on deployment by separating them into several smaller chunk
 const Announcement = lazy(() => import("./Announcement/Announcement"));
@@ -61,17 +62,17 @@ export default function User() {
             <>
               {isMobile ? (
                 <Suspense fallback={<LoadingScreen />}>
-                  {/* <NavbarMobile /> */}
+                  <NavbarMobile />
                 </Suspense>
               ) : (
                 <Suspense fallback={<LoadingScreen />}>
                   <EnterAnimation className="NavbarUser-wrap">
-                    {/* <NavbarUser /> */}
+                    <NavbarUser />
                   </EnterAnimation>
                 </Suspense>
               )}
               <Outlet />
-              {/* <Footer /> */}
+              <Footer />
             </>
           }
         >
@@ -79,11 +80,10 @@ export default function User() {
             path="/"
             element={
               <Suspense fallback={<LoadingScreen />}>
-                <HomeCallback />
+                <Preulympic/>
               </Suspense>
             }
           />
-          <Route path="/preulympic"element={<Preulympic />}/>
           <Route
             path="Announcement"
             element={
@@ -170,6 +170,7 @@ export default function User() {
           <Route path="/PreulympicRegistration"element={<PreulympicRegistration/>}/>
           <Route path="/PreulympicRebelSquad"element={<PreulympicRebelSquad/>}/>
           <Route path="/PreulympicPayment"element={<PreulympicPayment/>}/>
+          <Route path="/PreulympicForm"element={<PreulympicForm/>}/>
           <Route path="*" element={<Navigate to="/" />} />
         </Route>
       </Routes>

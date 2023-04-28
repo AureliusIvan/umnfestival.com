@@ -15,9 +15,14 @@
 
   .preulympic-rebel-squad-border {
     position: absolute;
-    width: 70%; //lebar
-    height: 80%;
-    max-width: 80%;
+    //with navbar
+    width: 140vh; //lebar
+    height: 80vh; // tinggi
+    max-width: 140vh;
+
+    // width: 70%; //lebar
+    // height: 80%;
+    // max-width: 80%;
     background-color: #fff4ee;
     padding: 1rem;
     display: flex;
@@ -27,8 +32,15 @@
     background-repeat: no-repeat;
     font-family: Louis George Cafe;
     color: #903504;
+    //with navbar
+    margin-top: 8vh;
     border-radius: 20px;
     opacity: 85%;
+
+    @media (max-width: 1122px){
+      width: 35vh;
+      height: 75vh;
+    }
 
     .preulympic-rebel-squad-logo {
       position: absolute;
@@ -45,7 +57,7 @@
       flex-direction: column;
       justify-content: center; 
       align-items: center;
-      
+
       @media screen and (max-width: 1122px) {
         width: 20vh;
         height: 20vh;
@@ -63,11 +75,22 @@
       text-align: center;
       line-height: 60px;
 
-      @media screen and (max-width: 768px) {
-        font-size: 17px;
-        width: 68%;
+      @media (max-width: 768px){
+        //with navbar
+        font-size: 20px;
+        width: 30vh;
         line-height: 30px;
+        // font-size: 17px;
+        // width: 68%;
+        // line-height: 30px;
       }
+
+      // @media only screen and (min-width: 600px) {
+      //   font-size: 30px;
+      //   width: 40vh;
+      //   line-height: 45px;
+      // }
+
     }
   }
   

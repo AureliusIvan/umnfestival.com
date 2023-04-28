@@ -14,9 +14,14 @@
 
     .preulympic-payment-border {
         position: absolute;
-        width: 70%; //lebar
-        height: 80%;
-        max-width: 80%;
+        // kalo ada navbar
+        width: 140vh; //lebar
+        height: 80vh;
+        max-width: 190vh;
+
+        // width: 70%; //lebar
+        // height: 80%;
+        // max-width: 80%;
         background-color: #fff4ee;
         padding: 1rem;
         display: flex;
@@ -26,8 +31,15 @@
         background-repeat: no-repeat;
         font-family: Louis George Cafe;
         color: #903504;
+        // ada navbar turunin dikit
+        margin-top: 8vh;
         border-radius: 20px;
         opacity: 85%;
+
+        @media screen and (max-width: 1122px) {
+            width: 40vh;
+            height: 80vh;
+        }
 
     .preulympic-payment-logo {
         position: absolute;
@@ -46,7 +58,7 @@
         align-items: center;
 
         @media screen and (max-width: 1122px) {
-            width: 20vh;
+            width: 30vh;
             height: 20vh;
         }
     }
@@ -80,7 +92,7 @@
                 margin-top: 40%;
                 color: #903504;
                 font-size: 17px;
-                width: 68%;
+                width: 30vh;
                 line-height: 30px;
             }
         }
@@ -89,7 +101,7 @@
     .preulympic-payment-file {
         position: absolute;
         border-radius: 20px;
-        margin-top: 26%;
+        margin-top: 40vh;
         text-decoration: none;
         margin-left: 20px;
 
@@ -112,16 +124,18 @@
         }
 
         @media screen and (max-width: 1122px) {
+
+            margin-top: 20vh;
+            width: 30vh;
             align-items: center;
-            margin-top: 55%;
             text-align: center;
-            width: 60%;
 
             button{
                 font-family: Louis George Cafe;
                 font-size: 12px;
                 width: 100px;
                 height: 40px;
+                margin-left: -1vh;
                 color: #CC581A;
                 background-color: white;
                 border: 1px solid #CC5819;
@@ -169,7 +183,7 @@
             }
         }
 
-        @media screen and (max-width: 1031px){
+        @media screen and (max-width: 1122px){
             align-items: center;
             margin-top: 100%;
             text-align: center;

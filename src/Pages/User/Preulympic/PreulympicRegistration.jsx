@@ -1,52 +1,73 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import "./PreulympicRegistration.scss";
+import { validation } from "./validationUlympic";
+// import { useDispatch } from "react-redux";
+import { useNavigate, Navigate } from "react-router-dom";
+// import { Formik } from "formik";
+// import { postRequest } from "../../../Reusable/Service/AxiosClient";
+// import { savePreUlympicRegistration  } from "../../../Redux/features/users/preUlympic/preUlympicDataSlice"
+// import { UpostRequest } from "../../../Reusable/Service/AxiosClient";
+import { postPreUlympicRegistration } from "../../../Reusable/Service/AxiosClient";
+import { useCookies } from 'react-cookie';
 
-const PreulympicRegistration = () => {
-  const [teamName, setTeamName] = useState("");
-  const [numberOfPlayers, setNumberOfPlayers] = useState();
-  const [errors, setErrors] = useState({});
+export default function PreulympicRegistration() {
+    // saving input
+    const [teamName, setTeamName] = useState('');
+    const [numberOfPlayers, setNumberOfPlayers] = useState('');
+    // error handling
+    const [errors, setErrors] = useState({});
 
-  const handleTeamNameChange = (event) => {
-    setTeamName(event.target.value);
-  };
+    //set cookie
+    const [cookies, setCookie, removeCookie] = useCookies(['PreulympicRegistration']);
+    // animation
+    const navigate = useNavigate();
 
-  const handleNumberOfPlayersChange = (event) => {
-    setNumberOfPlayers(event.target.value);
-  };
-  
-  const handleNextButtonClick = () => {
-    const errors = {};
+    const handleTeamNameChange = (event) => {
+      setTeamName(event.target.value);
+    };
 
-    if (teamName.trim() === "") {
-      errors.teamName = "Tolong masukan nama Tim";
-    }
-
-    if (numberOfPlayers < 5 || numberOfPlayers > 7) {
-      errors.numberOfPlayers = "Jumlah Player Minimal 5 - 7";
-    }
-
-    setErrors(errors);
-
-    if (Object.keys(errors).length === 0) {
-      // Kirim data ke server menggunakan fetch()
-      const formData = new FormData();
-      formData.append("teamName", teamName);
-      formData.append("numberOfPlayers", numberOfPlayers);
-
-      fetch("/api/preulympic-req", {
-        method: "POST",
-        body: formData,
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log("Form data submitted successfully!", data);
+    const handleNumberOfPlayersChange = (event) => {
+      setNumberOfPlayers(event.target.value);
+    };
+    // const dispatch = useDispatch();
+    const handleNextButtonClick = () => {
+      validation
+        .validate(
+          { teamName, numberOfPlayers },
+          //menampilkan semua error sekaligus pada saat validasi gagal
+          { abortEarly: false }
+        )
+        .then(() => {
+          setCookie('namaTim', teamName, {path: '/'});
+          setCookie('jumlahAnggota', numberOfPlayers, {path: '/'});
+        
+        //   // Send data to server
+        // axios.post('/pre-olympic-registration', {
+        //   teamName: cookies.namaTim,
+        //   numberOfPlayers: cookies.jumlahAnggota
+        // })
+        // .then((response) => {
+        //   // Handle response from server
+        //   console.log(response);
+        // })
+        // .catch((error) => {
+        //   // Handle error
+        //   console.log(error);
+        // });
+        
+          // Pindah ke halaman selanjutnya
+          navigate('/PreulympicRebelSquad');
         })
-        .catch((error) => {
-          console.error("Error submitting form data:", error);
+        .catch((validationErrors) => {
+          const errors = {};
+          if (validationErrors && validationErrors.inner) {
+            validationErrors.inner.forEach((error) => {
+              errors[error.path] = error.message;
+            });
+          }
+          setErrors(errors);
         });
-    }
-  };
+    };
 
   return (
     <div className="preulympic-req-container">
@@ -64,6 +85,7 @@ const PreulympicRegistration = () => {
             placeholder="Nama Tim"
             autoComplete="off"
             pattern="[A-Za-z\s]+"
+            required
           />
           {errors.teamName && (
             <div className="preulympic-req-error-message">
@@ -80,6 +102,8 @@ const PreulympicRegistration = () => {
             value={numberOfPlayers}
             onChange={handleNumberOfPlayersChange}
             autoComplete="off"
+            required
+            title={errors.numberOfPlayers}
           />
           {errors.numberOfPlayers && (
             <div className="preulympic-req-error-message">
@@ -87,13 +111,8 @@ const PreulympicRegistration = () => {
             </div>
           )}
         </div>
-        {/* <Link to="/PreulympicRebelSquad">
-          <button onClick={handleNextButtonClick}>Next</button>
-        </Link> */}
         <button onClick={handleNextButtonClick}>Next</button>
       </div>
     </div>
   );
 };
-
-export default PreulympicRegistration;

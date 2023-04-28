@@ -1,11 +1,12 @@
-  @use "src/index" as index;
+@use "src/index" as index;
   //ngilangin arrow up down input type number
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
-.preulympic-req-container {
+
+.preulympic-form-container {
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -14,31 +15,28 @@
   background-size: cover;
 }
 
-.preulympic-req-page {
+.preulympic-form-page {
   position: absolute;
-  //with navbar
-  width: 150vh; //lebar
-  height: 80vh; // tinggi
+  // ada navbar
+  width: 150vh;
+  height: 80vh;
   max-width: 150vh;
-
-  // width: 70%; //lebar
   // height: 80%;
   // max-width: 80%;
   background-color: #fff4ee;
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  align-items: left;
   justify-content: center; 
   background-repeat: no-repeat;
   font-family: Louis George Cafe;
   color: #903504;
-  //with navbar
+    // ada navbar
   margin-top: 8vh;
   border-radius: 20px;
   opacity: 85%;
 
-  .preulympic-req-logo {
+  .preulympic-form-logo {
     position: absolute;
     top: 0;
     right: 0;
@@ -48,7 +46,6 @@
     background-size: contain;
     width: 20vh;
     height: 20vh;
-    opacity: 0.5;
 
     @media (max-width: 1280px) {
       position: absolute;
@@ -63,28 +60,30 @@
     }
   }
 
-  .preulympic-req-group {
-    margin-bottom: 1rem;
+  .preulympic-form-group {
+    width: 100%;
+    font-size: 10px;
     text-align: left;
-    padding: 50px;
+    padding: 0.5rem;
+    margin-left: 10vh;
+    margin-bottom: -1vh;
 
     label {
       display: block;
-      margin-bottom: 0.5rem;
       font-size: 2em;
       text-align: left;
     }
 
     input {
       display: block;
-      width: 30%;
+      width: 50vh;
       padding: 0.5rem;
       outline: 0;
       border: 0;
       background: transparent;
       border-bottom: 1px solid #CC5819;
       font-size: 2em;
-
+      
       &:focus {
         outline: none;
         border-color: #CC5819;
@@ -92,27 +91,125 @@
 
       &::placeholder {
         color: #ccc;
-        opacity: 1;
+        opacity: 1;      
       }
-    }
-
-    .preulympic-req-error-message {
-      color: red;
-      margin-top: 0.5rem;
     }
 
     @media (max-width: 768px) {
-      padding: 15px;
+      width: 30vh;
+      font-size: 10px;
+      text-align: left;
+      padding: 0.5rem;
+      margin-left: 5vh;
+      margin-bottom: -2vh;
       label{
-        font-size: 15px;
-        height: 10px;
-        margin-top: 30px;
+        font-size: 20px;
       }
 
       input {
-        font-size: 15px;
-        margin-top: 10px;
-        width: 60%;
+        width: 35vh;
+      }
+    }
+  }
+
+  .fotoktm{
+    width: 100%;
+    font-size: 10px;
+    text-align: left;
+    padding: 0.5rem;
+    margin-left: 10vh;
+    margin-bottom: -2.1vh;
+
+    label {
+      display: block;
+      font-size: 2em;
+      text-align: left;
+    }
+
+    input {
+      display: block;
+      width: 50vh;
+      padding: 0.5rem;
+      outline: 0;
+      border: 0;
+      background: transparent;
+      font-size: 2em;
+      
+      &:focus {
+        outline: none;
+        border-color: #CC5819;
+      }
+
+      &::placeholder {
+        color: #ccc;
+        opacity: 1;      
+      }
+    }
+
+    @media (max-width: 768px) {
+      width: 30vh;
+      font-size: 10px;
+      text-align: left;
+      padding: 0.5rem;
+      margin-left: 5vh;
+      margin-bottom: -2vh;
+      label{
+        font-size: 20px;
+      }
+
+      input {
+        width: 35vh;
+      }
+    }
+  }
+
+  .buktijoin{
+    width: 100%;
+    font-size: 10px;
+    text-align: left;
+    padding: 0.5rem;
+    margin-left: 10vh;
+    margin-bottom: -2.1vh;
+
+    label {
+      display: block;
+      font-size: 2em;
+      text-align: left;
+    }
+
+    input {
+      display: block;
+      width: 50vh;
+      padding: 0.5rem;
+      outline: 0;
+      border: 0;
+      background: transparent;
+      font-size: 2em;
+      
+      &:focus {
+        outline: none;
+        border-color: #CC5819;
+      }
+
+      &::placeholder {
+        color: #ccc;
+        opacity: 1;      
+      }
+    }
+
+    @media (max-width: 768px) {
+      width: 30vh;
+      font-size: 10px;
+      text-align: left;
+      padding: 0.5rem;
+      margin-left: 5vh;
+      margin-bottom: -2vh;
+      label{
+        font-size: 20px;
+      }
+
+      input {
+        width: 35vh;
       }
     }
   }
@@ -165,16 +262,16 @@ button{
 }
 
 @media (max-width: 768px) {
-  .preulympic-req-page {
+  .preulympic-form-page {
     width: 80%;
   }
 
-  .preulympic-req-group {
+  .preulympic-form-group {
     input {
       width: 100%;
       font-size: 1rem;
     }
-    .preulympic-req-error-message {
+    .preulympic-form-error-message {
       font-size: 1rem;
     }
   }

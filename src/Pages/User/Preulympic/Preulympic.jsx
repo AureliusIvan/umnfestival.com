@@ -54,7 +54,7 @@ export function PreulympicForm() {
           //   }
           // }
           // Submit();
-          navigate("/PreulympicRegistrationUser");
+          navigate("/PreulympicRebelsquad");
           setCookie("teamName", values.teamName);
           setCookie("numberOfPlayers", values.numberOfPlayers);
         }}

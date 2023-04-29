@@ -15,7 +15,7 @@ import Preulympic, { PreulympicForm } from "./Preulympic/Preulympic";
 import { PreulympicUser } from "./Preulympic/PreulympicUser";
 // import PreulympicRegistration from "./Preulympic/PreulympicRegistration";
 // import PreulympicRebelSquad from "./Preulympic/PreulympicRebelSquad";
-// import PreulympicPayment from "./Preulympic/PreulympicPayment";
+import PreulympicPayment from "./Preulympic/PreulympicPayment";
 // Bellow is code spliting using react lazy load and react suspense
 // This method aim to make the code more easy to load on deployment by separating them into several smaller chunk
 const Announcement = lazy(() => import("./Announcement/Announcement"));
@@ -33,22 +33,22 @@ const Join = lazy(() => import("./Join/Join"));
 
 // function start here
 export default function User() {
-    // Check if screen is mobile
-    const isMobile = useMediaQuery("(max-width: 960px)")
-    // [Callback]
-    // (i'm not sure if it is work because they are rarely re-rendered)
-    // prevent home page to re-rendered when value change 
-    const HomeCallback = useCallback(() => {
-        return <Home />
-    }, [])
-    // prevent about page to re-rendered
-    const AboutCallback = useCallback(() => {
-        return <About />
-    }, [])
-    // prevent division page to re-rendered
-    const DivisionCallback = useCallback(() => {
-        return <Division />
-    }, [])
+  // Check if screen is mobile
+  const isMobile = useMediaQuery("(max-width: 960px)")
+  // [Callback]
+  // (i'm not sure if it is work because they are rarely re-rendered)
+  // prevent home page to re-rendered when value change 
+  const HomeCallback = useCallback(() => {
+    return <Home />
+  }, [])
+  // prevent about page to re-rendered
+  const AboutCallback = useCallback(() => {
+    return <About />
+  }, [])
+  // prevent division page to re-rendered
+  const DivisionCallback = useCallback(() => {
+    return <Division />
+  }, [])
 
   // return is here
   return (
@@ -172,7 +172,7 @@ export default function User() {
           <Route path="/PreulympicRegistration" element={<PreulympicForm />} />
           <Route path="/PreulympicRegistrationUser" element={<PreulympicUser />} />
           {/* <Route path="/PreulympicRebelSquad" element={<PreulympicRebelSquad />} /> */}
-          {/* <Route path="/PreulympicPayment" element={<PreulympicPayment />} /> */}
+          <Route path="/PreulympicPayment" element={<PreulympicPayment />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Route>
       </Routes>

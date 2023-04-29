@@ -14,7 +14,7 @@ import JoinClosed from "./Join/JoinClosed";
 import Preulympic, { PreulympicForm } from "./Preulympic/Preulympic";
 import { PreulympicUser } from "./Preulympic/PreulympicUser";
 // import PreulympicRegistration from "./Preulympic/PreulympicRegistration";
-// import PreulympicRebelSquad from "./Preulympic/PreulympicRebelSquad";
+import PreulympicRebelSquad from "./Preulympic/PreulympicRebelSquad";
 import PreulympicPayment from "./Preulympic/PreulympicPayment";
 // Bellow is code spliting using react lazy load and react suspense
 // This method aim to make the code more easy to load on deployment by separating them into several smaller chunk
@@ -171,7 +171,7 @@ export default function User() {
           <Route path="/joinclosed" element={<JoinClosed />} />
           <Route path="/PreulympicRegistration" element={<PreulympicForm />} />
           <Route path="/PreulympicRegistrationUser" element={<PreulympicUser />} />
-          {/* <Route path="/PreulympicRebelSquad" element={<PreulympicRebelSquad />} /> */}
+          <Route path="/PreulympicRebelSquad" element={<PreulympicRebelSquad />} />
           <Route path="/PreulympicPayment" element={<PreulympicPayment />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Route>

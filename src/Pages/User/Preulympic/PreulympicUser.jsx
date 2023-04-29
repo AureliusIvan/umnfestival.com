@@ -1,6 +1,6 @@
 //React
 import { Link } from "react-router-dom";
-import "./Preulympic.scss";
+import "./PreulympicUser.scss";
 import { Box } from "../../../Reusable/MaterialUICoreLazy/MaterialUICoreLazy";
 import { Formik } from "formik";
 import { Loginschema } from "./PreulympicSchema";
@@ -14,6 +14,9 @@ import {
     setCookie,
     useCookies,
 } from "react-use-cookie";
+import { PreulympicButton as Button } from "./Components/Button/PreulympicButton";
+import { useFormik } from "formik";
+import FileInput from "./Components/FileInput/FileInput";
 
 export function PreulympicUser() {
     const [playernumber, setplayernumber] = useState(getCookie('numberOfPlayers'));
@@ -27,102 +30,64 @@ export function PreulympicUser() {
     const [userName, setuserName] = useState('');
     const [fotoKtm, setfotoKtm] = useState('');
     const [buktiJoin, setbuktiJoin] = useState('');
-    //error handling
-    //   const [errors, setErrors] = useState({});
-
-    // set cookie
-    // const [cookies, setCookie, removeCookie] = useCookies(['PreulympicForm']);
-    // animation
-
-    const handlenamaChange = (event) => {
-        setnama(event.target.value);
-    };
-
-    const handleangkatanChange = (event) => {
-        setangkatan(event.target.value);
-    };
-
-    const handlejurusanChange = (event) => {
-        setjurusan(event.target.value);
-    };
-
-    const handlePhoneNumberChange = (event) => {
-        setPhoneNumber(event.target.value);
-    };
-
-    const handleuserIdChange = (event) => {
-        setuserId(event.target.value);
-    };
-
-    const handleuserNameChange = (event) => {
-        setuserName(event.target.value);
-    };
-
-    const handlefotoKtmChange = (event) => {
-        setfotoKtm(event.target.value);
-    };
-
-    const handlebuktiJoinChange = (event) => {
-        setbuktiJoin(event.target.value);
-    };
-
-    const handleNextButtonClick = () => {
-        validation
-            .validate(
-                {
-                    nama, angkatan,
-                    jurusan, phoneNumber,
-                    userId, userName,
-                    fotoKtm, buktiJoin
-                },
-                //menampilkan semua error sekaligus pada saat validasi gagal
-                { abortEarly: false }
-            )
-            .then(() => {
-                // console.log(".then nih");
-                setCookie('nama', nama, { path: '/' });
-                setCookie('angkatan', angkatan, { path: '/' });
-                setCookie('jurusan', jurusan, { path: '/' });
-                setCookie('phoneNumber', phoneNumber, { path: '/' });
-                setCookie('userId', userId, { path: '/' });
-                setCookie('userName', userName, { path: '/' });
-                setCookie('fotoKtm', fotoKtm, { path: '/' });
-                setCookie('buktiJoin', buktiJoin, { path: '/' });
-
-                navigate('/PreulympicPayment');
-            })
-            .catch((validationErrors) => {
-                const errors = {};
-                if (validationErrors && validationErrors.inner) {
-                    validationErrors.inner.forEach((error) => {
-                        errors[error.path] = error.message;
-                    });
-                }
-                setErrors(errors);
-            });
-    };
-
-    // return here
     return (
         <>
             {/* Preulympic start here */}
             <Formik
                 validationSchema={Loginschema}
                 initialValues={{
-                    teamName: "",
-                    number: ""
+                    nama: "",
+                    angkatan: "",
+                    jurusan: "",
+                    phoneNumber: "",
+                    userId: "",
+                    userName: "",
+                    fotoKtm: "",
+                    buktiJoin: ""
                 }}
-                onSubmit={(values) => {
-                    alert(playernumber);
-                    setplayernumber(playernumber - 1);
-                    setCookie('numberOfPlayers', playernumber, { path: '/' });
-                    if (playernumber == 0 || playernumber < 0) {
-                        navigate('/PreulympicPayment');
+                onSubmit={(values, { resetForm }) => {
+                    async function Submit() {
+                        try {
+                            await postRequest('timmobilelegend', {
+                                namaTim: "Tim3",
+                                ketua: "GEE",
+                                nama: values.nama,
+                                angkatan: values.angkatan,
+                                jurusan: values.jurusan,
+                                phoneNumber: values.phoneNumber,
+                                userID: values.userId,
+                                userName: values.userName,
+                                fotoKtm: fotoKtm,
+                                buktiJoin: buktiJoin
+                            }).then((res) => {
+                                // if (res.status === 201 || res.status === 200) {
+                                console.log(res);
+                                // setCookie("Preulmtoken", res.data.tokenID, { //nanti cek sini lagi ya, karena belum fix
+                                //     expires: 99,
+                                //     path: "/",
+                                // });
+                                // setLoading(false);
+                                // navigate("/PreulympicRebelsquad");
+                                // } else {
+                                // setLoading(false);
+                                // console.log(res);
+                                // }
+                                console.log(res);
+                            })
+                        } catch (error) {
+                            // setLoading(false);
+                            console.log(error);
+                        }
                     }
+                    Submit();
+                    resetForm();
+                    // alert(JSON.stringify(values, null, 2));
+                    // navigate("/PreulympicPayment");
                 }}
 
             >
                 {({
+                    values,
                     errors,
                     handleSubmit,
                     handleChange,
@@ -138,8 +103,9 @@ export function PreulympicUser() {
                                             <input
                                                 type="text"
                                                 id="nama"
-                                                value={nama}
-                                                onChange={handlenamaChange}
+                                                name="nama"
+                                                value={values.nama}
+                                                onChange={handleChange}
                                                 placeholder="Nama Player"
                                                 autoComplete="off"
                                                 required
@@ -152,15 +118,17 @@ export function PreulympicUser() {
                                         </div>
                                         <div className="preulympic-form-group">
                                             <label htmlFor="batchAndMajor">Angkatan </label>
+
                                             <input
+                                                onChange={handleChange}
                                                 type="number"
-                                                id="batchAndMajor"
-                                                value={angkatan}
-                                                onChange={handleangkatanChange}
+                                                value={values.angkatan}
+                                                id="angkatan"
+                                                name="angkatan"
                                                 placeholder="Angkatan "
                                                 autoComplete="off"
                                                 required
-                                                title={errors.angkatan}
+                                            // title={errors.angkatan}
                                             />
                                             {errors.angkatan && (
                                                 <div className="preulympic-req-error-message">
@@ -171,10 +139,11 @@ export function PreulympicUser() {
                                         <div className="preulympic-form-group">
                                             <label htmlFor="batchAndMajor">Jurusan </label>
                                             <input
+                                                onChange={handleChange}
                                                 type="text"
+                                                value={values.jurusan}
                                                 id="batchAndMajor"
-                                                value={jurusan}
-                                                onChange={handlejurusanChange}
+                                                name="jurusan"
                                                 placeholder="jurusan "
                                                 autoComplete="off"
                                                 required
@@ -188,10 +157,11 @@ export function PreulympicUser() {
                                         <div className="preulympic-form-group">
                                             <label htmlFor="whatsappNumber">No. Telp Whatsapp</label>
                                             <input
+                                                onChange={handleChange}
                                                 type="number"
+                                                value={values.phoneNumber}
                                                 id="whatsappNumber"
-                                                value={phoneNumber}
-                                                onChange={handlePhoneNumberChange}
+                                                name="phoneNumber"
                                                 placeholder="No. Telp Whatsapp"
                                                 autoComplete="off"
                                                 required
@@ -205,10 +175,11 @@ export function PreulympicUser() {
                                         <div className="preulympic-form-group">
                                             <label htmlFor="idplayer">ID Player</label>
                                             <input
-                                                type="number"
+                                                onChange={handleChange}
+                                                type="text"
                                                 id="idplayer"
-                                                value={userId}
-                                                onChange={handleuserIdChange}
+                                                value={values.userId}
+                                                name="userId"
                                                 placeholder="ID Player"
                                                 autoComplete="off"
                                                 required
@@ -222,12 +193,13 @@ export function PreulympicUser() {
                                         <div className="preulympic-form-group">
                                             <label htmlFor="userNames">Username Player</label>
                                             <input
+                                                onChange={handleChange}
                                                 type="text"
                                                 id="userNames"
-                                                value={userName}
-                                                onChange={handleuserNameChange}
+                                                name="userName"
                                                 placeholder="Username Player"
                                                 autoComplete="off"
+                                                value={values.userName}
                                                 required
                                             />
                                             {errors.userName && (
@@ -236,14 +208,13 @@ export function PreulympicUser() {
                                                 </div>
                                             )}
                                         </div>
-                                        <div className="fotoktm">
+                                        <div className="preulympic-form-image">
                                             <label htmlFor="ktmPhotos">Foto KTM Player</label>
-                                            <input
-                                                type="file"
+                                            <FileInput
+                                                onChange={handleChange}
                                                 id="ktmPhotos"
-                                                value={fotoKtm}
-                                                onChange={handlefotoKtmChange}
-                                                multiple required
+                                                value={values.fotoKtm}
+                                                name="fotoKtm"
                                             />
                                             {errors.fotoKtm && (
                                                 <div className="preulympic-req-error-message">
@@ -251,15 +222,13 @@ export function PreulympicUser() {
                                                 </div>
                                             )}
                                         </div>
-                                        <div className="buktijoin">
+                                        <div className="preulympic-form-image">
                                             <label htmlFor="buktiJoin">Bukti Join Whatsapp Community Rebel Squad</label>
-                                            <input
-                                                type="file"
+                                            <FileInput
+                                                onChange={handleChange}
                                                 id="buktiJoin"
-                                                value={buktiJoin}
-                                                onChange={handlebuktiJoinChange}
-                                                required
-                                                className="pilihfile"
+                                                value={values.buktiJoin}
+                                                name="buktiJoin"
                                             />
                                             {errors.buktiJoin && (
                                                 <div className="preulympic-req-error-message">
@@ -267,7 +236,7 @@ export function PreulympicUser() {
                                                 </div>
                                             )}
                                         </div>
-                                        <button onClick={handleNextButtonClick}>Next</button>
+                                        <Button action={handleSubmit}>Next</Button>
                                     </div>
                                 </div>
                             </form>

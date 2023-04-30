@@ -10,6 +10,7 @@ import ProtectedRoute from "../../Route/Components/ProtectedRoute";
 import EnterAnimation from "../../Reusable/Animation/EnterAnimation/EnterAnimation";
 import ProtectedRoutePathVerify from "../../Route/Components/ProtectedRouteVerify";
 import ProtectedRouteClosed from "../../Route/Components/ProtectedRouteClosed";
+import ProtectedRoutePreUlm from "../../Route/Components/ProtectedRoutePreUlympic";
 import JoinClosed from "./Join/JoinClosed";
 import Preulympic, { PreulympicForm } from "./Preulympic/Preulympic";
 import { PreulympicUser } from "./Preulympic/PreulympicUser";
@@ -66,9 +67,9 @@ export default function User() {
                 </Suspense>
               ) : (
                 <Suspense fallback={<LoadingScreen />}>
-                  <EnterAnimation className="NavbarUser-wrap">
+                  {/* <EnterAnimation className="NavbarUser-wrap"> */}
                     <NavbarUser />
-                  </EnterAnimation>
+                  {/* </EnterAnimation> */}
                 </Suspense>
               )}
               <Outlet />
@@ -169,10 +170,12 @@ export default function User() {
           />
           <Route path="/comingsoon" element={<ComingSoon />} />
           <Route path="/joinclosed" element={<JoinClosed />} />
-          <Route path="/PreulympicRegistration" element={<PreulympicForm />} />
-          <Route path="/PreulympicRegistrationUser" element={<PreulympicUser />} />
-          <Route path="/PreulympicRebelSquad" element={<PreulympicRebelSquad />} />
-          <Route path="/PreulympicPayment" element={<PreulympicPayment />} />
+          <Route path="/PreulympicRegistration" element={
+            <ProtectedRoutePreUlm><PreulympicForm /></ProtectedRoutePreUlm>} />
+          <Route path="/PreulympicRegistrationUser" element={
+            <ProtectedRoutePreUlm><PreulympicUser /></ProtectedRoutePreUlm>} />
+          <Route path="/PreulympicRebelSquad" element={<ProtectedRoutePreUlm><PreulympicRebelSquad /></ProtectedRoutePreUlm>} />
+          <Route path="/PreulympicPayment" element={<ProtectedRoutePreUlm><PreulympicPayment /></ProtectedRoutePreUlm>} />
           <Route path="*" element={<Navigate to="/" />} />
         </Route>
       </Routes>

@@ -7,27 +7,14 @@ import "./PreulympicPayment.scss";
 import { Formik } from "formik";
 import { Loginschema } from "./PreulympicSchema";
 import { Box } from "../../../Reusable/MaterialUICoreLazy/MaterialUICoreLazy";
-import { FileUploader } from "react-drag-drop-files";
 import { PreulympicButton as Button } from "./Components/Button/PreulympicButton";
-// const PreulympicPayment = () => {
-//     const fileInputRef = useRef(null);
+import FileInput from "./Components/FileInput/FileInput";
+import { setCookie } from "react-use-cookie";
 
-//     const handleFileInputChange = () => {
-//         const file = fileInputRef.current.files[0];
-//         console.log(file); // 
-//     };
 
-// };
 
 function PreulympicPayment() {
-    // state
-    // error handling
-    const [error, Seterror] = useState(false);
-    const [errorText, SeterrorText] = useState("");
-    const dispatch = useDispatch();
     // animation
-    const [numberOfPlayers, setNumberOfPlayers] = useState();
-    const [errors, setErrors] = useState({});
     const [loading, setLoading] = useState(false);
     // return here
     const fileTypes = ["jpg", "png"];
@@ -37,41 +24,27 @@ function PreulympicPayment() {
             <Formik
                 validationSchema={Loginschema}
                 initialValues={{
-                    // name team
-                    teamName: "",
-                    // jumlah pemain
-                    numberOfPlayers: "",
-                    // nama ketua
-                    leaderName: "",
-                    // foto KTM
-                    ktm: "",
+                    file: "",
                 }}
                 onSubmit={(values) => {
                     console.log(values);
                     setLoading(true);
                     async function Submit() {
                         try {
-                            await postRequest('ulympic', {
-                                namaTim: values.teamName,
-                                jumlahMember: values.number
+                            await postRequest('ulympic/1?_method=PATCH', {
+                                file: values.file,
                             }).then((res) => {
-                                if (res.status === 201 || res.status === 200) {
-                                    console.log(res);
-                                    setCookie("Preulmtoken", res.data.tokenID, { //nanti cek sini lagi ya, karena belum fix
-                                        expires: 99,
-                                        path: "/",
-                                    });
-                                    setLoading(false);
-                                    navigate("/PreulympicRebelsquad");
-                                } else {
-                                    setLoading(false);
-                                    console.log(res);
-                                }
+                                setCookie("Preulm", 1212312, {
+                                    expires: 99,
+                                    path: "/",
+                                })
+                                console.log(res);
+                                navigate("/");
                             })
                         } catch (error) {
                             setLoading(false);
                             console.log(error);
-                            navigate("/PreulympicRebelsquad");
+                            // navigate("/PreulympicRebelsquad");
                         }
                     }
                     Submit();
@@ -86,59 +59,28 @@ function PreulympicPayment() {
                 }) => (
                     <div>
                         <Box>
-                            <form className="preulympic-registration" noValidate onSubmit={handleSubmit}>
+                            <form className="" noValidate onSubmit={handleSubmit}>
                                 <div className="preulympic-payment">
                                     <div className="preulympic-payment-container">
                                         <div className="preulympic-payment-border">
                                             <div className="preulympic-payment-logo"></div>
                                             <div className="preulympic-payment-title">
-                                                Pembayaran dilakukan ke no rekening BCA (No Rekening Vajang) A/N Vania Jiang
+                                                Pembayaran dilakukan ke nomor rekening 7615580589 (BCA) A/N VANIA JIANG
+
+                                                Sejumlah Rp 70.000,00 untuk single slot
+                                                Rp 70.000,00 + Rp 80.000,00 untuk multi slot
                                             </div>
                                             <div className="preulympic-payment-bukti">Bukti Pembayaran</div>
-                                            <div className="preulympic-payment-file">
-                                                <input
-                                                    type="file"
-                                                    // ref={fileInputRef}
-                                                    style={{ display: "none" }}
-                                                // onChange={handleFileInputChange}
-                                                />
-                                                {/* <button onClick={() => fileInputRef.current.click()}> */}
-                                                {/* Choose File */}
-                                                {/* </button> */}
-                                                {/*  */}
-                                                <div className="preulympic-payment-file-upload">
-                                                    <FileUploader
-                                                        child
-                                                        handleChange={(file) => setFieldValue("vaksin", file)}
-                                                        types={fileTypes}
-                                                        multiple={false}
-                                                        maxFileSize={1000000}
-                                                        minFileSize={0}
-                                                        maxFiles={1}
-                                                        minFiles={0}
-                                                        accept="image/*"
-                                                    >
-                                                        <div
-                                                            classes="drop_area drop_zone"
-                                                            className="UploadImage"
-                                                        >{values.vaksin ?
-                                                            <>
-                                                                {/* <img className="img" loading="lazy" src={URL.createObjectURL(values.vaksin)} /> */}
-                                                                <p className="caption" >{values.vaksin.name}</p>
-                                                            </>
-                                                            :
-                                                            <>
-                                                                 {/* <img className="Img-Placeholder" loading="lazy" src="https://img.icons8.com/fluency/48/null/image.png" /> */}
-                                                                <p>Choose File</p>
-                                                            </>
-                                                            }
-                                                        </div>
-                                                    </FileUploader>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="preulympic-payment-Submit-button">
-                                            <Button action={handleSubmit}>Submit</Button>
+                                            <FileInput
+                                                onChange={handleChange}
+                                                name="file"
+                                                values={values.file}
+                                                status={values.file ? true : false}
+                                            />
+                                            <Button
+                                                loading={loading}
+                                                disabled={loading || !values.file}
+                                                action={handleSubmit}>Submit</Button>
                                         </div>
                                     </div>
                                 </div>

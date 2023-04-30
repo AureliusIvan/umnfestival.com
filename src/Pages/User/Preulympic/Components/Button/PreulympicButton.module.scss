@@ -1,19 +1,37 @@
 .button {
-    padding: 0.5rem 1rem;
-    border: none;
+    position: relative !important;
+    display: block !important;
+    border: none !important;
     background-color: #CC581A !important;
-    color: #fff;
+    color: #fff !important;
     margin-top: 1rem;
-    width: 14%;
-    height: 10%;
     border-radius: 50px !important;
-    margin-right: 2em;
-    margin-left: auto;
     font-size: 30px;
     font-family: Rocket-Vintage;
     background-color: #e0895a;
     border: 2px solid #ffffff;
     transition: all 0.8s ease !important;
+    pointer-events: all;
+
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    @media screen and (min-width: 960px) {
+        margin-left: auto;
+        margin-right: 40px;
+    }
+
+
+
+    position: relative;
+    width: 100% !important;
+    max-width: 160px;
+    height: 50px !important;
+    padding: 5px 20px 5px 20px;
+
 
     &:hover {
         transition: all 0.3s ease !important;
@@ -35,14 +53,14 @@
     }
 
     @media screen and (max-width: 960px) {
-        position: absolute;
-        width: 40%;
-        left: 50%;
-        top: 75%;
-        transform: translate(-50%, 50%);
-        opacity: 1;
-        border-radius: 50px;
-        background-color: #CC5819;
+        // position: absolute;
+        // width: 40%;
+        // left: 50%;
+        // top: 75%;
+        // transform: translate(-50%, 50%);
+        // opacity: 1;
+        // border-radius: 50px;
+        // background-color: #CC5819;
     }
 
 }

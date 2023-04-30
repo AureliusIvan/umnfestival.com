@@ -1,5 +1,10 @@
-import React from 'react';
 import style from './PreulympicButton.module.scss';
+import { CircularProgress } from '../../../../../Reusable/MaterialUICoreLazy/MaterialUICoreLazy';
+import styled from 'styled-components';
+
+const CircularProgressStyled = styled(CircularProgress)`
+    color: #fff !important;
+`
 
 export function PreulympicButton(props) {
     return (
@@ -9,7 +14,11 @@ export function PreulympicButton(props) {
             onTouchEnd={props.action}
             {...props}
             disabled={props.disabled ? props.disabled : false}
+            style={{
+                justifyContent: props.justifyContent ? props.justifyContent : "center",
+            }}
         >
-            {props.children ? props.children : "Next"}
+            {props.loading ? <CircularProgressStyled /> :
+                props.children ? props.children : "Next"}
         </button>)
 }

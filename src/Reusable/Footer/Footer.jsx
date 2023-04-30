@@ -98,7 +98,7 @@ export default function Footer() {
                 <div className="divider" />
             </GridItem>
             {/* 2nd Column */}
-            <GridItem item md={4} sm={12}>
+            <GridItem item md={3} xs={12}>
                 <div className="Footer-Section">
                     <Title>
                         ADDRESS

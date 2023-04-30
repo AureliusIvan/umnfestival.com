@@ -1,206 +1,88 @@
-.preulympic-registration {
+@use "./../../../index" as index;
+@use "./Preulympic.scss" as pre;
 
-    .preulympic-payment-file-upload {
-        padding: 0.5rem 1rem;
-        border: none;
-        background-color: #CC581A;
-        color: #fff;
-        margin-top: 1rem;
-        width: 14%;
-        height: 10%;
-        border-radius: 20px;
-        margin-right: 2em;
-        margin-left: auto;
-        font-size: 30px;
-        font-family: Rocket-Vintage;
-        background-color: #e0895a;
-        border: 2px solid #ffffff;
-        transition: background 0.3s ease;
-        width: 14%;
-        height: 10%;
-        font-size: 15px;
-        border: 1px solid #903504;
-        color: black;
-        border-radius: 30px;
-        background-color: rgba(255, 255, 255, 1);
 
-    }
-
-    //ngilangin arrow up down input type number
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
-
-    .preulympic-req-container {
-        padding-top: 5vh;
-        min-height: 100vh;
+.preulympic-payment {
+    .preulympic-payment-container {
+        @include pre.form-background;
         display: flex;
         justify-content: center;
         align-items: center;
-        background-image: url("./../../../Asset/Image/Background/PageUlympic.jpg");
-        background-size: cover;
-    }
-
-    .preulympic-req-page {
-        position: absolute;
-        width: 70%; //lebar
-        height: 80%;
-        max-width: 80%;
-        background-color: #fff4ee;
-        padding: 1rem;
-        display: flex;
         flex-direction: column;
-        align-items: left;
-        justify-content: center;
-        background-repeat: no-repeat;
-        font-family: Louis George Cafe;
-        color: #903504;
-        border-radius: 20px;
-        opacity: 85%;
+        // height: 100vh !important;
 
-        .preulympic-req-logo {
-            position: absolute;
-            top: 0;
-            right: 0;
-            padding: 10px;
-            background-image: url("./../../../Asset/Image/Ufest Logo/ufestlogocolor.webp");
-            background-repeat: no-repeat;
-            background-size: contain;
-            width: 20vh;
-            height: 20vh;
-            opacity: 0.5;
+        .preulympic-payment-border {
+            @include pre.form-wrapper;
+            display: flex;
+            // justify-content: center !important;
+            align-items: center !important;
+            flex-direction: column !important;
+            text-align: center;
+            justify-items: center;
+            justify-self: center;
 
-            @media (max-width: 1280px) {
-                position: absolute;
-                left: 0;
-                right: 0;
-                top: 0;
-                bottom: 0;
-                margin: auto;
-                padding: 10px;
-                margin-top: 20px;
-                opacity: 1;
-            }
-        }
+            .preulympic-payment-logo {
+                // position: absolute;
+                // top: 5vh;
+                // left: 50%;
+                // transform: translateX(-50%);
+                background-image: url("./../../../Asset/Image/Ufest Logo/ufestlogocolor.webp");
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+                width: 100vh;
+                height: 20vh;
+                // display: flex;
+                // flex-direction: column;
+                // justify-content: center;
+                // align-items: center;
 
-        .preulympic-req-group {
-            margin-bottom: 1rem;
-            text-align: left;
-            padding: 50px;
-
-            label {
-                display: block;
-                margin-bottom: 0.5rem;
-                font-size: 2em;
-                text-align: left;
-            }
-
-            input {
-                display: block;
-                width: 30%;
-                padding: 0.5rem;
-                outline: 0;
-                border: 0;
-                background: transparent;
-                border-bottom: 1px solid #CC5819;
-                font-size: 2em;
-
-                &:focus {
-                    outline: none;
-                    border-color: #CC5819;
+                @media screen and (max-width: index.$md) {
+                    position: relative;
+                    margin-left: auto;
+                    margin-right: auto;
                 }
 
-                &::placeholder {
-                    color: #ccc;
-                    opacity: 1;
+                @media screen and (max-width: 1122px) {
+                    width: 30vh;
+                    height: 20vh;
                 }
             }
 
-            .preulympic-req-error-message {
-                color: red;
-                margin-top: 0.5rem;
+            .preulympic-payment-title {
+                // position: absolute;
+                font-family: Louis George Cafe;
+                color: #903504;
+                font-size: 45px;
+                margin-bottom: 70px;
+                width: 65%;
+                text-align: center;
+                line-height: 50px;
+                font-style: italic;
+
+                @media screen and (max-width: 768px) {
+                    letter-spacing: 0.05em;
+                    font-size: 20px;
+                    width: 70%;
+                    line-height: 28px;
+                }
             }
 
-            @media (max-width: 768px) {
-                padding: 15px;
+            .preulympic-payment-bukti {
+                font-family: Louis George Cafe;
+                // margin-top: 20%;
+                font-size: 30px;
 
-                label {
-                    font-size: 15px;
-                    height: 10px;
-                    margin-top: 30px;
-                }
-
-                input {
-                    font-size: 15px;
-                    margin-top: 10px;
-                    width: 60%;
+                @media screen and (max-width: 768px) {
+                    text-align: center;
+                    // margin-top: 40%;
+                    color: #903504;
+                    font-size: 17px;
+                    width: 30vh;
+                    line-height: 30px;
                 }
             }
         }
     }
 
-    button {
-        padding: 0.5rem 1rem;
-        border: none;
-        background-color: #CC581A;
-        color: #fff;
-        margin-top: 1rem;
-        width: 14%;
-        height: 10%;
-        border-radius: 20px;
-        margin-right: 2em;
-        margin-left: auto;
-        font-size: 30px;
-        font-family: Rocket-Vintage;
-        background-color: #e0895a;
-        border: 2px solid #ffffff;
-        transition: background 0.3s ease;
-
-        &:hover {
-            background: #CC5819;
-            box-shadow: 0 0 5px #CC5819,
-                0 0 20px #CC5819,
-                0 0 60px #CC5819;
-        }
-
-        &:focus {
-            outline: none;
-            box-shadow: 0 0 0 3px #c79242;
-        }
-
-        &:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        @media screen and (max-width: 960px) {
-            position: absolute;
-            width: 40%;
-            left: 50%;
-            top: 75%;
-            transform: translate(-50%, 50%);
-            opacity: 1;
-            border-radius: 50px;
-            background-color: #CC5819;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .preulympic-req-page {
-            width: 80%;
-        }
-
-        .preulympic-req-group {
-            input {
-                width: 100%;
-                font-size: 1rem;
-            }
-
-            .preulympic-req-error-message {
-                font-size: 1rem;
-            }
-        }
-    }
 }

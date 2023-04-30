@@ -15,21 +15,26 @@ import {
     useCookies,
 } from "react-use-cookie";
 import { PreulympicButton as Button } from "./Components/Button/PreulympicButton";
-import { useFormik } from "formik";
+// import { useFormik } from "formik";
 import FileInput from "./Components/FileInput/FileInput";
+import Error from "./Components/Error/Error";
 
 export function PreulympicUser() {
-    const [playernumber, setplayernumber] = useState(getCookie('numberOfPlayers'));
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+    const [playernumber, setplayernumber] = useState(getCookie('Preulmcount'));
+    const [currcount, setcurrcount] = useState(1);
     const navigate = useNavigate();
     // input
-    const [nama, setnama] = useState('');
-    const [jurusan, setjurusan] = useState('');
-    const [angkatan, setangkatan] = useState('');
-    const [phoneNumber, setPhoneNumber] = useState('');
-    const [userId, setuserId] = useState('');
-    const [userName, setuserName] = useState('');
     const [fotoKtm, setfotoKtm] = useState('');
     const [buktiJoin, setbuktiJoin] = useState('');
+    const [sisamember, setsisamember] = useState(0);
+
+    // error handling
+    const [loading, setLoading] = useState(false);
+    const [error, Seterror] = useState(false);
+    const [errorText, SeterrorText] = useState("");
     return (
         <>
             {/* Preulympic start here */}
@@ -46,11 +51,11 @@ export function PreulympicUser() {
                     buktiJoin: ""
                 }}
                 onSubmit={(values, { resetForm }) => {
+                    setLoading(true);
                     async function Submit() {
                         try {
                             await postRequest('timmobilelegend', {
-                                namaTim: "Tim3",
-                                ketua: "GEE",
+                                tokenID: getCookie("Preulmtoken"),
                                 nama: values.nama,
                                 angkatan: values.angkatan,
                                 jurusan: values.jurusan,
@@ -60,30 +65,47 @@ export function PreulympicUser() {
                                 fotoKtm: fotoKtm,
                                 buktiJoin: buktiJoin
                             }).then((res) => {
-                                // if (res.status === 201 || res.status === 200) {
                                 console.log(res);
-                                // setCookie("Preulmtoken", res.data.tokenID, { //nanti cek sini lagi ya, karena belum fix
-                                //     expires: 99,
-                                //     path: "/",
-                                // });
-                                // setLoading(false);
-                                // navigate("/PreulympicRebelsquad");
-                                // } else {
-                                // setLoading(false);
-                                // console.log(res);
+                                // const curramount = getCookie("Preulmcount");
+                                setcurrcount(currcount + 1);
+                                // setCookie("Preulmcurrcount", currcount);
+                                setLoading(false);
+                                // setcurrentCount(currentCount + 1);
+                                // if (curramount === currcount) {
+                                //     navigate("/PreulympicPayment");
                                 // }
-                                console.log(res);
-                            })
+                                // if (res.data.success === false) {
+                                //     navigate("/PreulympicPayment");
+                                // }
+
+                                if (res.data.sisaMember <= 0) {
+                                    navigate("/PreulympicPayment");
+                                }
+                                // window.location.reload();
+                                resetForm();
+                                // window.scrollTo(0, 0);
+                            }).catch((err) => {
+                                console.log(err);
+                                Seterror(true);
+                                if (err.response.data.message)
+                                    SeterrorText(err.response.data.message);
+                                setLoading(false);
+                            });
                         } catch (error) {
-                            // setLoading(false);
+                            Seterror(true);
                             console.log(error);
+                            setLoading(false);
+                            // SeterrorText(error);
+                            // console.log(error);
+                            // if (!error.response.data.message) {
+                            //     navigate("/PreulympicPayment");
+                            // }
                         }
                     }
                     Submit();
-                    resetForm();
-                    // alert(JSON.stringify(values, null, 2));
-                    // navigate("/PreulympicPayment");
-                }}
+
+                }
+                }
 
             >
                 {({
@@ -97,9 +119,10 @@ export function PreulympicUser() {
                             <form className="preulympic-registration-user" noValidate onSubmit={handleSubmit}>
                                 <div className="preulympic-form-container">
                                     <div className="preulympic-form-page">
+                                        <Error error={error} errorText={errorText} loading={loading} />
                                         <div className="preulympic-form-logo"></div>
                                         <div className="preulympic-form-group">
-                                            <label htmlFor="nama">Nama Player {playernumber}</label>
+                                            <label htmlFor="nama">Nama Player {currcount}</label>
                                             <input
                                                 type="text"
                                                 id="nama"
@@ -173,7 +196,7 @@ export function PreulympicUser() {
                                             )}
                                         </div>
                                         <div className="preulympic-form-group">
-                                            <label htmlFor="idplayer">ID Player</label>
+                                            <label htmlFor="idplayer">ID Player {currcount}</label>
                                             <input
                                                 onChange={handleChange}
                                                 type="text"
@@ -191,7 +214,7 @@ export function PreulympicUser() {
                                             )}
                                         </div>
                                         <div className="preulympic-form-group">
-                                            <label htmlFor="userNames">Username Player</label>
+                                            <label htmlFor="userNames">Username Player {currcount}</label>
                                             <input
                                                 onChange={handleChange}
                                                 type="text"
@@ -209,19 +232,22 @@ export function PreulympicUser() {
                                             )}
                                         </div>
                                         <div className="preulympic-form-image">
-                                            <label htmlFor="ktmPhotos">Foto KTM Player</label>
+                                            <label htmlFor="ktmPhotos">Foto KTM Player {currcount}</label>
                                             <FileInput
                                                 onChange={handleChange}
                                                 id="ktmPhotos"
                                                 value={values.fotoKtm}
                                                 name="fotoKtm"
+                                                status={values.fotoKtm ? true : false}
                                             />
+                                            <br />
                                             {errors.fotoKtm && (
                                                 <div className="preulympic-req-error-message">
                                                     {errors.fotoKtm}
                                                 </div>
                                             )}
                                         </div>
+                                        <br />
                                         <div className="preulympic-form-image">
                                             <label htmlFor="buktiJoin">Bukti Join Whatsapp Community Rebel Squad</label>
                                             <FileInput
@@ -229,6 +255,7 @@ export function PreulympicUser() {
                                                 id="buktiJoin"
                                                 value={values.buktiJoin}
                                                 name="buktiJoin"
+                                                status={values.buktiJoin ? true : false}
                                             />
                                             {errors.buktiJoin && (
                                                 <div className="preulympic-req-error-message">
@@ -236,7 +263,12 @@ export function PreulympicUser() {
                                                 </div>
                                             )}
                                         </div>
-                                        <Button action={handleSubmit}>Next</Button>
+                                        <br />
+                                        <br />
+                                        <Button
+                                            loading={loading}
+                                            disabled={loading || !(values.nama && values.angkatan && values.jurusan && values.phoneNumber && values.userId && values.userName)}
+                                            action={handleSubmit}>Next</Button>
                                     </div>
                                 </div>
                             </form>

@@ -1,13 +1,13 @@
 import React from 'react';
-import style from './FileInput.module.scss';
+import style from './FileInput.scss';
 
 
 export default function PreUlympicFileInput(props) {
     return (
         <>
             <input
-                className={style.input}
-                onChange={props.handleChange}
+                className={`input ${props.status ? "inputtrue" : ""}`}
+                onChange={props.onChange}
                 type="file"
                 id={props.id}
                 value={props.value}

@@ -15,11 +15,11 @@ export default function PreulympicRebelSquad() {
       <div className="preulympic-rebel-squad-border">
         <div className="preulympic-rebel-squad-logo"></div>
         <div className="preulympic-rebel-squad-title">
-          Pastikan setiap peserta bergabung ke dalam group Whatsapp Community <strong>Rebel Squad</strong> dengan mengclick tombol di bawah
+        Pastikan setiap peserta bergabung ke dalam Whatsapp Community <strong>Rebel Squad</strong> dengan mengisi form dibawah
         </div>
         <a className="preulympic-rebel-squad-button"
           //taro nomornya nya dibawah
-          href="https://wa.me/"
+          href="http://bit.ly/Join-Rebels-Squad"
           target="_blank"
         >
           Join Rebel Squad Group

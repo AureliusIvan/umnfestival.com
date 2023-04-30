@@ -10,10 +10,12 @@ import { postRequest } from "../../../Reusable/Service/AxiosClient";
 import { useNavigate, Navigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import {
+  getCookie,
   setCookie
 } from "react-use-cookie";
 import { PreulympicButton as Button } from "./Components/Button/PreulympicButton";
 // this is main function
+import Error from "./Components/Error/Error";
 
 export function PreulympicForm() {
   // state
@@ -23,10 +25,14 @@ export function PreulympicForm() {
   const dispatch = useDispatch();
   // animation
   const [numberOfPlayers, setNumberOfPlayers] = useState();
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState(false);
   const [loading, setLoading] = useState(false);
   // return here
   const navigate = useNavigate();
+
+  useEffect(()=>{
+    window.scrollTo(0,0);
+  })
   return (
     <>
       <Formik
@@ -45,28 +51,39 @@ export function PreulympicForm() {
           console.log(values);
           setLoading(true);
           async function Submit() {
+
+
+
+
+
+
+
+
+
             try {
               await postRequest('ulympic', {
                 namaTim: values.teamName,
-                jumlahMember: values.number
+                jumlahMember: values.numberOfPlayers
               }).then((res) => {
+                // console.log(res);
                 if (res.status === 201 || res.status === 200) {
-                  console.log(res);
-                  setCookie("Preulmtoken", res.data.tokenID, { //nanti cek sini lagi ya, karena belum fix
+                  setCookie("Preulmtoken", res.data.data.tokenID, {
                     expires: 99,
                     path: "/",
                   });
+                  setCookie("Preulmcount", res.data.data.jumlahMember, {
+                    expires: 99,
+                    path: "/",
+                  });
+                  setCookie("Preulmcurrcount", 1);
                   setLoading(false);
                   navigate("/PreulympicRebelsquad");
-                } else {
-                  setLoading(false);
-                  console.log(res);
                 }
               })
             } catch (error) {
+              SeterrorText(error.response.data.message);
               setLoading(false);
-              console.log(error);
-              navigate("/PreulympicRebelsquad");
+              Seterror(true);
             }
           }
           Submit();
@@ -84,10 +101,11 @@ export function PreulympicForm() {
               <form className="preulympic-registration" noValidate onSubmit={handleSubmit}>
                 <div className="preulympic-req-container">
                   <div className="preulympic-req-page">
+                    <Error error={error} errorText={errorText} loading={loading} />
                     <div className="preulympic-req-logo"></div>
                     <div className="preulympic-req-group">
                       <label htmlFor="teamName">
-                        Nama Tim (Berdasarkan bahasa yunani)
+                        Nama Tim (Berdasarkan Kota di Yunani)
                       </label>
                       <input
                         type="text"
@@ -107,7 +125,7 @@ export function PreulympicForm() {
                     </div>
 
                     <div className="preulympic-req-group">
-                      <label htmlFor="numberOfPlayers">Jumlah Pemain (Termasuk Perwakilan) :</label>
+                      <label htmlFor="numberOfPlayers">Jumlah Pemain :</label>
                       <input
                         name="numberOfPlayers"
                         type="number"
@@ -124,7 +142,8 @@ export function PreulympicForm() {
                       )}
                     </div>
                     <Button
-                      disabled={!(values.teamName && values.numberOfPlayers)}
+                      loading={loading}
+                      disabled={loading || !(values.teamName && values.numberOfPlayers && values.numberOfPlayers >= 5 && values.numberOfPlayers <= 7)}
                       action={handleSubmit}>Next</Button>
                   </div>
                 </div>
@@ -140,33 +159,39 @@ export function PreulympicForm() {
 
 
 export default function Preulympic() {
+  const [status, setStatus] = useState(getCookie("Preulm"));
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  })
   return (<>
     <Helmet>
       <title>Pre-Ulympic | UMN Festival 2023</title>
-      <meta name="description" content="Pre-Ulympic | Pre-Ulympic merupakan kegiatan UMN Festival yang bertujuan sebagai sarana untuk mahasiswa menuangkan bakatnya dalam bidang e-sport khususunya mobile legend." />
+      <meta name="description" co   ntent="Pre-Ulympic | Pre-Ulympic merupakan kegiatan UMN Festival yang bertujuan sebagai sarana untuk mahasiswa menuangkan bakatnya dalam bidang e-sport khususunya mobile legend." />
       <link rel="canonical" href="https://www.umnfestival.com/pre-olympic" />
     </Helmet>
     <div id="preulympic">
       <div className="pre-olympic">
-        <div className="pre-olympic__logo"></div>
-        <div className="pre-olympic__title">
-          <h1>Pre-Ulympic</h1>
+        <div className="logo"></div>
+        <h1 className="title">Pre-Ulympic</h1>
+        <p className="description">
+          Pre Ulympic merupakan kegiatan UMN Festival yang bertujuan sebagai
+          sarana untuk mahasiswa menuangkan bakatnya dalam bidang e-sport
+          khususunya mobile legend.
+        </p>
+        <div className="cta">
+          {status === "1212312" ?
+            <p>Selamat! Kamu telah berhasil mendaftar Pre Ulympic</p>
+            :
+            <>
+              <p>Daftarkan tim mu segera !!!</p>
+              <Link to="/PreulympicRegistration" className="btn">
+                Daftar Pre-Ulympic
+              </Link>
+            </>
+          }
         </div>
-        <div className="pre-olympic__description">
-          <p>
-            Pre Ulympic merupakan kegiatan UMN Festival yang bertujuan sebagai
-            sarana untuk mahasiswa menuangkan bakatnya dalam bidang e-sport
-            khususunya mobile legend.
-          </p>
-        </div>
-        <div className="pre-olympic__cta">
-          <p>Daftarkan tim mu segera !!!</p>
-          <Link to="/PreulympicRegistration" className="btn">
-            Daftar Pre-Ulympic
-          </Link>
-        </div>
-      </div>
-    </div>
+      </div >
+    </div >
   </>
   );
 }

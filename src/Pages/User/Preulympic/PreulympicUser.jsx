@@ -53,6 +53,11 @@ export function PreulympicUser() {
                 onSubmit={(values, { resetForm }) => {
                     setLoading(true);
                     async function Submit() {
+                        console.log(values);
+                        const formData = new FormData();
+                        formData.append("fotoKtm", values.fotoKtm);
+                        formData.append("buktiJoin", values.buktiJoin);
+                        console.log(formData.get("fotoKtm"));
                         try {
                             await postRequest('timmobilelegend', {
                                 tokenID: getCookie("Preulmtoken"),
@@ -62,8 +67,8 @@ export function PreulympicUser() {
                                 phoneNumber: values.phoneNumber,
                                 userID: values.userId,
                                 userName: values.userName,
-                                fotoKtm: fotoKtm,
-                                buktiJoin: buktiJoin
+                                fotoKtm: formData.get("fotoKtm"),
+                                buktiWA: formData.get("buktiJoin"),
                             }).then((res) => {
                                 console.log(res);
                                 // const curramount = getCookie("Preulmcount");
@@ -113,6 +118,7 @@ export function PreulympicUser() {
                     errors,
                     handleSubmit,
                     handleChange,
+                    setFieldValue,
                 }) => (
                     <div>
                         <Box>
@@ -234,9 +240,12 @@ export function PreulympicUser() {
                                         <div className="preulympic-form-image">
                                             <label htmlFor="ktmPhotos">Foto KTM Player {currcount}</label>
                                             <FileInput
-                                                onChange={handleChange}
+                                                onChange={e => {
+                                                    handleChange
+                                                    setFieldValue("fotoKtm", e.currentTarget.files[0]);
+                                                }}
                                                 id="ktmPhotos"
-                                                value={values.fotoKtm}
+                                                // value={values.fotoKtm}
                                                 name="fotoKtm"
                                                 status={values.fotoKtm ? true : false}
                                             />
@@ -251,9 +260,12 @@ export function PreulympicUser() {
                                         <div className="preulympic-form-image">
                                             <label htmlFor="buktiJoin">Bukti Join Whatsapp Community Rebel Squad</label>
                                             <FileInput
-                                                onChange={handleChange}
+                                                onChange={e => {
+                                                    handleChange
+                                                    setFieldValue("buktiJoin", e.currentTarget.files[0]);
+                                                }}
                                                 id="buktiJoin"
-                                                value={values.buktiJoin}
+                                                // value={values.buktiJoin}
                                                 name="buktiJoin"
                                                 status={values.buktiJoin ? true : false}
                                             />

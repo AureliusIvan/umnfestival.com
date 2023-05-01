@@ -13,7 +13,7 @@ function Error(props) {
         {
             props.error === true && props.loading === false ?
                 <AlertStyled severity="error">
-                    {props.errorText ? props.errorText : ""}
+                    {props.errorText ? props.errorText : "Error occured due to server error / network error"}
                 </AlertStyled>
                 : ""
         }

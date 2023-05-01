@@ -12,7 +12,6 @@ import { Helmet } from "react-helmet-async";
 import {
     getCookie,
     setCookie,
-    useCookies,
 } from "react-use-cookie";
 import { PreulympicButton as Button } from "./Components/Button/PreulympicButton";
 // import { useFormik } from "formik";
@@ -20,21 +19,25 @@ import FileInput from "./Components/FileInput/FileInput";
 import Error from "./Components/Error/Error";
 
 export function PreulympicUser() {
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-    const [playernumber, setplayernumber] = useState(getCookie('Preulmcount'));
+    const [token, setToken] = useState(getCookie('Preulmtoken'));
+
+    // const [playernumber, setplayernumber] = useState(getCookie('Preulmcount'));
     const [currcount, setcurrcount] = useState(1);
     const navigate = useNavigate();
     // input
-    const [fotoKtm, setfotoKtm] = useState('');
-    const [buktiJoin, setbuktiJoin] = useState('');
-    const [sisamember, setsisamember] = useState(0);
+    // const [sisamember, setsisamember] = useState(0);
 
     // error handling
     const [loading, setLoading] = useState(false);
     const [error, Seterror] = useState(false);
     const [errorText, SeterrorText] = useState("");
+
+    useEffect(() => {
+        const count = getCookie('Preulmcount');
+        setcurrcount(count);
+        window.scrollTo(0, 0);
+    }, []);
+
     return (
         <>
             {/* Preulympic start here */}
@@ -48,57 +51,53 @@ export function PreulympicUser() {
                     userId: "",
                     userName: "",
                     fotoKtm: "",
-                    buktiJoin: ""
+                    buktiWA: ""
                 }}
                 onSubmit={(values, { resetForm }) => {
                     setLoading(true);
                     async function Submit() {
-                        console.log(values);
+                        // console.log(values);
                         const formData = new FormData();
+                        formData.append("tokenID", token);
+                        formData.append("nama", values.nama);
+                        formData.append("angkatan", values.angkatan);
+                        formData.append("jurusan", values.jurusan);
+                        formData.append("phoneNumber", values.phoneNumber);
+                        formData.append("userID", values.userId);
+                        formData.append("userName", values.userName);
                         formData.append("fotoKtm", values.fotoKtm);
-                        formData.append("buktiJoin", values.buktiJoin);
-                        console.log(formData.get("fotoKtm"));
+                        formData.append("buktiWA", values.buktiWA);
                         try {
-                            await postRequest('timmobilelegend', {
-                                tokenID: getCookie("Preulmtoken"),
-                                nama: values.nama,
-                                angkatan: values.angkatan,
-                                jurusan: values.jurusan,
-                                phoneNumber: values.phoneNumber,
-                                userID: values.userId,
-                                userName: values.userName,
-                                fotoKtm: formData.get("fotoKtm"),
-                                buktiWA: formData.get("buktiJoin"),
-                            }).then((res) => {
-                                console.log(res);
-                                // const curramount = getCookie("Preulmcount");
-                                setcurrcount(currcount + 1);
-                                // setCookie("Preulmcurrcount", currcount);
+                            await postRequest('timmobilelegend',
+                                formData
+                            ).then((res) => {
+                                // console.log(res);
+                                setcurrcount(parseInt(currcount) + 1);
+                                var countnow = parseInt(currcount) + 1;
+                                setCookie('Preulmcount', countnow);
                                 setLoading(false);
-                                // setcurrentCount(currentCount + 1);
-                                // if (curramount === currcount) {
-                                //     navigate("/PreulympicPayment");
-                                // }
-                                // if (res.data.success === false) {
-                                //     navigate("/PreulympicPayment");
-                                // }
-
                                 if (res.data.sisaMember <= 0) {
                                     navigate("/PreulympicPayment");
                                 }
-                                // window.location.reload();
                                 resetForm();
+                                Seterror(false);
                                 // window.scrollTo(0, 0);
                             }).catch((err) => {
-                                console.log(err);
+                                // console.log(err);
                                 Seterror(true);
                                 if (err.response.data.message)
                                     SeterrorText(err.response.data.message);
+                                else if (err.response.data.error)
+                                    SeterrorText(err.response.data.error);
+                                else if (err.message)
+                                    SeterrorText(err.response.data.error);
+                                else
+                                    SeterrorText(err.response.data);
                                 setLoading(false);
                             });
                         } catch (error) {
                             Seterror(true);
-                            console.log(error);
+                            // console.log(error);
                             setLoading(false);
                             // SeterrorText(error);
                             // console.log(error);
@@ -239,41 +238,59 @@ export function PreulympicUser() {
                                         </div>
                                         <div className="preulympic-form-image">
                                             <label htmlFor="ktmPhotos">Foto KTM Player {currcount}</label>
-                                            <FileInput
+                                            {/* <FileInput
                                                 onChange={e => {
                                                     handleChange
                                                     setFieldValue("fotoKtm", e.currentTarget.files[0]);
                                                 }}
-                                                id="ktmPhotos"
-                                                // value={values.fotoKtm}
+                                                id="fotoKtm"
                                                 name="fotoKtm"
                                                 status={values.fotoKtm ? true : false}
+                                            /> */}
+
+                                            <input
+                                                className={`input ${values.fotoKtm ? "inputtrue" : ""}`}
+                                                onChange={e => {
+                                                    handleChange
+                                                    setFieldValue("fotoKtm", e.currentTarget.files[0]);
+                                                }}
+                                                type="file"
+                                                accept='image/*'
+                                                id={"fotoKtm"}
+                                                // value={values.fotoKtm ? true : false}
+                                                name={"fotoKtm"}
+                                                maxFileSize={5000000}
                                             />
+
                                             <br />
-                                            {errors.fotoKtm && (
-                                                <div className="preulympic-req-error-message">
-                                                    {errors.fotoKtm}
-                                                </div>
-                                            )}
                                         </div>
                                         <br />
                                         <div className="preulympic-form-image">
                                             <label htmlFor="buktiJoin">Bukti Join Whatsapp Community Rebel Squad</label>
-                                            <FileInput
+                                            {/* <FileInput
                                                 onChange={e => {
                                                     handleChange
-                                                    setFieldValue("buktiJoin", e.currentTarget.files[0]);
+                                                    setFieldValue("buktiWA", e.currentTarget.files[0]);
                                                 }}
-                                                id="buktiJoin"
+                                                id="buktiWA"
                                                 // value={values.buktiJoin}
-                                                name="buktiJoin"
-                                                status={values.buktiJoin ? true : false}
+                                                name="buktiWA"
+                                                status={values.buktiWA ? true : false}
+                                            /> */}
+
+                                            <input
+                                                className={`input ${values.buktiWA ? "inputtrue" : ""}`}
+                                                onChange={e => {
+                                                    handleChange
+                                                    setFieldValue("buktiWA", e.currentTarget.files[0]);
+                                                }}
+                                                type="file"
+                                                accept='image/*'
+                                                id={"buktiWA"}
+                                                name={"buktiWA"}
+                                                maxFileSize={5000000}
                                             />
-                                            {errors.buktiJoin && (
-                                                <div className="preulympic-req-error-message">
-                                                    {errors.buktiJoin}
-                                                </div>
-                                            )}
+
                                         </div>
                                         <br />
                                         <br />

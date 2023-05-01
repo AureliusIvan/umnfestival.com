@@ -13,7 +13,7 @@ export default function PreUlympicFileInput(props) {
                 id={props.id}
                 value={props.value}
                 name={props.name}
-                multiple required
+                maxFileSize={5000000}
             />
 
             {/* <Field
@@ -23,8 +23,8 @@ export default function PreUlympicFileInput(props) {
                 id={props.id}
                 value={props.value}
                 name={props.name}
-                multiple required
-            />   */}
+                maxFileSize={5000000} // 5 MB
+            /> */}
         </>
     )
 }

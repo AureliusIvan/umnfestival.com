@@ -22,16 +22,16 @@ export function PreulympicForm() {
   // error handling
   const [error, Seterror] = useState(false);
   const [errorText, SeterrorText] = useState("");
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   // animation
   const [numberOfPlayers, setNumberOfPlayers] = useState();
-  const [errors, setErrors] = useState(false);
+  // const [errors, setErrors] = useState(false);
   const [loading, setLoading] = useState(false);
   // return here
   const navigate = useNavigate();
 
-  useEffect(()=>{
-    window.scrollTo(0,0);
+  useEffect(() => {
+    window.scrollTo(0, 0);
   })
   return (
     <>
@@ -48,18 +48,9 @@ export function PreulympicForm() {
           ktm: "",
         }}
         onSubmit={(values) => {
-          console.log(values);
+          // console.log(values);
           setLoading(true);
           async function Submit() {
-
-
-
-
-
-
-
-
-
             try {
               await postRequest('ulympic', {
                 namaTim: values.teamName,
@@ -71,7 +62,7 @@ export function PreulympicForm() {
                     expires: 99,
                     path: "/",
                   });
-                  setCookie("Preulmcount", res.data.data.jumlahMember, {
+                  setCookie("Preulmcount", 1, {
                     expires: 99,
                     path: "/",
                   });
@@ -166,7 +157,7 @@ export default function Preulympic() {
   return (<>
     <Helmet>
       <title>Pre-Ulympic | UMN Festival 2023</title>
-      <meta name="description" co   ntent="Pre-Ulympic | Pre-Ulympic merupakan kegiatan UMN Festival yang bertujuan sebagai sarana untuk mahasiswa menuangkan bakatnya dalam bidang e-sport khususunya mobile legend." />
+      <meta name="description" co ntent="Pre-Ulympic | Pre-Ulympic merupakan kegiatan UMN Festival yang bertujuan sebagai sarana untuk mahasiswa menuangkan bakatnya dalam bidang e-sport khususunya mobile legend." />
       <link rel="canonical" href="https://www.umnfestival.com/pre-olympic" />
     </Helmet>
     <div id="preulympic">

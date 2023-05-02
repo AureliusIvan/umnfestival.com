@@ -6,6 +6,9 @@ import LoadingScreen from "../Reusable/LoadingScreen/LoadingScreen";
 const User = lazy(() => import("../Pages/User/User"));
 const Admin = lazy(() => import("../Pages/Admin/Admin"));
 
+//Nambah Component yang lagi dibuat
+import TestLogo from "../Reusable/ComponentItems/Logo/TestLogo"
+
 export default function Routing() {
     return (
         <Routes>

@@ -6,8 +6,17 @@ import LoadingScreen from "../Reusable/LoadingScreen/LoadingScreen";
 const User = lazy(() => import("../Pages/User/User"));
 const Admin = lazy(() => import("../Pages/Admin/Admin"));
 
+//Nambah Component yang lagi dibuat
+import TestLogo from "../Reusable/ComponentItems/Logo/TestLogo"
+
 export default function Routing() {
     return (
+        <Routes>
+                <Route path="/*" element={<TestLogo/>} />
+        </Routes>
+
+
+        /*
         <Routes>
             <Route path="/*" element={
                 <Suspense fallback={<LoadingScreen />}>
@@ -22,6 +31,6 @@ export default function Routing() {
             </>
             } />
             <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
+        </Routes>*/
     )
 }

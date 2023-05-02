@@ -21,11 +21,13 @@ jobs:
         run: yarn install
       - name: Build for production
         run: yarn build
-      - name: Push to Pages branch
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Deploy
+        uses: SamKirkland/FTP-Deploy-Action@4.1.1
         with:
-          github_token: ${{ secrets.PERSONAL_TOKEN }}
-          publish_dir: ./build
-          publish_branch: pages
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: .
+          remote-dir: httpdocs
 
 

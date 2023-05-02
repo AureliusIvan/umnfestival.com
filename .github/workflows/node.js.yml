@@ -3,7 +3,7 @@ name: Build and Deploy to Pages
 on:
   push:
     branches:
-      - main # Or whichever branch you want to trigger the action on
+      - development # Or whichever branch you want to trigger the action on
 
 jobs:
   build-and-deploy:

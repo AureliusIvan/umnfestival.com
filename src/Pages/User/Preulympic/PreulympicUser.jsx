@@ -17,6 +17,7 @@ import { PreulympicButton as Button } from "./Components/Button/PreulympicButton
 // import { useFormik } from "formik";
 import FileInput from "./Components/FileInput/FileInput";
 import Error from "./Components/Error/Error";
+import compressImage from "../../../Reusable/ImageCompressor/ImageCompressor";
 
 export function PreulympicUser() {
     const [token, setToken] = useState(getCookie('Preulmtoken'));
@@ -55,23 +56,40 @@ export function PreulympicUser() {
                 }}
                 onSubmit={(values, { resetForm }) => {
                     setLoading(true);
+                    const formData = new FormData();
+                    formData.append("tokenID", token);
+                    formData.append("nama", values.nama);
+                    formData.append("angkatan", values.angkatan);
+                    formData.append("jurusan", values.jurusan);
+                    formData.append("phoneNumber", values.phoneNumber);
+                    formData.append("userID", values.userId);
+                    formData.append("userName", values.userName);
+
+
                     async function Submit() {
                         // console.log(values);
-                        const formData = new FormData();
-                        formData.append("tokenID", token);
-                        formData.append("nama", values.nama);
-                        formData.append("angkatan", values.angkatan);
-                        formData.append("jurusan", values.jurusan);
-                        formData.append("phoneNumber", values.phoneNumber);
-                        formData.append("userID", values.userId);
-                        formData.append("userName", values.userName);
-                        formData.append("fotoKtm", values.fotoKtm);
-                        formData.append("buktiWA", values.buktiWA);
+
+                        // if (!values.buktiWA.startsWith("image/")) {
+                        //     // console.log("Invalid file type. Please select an image file.");
+                        //     alert("Invalid file type. Please select an image file.");
+                        //     return;
+                        // }
+                        // if (!values.fotoKtm.startsWith("image/")) {
+                        //     console.log("Invalid file type. Please select an image file.");
+                        //     alert("Invalid file type. Please select an image file.");
+                        //     return;
+                        // }
                         try {
+                            const fotoKtmCompressed = await compressImage(values.fotoKtm);
+                            const buktiWACompressed = await compressImage(values.buktiWA);
+                            console.log(fotoKtmCompressed);
+                            console.log(buktiWACompressed);
+                            formData.append("fotoKtm", fotoKtmCompressed);
+                            formData.append("buktiWA", buktiWACompressed);
                             await postRequest('timmobilelegend',
                                 formData
                             ).then((res) => {
-                                // console.log(res);
+                                console.log(res);
                                 setcurrcount(parseInt(currcount) + 1);
                                 var countnow = parseInt(currcount) + 1;
                                 setCookie('Preulmcount', countnow);
@@ -83,7 +101,7 @@ export function PreulympicUser() {
                                 Seterror(false);
                                 // window.scrollTo(0, 0);
                             }).catch((err) => {
-                                // console.log(err);
+                                console.log(err);
                                 Seterror(true);
                                 if (err.response.data.message)
                                     SeterrorText(err.response.data.message);

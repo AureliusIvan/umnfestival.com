@@ -6,7 +6,7 @@ import { Formik } from "formik";
 import { Loginschema } from "./PreulympicSchema";
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { postRequest } from "../../../Reusable/Service/AxiosClient";
+import { getRequest, postRequest } from "../../../Reusable/Service/AxiosClient";
 import { useNavigate, Navigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import {
@@ -23,14 +23,29 @@ export function PreulympicForm() {
   const [error, Seterror] = useState(false);
   const [errorText, SeterrorText] = useState("");
   // const dispatch = useDispatch();
-  // animation
+  const [teamName, setTeamName] = useState();
   const [numberOfPlayers, setNumberOfPlayers] = useState();
   // const [errors, setErrors] = useState(false);
   const [loading, setLoading] = useState(false);
   // return here
   const navigate = useNavigate();
-
   useEffect(() => {
+    let token = getCookie("Preulmtoken");
+    async function Check() {
+      try {
+        await getRequest(`ulympic/find/${token}`).then((res) => {
+          console.log(res.data.data.namaTim);
+          setTeamName(res.data.data.namaTim);
+          setNumberOfPlayers(res.data.data.jumlahMember);
+          if (res.status === 201 || res.status === 200) {
+            // navigate("/PreulympicRebelsquad");
+          }
+        })
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    Check();
     window.scrollTo(0, 0);
   })
   return (
@@ -48,7 +63,6 @@ export function PreulympicForm() {
           ktm: "",
         }}
         onSubmit={(values) => {
-          // console.log(values);
           setLoading(true);
           async function Submit() {
             try {
@@ -104,6 +118,7 @@ export function PreulympicForm() {
                         name="teamName"
                         onChange={handleChange}
                         value={values.teamName}
+                        // defaultValue={teamName}
                         placeholder="Nama Tim"
                         autoComplete="off"
                         pattern="[A-Za-z\s]+"
@@ -123,6 +138,7 @@ export function PreulympicForm() {
                         placeholder="Jumlah Player 5 - 7"
                         id="numberOfPlayers"
                         value={values.numberOfPlayers}
+                        // defaultValue={numberOfPlayers}
                         onChange={handleChange}
                         autoComplete="off"
                       />

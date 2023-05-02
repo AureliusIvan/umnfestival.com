@@ -3860,6 +3860,11 @@ caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001400, caniuse-lite@^1.0.30001426:
   resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001449.tgz"
   integrity sha512-CPB+UL9XMT/Av+pJxCKGhdx+yg1hzplvFJQlJ2n68PyQGMz9L/E2zCyLdOL8uasbouTUgnPl+y0tccI/se+BEw==
 
+canvas-to-blob@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/canvas-to-blob/-/canvas-to-blob-1.0.0.tgz#e33ea1b7ae163fedfade136a67e19f01558c5086"
+  integrity sha512-JE4NJNbtYyOAKQ2zxU1Umsk7m131MhYIVsyg0U+9Qxa/oVlOEtShNgKoVeWh+scsOoWW7VavbBCPjcRSo8h1JQ==
+
 case-sensitive-paths-webpack-plugin@^2.4.0:
   version "2.4.0"
   resolved "https://registry.npmjs.org/case-sensitive-paths-webpack-plugin/-/case-sensitive-paths-webpack-plugin-2.4.0.tgz"

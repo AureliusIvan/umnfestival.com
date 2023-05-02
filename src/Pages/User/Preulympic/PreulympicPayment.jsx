@@ -11,6 +11,7 @@ import { PreulympicButton as Button } from "./Components/Button/PreulympicButton
 import FileInput from "./Components/FileInput/FileInput";
 import { setCookie, getCookie } from "react-use-cookie";
 import Error from "./Components/Error/Error";
+import compressImage from "../../../Reusable/ImageCompressor/ImageCompressor";
 
 
 function PreulympicPayment() {
@@ -31,34 +32,33 @@ function PreulympicPayment() {
                 }}
                 onSubmit={(values) => {
                     var id = 0;
-                    // console.log(values);
                     setLoading(true);
+                    // formData.append("buktiPembayaran", values.buktiPembayaran);
                     const formData = new FormData();
-                    formData.append("buktiPembayaran", values.buktiPembayaran);
                     async function Submit2() {
                         // console.log("this is " + id);
                         try {
+                            console.log(formData.get("buktiPembayaran"));
                             await postRequest(`ulympic/${id}?_method=PATCH`, formData).then((res) => {
                                 setCookie("Preulm", 1212312, {
                                     expires: 99,
                                     path: "/",
                                 })
-                                // console.log(res);
                                 navigate("/");
                             })
                         } catch (error) {
                             Seterror(true);
                             SeterrorText("An Error Occured");
                             setLoading(false);
-                            // console.log(error);
+                            console.log(error);
                         }
                     }
                     async function Submit() {
                         const token = getCookie("Preulmtoken");
                         try {
+                            const buktiPembayaranCompressed = await compressImage(values.buktiPembayaran);
+                            formData.append("buktiPembayaran", buktiPembayaranCompressed);
                             await getRequest(`ulympic/find/${token}`).then((res) => {
-                                // console.log(res.data.data.id);
-                                // setId(res.data.data.id);
                                 id = res.data.data.id;
                                 Submit2();
                             })
@@ -66,7 +66,7 @@ function PreulympicPayment() {
                             // confirm.log(" ini error");
                             Seterror(true);
                             SeterrorText("An Error Occured");
-                            // console.log(error);
+                            console.log(error);
                         }
 
                     }

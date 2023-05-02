@@ -12,12 +12,6 @@ import TestLogo from "../Reusable/ComponentItems/Logo/TestLogo"
 export default function Routing() {
     return (
         <Routes>
-                <Route path="/*" element={<TestLogo/>} />
-        </Routes>
-
-
-        /*
-        <Routes>
             <Route path="/*" element={
                 <Suspense fallback={<LoadingScreen />}>
                     <User />
@@ -31,6 +25,6 @@ export default function Routing() {
             </>
             } />
             <Route path="*" element={<Navigate to="/" />} />
-        </Routes>*/
+        </Routes>
     )
 }

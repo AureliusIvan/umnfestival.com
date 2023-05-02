@@ -17,7 +17,7 @@ localStorage.getItem('LoginID') ? axiosClient.defaults.headers = {
     };
 
 
-axiosClient.defaults.timeout = 10000;
+axiosClient.defaults.timeout = 20000;
 
 axiosClient.defaults.withCredentials = false;
 

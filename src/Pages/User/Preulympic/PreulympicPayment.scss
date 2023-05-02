@@ -1,0 +1,88 @@
+@use "./../../../index" as index;
+@use "./Preulympic.scss" as pre;
+
+
+.preulympic-payment {
+    .preulympic-payment-container {
+        @include pre.form-background;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        // height: 100vh !important;
+
+        .preulympic-payment-border {
+            @include pre.form-wrapper;
+            display: flex;
+            // justify-content: center !important;
+            align-items: center !important;
+            flex-direction: column !important;
+            text-align: center;
+            justify-items: center;
+            justify-self: center;
+
+            .preulympic-payment-logo {
+                // position: absolute;
+                // top: 5vh;
+                // left: 50%;
+                // transform: translateX(-50%);
+                background-image: url("./../../../Asset/Image/Ufest Logo/ufestlogocolor.webp");
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+                width: 100vh;
+                height: 20vh;
+                // display: flex;
+                // flex-direction: column;
+                // justify-content: center;
+                // align-items: center;
+
+                @media screen and (max-width: index.$md) {
+                    position: relative;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+
+                @media screen and (max-width: 1122px) {
+                    width: 30vh;
+                    height: 20vh;
+                }
+            }
+
+            .preulympic-payment-title {
+                // position: absolute;
+                font-family: Louis George Cafe;
+                color: #903504;
+                font-size: 45px;
+                margin-bottom: 70px;
+                width: 65%;
+                text-align: center;
+                line-height: 50px;
+                font-style: italic;
+
+                @media screen and (max-width: 768px) {
+                    letter-spacing: 0.05em;
+                    font-size: 20px;
+                    width: 70%;
+                    line-height: 28px;
+                }
+            }
+
+            .preulympic-payment-bukti {
+                font-family: Louis George Cafe;
+                // margin-top: 20%;
+                font-size: 30px;
+
+                @media screen and (max-width: 768px) {
+                    text-align: center;
+                    // margin-top: 40%;
+                    color: #903504;
+                    font-size: 17px;
+                    width: 30vh;
+                    line-height: 30px;
+                }
+            }
+        }
+    }
+
+}

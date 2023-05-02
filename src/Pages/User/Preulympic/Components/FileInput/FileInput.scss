@@ -1,0 +1,72 @@
+@use "./../../../../../index.scss" as index;
+
+.input {
+    position: relative;
+    width: 100% !important;
+    max-width: 125px;
+    height: 40px !important;
+    // min-height: 100px !important;
+    color: transparent;
+    // background-color: #CC5819;
+    padding: 5px 20px 5px 20px;
+
+    // &::-webkit-file-upload-button {
+    //     visibility: hidden;
+    // }
+
+
+    @media screen and (max-width: index.$md) {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    &::before {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        // margin-top: 10px;
+        content: "Choose File";
+        text-align: center;
+        width: 95%;
+        height: 95% !important;
+        // min-height: 100px !important;
+        // padding: 10px;
+        background: rgba(255, 255, 255, 1);
+        font-size: 20px;
+        border: 1px solid #CC5819;
+        border-radius: 40px;
+        color: rgba(144, 53, 4, 1);
+        // padding: 5px 20px 5px 20px;
+
+        @media screen and (max-width: index.$md) {
+            font-size: 12px !important;
+            // width: 20vw !important;
+            // margin-bottom: 10px;
+        }
+
+        &:focus {
+            outline: none;
+            border-color: #CC5819;
+        }
+
+        &::placeholder {
+            color: #ccc;
+            opacity: 1;
+        }
+    }
+}
+
+.inputtrue {
+    &::before {
+        content: "File Uploaded";
+        background: rgba(144, 53, 4, 1);
+        color: rgba(255, 255, 255, 1);
+        border: 1px solid rgba(144, 53, 4, 1);
+    }
+}

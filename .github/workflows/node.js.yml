@@ -16,9 +16,9 @@ jobs:
         with:
           node-version: '16.x'
       - name: Install dependencies
-        run: npm install
+        run: yarn install
       - name: Build for production
-        run: npm run build
+        run: yarn build
       - name: Push to Pages branch
         uses: peaceiris/actions-gh-pages@v3
         with:

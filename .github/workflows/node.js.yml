@@ -3,16 +3,16 @@ name: Build and Deploy to Pages
 on:
   push:
     branches:
-      - development # Or whichever branch you want to trigger the action on
+      - main # Or whichever branch you want to trigger the action on
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+        uses: actions/checkout@v2.5.2
+      - name: Use Node.js 16.x
+          uses: actions/setup-node@v2.4.1
         with:
           node-version: '16.x'
       - name: Install dependencies
@@ -25,3 +25,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
           publish_branch: pages
+
+

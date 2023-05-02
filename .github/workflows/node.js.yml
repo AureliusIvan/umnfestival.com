@@ -3,14 +3,14 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - main # Or whichever branch you want to trigger the action on
+      - development # Or whichever branch you want to trigger the action on
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2.5.2
+        uses: actions/checkout@<version>
       - name: Use Node.js 16.x
         uses: actions/setup-node@v2.4.1
         with:

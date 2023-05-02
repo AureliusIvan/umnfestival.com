@@ -1,5 +1,5 @@
 import LogoBlack from "../../../Asset/Image/Ufest Logo/ufestlogoblack.webp"
-import LogoColor from "../../../Asset/Image/Ufest Logo/ufestlogoColor.webp"
+import LogoColor from "../../../Asset/Image/Ufest Logo/ufestlogocolor.webp"
 import LogoWhite from "../../../Asset/Image/Ufest Logo/ufestlogowhite.webp"
 import "./Logo.scss"
 

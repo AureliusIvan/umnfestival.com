@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { getRequest, postRequest } from "../../../Reusable/Service/AxiosClient";
+import { getRequest, patchRequest, postRequest } from "../../../Reusable/Service/AxiosClient";
 import { useNavigate, Navigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import "./PreulympicPayment.scss";
@@ -31,15 +31,59 @@ function PreulympicPayment() {
                     buktiPembayaran: "",
                 }}
                 onSubmit={(values) => {
-                    var id = 0;
+                    // var id = 0;
+                    // setLoading(true);
+                    // // formData.append("buktiPembayaran", values.buktiPembayaran);
+                    // const formData = new FormData();
+                    // async function Submit2() {
+                    //     // console.log("this is " + id);
+                    //     try {
+                    //         console.log(formData.get("buktiPembayaran"));
+                    //         await postRequest(`ulympic/${id}?_method=PATCH`, formData).then((res) => {
+                    //             setCookie("Preulm", 1212312, {
+                    //                 expires: 99,
+                    //                 path: "/",
+                    //             })
+                    //             navigate("/");
+                    //         })
+                    //     } catch (error) {
+                    //         Seterror(true);
+                    //         SeterrorText("An Error Occured");
+                    //         setLoading(false);
+                    //         console.log(error);
+                    //     }
+                    // }
+                    // async function Submit() {
+                    //     const token = getCookie("Preulmtoken");
+                    //     try {
+                    //         const buktiPembayaranCompressed = await compressImage(values.buktiPembayaran);
+                    //         formData.append("buktiPembayaran", buktiPembayaranCompressed);
+                    //         await getRequest(`ulympic/find/${token}`).then((res) => {
+                    //             id = res.data.data.id;
+                    //             Submit2();
+                    //         })
+                    //     } catch (error) {
+                    //         // confirm.log(" ini error");
+                    //         Seterror(true);
+                    //         SeterrorText("An Error Occured");
+                    //         console.log(error);
+                    //     }
+
+                    // }
+                    // Submit();
                     setLoading(true);
-                    // formData.append("buktiPembayaran", values.buktiPembayaran);
-                    const formData = new FormData();
-                    async function Submit2() {
-                        // console.log("this is " + id);
+                    async function Submit() {
+                        let tokenID = getCookie("Preulmtoken");
+                        const formData = new FormData();
                         try {
+                            console.log(tokenID);
+                            const buktiPembayaranCompressed = await compressImage(values.buktiPembayaran);
+                            formData.append("buktiPembayaran", buktiPembayaranCompressed);
+                            // ulympic/update/gnZvi71zW2wlPWb?_method=PATCH
                             console.log(formData.get("buktiPembayaran"));
-                            await postRequest(`ulympic/${id}?_method=PATCH`, formData).then((res) => {
+                            await postRequest(`ulympic/update/${tokenID}?_method=PATCH`, formData).then((res) => {
+                                setLoading(false);
+                                console.log(res);
                                 setCookie("Preulm", 1212312, {
                                     expires: 99,
                                     path: "/",
@@ -47,28 +91,10 @@ function PreulympicPayment() {
                                 navigate("/");
                             })
                         } catch (error) {
-                            Seterror(true);
-                            SeterrorText("An Error Occured");
                             setLoading(false);
-                            console.log(error);
-                        }
-                    }
-                    async function Submit() {
-                        const token = getCookie("Preulmtoken");
-                        try {
-                            const buktiPembayaranCompressed = await compressImage(values.buktiPembayaran);
-                            formData.append("buktiPembayaran", buktiPembayaranCompressed);
-                            await getRequest(`ulympic/find/${token}`).then((res) => {
-                                id = res.data.data.id;
-                                Submit2();
-                            })
-                        } catch (error) {
-                            // confirm.log(" ini error");
                             Seterror(true);
-                            SeterrorText("An Error Occured");
                             console.log(error);
                         }
-
                     }
                     Submit();
                 }}

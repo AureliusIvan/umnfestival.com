@@ -61,7 +61,7 @@
   // width: 100vw !important;
   // position: relative;
   overflow: hidden;
-  background-image: url("./../../../Asset/Image/Background/PageUlympic.jpg");
+  background-image: url("./../../../Asset/Image/Background/PageUlympic.webp");
   background-position: center;
   background-size: cover;
 
@@ -69,12 +69,16 @@
     background-image: url("./../../../Asset/Image/Ufest Logo/ufestlogocolor.webp");
     background-repeat: no-repeat;
     background-size: contain;
-    width: 30vh;
-    height: 30vh;
+    width: 35vh;
+    height: 35vh;
+    filter: drop-shadow(0px 10px 10px rgba(255, 255, 255, 1));
+    // border: 10px solid black;
+    transform: scale(1.5);
+    transform-origin: center 55%;
 
     @media screen and (max-width: 768px) {
-      width: 20vh;
-      height: 30vh;
+      width: 40vh;
+      height: 40vh;
       // margin-top: 20px;
     }
   }
@@ -85,6 +89,9 @@
     font-size: 48px;
     font-weight: bold;
     text-align: center;
+    margin: 0;
+    padding: 0;
+    margin-top: 20px;
 
     @media screen and (max-width: index.$sm) {
       font-size: 36px;
@@ -101,6 +108,15 @@
     font-size: 30px;
     line-height: 35px;
     text-align: center;
+    height: fit-content;
+
+
+    @media screen and (max-width: 1020px) {
+      font-size: 16px !important;
+      line-height: 20px;
+      text-align: center;
+      padding-inline: 14px;
+    }
 
     @media screen and (max-width: 640px) {
       font-size: 16px;

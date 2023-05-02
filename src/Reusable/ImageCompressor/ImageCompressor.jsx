@@ -1,5 +1,6 @@
 import canvasToBlob from 'canvas-to-blob';
 
+
 export default function compressImage(file) {
     return new Promise((resolve, reject) => {
         const reader = new FileReader();

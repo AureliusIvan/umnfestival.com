@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getRequest, patchRequest, postRequest } from "../../../Reusable/Service/AxiosClient";
 import { useNavigate, Navigate } from "react-router-dom";
@@ -23,6 +23,10 @@ function PreulympicPayment() {
     const navigate = useNavigate();
     const [error, Seterror] = useState(false);
     const [errorText, SeterrorText] = useState("");
+    useEffect(() => {
+        setCookie("Preulmstate", 3);
+    })
+
     return (
         <>
             <Formik

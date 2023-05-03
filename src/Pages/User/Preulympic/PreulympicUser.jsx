@@ -36,6 +36,7 @@ export function PreulympicUser() {
     useEffect(() => {
         const count = getCookie('Preulmcount');
         setcurrcount(count);
+        setCookie('Preulmstate', 2);
         window.scrollTo(0, 0);
     }, []);
 

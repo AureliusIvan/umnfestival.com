@@ -170,6 +170,23 @@ export default function Preulympic() {
   useEffect(() => {
     window.scrollTo(0, 0);
   })
+
+  let statepreulm = getCookie("Preulmstate");
+  const navigate = useNavigate();
+  function RouteHandler() {
+    if (getCookie('Preulmstate') === "1") {
+      navigate("/PreulympicRebelsquad");
+    }
+    else if (getCookie('Preulmstate') === "2") {
+      navigate("/PreulympicRegistrationUser");
+    }
+    else if (getCookie('Preulmstate') === "3") {
+      navigate("/PreulympicPayment");
+    } else {
+      navigate("/PreulympicRegistration");
+    }
+  }
+
   return (<>
     <Helmet>
       <title>Pre-Ulympic | UMN Festival 2023</title>
@@ -191,9 +208,9 @@ export default function Preulympic() {
             :
             <>
               <p>Daftarkan tim mu segera !!!</p>
-              <Link to="/PreulympicRegistration" className="btn">
-                Daftar Pre-Ulympic
-              </Link>
+              <button onClick={RouteHandler} onTouchEnd={RouteHandler} className="btn">
+                {statepreulm ? "Lanjutankan Pendaftaran" : "Daftar Pre Ulympic"}
+              </button>
             </>
           }
         </div>

@@ -68,7 +68,7 @@ export default function User() {
               ) : (
                 <Suspense fallback={<LoadingScreen />}>
                   {/* <EnterAnimation className="NavbarUser-wrap"> */}
-                    <NavbarUser />
+                  <NavbarUser />
                   {/* </EnterAnimation> */}
                 </Suspense>
               )}

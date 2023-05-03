@@ -18,6 +18,8 @@ import { PreulympicButton as Button } from "./Components/Button/PreulympicButton
 import FileInput from "./Components/FileInput/FileInput";
 import Error from "./Components/Error/Error";
 import compressImage from "../../../Reusable/ImageCompressor/ImageCompressor";
+import { useCookies } from "react-cookie";
+// import ResetForm from "./Components/ResetForm/ResetForm";
 
 export function PreulympicUser() {
     const [token, setToken] = useState(getCookie('Preulmtoken'));
@@ -39,6 +41,16 @@ export function PreulympicUser() {
         setCookie('Preulmstate', 2);
         window.scrollTo(0, 0);
     }, []);
+
+
+    const ResetForm = () => {
+        setCookie("Preulmtoken", "");
+        setCookie("Preulm", "");
+        setCookie("Preulmstate", "");
+        setCookie("Preulmcount", "");
+        setCookie("Preulmcurrcount", "");
+        navigate("/");
+    }
 
     return (
         <>
@@ -317,6 +329,8 @@ export function PreulympicUser() {
                                             loading={loading}
                                             disabled={loading || !(values.nama && values.angkatan && values.jurusan && values.phoneNumber && values.userId && values.userName)}
                                             action={handleSubmit}>Next</Button>
+                                        {/* <ResetForm /> */}
+                                        <button className="resetbtn" type="button" onClick={ResetForm}>Reset Form</button>
                                     </div>
                                 </div>
                             </form>

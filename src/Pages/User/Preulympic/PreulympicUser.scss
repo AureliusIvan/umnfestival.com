@@ -2,6 +2,24 @@
 @use "./Preulympic.scss" as pre;
 
 .preulympic-registration-user {
+    .resetbtn {
+        background-color: #CC5819;
+        color: #ccc;
+        border: none;
+        border-radius: 40px;
+        max-width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        padding-inline: 20px;
+        padding-block: 10px;
+        font-size: 15px;
+        font-weight: bold;
+        font-family: Louis George Cafe;
+        
+        &:hover {
+            background-color: #9b3e0b;
+        }
+    }
 
     //ngilangin arrow up down input type number
     input::-webkit-outer-spin-button,

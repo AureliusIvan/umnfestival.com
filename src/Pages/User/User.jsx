@@ -17,6 +17,7 @@ import { PreulympicUser } from "./Preulympic/PreulympicUser";
 // import PreulympicRegistration from "./Preulympic/PreulympicRegistration";
 import PreulympicRebelSquad from "./Preulympic/PreulympicRebelSquad";
 import PreulympicPayment from "./Preulympic/PreulympicPayment";
+import ProtectedRouteCookie from "../../Route/Components/ProtectedRouteCookie";
 // Bellow is code spliting using react lazy load and react suspense
 // This method aim to make the code more easy to load on deployment by separating them into several smaller chunk
 const Announcement = lazy(() => import("./Announcement/Announcement"));
@@ -173,7 +174,11 @@ export default function User() {
           <Route path="/PreulympicRegistration" element={
             <ProtectedRoutePreUlm><PreulympicForm /></ProtectedRoutePreUlm>} />
           <Route path="/PreulympicRegistrationUser" element={
-            <ProtectedRoutePreUlm><PreulympicUser /></ProtectedRoutePreUlm>} />
+            <ProtectedRoutePreUlm>
+              <ProtectedRouteCookie fallback={"/PreulympicRegistration"} cookie={"Preulmtoken"} value={!null}>
+                <PreulympicUser />
+              </ProtectedRouteCookie>
+            </ProtectedRoutePreUlm>} />
           <Route path="/PreulympicRebelSquad" element={<ProtectedRoutePreUlm><PreulympicRebelSquad /></ProtectedRoutePreUlm>} />
           <Route path="/PreulympicPayment" element={<ProtectedRoutePreUlm><PreulympicPayment /></ProtectedRoutePreUlm>} />
           <Route path="*" element={<Navigate to="/" />} />

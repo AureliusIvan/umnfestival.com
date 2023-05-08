@@ -203,7 +203,7 @@ export default function Preulympic() {
           khususunya mobile legend.
         </p>
         <div className="cta">
-          {status === "1212312" ?
+          {/* {status === "1212312" ?
             <p>Selamat! Kamu telah berhasil mendaftar Pre Ulympic</p>
             :
             <>
@@ -212,7 +212,8 @@ export default function Preulympic() {
                 {statepreulm ? "Lanjutankan Pendaftaran" : "Daftar Pre Ulympic"}
               </button>
             </>
-          }
+          } */}
+          <p>Pendaftaran telah ditutup, nantikan informasi selanjutnya!</p>
         </div>
       </div >
     </div >

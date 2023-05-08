@@ -171,16 +171,16 @@ export default function User() {
           />
           <Route path="/comingsoon" element={<ComingSoon />} />
           <Route path="/joinclosed" element={<JoinClosed />} />
-          <Route path="/PreulympicRegistration" element={
+          {/* <Route path="/PreulympicRegistration" element={
             <ProtectedRoutePreUlm><PreulympicForm /></ProtectedRoutePreUlm>} />
           <Route path="/PreulympicRegistrationUser" element={
             <ProtectedRoutePreUlm>
               <ProtectedRouteCookie fallback={"/PreulympicRegistration"} cookie={"Preulmtoken"} value={!null}>
                 <PreulympicUser />
               </ProtectedRouteCookie>
-            </ProtectedRoutePreUlm>} />
-          <Route path="/PreulympicRebelSquad" element={<ProtectedRoutePreUlm><PreulympicRebelSquad /></ProtectedRoutePreUlm>} />
-          <Route path="/PreulympicPayment" element={<ProtectedRoutePreUlm><PreulympicPayment /></ProtectedRoutePreUlm>} />
+            </ProtectedRoutePreUlm>} /> */}
+          {/* <Route path="/PreulympicRebelSquad" element={<ProtectedRoutePreUlm><PreulympicRebelSquad /></ProtectedRoutePreUlm>} /> */}
+          {/* <Route path="/PreulympicPayment" element={<ProtectedRoutePreUlm><PreulympicPayment /></ProtectedRoutePreUlm>} /> */}
           <Route path="*" element={<Navigate to="/" />} />
         </Route>
       </Routes>

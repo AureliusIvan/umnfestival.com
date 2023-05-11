@@ -8,10 +8,12 @@ const Admin = lazy(() => import("../Pages/Admin/Admin"));
 
 //Nambah Component yang lagi dibuat
 import TestLogo from "../Reusable/ComponentItems/Logo/TestLogo"
+import Glide from "../Pages/User/About Us/testGlide"
 
 export default function Routing() {
     return (
         <Routes>
+            {/* <Route path="/*" element={<Glide />}/> */}
             <Route path="/*" element={
                 <Suspense fallback={<LoadingScreen />}>
                     <User />

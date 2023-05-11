@@ -19,6 +19,7 @@ const AboutCardMobile = lazy(() => import("./AboutCard/AboutCard"));
 
 
 
+
 // main func start here
 export default function About() {
   // useEffect hook
@@ -29,6 +30,7 @@ export default function About() {
     window.scrollTo(0, 0)
   }, []);
 
+  
   // return here
   return (
     <>
@@ -41,7 +43,7 @@ export default function About() {
       {/* About page start here */}
       <div id="About">
         {/* Call pilar for styling */}
-        <Pilar />
+        {/* <Pilar /> */}
         {/* Suspense swiper with loading screen if swiper hasn't been loaded yet */}
         <Suspense fallback={<LoadingScreen />}>
           <Swiper

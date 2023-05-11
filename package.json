@@ -6,16 +6,19 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "host": "vite --host"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@glidejs/glide": "^3.6.0",
     "@material-ui/core": "^4.12.4",
     "@mui/material": "^5.11.5",
     "@mui/x-data-grid": "^5.17.20",
     "@react-pdf/renderer": "^3.1.4",
     "@reduxjs/toolkit": "^1.9.1",
+    "@splidejs/react-splide": "^0.7.12",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -38,6 +41,7 @@
     "react-router-dom": "^6.8.0",
     "react-router-sitemap": "^1.2.0",
     "react-scripts": "5.0.1",
+    "react-siema": "^1.0.1",
     "react-use-cookie": "^1.4.0",
     "scss": "^0.2.4",
     "styled-components": "^5.3.6",

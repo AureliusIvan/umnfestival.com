@@ -43,10 +43,13 @@ export default function About() {
       {/* About page start here */}
       <div id="About">
         {/* Call pilar for styling */}
-        {/* <Pilar /> */}
+        <Pilar />
         {/* Suspense swiper with loading screen if swiper hasn't been loaded yet */}
-        {/* <Suspense fallback={<LoadingScreen />}>
+        <Suspense fallback={<LoadingScreen />}>
           <Swiper
+            cssMode={true}
+            height="100vh"
+            width="100vw"
             allowTouchMove={true}
             slidesPerView={1}
             modules={[Pagination,
@@ -72,15 +75,15 @@ export default function About() {
               draggable: true,
               dragSize: 100,
             }}
-          > */}
+          >
             {/* Call component title */}
-            {/* <SwiperSlide>
+            <SwiperSlide>
               <div className="About-Title">
                 <AboutTitle />
               </div>
-            </SwiperSlide> */}
+            </SwiperSlide>
             {/* Map Card */}
-            {/* {AboutData.map((item, index) => {
+            {AboutData.map((item, index) => {
               return (
                 <SwiperSlide key={index}>
                   <AboutCardMobile
@@ -93,7 +96,7 @@ export default function About() {
               )
             })}
           </Swiper>
-        </Suspense> */}
+        </Suspense>
       </div>
     </>
   )

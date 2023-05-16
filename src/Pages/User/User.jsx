@@ -1,3 +1,5 @@
+
+import { useLocation } from 'react-router-dom';
 // Here the main page for user and their router
 // import start here
 import "./User.scss";
@@ -35,6 +37,8 @@ const Join = lazy(() => import("./Join/Join"));
 
 // function start here
 export default function User() {
+  //use useLocation from react router dom
+  const location = useLocation();
   // Check if screen is mobile
   const isMobile = useMediaQuery("(max-width: 960px)")
   // [Callback]
@@ -74,7 +78,8 @@ export default function User() {
                 </Suspense>
               )}
               <Outlet />
-              <Footer />
+              {/* if page is "aboutpage" then dont render about pages */}
+              {location.pathname.includes('/about') ? null : <Footer />}
             </>
           }
         >

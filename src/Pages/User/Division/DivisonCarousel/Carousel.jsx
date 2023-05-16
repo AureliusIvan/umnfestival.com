@@ -53,6 +53,9 @@ function CarouselDetail({ props }) {
             </div>
         </CustomModal>
         <div onClick={handleOpen} className="Carousel-Detail">
+            <div className="Carousel-Overlay-Text">
+                <p>Click to see more!</p>
+            </div>
             <img rel="lazy" decoding="async" src={props.image} className="Carousel-Image" />
         </div>
     </>)

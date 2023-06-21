@@ -23,7 +23,9 @@ import ProtectedRouteCookie from "../../Route/Components/ProtectedRouteCookie";
 const Announcement = lazy(() => import("./Announcement/Announcement"));
 const ComingSoon = lazy(() => import("./ComingSoon/ComingSoon"));
 const NavbarUser = lazy(() => import("../../Reusable/NavbarUser/Navbar"));
-const NavbarMobile = lazy(() => import("../../Reusable/NavbarUser/NavbarMobile/NavbarMobile"));
+const NavbarMobile = lazy(() =>
+  import("../../Reusable/NavbarUser/NavbarMobile/NavbarMobile")
+);
 const Footer = lazy(() => import("../../Reusable/Footer/Footer"));
 const Home = lazy(() => import("./Home/Home"));
 const About = lazy(() => import("./About Us/About"));
@@ -33,24 +35,27 @@ const Register = lazy(() => import("./Register/Register"));
 const Join = lazy(() => import("./Join/Join"));
 // end here
 
+//Import new navbar
+const Navbar = lazy(() => import("../../Reusable/NavbarUser/Navbar"));
+
 // function start here
 export default function User() {
   // Check if screen is mobile
-  const isMobile = useMediaQuery("(max-width: 960px)")
+  const isMobile = useMediaQuery("(max-width: 960px)");
   // [Callback]
   // (i'm not sure if it is work because they are rarely re-rendered)
-  // prevent home page to re-rendered when value change 
+  // prevent home page to re-rendered when value change
   const HomeCallback = useCallback(() => {
-    return <Home />
-  }, [])
+    return <Home />;
+  }, []);
   // prevent about page to re-rendered
   const AboutCallback = useCallback(() => {
-    return <About />
-  }, [])
+    return <About />;
+  }, []);
   // prevent division page to re-rendered
   const DivisionCallback = useCallback(() => {
-    return <Division />
-  }, [])
+    return <Division />;
+  }, []);
 
   // return is here
   return (
@@ -69,7 +74,7 @@ export default function User() {
               ) : (
                 <Suspense fallback={<LoadingScreen />}>
                   {/* <EnterAnimation className="NavbarUser-wrap"> */}
-                  <NavbarUser />
+                  <Navbar role="user" />
                   {/* </EnterAnimation> */}
                 </Suspense>
               )}

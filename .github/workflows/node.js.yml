@@ -30,4 +30,3 @@ jobs:
           local-dir: ./dist/
           server-dir: /httpdocs/
           exclude: .git*
-          args: --debug

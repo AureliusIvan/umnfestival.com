@@ -69,28 +69,6 @@ export default function Home() {
             </HomeButton>
             <br />
             <br />
-            {/* <HomeButton>
-                Your Second Chance To Be A Spartan!
-            </HomeButton> */}
-
-            {/* <a
-                style={{
-                    textDecoration: 'none',
-                    zIndex: 1,
-                }}
-                href="https://drive.google.com/drive/folders/1lszNte3vX4iQA06Wn22usT9neYkJFwXT">
-                <CustomButton
-                    style={{
-                        width: 'fit-content',
-                        zIndex: 1,
-                    }}>
-                    {/* See Interview Schedule here! */}
-            {/* <Sparkles>
-                        YOU ARE THE CHOOSEN ONE
-                    </Sparkles>
-                </CustomButton> */}
-            {/* </a>  */}
-            {/* */}
         </div>
     </>
     )

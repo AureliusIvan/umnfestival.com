@@ -1,0 +1,146 @@
+#NavbarDesktop {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 78px;
+    background: rgba(255, 244, 236, 1);
+    padding-inline: 40px;
+
+    .Logo {
+        aspect-ratio: 1/1;
+        width: 94px;
+        flex-shrink: 0;
+    }
+
+    .buttonContainer {
+        display: flex;
+        gap: 40px;
+    }
+
+    .button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #5B618E;
+        font-family: Rocket-Vintage;
+        font-size: 40px;
+        font-style: normal !important;
+        font-weight: 700;
+        line-height: normal;
+        text-decoration: none;
+
+        &:hover {
+            opacity: 0.5;
+        }
+    }
+}
+
+
+#NavbarMobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 7;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 58px;
+    background-color: #fff4ec;
+    // padding-inline: 10px;
+
+
+
+    .Logo {
+        aspect-ratio: 1/1;
+        width: 54px;
+        flex-shrink: 0;
+    }
+
+    .button {
+        width: 54px;
+        aspect-ratio: 1/1;
+        background-color: transparent;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        justify-content: center;
+        align-items: center;
+        pointer-events: all;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.5;
+        }
+
+        span {
+            width: 26px;
+            border: 2px solid black;
+            border-radius: 10px;
+        }
+    }
+
+
+    .Backdrop {
+        position: absolute;
+        display: flex;
+        top: 58px;
+        right: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 8;
+        display: none;
+
+        &.open {
+            display: block !important;
+        }
+
+
+        #Dropdown {
+            border: none;
+            position: fixed;
+            top: 57px;
+            right: 0;
+            width: 50%;
+            height: 100vh;
+            background-color: #fff4ec;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 10px;
+
+            .buttonNav {
+                width: 70%;
+                background: none;
+                border: none;
+                cursor: pointer;
+                color: #5B618E;
+                font-family: Rocket-Vintage;
+                font-size: 20px;
+                font-style: normal !important;
+                font-weight: 700;
+                line-height: normal;
+                text-decoration: none;
+                // border: 1px solid black;
+                display: flex;
+                justify-content: space-between;
+
+
+                svg {
+                    width: 20px;
+                    margin-right: 10px;
+                }
+
+                &:hover {
+                    opacity: 0.5;
+                }
+            }
+        }
+    }
+
+
+
+}

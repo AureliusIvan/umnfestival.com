@@ -18,6 +18,7 @@ import { PreulympicUser } from "./Preulympic/PreulympicUser";
 import PreulympicRebelSquad from "./Preulympic/PreulympicRebelSquad";
 import PreulympicPayment from "./Preulympic/PreulympicPayment";
 import ProtectedRouteCookie from "../../Route/Components/ProtectedRouteCookie";
+import Navbar from "../../components/Navbar/Navbar";
 // Bellow is code spliting using react lazy load and react suspense
 // This method aim to make the code more easy to load on deployment by separating them into several smaller chunk
 const Announcement = lazy(() => import("./Announcement/Announcement"));
@@ -62,17 +63,7 @@ export default function User() {
           path="/"
           element={
             <>
-              {isMobile ? (
-                <Suspense fallback={<LoadingScreen />}>
-                  <NavbarMobile />
-                </Suspense>
-              ) : (
-                <Suspense fallback={<LoadingScreen />}>
-                  {/* <EnterAnimation className="NavbarUser-wrap"> */}
-                  <NavbarUser />
-                  {/* </EnterAnimation> */}
-                </Suspense>
-              )}
+              <Navbar />
               <Outlet />
               <Footer />
             </>
@@ -82,7 +73,6 @@ export default function User() {
             path="/"
             element={
               <Suspense fallback={<LoadingScreen />}>
-                {/* <HomeCallback /> */}
                 <Preulympic />
               </Suspense>
             }
@@ -147,9 +137,7 @@ export default function User() {
             path="verify"
             element={
               <ProtectedRoute user={"user"}>
-                {/* <ProtectedRoutePath path="/register/verify"> */}
                 <VerifyEmail />
-                {/* </ProtectedRoutePath> */}
               </ProtectedRoute>
             }
           />
@@ -171,16 +159,6 @@ export default function User() {
           />
           <Route path="/comingsoon" element={<ComingSoon />} />
           <Route path="/joinclosed" element={<JoinClosed />} />
-          {/* <Route path="/PreulympicRegistration" element={
-            <ProtectedRoutePreUlm><PreulympicForm /></ProtectedRoutePreUlm>} />
-          <Route path="/PreulympicRegistrationUser" element={
-            <ProtectedRoutePreUlm>
-              <ProtectedRouteCookie fallback={"/PreulympicRegistration"} cookie={"Preulmtoken"} value={!null}>
-                <PreulympicUser />
-              </ProtectedRouteCookie>
-            </ProtectedRoutePreUlm>} /> */}
-          {/* <Route path="/PreulympicRebelSquad" element={<ProtectedRoutePreUlm><PreulympicRebelSquad /></ProtectedRoutePreUlm>} /> */}
-          {/* <Route path="/PreulympicPayment" element={<ProtectedRoutePreUlm><PreulympicPayment /></ProtectedRoutePreUlm>} /> */}
           <Route path="*" element={<Navigate to="/" />} />
         </Route>
       </Routes>

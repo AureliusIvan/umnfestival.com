@@ -1,69 +1,69 @@
-@use "src/index" as index;
+// @use "src/index" as index;
 
-.home {
-    // Page layouting
-    @include index.center;
-    position: relative;
-    flex-direction: column;
-    overflow: hidden;
-    height: 670px;
-    min-height: 110vh;
-    padding-bottom: 10vh;
-    overflow: hidden;
-    // Initial background when page load
-    background: rgb(0, 0, 0);
+// .home {
+//     // Page layouting
+//     @include index.center;
+//     position: relative;
+//     flex-direction: column;
+//     overflow: hidden;
+//     height: 670px;
+//     min-height: 110vh;
+//     padding-bottom: 10vh;
+//     overflow: hidden;
+//     // Initial background when page load
+//     background: rgb(0, 0, 0);
 
-    &::before {
-        @include index.prevent-select;
-        pointer-events: none;
-        filter: brightness(0.8) contrast(80%);
-        background-image: url('./../../../Asset/Image/Background/Homebg.webp');
-        background-size: cover;
-        background-position: top;
-        background-attachment: local;
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: index.$black;
-        opacity: 0;
-        animation: Bg-from-black-to-light 0.3s ease-in forwards;
-        animation-delay: 2.2s;
-        will-change: opacity;
+//     &::before {
+//         @include index.prevent-select;
+//         pointer-events: none;
+//         filter: brightness(0.8) contrast(80%);
+//         background-image: url('./../../../Asset/Image/Background/Homebg.webp');
+//         background-size: cover;
+//         background-position: top;
+//         background-attachment: local;
+//         content: '';
+//         position: absolute;
+//         top: 0;
+//         left: 0;
+//         width: 100%;
+//         height: 100%;
+//         background-color: index.$black;
+//         opacity: 0;
+//         animation: Bg-from-black-to-light 0.3s ease-in forwards;
+//         animation-delay: 2.2s;
+//         will-change: opacity;
 
-        @keyframes Bg-from-black-to-light {
-            to {
-                opacity: 1;
-            }
-        }
-    }
+//         @keyframes Bg-from-black-to-light {
+//             to {
+//                 opacity: 1;
+//             }
+//         }
+//     }
 
-    .home-image {
-        background-image: url('./../../../Asset/Image/Ufest Logo/ufestlogocolor.webp');
-        background-size: cover;
-        background-position: center;
-        @include index.prevent-select;
-        height: 300px;
-        width: 300px;
-        background-size: 130%;
-        transform-origin: center 0;
-        z-index: 1;
-        -webkit-filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.5));
-        filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.5));
-    }
+//     .home-image {
+//         background-image: url('./../../../Asset/Image/Ufest Logo/ufestlogocolor.webp');
+//         background-size: cover;
+//         background-position: center;
+//         @include index.prevent-select;
+//         height: 300px;
+//         width: 300px;
+//         background-size: 130%;
+//         transform-origin: center 0;
+//         z-index: 1;
+//         -webkit-filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.5));
+//         filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.5));
+//     }
 
-    @media screen and (max-width: index.$sm) {
-        .home-image {
-            height: 350px;
-            width: 350px;
-        }
-    }
+//     @media screen and (max-width: index.$sm) {
+//         .home-image {
+//             height: 350px;
+//             width: 350px;
+//         }
+//     }
 
-    @media screen and (max-width: index.$sm) {
-        .heading {
-            font-size: 40px;
-        }
-    }
-}
+//     @media screen and (max-width: index.$sm) {
+//         .heading {
+//             font-size: 40px;
+//         }
+//     }
+// }

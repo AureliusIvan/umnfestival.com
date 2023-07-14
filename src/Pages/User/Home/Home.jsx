@@ -24,7 +24,7 @@ export default function Home() {
     }, []);
     // 
     const MemoLogo = useCallback(() => {
-        return <Ufest_Logo />
+        return <Ufest_Logo className={style.logo}/>
     }, [])
 
     const MemoTag = useCallback(() => {
@@ -57,7 +57,6 @@ export default function Home() {
                 <>
                     {/* Desktop Version */}
                     <Suspense fallback={""}>
-                        <PilarHome />
                     </Suspense>
                     <MemoLogo />
                 </>

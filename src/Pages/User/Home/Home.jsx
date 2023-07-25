@@ -7,6 +7,10 @@ import { CounterTesting as UfestCaption } from "./Component/UFESTLOGO/WordAnimat
 import { Helmet } from "react-helmet-async";
 import { useNavigate } from "react-router-dom";
 import bgImg from "./../../../Asset/Image/Background/HomeBgNew.png"
+import Penjelasan from "../../../Asset/Image/NavbarIcon/penjelasan.svg"
+import Konsep from "../../../Asset/Image/NavbarIcon/konsep.svg"
+import Visi from "../../../Asset/Image/NavbarIcon/visi.svg"
+import Misi from "../../../Asset/Image/NavbarIcon/misi.svg"
 
 import timelineSpartanIMG from "./../../../Asset/Image/OtherIcon/timeline-spartan.png"
 import timelineBgIMG from "./../../../Asset/Image/OtherIcon/timeline-bg.png"
@@ -71,15 +75,15 @@ export default function Home() {
             <div className={style.boxIntro}>
                 <div className={style.paperIntro}>
                     <div className={style.contentIntro}>
-                        <h3>Penjelasan</h3>
-                        <p>UMN Festival merupakan kegiatan mahasiswa dibawah naungan BEM UMN, UMN Festival juga merupakan acara tahunan yang diadakan untuk merayakan ulang tahun Universitas Multimedia Nusantara yang bertepatan pada 26 November.</p>
+                        <img className={style.contentIMG} src={Penjelasan} alt="Penjelasan" />
+                        <p className={style.contentP}>UMN Festival merupakan kegiatan mahasiswa dibawah naungan BEM UMN, UMN Festival juga merupakan acara tahunan yang diadakan untuk merayakan ulang tahun Universitas Multimedia Nusantara yang bertepatan pada 26 November.</p>
                     </div>
                     <PaperRoll />
                 </div>
                 <div className={style.paperIntro}>
                     <div className={style.contentIntro}>
-                        <h3>Konsep</h3>
-                        <p>UMN Festival 2023 mengangkat tema Spartan dengan tujuan untuk Spartans (Panitia) dan Sparta (Peserta) UMN Festival dapat menanamkannilai-nilai yang merepresentasikan kepribadian seorang Spartan, yaitu Curiosity, Generosity, Courage & Resilience dan Willingness.</p>
+                        <img className={style.contentIMG} src={Konsep} alt="Konsep" />
+                        <p className={style.contentP}>UMN Festival 2023 mengangkat tema Spartan dengan tujuan untuk Spartans (Panitia) dan Sparta (Peserta) UMN Festival dapat menanamkannilai-nilai yang merepresentasikan kepribadian seorang Spartan, yaitu Curiosity, Generosity, Courage & Resilience dan Willingness.</p>
                     </div>
                     <PaperRoll />
                 </div>
@@ -99,13 +103,13 @@ export default function Home() {
             </div>
             <div className={style.box}>
                 <div className={style.vmContainer}>
-                    <h2>Visi</h2>
+                    <img src={Visi} alt="" />
                     <div className={style.contentVM}>
                         <p>Menjadikan UMN Festival 2023 sebagai kegiatan yang dapat menjadi wadah kolaborasi antar UKM dan mahasiswa/mahasiswi serta sebagai sarana mahasiswa/mahasiswi untuk meningkatkan rasa persatuan dan kesatuan dalam rangka perayaan ulang tahun Universitas Multimedia Nusantara.</p>
                     </div>
                 </div>
                 <div className={style.vmContainer}>
-                    <h2>Misi</h2>
+                    <img src={Misi} alt="" />
                     <div className={style.contentVM}>
                         <p>1. Membuat kegiatan yang dapat merangkul seluruh mahasiswa/mahasiswi dari semua fakultas yang ada di Universitas Multimedia Nusantara untuk bertumbuh secara bersama-sama.</p>
                         <p>2. Menanamkan nilai positif kepada mahasiswa/mahasiswi serta masyarakat melalui acara UMN Festival 2022.</p>

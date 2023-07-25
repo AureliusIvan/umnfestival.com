@@ -90,12 +90,23 @@
 .boxIntro{
     display: flex;
     justify-content: space-around;
-
     .contentIntro{
-        position:static;
-        top: 0;
-        left: 0;
+        position:absolute;
+        top: 50%; 
+        left: 50%; 
+        transform: translate(-50%, -50%); 
+        font-family: Louis George Cafe;
+        color: #FFFFFF;
+        text-align: center;
+        width: 350px;
+        font-size: 24px;
+        filter: drop-shadow(0px 4px 2px rgba(0, 0, 0, 0.6));
     }
+}
+
+.paperIntro{
+    border: 1px solid black;
+    position: relative;
 }
 
 .textBubble{
@@ -109,16 +120,27 @@
 }
 
 .textFont{
-            font-family: Rocket-Vintage;
+    font-family: Rocket-Vintage;
+}
+
+.vmContainer{
+    text-align: center;
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
 }
 
 .contentVM{
-    background-color: rgba(255, 255, 240, 0.7);
+    background-color: rgba(255, 244, 236, 0.85);
     border-radius: 25px;
     padding: 25px;
     width: 80%;
     margin: 0px auto;
+    font-family: Louis George Cafe;
+    font-size: 24px;
+    color: #5B618E;
+    
 }
+
+
 
 .event{
     color: white;

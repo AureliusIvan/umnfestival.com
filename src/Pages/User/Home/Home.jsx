@@ -70,18 +70,18 @@ export default function Home() {
             <img className={style.bgImg} src={bgImg}/>
             <div className={style.boxIntro}>
                 <div className={style.paperIntro}>
-                    <PaperRoll />
                     <div className={style.contentIntro}>
                         <h3>Penjelasan</h3>
                         <p>UMN Festival merupakan kegiatan mahasiswa dibawah naungan BEM UMN, UMN Festival juga merupakan acara tahunan yang diadakan untuk merayakan ulang tahun Universitas Multimedia Nusantara yang bertepatan pada 26 November.</p>
                     </div>
+                    <PaperRoll />
                 </div>
                 <div className={style.paperIntro}>
-                    <PaperRoll />
                     <div className={style.contentIntro}>
                         <h3>Konsep</h3>
                         <p>UMN Festival 2023 mengangkat tema Spartan dengan tujuan untuk Spartans (Panitia) dan Sparta (Peserta) UMN Festival dapat menanamkannilai-nilai yang merepresentasikan kepribadian seorang Spartan, yaitu Curiosity, Generosity, Courage & Resilience dan Willingness.</p>
                     </div>
+                    <PaperRoll />
                 </div>
                 
             </div>
@@ -98,13 +98,13 @@ export default function Home() {
                 </div>
             </div>
             <div className={style.box}>
-                <div>
+                <div className={style.vmContainer}>
                     <h2>Visi</h2>
                     <div className={style.contentVM}>
                         <p>Menjadikan UMN Festival 2023 sebagai kegiatan yang dapat menjadi wadah kolaborasi antar UKM dan mahasiswa/mahasiswi serta sebagai sarana mahasiswa/mahasiswi untuk meningkatkan rasa persatuan dan kesatuan dalam rangka perayaan ulang tahun Universitas Multimedia Nusantara.</p>
                     </div>
                 </div>
-                <div>
+                <div className={style.vmContainer}>
                     <h2>Misi</h2>
                     <div className={style.contentVM}>
                         <p>1. Membuat kegiatan yang dapat merangkul seluruh mahasiswa/mahasiswi dari semua fakultas yang ada di Universitas Multimedia Nusantara untuk bertumbuh secara bersama-sama.</p>

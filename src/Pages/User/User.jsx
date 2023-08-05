@@ -73,7 +73,7 @@ export default function User() {
             path="/"
             element={
               <Suspense fallback={<LoadingScreen />}>
-                <Preulympic />
+                <Home />
               </Suspense>
             }
           />

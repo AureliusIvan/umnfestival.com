@@ -13,6 +13,10 @@
 //     // Initial background when page load
 //     background: rgb(0, 0, 0);
 
+//     .logo{
+//         height: 5000px;
+//     }
+
 //     &::before {
 //         @include index.prevent-select;
 //         pointer-events: none;
@@ -39,6 +43,7 @@
 //             }
 //         }
 //     }
+
 
 //     .home-image {
 //         background-image: url('./../../../Asset/Image/Ufest Logo/ufestlogocolor.webp');
@@ -67,3 +72,360 @@
 //         }
 //     }
 // }
+
+.bgImg{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    filter: brightness(50%);
+}
+
+.logo{
+    width: 30%;
+    margin: 0px 35%;
+    transition: 300ms;
+}
+
+.logo:hover{
+    scale: 1.1;
+}
+
+.mainTitle{
+    width: 30%;
+    margin: 0px 35%;
+    transition: 300ms;
+}
+
+.mainTitle:hover{
+    scale:1.15;
+}
+
+.containerIntro{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    
+
+    .paperIntro{
+        position: relative;
+        transition: 300ms;
+    }
+
+    .paperIntro:hover{
+        scale: 1.05;
+    }
+
+    .contentIntro{
+        position:absolute;
+        top: 50%; 
+        left: 50%; 
+        transform: translate(-50%, -50%); 
+        font-family: Louis George Cafe;
+        color: #FFFFFF;
+        text-align: center;
+        width: 350px;
+        filter: drop-shadow(0px 4px 2px rgba(0, 0, 0, 0.6));
+    
+        .contentTitleIntroP{
+            width: 72%;
+            margin: 0px 12% 0px 16%;
+        }
+        .contentTitleIntroK{
+            width: 60%;
+            margin: 0px 18% 0px 22%;
+        }
+        
+        p{
+            font-size: 20px;
+        }
+    }
+  
+}
+
+.containerTT{
+    margin: 50px 0px;
+
+    .titleTT{
+        background-color:rgba(255, 255, 240, 0.9);
+        color: rgba(91, 97, 142, 0.9);
+        font-family: Louis George Cafe;
+        font-size: 1.4em;
+        padding: 0px 15px;
+        margin: 0px auto;
+        width: 25%;
+        height: 50px;
+        border-radius: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .contentTT{
+        width: 50%;
+        margin: 50px 24% 0px 26%;
+        transition: 300ms;
+
+        #temaTT{
+            margin: 50px 24.5% 0px 25.5%;
+        }
+    }
+
+    .contentTT:hover{
+        scale: 1.05;
+    }
+}   
+
+
+.containerVM{
+    text-align: center;
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
+
+    .contentVM{
+        background-color: rgba(255, 244, 236, 0.75);
+        border-radius: 25px;
+        padding: 25px;
+        width: 80%;
+        margin: 0px auto 50px;
+        font-family: Louis George Cafe;
+        font-size: 24px;
+        color: #5B618E; 
+        transition: 300ms;
+    }
+
+    .contentVM:hover{
+        scale: 1.05;
+    }
+}
+
+.titleEvent{
+    width: 30%;
+    margin: 0px 34% -200px 36%;
+}
+
+.containerEvent{
+    position: relative;
+
+    .eventTimeline{
+        width: 99%;
+    }
+
+    .eventSpartan{
+        transition: 300ms;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        margin-bottom: 14.3%;
+        margin-right: 25%;
+        scale: 1.2;
+    }
+
+    .eventSpartan:hover{
+        scale: 1.3;
+    }
+
+    .event{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        text-align: center;
+        color: white;
+        background-color: rgba($color: #000000, $alpha: 0.6);
+        width: fit-content;
+        font-size: 1.7em;
+        padding: 8px 27px;
+        border-radius: 40px;
+        height: 2.5%;
+        display: flex;
+        align-items: center;
+        font-family: Rocket-Vintage;
+        color: rgba(224,189,92,255);
+        transition: 300ms;
+    }
+
+    .event:hover{
+        scale: 1.2;
+        background-color: rgba($color: #000000, $alpha: 0.8);
+        border: 3px solid rgba(224,189,92,255);
+    }
+
+    #eventUnify{
+        margin-bottom: 55%;
+        margin-right: 72.5%;
+    }
+
+    #eventUcare{
+        margin-bottom: 50%;
+        margin-right: 24%;
+    }
+
+    #eventUlympic{
+        margin-bottom: 39%;
+        margin-right: 65%;
+    }
+
+    #eventUnveiling{
+        margin-bottom: 24.5%;
+        margin-right: 47%;
+    }
+
+    #eventColorRun{
+        margin-bottom: 20%;
+        margin-right: 10%;
+    }
+
+    #eventPreUlympic{
+        margin-bottom: 7%;
+        margin-right: 26%;
+    }
+}
+
+.titlePartner{
+    width: 30%;
+    margin: 100px 33% 70px 36%;
+}
+
+
+.containerPartner{
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+
+    .linePartner{
+        background-color: white;
+        width: 2px;
+        margin-left: 1%;
+    }
+
+    .contentPartner{
+        *{
+            color: rgba(224,189,92,255);
+            scale: 1.2;
+        }
+    }
+
+}
+
+//for mobile
+@media only screen and (max-width: 600px) {
+    .bgImg{
+        content: url("./../../../Asset/Image/Background/Homebgphone.png");
+    }
+
+    .logo{
+        width: 70%;
+        margin: 0px 15% -7%;
+        transition: 300ms;
+    }
+
+    .mainTitle{
+        width: 60%;
+        margin: 0px 20%;
+        transition: 300ms;
+    }
+
+    .containerIntro{
+        display: flex;
+        flex-direction: column;
+        .paperIntro{
+            
+            .contentIntro{
+                .contentTitleIntroP{
+                    width: 50%;
+                }
+                .contentTitleIntroK{
+                    width: 40%;
+                }
+
+                p{
+                    margin: 0px auto;
+                    width: 60%;
+                    font-size: 1em;
+                }
+            }
+
+            *{
+                width: 100%;
+            }
+        }
+    }
+
+    .containerTT{
+        .titleTT{
+            margin-bottom: 30px;
+            width: 60%;
+        }
+
+        .contentTT{
+            scale: 1.8;
+
+        }
+
+        #tagline{
+            padding-bottom: 15px;
+            border-bottom: 1px solid white;
+        }
+    }
+
+    .containerVM{
+        
+        .contentVM{
+            font-size: 18px;
+        }
+    }
+
+    .containerEvent{
+
+        .eventSpartan{
+            width: 10%;
+        }
+
+        .event{
+            font-size: 1em;
+            padding: 8px 18px;
+        }
+    
+        #eventUcare{
+            margin-bottom: 47%;
+            margin-right: 15%;
+        }
+    
+        #eventUlympic{
+            margin-bottom: 36%;
+            margin-right: 66%;
+        }
+    
+        #eventUnveiling{
+            margin-bottom: 22%;
+            margin-right: 47%;
+        }
+    
+        #eventColorRun{
+            margin-bottom: 10%;
+            margin-right: 32%;
+        }
+    
+        #eventPreUlympic{
+            margin-bottom: 3%;
+            margin-right: 10%;
+        }
+    }
+
+    .titlePartner{
+        width: 35%;
+        scale: 1.03;
+        display: flex;
+        justify-content: center;
+    }
+
+    .containerPartner{
+        display: flex;
+        flex-direction: column;
+
+        .contentPartner{
+            margin: 20px auto;
+        }
+    }
+}

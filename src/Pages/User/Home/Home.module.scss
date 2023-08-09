@@ -429,3 +429,144 @@
         }
     }
 }
+
+@media only screen and (max-width: 360px){
+
+    .contentIntro{
+
+        .contentTitleIntroP{
+            scale: 0.7;
+            transform: translateY(20%);
+        }
+
+        .contentTitleIntroK{
+            scale: 0.7;
+            transform: translate(-5%,60%);
+        }
+        
+        p{
+            scale: 0.75;
+        }
+    }
+
+    .titleTT{
+        font-size: 1.1em !important;
+    }
+
+    .contentVM{
+        height: fit-content;
+        font-size: 0.75em !important;
+    }
+
+
+    .titleEvent{
+        scale: 3;
+        margin-bottom: 5%;
+    }
+
+    .contentPartner{
+        *{
+            scale: 1.1 !important;
+        }
+    }
+}
+
+@media only screen and (max-width: 400px) and (min-width:361px){
+    .contentIntro{
+        padding: 10px;
+
+        .contentTitleIntroP{
+            scale:0.7;
+        }
+
+        .contentTitleIntroK{
+            scale:0.70;
+        }
+
+        p{
+            scale: 0.85;
+        } 
+    }
+
+    .titleTT{
+        font-size: 1.1em !important;
+    }
+    
+    .contentVM{
+        height: fit-content;
+        font-size: 0.75em !important;
+    }
+
+    .titleEvent{
+        scale: 3;
+        margin-bottom: 5%;
+    }
+
+    .contentPartner{
+        *{
+            scale: 1.1 !important;
+        }
+    }
+
+}
+
+@media only screen and (max-width: 420px){
+    .titleEvent{
+        scale: 3;
+        margin-bottom: 5%;
+    }
+}
+
+@media only screen and (max-width: 688px) and (min-width: 650px){
+        .containerIntro{
+            .paperIntro{
+                p{
+                    font-size: 0.6rem !important;
+                }
+            }
+        }
+
+        .titleEvent{
+            scale: 2.5;
+            margin-top: 5%;
+            margin-bottom: 5%;
+        }
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 650px){
+
+    .containerIntro{
+        justify-content: center !important;
+
+        .paperIntro{
+            width: 40%;
+
+            .contentIntro{
+                padding: 0px 10%;
+               .contentTitleIntroP{
+                    width: 50%;
+               }
+
+               .contentTitleIntroK{
+                    width: 40%;
+                    margin-top: 6%;
+               }
+
+               p{
+                    margin: 0% auto;
+                    font-size: 0.9rem;
+                    width: 60%;
+               }
+            }
+
+            *{
+                width: 100%;
+            }
+        }
+
+    }
+
+    .titleTT{
+        font-size: 1.1em !important;
+    }
+}

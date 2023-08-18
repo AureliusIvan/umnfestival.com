@@ -87,7 +87,7 @@ export default function Home() {
 
 
             <div
-            className={style.TemaTaglineSection}
+                className={style.TemaTaglineSection}
             >
                 <div className={style.containerTT}>
                     <h1 className={style.titleTT}>Tema UMN Festival 2023</h1>
@@ -143,6 +143,7 @@ export default function Home() {
                             EVENT WITH SPONSORS
                         </HomeButton>
                     </div>
+                    <div className={style.contentPartnerLine} />
                     <div className={style.contentPartner}>
                         <HomeButton>
                             OUR SPONSORS
@@ -152,7 +153,7 @@ export default function Home() {
             </div>
             <br />
             <br />
-        </div>
+        </div >
     </>
     )
 }

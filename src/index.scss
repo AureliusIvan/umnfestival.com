@@ -1,6 +1,10 @@
 // This is index.scss file
 // Isinya custom mixin, custom class, sama variable scss global
 
+:root {
+    font-size: 10px;
+}
+
 * {
 
     input:-webkit-autofill,

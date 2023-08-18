@@ -1,81 +1,51 @@
 @use "src/index" as index;
 
+// $border: 1px solid red;
+$border: none;
+
 .HomeButton {
-    @include index.center;
+    border: $border;
     @include index.prevent-select;
     position: relative;
-    border: none;
-    padding: 0;
     cursor: pointer;
-    z-index: index.$z-index-2;
-    height: 250px;
-    width: 400px;
-    // border: 1px solid red;
-    -webkit-filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.5));
-    filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.5));
-    transition: 0.5s;
-
-    @media screen and (max-width: index.$md) {
-
-        height: 125px;
-        width: 400px;
-    }
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    aspect-ratio: 11/4;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none !important;
+    overflow: hidden;
 
     .background {
-        @include index.center;
+        border: $border;
         @include index.prevent-select;
         position: absolute;
-        background-repeat: no-repeat;
-        z-index: index.$z-index-3;
-        width: 400px;
-        height: auto;
-        margin: auto;
+        width: 100%;
+        height: 100%;
+        top: 0;
         left: 0;
-        right: 0;
-        transition: 250ms;
-
-        @media screen and (max-width: index.$sm) {
-            width: 300px;
-            height: 200px;
-            transform: translateY(-25px);
-        }
+        scale: 1.7;
+        transform-origin: center;
+        object-fit: contain;
+        transform: translateX(-1.5%);
+        isolation: isolate;
+        z-index: -1;
     }
 
     .front {
-        // @include index.goldgrad;
+        border: $border ;
+        padding: 20px 45px;
         color: index.$white;
-        @include index.center;
         text-align: center;
-        text-shadow: 2px 3px 9px rgba(0, 0, 0, 0.5);
         font-family: index.$font;
-        // default is 27px
-        font-size: 18px;
-        transform: scale(1.4) translateX(5px);
-        position: absolute;
-        z-index: index.$z-index-4;
-        width: 200px;
-        margin: auto;
-        left: 0;
-        right: 0;
-        pointer-events: none;
-
-        @media screen and (max-width: index.$sm) {
-            font-size: 19.1px;
-            // width: 200px;
-            transform: translateY(-25px);
-            // border: 1px solid black;
-
-        }
+        // font-size: clamp(5rem, 4vw, 6rem);
+        font-size: clamp(2.2rem, 2vw, 3rem);
     }
 
 }
 
 .HomeButton:hover {
-    transform: scale(1.1);
+    opacity: 0.5;
 }
-
-// a {
-//     margin: 0;
-//     padding: 0;
-//     height: fit-content;
-// }

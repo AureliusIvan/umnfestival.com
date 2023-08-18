@@ -28,6 +28,11 @@ export default function NavbarMobile() {
                 </div>
             </div>
         </div>
+        <div
+            className="saze-zone"
+        >
+            saze-zone
+        </div>
     </>
     )
 }

@@ -9,6 +9,7 @@
     height: 78px;
     background: rgba(255, 244, 236, 1);
     padding-inline: 40px;
+
     .Logo {
         aspect-ratio: 1/1;
         width: 94px;
@@ -50,10 +51,8 @@
     align-items: center;
     height: 58px;
     background-color: #fff4ec;
+
     // padding-inline: 10px;
-
-
-
     .Logo {
         aspect-ratio: 1/1;
         width: 54px;
@@ -142,7 +141,8 @@
             }
         }
     }
+}
 
-
-
+.saze-zone {
+    height: 58px;
 }

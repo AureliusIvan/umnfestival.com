@@ -1,604 +1,314 @@
-// @use "src/index" as index;
+// $border : 1px solid rgba(224, 189, 92, 255);
+$border : none;
 
-// .home {
-//     // Page layouting
-//     @include index.center;
-//     position: relative;
-//     flex-direction: column;
-//     overflow: hidden;
-//     height: 670px;
-//     min-height: 110vh;
-//     padding-bottom: 10vh;
-//     overflow: hidden;
-//     // Initial background when page load
-//     background: rgb(0, 0, 0);
-
-//     .logo{
-//         height: 5000px;
-//     }
-
-//     &::before {
-//         @include index.prevent-select;
-//         pointer-events: none;
-//         filter: brightness(0.8) contrast(80%);
-//         background-image: url('./../../../Asset/Image/Background/Homebg.webp');
-//         background-size: cover;
-//         background-position: top;
-//         background-attachment: local;
-//         content: '';
-//         position: absolute;
-//         top: 0;
-//         left: 0;
-//         width: 100%;
-//         height: 100%;
-//         background-color: index.$black;
-//         opacity: 0;
-//         animation: Bg-from-black-to-light 0.3s ease-in forwards;
-//         animation-delay: 2.2s;
-//         will-change: opacity;
-
-//         @keyframes Bg-from-black-to-light {
-//             to {
-//                 opacity: 1;
-//             }
-//         }
-//     }
-
-
-//     .home-image {
-//         background-image: url('./../../../Asset/Image/Ufest Logo/ufestlogocolor.webp');
-//         background-size: cover;
-//         background-position: center;
-//         @include index.prevent-select;
-//         height: 300px;
-//         width: 300px;
-//         background-size: 130%;
-//         transform-origin: center 0;
-//         z-index: 1;
-//         -webkit-filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.5));
-//         filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.5));
-//     }
-
-//     @media screen and (max-width: index.$sm) {
-//         .home-image {
-//             height: 350px;
-//             width: 350px;
-//         }
-//     }
-
-//     @media screen and (max-width: index.$sm) {
-//         .heading {
-//             font-size: 40px;
-//         }
-//     }
-// }
-
-body{
-    overflow-x: hidden;
-}
-
-.bgImg{
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
-    filter: brightness(50%);
-}
-
-.logo{
-    width: 30%;
-    margin: 0px 35%;
-    transition: 300ms;
-}
-
-.logo:hover{
-    scale: 1.1;
-}
-
-.mainTitle{
-    width: 30%;
-    margin: 0px 35%;
-    transition: 300ms;
-}
-
-.mainTitle:hover{
-    scale:1.15;
-}
-
-.containerIntro{
-    display: flex;
-    justify-content: center;
-    gap: 5px;
-    
-
-    .paperIntro{
-        position: relative;
-        transition: 300ms;
+.home {
+    .bgImg {
+        border: $border;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        filter: brightness(50%);
     }
 
-    .paperIntro:hover{
-        scale: 1.05;
-    }
-
-    .contentIntro{
-        position:absolute;
-        top: 50%; 
-        left: 50%; 
-        transform: translate(-50%, -50%); 
-        font-family: Louis George Cafe;
-        color: #FFFFFF;
-        text-align: center;
-        width: 350px;
-        filter: drop-shadow(0px 4px 2px rgba(0, 0, 0, 0.6));
-    
-        .contentTitleIntroP{
-            width: 72%;
-            margin: 0px 12% 0px 16%;
-        }
-        .contentTitleIntroK{
-            width: 60%;
-            margin: 0px 18% 0px 22%;
-        }
-        
-        p{
-            font-size: 20px;
-        }
-    }
-  
-}
-
-.containerTT{
-    margin: 50px 0px;
-
-    .titleTT{
-        background-color:rgba(255, 255, 240, 0.9);
-        color: rgba(91, 97, 142, 0.9);
-        font-family: Louis George Cafe;
-        font-size: 1.4em;
-        padding: 0px 15px;
-        margin: 0px auto;
-        width: 25%;
-        height: 50px;
-        border-radius: 35px;
+    .HeroSection {
+        border: $border;
         display: flex;
-        align-items: center;
+        flex-direction: column;
         justify-content: center;
-    }
+        align-items: center;
+        overflow: hidden;
 
-    .contentTT{
-        width: 50%;
-        margin: 50px 24% 0px 26%;
-        transition: 300ms;
+        .UMNFestivalHeroLogo {
+            border: $border;
+            // width: 30%;
+            width: 34.9rem;
+            max-width: 100%;
+            scale: 1.5;
+            overflow: hidden;
+        }
 
-        #temaTT{
-            margin: 50px 24.5% 0px 25.5%;
+        .mainTitle {
+            border: $border;
+            width: 34.9rem;
+            max-width: 100%;
+
         }
     }
 
-    .contentTT:hover{
-        scale: 1.05;
-    }
-}   
-
-
-.containerVM{
-    text-align: center;
-    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
-
-    .contentVM{
-        background-color: rgba(255, 244, 236, 0.75);
-        border-radius: 25px;
-        padding: 25px;
-        width: 80%;
-        margin: 0px auto 50px;
-        font-family: Louis George Cafe;
-        font-size: 24px;
-        color: #5B618E; 
-        transition: 300ms;
-    }
-
-    .contentVM:hover{
-        scale: 1.05;
-    }
-}
-
-.titleEvent{
-    width: 30%;
-    margin: 0px 34% -200px 36%;
-}
-
-.containerEvent{
-    position: relative;
-
-    .eventTimeline{
-        width: 99%;
-    }
-
-    .eventSpartan{
-        transition: 300ms;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        margin-bottom: 14.3%;
-        margin-right: 25%;
-        scale: 1.2;
-    }
-
-    .eventSpartan:hover{
-        scale: 1.3;
-    }
-
-    .event{
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        text-align: center;
-        color: white;
-        background-color: rgba($color: #000000, $alpha: 0.6);
-        width: fit-content;
-        font-size: 1.7em;
-        padding: 8px 27px;
-        border-radius: 40px;
-        height: 2.5%;
+    .ConceptSection {
+        border: $border;
         display: flex;
-        align-items: center;
-        font-family: Rocket-Vintage;
-        color: rgba(224,189,92,255);
-        transition: 300ms;
+        flex-direction: row;
+        justify-content: center;
+        gap: 5px;
+
+        @media screen and (max-width: 750px) {
+            flex-direction: column;
+        }
+
+        .paperIntro {
+            border: $border;
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 1/1;
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            @media screen and (max-width: 800px) {
+                width: 100%;
+                aspect-ratio: 1/1;
+                margin-bottom: 20px;
+            }
+
+            .paperBackground {
+                border: $border;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                scale: 1.1;
+            }
+
+            .contentIntro {
+                width: 100%;
+                height: 100%;
+                border: $border;
+                font-family: Louis George Cafe;
+                color: #FFFFFF;
+                text-align: center;
+                // padding: 10rem 10rem;
+                padding-inline: clamp(7rem, 10vw, 12rem);
+                padding-top: clamp(10rem, 10vw, 13rem);
+                filter: drop-shadow(0px 4px 2px rgba(0, 0, 0, 0.6));
+
+
+
+                .contentTitleImage {
+                    border: $border;
+                    width: 100%;
+                    height: clamp(5rem, 10vw, 5rem);
+                    object-fit: contain;
+                }
+
+                p {
+                    border: $border;
+                    font-size: clamp(1.6rem, 2vw, 2.5rem);
+                    width: 100%;
+
+                    @media screen and (max-width: 760px) {
+                        font-size: clamp(1.2rem, 4vw, 4.5rem);
+                        // padding-inline: 2rem;
+                    }
+
+                }
+            }
+
+        }
+
+
     }
 
-    .event:hover{
-        scale: 1.2;
-        background-color: rgba($color: #000000, $alpha: 0.8);
-        border: 3px solid rgba(224,189,92,255);
+
+    .TemaTaglineSection {
+        border: $border;
+        margin-block: 50px;
+
+        .containerTT {
+            border: $border;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            padding-inline: 2rem;
+
+            .titleTT {
+                border: $border;
+                background-color: rgba(255, 255, 240, 0.9);
+                color: rgba(91, 97, 142, 0.9);
+                font-family: Louis George Cafe;
+                font-size: clamp(1.8rem, 2vw, 3.5rem);
+                padding: 2.1px 5.1rem;
+                margin: 0px auto;
+                width: max-content;
+                border-radius: 35px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .contentTT {
+                border: $border;
+                margin-top: 10px;
+                margin-bottom: 50px;
+                margin-inline: 8rem;
+                object-fit: contain;
+                max-width: 100%;
+            }
+        }
+
     }
 
-    #eventUnify{
-        margin-bottom: 55%;
-        margin-right: 72.5%;
+    .containerVM {
+        border: $border;
+        text-align: center;
+        filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
+        overflow: hidden;
+
+
+        .titleVM {
+            border: $border;
+            object-fit: contain;
+            max-width: 100%;
+        }
+
+        .contentVM {
+            border: $border;
+            background-color: rgba(255, 244, 236, 0.75);
+            border-radius: 25px;
+            padding: 25px;
+            width: 80%;
+            margin: 0px auto 50px;
+            font-family: Louis George Cafe;
+            font-size: 24px;
+            color: #5B618E;
+            transition: 300ms;
+
+        }
+
+        .contentVM:hover {
+            scale: 1.05;
+        }
     }
 
-    #eventUcare{
-        margin-bottom: 50%;
-        margin-right: 24%;
+    .titleEvent {
+        border: $border;
+        width: 30%;
+        margin: 0px 34% -200px 36%;
     }
 
-    #eventUlympic{
-        margin-bottom: 39%;
-        margin-right: 65%;
-    }
+    .containerEvent {
+        border: $border;
+        position: relative;
 
-    #eventUnveiling{
-        margin-bottom: 24.5%;
-        margin-right: 47%;
-    }
+        .eventTimeline {
+            width: 99%;
+        }
 
-    #eventColorRun{
-        margin-bottom: 20%;
-        margin-right: 10%;
-    }
-
-    #eventPreUlympic{
-        margin-bottom: 7%;
-        margin-right: 26%;
-    }
-}
-
-.titlePartner{
-    width: 30%;
-    margin: 100px 33% 70px 36%;
-}
-
-
-.containerPartner{
-    display: flex;
-    justify-content: center;
-    gap: 5%;
-
-    .linePartner{
-        background-color: white;
-        width: 2px;
-        margin-left: 1%;
-    }
-
-    .contentPartner{
-        *{
-            color: rgba(224,189,92,255);
+        .eventSpartan {
+            transition: 300ms;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            margin-bottom: 14.3%;
+            margin-right: 25%;
             scale: 1.2;
         }
-    }
 
-}
-
-//for mobile
-@media only screen and (max-width: 600px) {
-    .bgImg{
-        content: url("./../../../Asset/Image/Background/Homebgphone.png");
-    }
-
-    .logo{
-        width: 70%;
-        margin: 0px 15% -7%;
-        transition: 300ms;
-    }
-
-    .mainTitle{
-        width: 60%;
-        margin: 0px 20%;
-        transition: 300ms;
-    }
-
-    .containerIntro{
-        display: flex;
-        flex-direction: column;
-        .paperIntro{
-            
-            .contentIntro{
-                .contentTitleIntroP{
-                    width: 50%;
-                }
-                .contentTitleIntroK{
-                    width: 40%;
-                }
-
-                p{
-                    margin: 0px auto;
-                    width: 60%;
-                    font-size: 1em;
-                }
-            }
-
-            *{
-                width: 100%;
-            }
-        }
-    }
-
-    .containerTT{
-        .titleTT{
-            margin-bottom: 30px;
-            width: 60%;
+        .eventSpartan:hover {
+            scale: 1.3;
         }
 
-        .contentTT{
-            scale: 1.8;
-
+        .event {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            text-align: center;
+            color: white;
+            background-color: rgba($color: #000000, $alpha: 0.6);
+            width: fit-content;
+            font-size: 1.7em;
+            padding: 8px 27px;
+            border-radius: 40px;
+            height: 2.5%;
+            display: flex;
+            align-items: center;
+            font-family: Rocket-Vintage;
+            color: rgba(224, 189, 92, 255);
+            transition: 300ms;
         }
 
-        #tagline{
-            padding-bottom: 15px;
-            border-bottom: 1px solid white;
-        }
-    }
-
-    .containerVM{
-        
-        .contentVM{
-            font-size: 18px;
-        }
-    }
-
-    .containerEvent{
-
-        .eventSpartan{
-            width: 10%;
+        .event:hover {
+            scale: 1.2;
+            background-color: rgba($color: #000000, $alpha: 0.8);
+            border: 3px solid rgba(224, 189, 92, 255);
         }
 
-        .event{
-            font-size: 1em;
-            padding: 8px 18px;
+        #eventUnify {
+            margin-bottom: 55%;
+            margin-right: 72.5%;
         }
-    
-        #eventUcare{
-            margin-bottom: 47%;
-            margin-right: 15%;
+
+        #eventUcare {
+            margin-bottom: 50%;
+            margin-right: 24%;
         }
-    
-        #eventUlympic{
-            margin-bottom: 36%;
-            margin-right: 66%;
+
+        #eventUlympic {
+            margin-bottom: 39%;
+            margin-right: 65%;
         }
-    
-        #eventUnveiling{
-            margin-bottom: 22%;
+
+        #eventUnveiling {
+            margin-bottom: 24.5%;
             margin-right: 47%;
         }
-    
-        #eventColorRun{
-            margin-bottom: 10%;
-            margin-right: 32%;
-        }
-    
-        #eventPreUlympic{
-            margin-bottom: 3%;
+
+        #eventColorRun {
+            margin-bottom: 20%;
             margin-right: 10%;
         }
+
+        #eventPreUlympic {
+            margin-bottom: 7%;
+            margin-right: 26%;
+        }
     }
 
-    .titlePartner{
-        width: 35%;
-        scale: 1.03;
-        display: flex;
-        justify-content: center;
-    }
 
-    .containerPartner{
+
+
+    .PartnershipSection {
+        border: $border;
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        min-height: fit-content;
+        padding: 50px 50px;
 
-        .contentPartner{
-            margin: 20px auto;
-        }
-    }
-}
-
-@media only screen and (max-width: 320px){
-    .contentIntro{
-        
-            .contentTitleIntroP{
-                scale: 0.7 !important;
-                transform: translateY(50%) !important;
-            }
-
-            .contentTitleIntroK{
-                scale: 0.9;
-                transform: translateY(60%) !important;
-            }
-
-            p{
-                scale: 0.6 !important;
-                width: 100% !important;
-            }
-    }
-
-    .titleTT{
-        font-size: 91.1em !important;  
-    }
-}
-
-@media only screen and (max-width: 360px){
-
-    .contentIntro{
-
-        .contentTitleIntroP{
-            scale: 0.7;
-            transform: translateY(20%);
+        .titlePartner {
+            object-fit: cover;
+            border: $border;
+            width: 100%;
+            max-width: 43rem;
+            transform-origin: center;
         }
 
-        .contentTitleIntroK{
-            scale: 0.7;
-            transform: translate(-5%,60%);
-        }
-        
-        p{
-            scale: 0.75;
-        }
-    }
+        .containerPartner {
+            border: $border;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 10px;
 
-    .titleTT{
-        font-size: 1.1em !important;
-    }
-
-    .contentVM{
-        height: fit-content;
-        font-size: 0.75em !important;
-    }
-
-
-    .titleEvent{
-        scale: 3;
-        margin-bottom: 5%;
-    }
-
-    .contentPartner{
-        *{
-            text-align: center;
-            scale: 1 !important;
-            transform: translateX(-10%);
-        }
-    }
-}
-
-@media only screen and (max-width: 400px) and (min-width:360px){
-    .contentIntro{
-        padding: 10px;
-
-        .contentTitleIntroP{
-            scale:0.7;
-        }
-
-        .contentTitleIntroK{
-            scale:0.70;
-        }
-
-        p{
-            scale: 0.85;
-        } 
-    }
-
-    .titleTT{
-        font-size: 1.1em !important;
-    }
-    
-    .contentVM{
-        height: fit-content;
-        font-size: 0.75em !important;
-    }
-
-    .titleEvent{
-        scale: 3;
-        margin-bottom: 5%;
-    }
-
-    .contentPartner{
-        *{
-            text-align: center;
-            scale: 1 !important;
-            transform: translateX(-5%);
-        }
-    }
-
-}
-
-@media only screen and (max-width: 420px){
-    .titleEvent{
-        scale: 3;
-        margin-bottom: 5%;
-    }
-}
-
-@media only screen and (max-width: 688px) and (min-width: 650px){
-        .containerIntro{
-            .paperIntro{
-                p{
-                    font-size: 0.6rem !important;
-                }
+            @media screen and (max-width: 600px) {
+                grid-template-columns: 1fr;
+                grid-gap: 10px;
             }
         }
-
-        .titleEvent{
-            scale: 2.5;
-            margin-top: 5%;
-            margin-bottom: 5%;
-        }
-}
-
-@media only screen and (max-width: 1024px) and (min-width: 650px){
-
-    .containerIntro{
-        justify-content: center !important;
-
-        .paperIntro{
-            width: 40%;
-
-            .contentIntro{
-                padding: 0px 10%;
-               .contentTitleIntroP{
-                    width: 50%;
-               }
-
-               .contentTitleIntroK{
-                    width: 40%;
-                    margin-top: 6%;
-               }
-
-               p{
-                    margin: 0% auto;
-                    font-size: 0.9rem;
-                    width: 60%;
-               }
-            }
-
-            *{
-                width: 100%;
-            }
-        }
-
     }
 
-    .titleTT{
-        font-size: 1.1em !important;
+    //for mobile
+    @media only screen and (max-width: 600px) {
+        .bgImg {
+            content: url("./../../../Asset/Image/Background/Homebgphone.png");
+        }
     }
+
 }

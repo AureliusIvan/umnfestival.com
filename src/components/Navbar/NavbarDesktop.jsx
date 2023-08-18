@@ -4,7 +4,7 @@ import Logo from "../../Asset/Image/Ufest Logo/ufestlogocolor.webp"
 import { NavLink } from "react-router-dom";
 
 export default function NavbarDesktop() {
-    return (
+    return (<>
         <div id="NavbarDesktop">
             <img className="Logo" src={Logo} alt="Ufest Logo" />
             <div className="buttonContainer">
@@ -16,5 +16,11 @@ export default function NavbarDesktop() {
                 </NavLink>
             </div>
         </div>
+        <div
+            className="saze-zone"
+        >
+            saze-zone
+        </div>
+    </>
     )
 }

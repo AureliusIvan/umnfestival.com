@@ -19,6 +19,7 @@ import PreulympicRebelSquad from "./Preulympic/PreulympicRebelSquad";
 import PreulympicPayment from "./Preulympic/PreulympicPayment";
 import ProtectedRouteCookie from "../../Route/Components/ProtectedRouteCookie";
 import Navbar from "../../components/Navbar/Navbar";
+import Home from "./Home/Home";
 // Bellow is code spliting using react lazy load and react suspense
 // This method aim to make the code more easy to load on deployment by separating them into several smaller chunk
 const Announcement = lazy(() => import("./Announcement/Announcement"));
@@ -26,7 +27,7 @@ const ComingSoon = lazy(() => import("./ComingSoon/ComingSoon"));
 const NavbarUser = lazy(() => import("../../Reusable/NavbarUser/Navbar"));
 const NavbarMobile = lazy(() => import("../../Reusable/NavbarUser/NavbarMobile/NavbarMobile"));
 const Footer = lazy(() => import("../../Reusable/Footer/Footer"));
-const Home = lazy(() => import("./Home/Home"));
+// const Home = lazy(() => import("./Home/Home"));
 const About = lazy(() => import("./About Us/About"));
 const Division = lazy(() => import("./Division/Division"));
 const Login = lazy(() => import("./Login/Login"));
@@ -41,9 +42,7 @@ export default function User() {
   // [Callback]
   // (i'm not sure if it is work because they are rarely re-rendered)
   // prevent home page to re-rendered when value change 
-  const HomeCallback = useCallback(() => {
-    return <Home />
-  }, [])
+
   // prevent about page to re-rendered
   const AboutCallback = useCallback(() => {
     return <About />
@@ -72,9 +71,7 @@ export default function User() {
           <Route
             path="/"
             element={
-              <Suspense fallback={<LoadingScreen />}>
-                <Home />
-              </Suspense>
+              <Home />
             }
           />
           <Route path="/preulympic" element={<Preulympic />} />
@@ -102,17 +99,7 @@ export default function User() {
               </Suspense>
             }
           />
-          <Route
-            path="login"
-            element={
-              <ProtectedRoute user={"guest"}>
-                <Suspense fallback={<LoadingScreen />}>
-                  <Login />
-                  {/* <ComingSoon /> */}
-                </Suspense>
-              </ProtectedRoute>
-            }
-          />
+          
           <Route
             path="register"
             element={

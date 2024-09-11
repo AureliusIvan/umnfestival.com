@@ -3,16 +3,9 @@
 }
 
 * {
-
-  input:-webkit-autofill,
-  input:-webkit-autofill:focus {
-    transition: background-color 600000s 0s, color 600000s 0s;
-  }
-
   cursor: default;
-
   @media screen and (min-width: 960px) {
-    cursor: url("/Asset/Image/cursor.png"), pointer !important;
+    cursor: url("public/Asset/Image/cursor.png"), pointer !important;
   }
 
 }
@@ -499,7 +492,6 @@ $text-shadow: 2px 3px 9px rgba(0, 0, 0, 1);
   position: relative;
 }
 
-// divider
 
 .divider {
   position: absolute;

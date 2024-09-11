@@ -1,22 +1,31 @@
+import "./Navbar.scss";
+
 import React from "react";
-import "./Navbar.scss"
 import Logo from "../../Asset/Image/Ufest Logo/ufestlogocolor.webp"
 import {NavLink} from "react-router-dom";
 import {useState} from "react";
 
 export default function NavbarMobile() {
   const [open, setOpen] = useState(false);
+
   const handleOpen = () => {
     setOpen(!open);
   }
+
   return (<>
         <div id="NavbarMobile">
-          <img className="Logo" src={Logo} alt="Ufest Logo"/>
+          <img
+              className="Logo"
+              src={Logo}
+              alt="Ufest Logo"
+          />
+
           <button className="button" onClick={handleOpen}>
             <span className="lines"></span>
             <span className="lines"></span>
             <span className="lines"></span>
           </button>
+
           <div className={`Backdrop ${open && "open"}`}>
             <div id="Dropdown">
               <NavLink onClick={handleOpen} className={"buttonNav"} to={"/"}>Home <svg
@@ -33,11 +42,14 @@ export default function NavbarMobile() {
               </svg></NavLink>
             </div>
           </div>
+
         </div>
+
+        {/* Safe Zone */}
         <div
-            className="saze-zone"
+            id="safe-zone"
         >
-          saze-zone
+          safe-zone
         </div>
       </>
   )

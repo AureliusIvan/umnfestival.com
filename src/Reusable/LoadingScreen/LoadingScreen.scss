@@ -15,7 +15,6 @@
     content: '';
   }
 
-
   .Caption {
     font-family: index.$font;
     position: absolute;
@@ -23,9 +22,8 @@
     font-weight: bold;
     font-size: 25px;
     color: index.$white;
-    text-shadow: 5px 0px 9px index.$black;
+    text-shadow: 5px 0 9px index.$black;
   }
-
 }
 
 
@@ -41,14 +39,12 @@
   flex-direction: column;
 
   .logo {
-    background-image: url("./../../Asset/Image/Ufest\ Logo/ufestlogocolor.webp");
+    background-image: url("../../Asset/Image/OtherIcon/ufest-logo-home.png");
     background-size: 70px 70px;
     background-position: center;
     background-repeat: no-repeat;
     height: 70px;
     width: 70px;
-    // position: absolute;
-    // top: 10vh;
     background-color: white;
     position: absolute;
     top: 10px;
@@ -61,7 +57,7 @@
     font-family: index.$font;
     font-size: 30px;
     color: index.$white;
-    text-shadow: 5px 0px 9px index.$black;
+    text-shadow: 5px 0 9px index.$black;
   }
 
   .btn-choice {

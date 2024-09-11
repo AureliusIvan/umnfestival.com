@@ -5,15 +5,12 @@ const axiosClient = axios.create();
 axiosClient.defaults.baseURL = "https://databaseufest.aureliusivan.my.id/api";
 
 localStorage.getItem('LoginID') ? axiosClient.defaults.headers = {
-      Authorization: `Bearer ${localStorage.getItem('LoginID')}`,
-      'Content-Type': 'multipart/form-data',
-      'Accept': 'application/json',
-    }
-    :
-    axiosClient.defaults.headers = {
-      'Content-Type': 'multipart/form-data',
-      'Accept': 'application/json',
-    };
+  Authorization: `Bearer ${localStorage.getItem('LoginID')}`,
+  'Content-Type': 'multipart/form-data',
+  'Accept': 'application/json',
+} : axiosClient.defaults.headers = {
+  'Content-Type': 'multipart/form-data', 'Accept': 'application/json',
+};
 
 
 axiosClient.defaults.timeout = 20000;

@@ -10,51 +10,25 @@
   padding-top: 10vh;
   padding-bottom: 10vh;
 
-  .proggress-bar {
+  .progress-bar {
     pointer-events: none;
     position: absolute;
     z-index: 2;
     left: 0;
     right: 0;
     margin: auto;
-    // top: 25vh;
     width: 23vw;
     height: 20vh;
-
-    // @media screen and (max-width: index.$sm) {
-    //     top: 26vh;
-    //     width: 30vw;
-    // }
-
-    // @media screen and (max-width: index.$md) {
-    //     top: 24vh;
-    //     width: 30vw;
-    // }
-
-
-    // @media screen and (min-width: index.$lg) {
-    //     top: 28vh !important;
-    //     width: 20vw;
-    // }
-
-    // @media screen and (min-width: index.$xl) {
-    //     top: 30vh !important;
-    //     width: 20vw;
-    // }
-
-
   }
 
   .form {
     @include index.form-layout("./../../../Asset/Image/OtherIcon/paperfull.webp");
     height: fit-content;
-    position: relative;
-
 
     @media screen and (max-width: index.$md) {
       height: auto;
       width: 70%;
-      margin: 0px;
+      margin: 0;
       padding: 10px;
     }
 
@@ -65,8 +39,7 @@
       font-size: 50px;
       color: index.$yellow;
       display: block;
-      margin: 0;
-      margin-top: 20px;
+      margin: 20px 0 0;
       font-family: index.$font;
 
       @media screen and (max-width: index.$sm) {
@@ -95,21 +68,18 @@
 
     .Wrapper {
       padding: 15px;
-      // background: index.$white;
       border-radius: 5px;
     }
 
     .list {
       margin: 0;
       padding: 0;
-      padding-left: 0px;
-      list-style-position: inside;
-      list-style: circle;
+      list-style: circle inside;
     }
 
     .TextLabel {
       opacity: 0.7;
-      margin: none;
+      margin: 0;
       text-align: left;
     }
 
@@ -157,7 +127,6 @@
       max-height: 50px;
     }
 
-    // special for join closed page
     .join-closed-content {
       font-family: index.$font;
       color: index.$yellow;

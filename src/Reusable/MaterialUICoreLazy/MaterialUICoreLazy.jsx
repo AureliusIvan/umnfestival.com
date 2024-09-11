@@ -1,6 +1,5 @@
 import React, {lazy, Suspense} from "react";
 
-// Grid
 const GridLazy = lazy(() => import("@material-ui/core/Grid"));
 
 export function Grid(props) {
@@ -10,7 +9,7 @@ export function Grid(props) {
       </Suspense>
   );
 }
-// Table
+
 const LazyTable = lazy(() => import("@material-ui/core/Table"));
 
 export function Table(props) {
@@ -21,7 +20,6 @@ export function Table(props) {
   );
 }
 
-// TableBody
 const LazyTableBody = lazy(() => import("@material-ui/core/TableBody"));
 
 export function TableBody(props) {
@@ -32,7 +30,6 @@ export function TableBody(props) {
   );
 }
 
-// TableCell
 const LazyTableCell = lazy(() => import("@material-ui/core/TableCell"));
 
 export function TableCell(props) {

@@ -10,10 +10,8 @@
   text-shadow: 0 0 10px #000000;
 
   @media screen and (max-width: 768px) {
-
     transform: scale(0.45);
   }
-
 
   .mouse {
     width: 30px;
@@ -51,7 +49,5 @@
         top: 40px;
       }
     }
-
   }
-
 }

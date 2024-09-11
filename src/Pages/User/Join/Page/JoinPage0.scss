@@ -1,8 +1,6 @@
 @use 'src/index.scss' as index;
 
-.JoinPage0 {
-
-  // padding-top: 20px;
+#JoinPage0 {
   .subtitle {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -19,7 +17,6 @@
   }
 
   .title {
-    // font-weight: bold;
     font-family: index.$font2;
   }
 }

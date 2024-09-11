@@ -1,7 +1,6 @@
 @use "src/index" as index;
 
 #ComingSoon {
-
   @include index.center;
   height: 100vh;
   min-height: 100vh;
@@ -10,17 +9,14 @@
   overflow: hidden;
 
   &::after {
-    filter: brightness(0.8) contrast(80%);
     content: "";
-
+    filter: brightness(0.8) contrast(80%);
     background-image: url("./../../../Asset/Image/Background/Homebg.webp");
     position: absolute;
-    // z-index: 7;
     top: 0;
     height: 100%;
     width: 100%;
   }
-
 
   .Wrapper {
     @include index.center;
@@ -41,7 +37,6 @@
       pointer-events: none;
 
       @media screen and (max-width: index.$sm) {
-        width: 60%;
         height: auto;
         width: 100%;
         margin-inline: 20px;

@@ -1,24 +1,25 @@
 #NavbarDesktop {
   display: flex;
   position: fixed;
-  width: 95%;
+  width: 100%;
   z-index: 10;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   height: 78px;
   background: rgba(255, 244, 236, 1);
-  padding-inline: 40px;
 
   .Logo {
     aspect-ratio: 1/1;
     width: 94px;
     flex-shrink: 0;
+
   }
 
-  .buttonContainer {
+  .navbarNavigationButtonContainer {
     display: flex;
     gap: 40px;
+    padding-inline: 40px;
   }
 
   .button {
@@ -26,7 +27,7 @@
     border: none;
     cursor: pointer;
     color: #5B618E;
-    font-family: Rocket-Vintage;
+    font-family: Rocket-Vintage, serif;
     font-size: 40px;
     font-style: normal !important;
     font-weight: 700;
@@ -52,7 +53,6 @@
   height: 58px;
   background-color: #fff4ec;
 
-  // padding-inline: 10px;
   .Logo {
     aspect-ratio: 1/1;
     width: 54px;
@@ -86,7 +86,6 @@
 
   .Backdrop {
     position: absolute;
-    display: flex;
     top: 58px;
     right: 0;
     width: 100vw;
@@ -98,7 +97,6 @@
     &.open {
       display: block !important;
     }
-
 
     #Dropdown {
       border: none;
@@ -119,16 +117,14 @@
         border: none;
         cursor: pointer;
         color: #5B618E;
-        font-family: Rocket-Vintage;
+        font-family: Rocket-Vintage, serif;
         font-size: 20px;
         font-style: normal !important;
         font-weight: 700;
         line-height: normal;
         text-decoration: none;
-        // border: 1px solid black;
         display: flex;
         justify-content: space-between;
-
 
         svg {
           width: 20px;
@@ -143,6 +139,6 @@
   }
 }
 
-.saze-zone {
+#safe-zone {
   height: 58px;
 }

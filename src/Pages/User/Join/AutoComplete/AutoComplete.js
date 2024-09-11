@@ -17,14 +17,10 @@ export const JurusanData = [
 export const DivisiData = [
   {label: 'Dekorasi'},
   {label: 'Publikasi'},
-  // { label: 'Keamanan' },
   {label: 'Fresh Money'},
-  // { label: 'Sponsor' },
   {label: 'Dokumentasi'},
   {label: 'Acara'},
-  // { label: 'Perlengkapan' },
   {label: 'Lomba'},
-  // { label: 'Konsumsi' },
   {label: 'Website'},
   {label: 'Visual'},
 ]

@@ -9,13 +9,11 @@ import {useNavigate} from "react-router-dom";
 
 const NavbarButtonAdmin = React.lazy(() => import("./NavbarAdminButton/NavbarAdminButton"));
 
-
-export default function NavbarAdmin(props) {
+export default function NavbarAdmin() {
   const page = useSelector(selectPage);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // logout
   function logoutHandler() {
     const login = localStorage.getItem('LoginID');
     axios.get(`${URL}/api/logout`, {

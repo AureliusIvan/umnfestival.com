@@ -7,28 +7,27 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "host" : "vite --host"
+    "host": "vite --host"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.5",
-    "@emotion/styled": "^11.10.5",
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
     "@material-ui/core": "^4.12.4",
-    "@mui/material": "^5.11.5",
-    "@mui/x-data-grid": "^5.17.20",
-    "@react-pdf/renderer": "^3.1.4",
-    "@reduxjs/toolkit": "^1.9.1",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^29.4.0",
+    "@mui/material": "^6.0.2",
+    "@mui/x-data-grid": "^7.16.0",
+    "@react-pdf/renderer": "^3.4.4",
+    "@reduxjs/toolkit": "^2.2.7",
+    "@testing-library/jest-dom": "^6.5.0",
+    "@testing-library/react": "^16.0.1",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/jest": "^29.5.12",
     "@types/node": "^18.11.18",
-    "axios": "^1.2.2",
+    "axios": "^1.7.7",
     "canvas-to-blob": "^1.0.0",
-    "date-fns": "^2.29.3",
-    "formik": "^2.2.9",
+    "date-fns": "^3.6.0",
+    "formik": "^2.4.6",
     "framer-motion": "^8.4.6",
     "material-ui-popup-state": "^5.0.4",
-    "node-sass": "^8.0.0",
     "react": "^18.2.0",
     "react-cookie": "^4.1.1",
     "react-dom": "^18.2.0",
@@ -39,36 +38,25 @@
     "react-router-dom": "^6.8.0",
     "react-router-sitemap": "^1.2.0",
     "react-scripts": "5.0.1",
-    "react-use-cookie": "^1.4.0",
-    "scss": "^0.2.4",
-    "styled-components": "^5.3.6",
+    "react-use-cookie": "^1.6.1",
+    "styled-components": "^6.1.13",
     "swiper": "^8.4.6",
     "use-sound": "^4.0.1",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.25.1",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
-    "@vitejs/plugin-react": "^3.0.0",
+    "@vitejs/plugin-react": "^4.3.1",
     "babel-plugin-named-exports-order": "^0.0.2",
     "prop-types": "^15.8.1",
-    "sass": "^1.57.1",
-    "sass-loader": "^13.2.0",
-    "vite": "^4.0.0",
+    "sass": "^1.78.0",
+    "sass-loader": "^16.0.1",
+    "unplugin-fonts": "^1.1.1",
+    "vite": "^5.4.4",
     "vite-plugin-fonts": "^0.7.0",
     "webpack": "^5.75.0"
-  },
-  "eslintConfig": {
-    "overrides": [
-      {
-        "files": [
-          "**/*.stories.*"
-        ],
-        "rules": {
-          "import/no-anonymous-default-export": "off"
-        }
-      }
-    ]
   }
 }

@@ -1,4 +1,5 @@
 import "./AboutCard.scss"
+
 import CoolTitle from "../../../../Reusable/ComponentItems/CoolTitle/CoolTitle";
 
 export default function AboutCard(props) {

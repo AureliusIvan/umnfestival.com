@@ -1,17 +1,19 @@
-import React from 'react';
-import {m, domAnimation, LazyMotion} from 'framer-motion';
 import "./AboutTitle.scss";
 
-export const AboutTitle = (props) => {
+import React from 'react';
+import {m, domAnimation, LazyMotion} from 'framer-motion';
+
+export const AboutTitle = () => {
   return (
       <>
         <LazyMotion features={domAnimation}>
-          <m.div className='AboutTitle'
-                 initial={{opacity: 0}}
-                 animate={{opacity: 1}}
-                 transition={{duration: 0.5}}
-
+          <m.div
+              className='AboutTitle'
+              initial={{opacity: 0}}
+              animate={{opacity: 1}}
+              transition={{duration: 0.5}}
           >
+
             <svg className='SVG'
                  viewBox="0 15.674 144 144"
                  width={914}
@@ -27,7 +29,6 @@ export const AboutTitle = (props) => {
                   <stop stopColor="#fff1ad" offset="20%"/>
                   <stop stopColor="#f5d63f" offset="35%"/>
                   <stop stopColor="#f5ac3f" offset="50%"/>
-                  {/*  */}
                   <stop stopColor="#f5ac3f" offset="65%"/>
                   <stop stopColor="#f5d63f" offset="70%"/>
                   <stop stopColor="#fff1ad" offset="80%"/>
@@ -59,7 +60,9 @@ export const AboutTitle = (props) => {
               </text>
             </svg>
             <br/>
+
             <div className="mouse"></div>
+
           </m.div>
         </LazyMotion>
       </>

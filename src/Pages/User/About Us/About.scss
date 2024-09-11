@@ -8,12 +8,10 @@
   overflow-x: hidden;
   pointer-events: all;
 
-
-  // testing 123
   &::after {
+    @include index.background("./../../../Asset/Image/Background/Homebg.webp");
     content: "";
     filter: brightness(0.8) contrast(80%);
-    @include index.background("./../../../Asset/Image/Background/Homebg.webp");
     background-attachment: scroll;
     position: absolute;
     top: 0;
@@ -21,7 +19,6 @@
     width: 100vw;
     height: 100vh;
   }
-
 
   .swiper {
     width: 100vw !important;
@@ -37,7 +34,6 @@
     $nth: 1;
 
     @while $nth >1 {
-
       &:nth-child(#{$nth}) {
         background-image: url(./../../../Asset/Image/OtherIcon/paperfull.webp);
         background-position: center;
@@ -49,12 +45,10 @@
     }
   }
 
-
   .Carousel-Swiper-Slide {
     @include index.prevent-select;
     @include index.center;
     width: 150px;
-    height: auto;
     background-color: rgb(252, 199, 199, 0);
     margin: 0;
     height: 100%;
@@ -91,7 +85,6 @@
       width: 100%;
     }
 
-
     .Carousel-Image {
       image-resolution: 300dpi;
       height: 90%;
@@ -104,12 +97,12 @@
 
   .About-Title {
     @include index.center;
-    translate: scale(0.2);
+    scale: 0.2;
     position: relative;
     margin: 0;
 
     @media screen and (max-width: index.$md) {
-      translate: scale(0.2);
+      scale: 0.2;
     }
   }
 
@@ -124,14 +117,13 @@
     font-size: 50px;
     font-weight: bolder;
     color: index.$yellow;
-    text-shadow: 2px 0px 9px rgba(0, 0, 0, 1);
+    text-shadow: 2px 0 9px rgba(0, 0, 0, 1);
     height: 100%;
     margin: 20px;
 
     @media screen and (max-width: index.$md) {
       font-size: 30px;
     }
-
   }
 
   .progress {

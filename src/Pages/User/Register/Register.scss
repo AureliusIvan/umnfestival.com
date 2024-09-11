@@ -6,17 +6,15 @@
   background-attachment: local;
   height: 120%;
   min-height: 100vh;
-  // padding-top: 10vh;
   overflow: hidden;
 
   .form {
     @include index.form-layout("./../../../Asset/Image/OtherIcon/paperfull.webp");
 
-
     @media screen and (max-width: index.$sm) {
       height: auto;
       width: 70%;
-      margin: 0px;
+      margin: 0;
       padding: 10px;
     }
 
@@ -26,8 +24,7 @@
       font-size: 50px;
       color: index.$yellow;
       display: block;
-      margin: 0;
-      margin-top: 20px;
+      margin: 20px 0 0;
       font-family: index.$font;
 
       @media screen and (max-width: index.$sm) {

@@ -1,25 +1,33 @@
-import React from "react";
 import "./Navbar.scss"
+
+import React from "react";
 import Logo from "../../Asset/Image/Ufest Logo/ufestlogocolor.webp"
 import {NavLink} from "react-router-dom";
 
 export default function NavbarDesktop() {
   return (<>
-        <div id="NavbarDesktop">
-          <img className="Logo" src={Logo} alt="Ufest Logo"/>
-          <div className="buttonContainer">
+        <section id="NavbarDesktop">
+          <img
+              className="Logo"
+              src={Logo}
+              alt="Ufest Logo"
+          />
+
+          <div className="navbarNavigationButtonContainer">
             <NavLink className={"button"} to={"/"}>
               Home
             </NavLink>
             <NavLink className={"button"} to={"/division"}>
-              Divison
+              Division
             </NavLink>
           </div>
-        </div>
+        </section>
+
+        {/* safe zone*/}
         <div
             className="saze-zone"
         >
-          saze-zone
+          safe-zone
         </div>
       </>
   )

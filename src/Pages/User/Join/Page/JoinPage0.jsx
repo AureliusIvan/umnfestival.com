@@ -38,7 +38,8 @@ export default function JoinPage0() {
                   <p className='desc'>
                     {"Specifically for the Visual and Documentation division. "}
                     {"Portfolio is uploaded to Google Drive. Make sure the link is publicly accessible."}
-                  </p>}
+                  </p>
+                }
             />
           </ListItem>
         </CustomList>

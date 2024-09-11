@@ -2,13 +2,13 @@ import "./LoadingScreen.scss"
 
 export default function LoadingScreen() {
   return (
-      <div
-          className="Loading-Screen"
+      <section
+          id="loading-screen"
       >
         <p className="Caption">
           Now loading...
         </p>
-      </div>
+      </section>
   )
 }
 

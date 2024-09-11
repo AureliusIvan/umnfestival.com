@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { selectuserRole } from '../../../../../Redux/features/users/userRoleSlice';
+import { selectUserRole } from '../../../../../Redux/features/users/userRoleSlice';
 import './HomeButton.scss';
 import ButtonIMG from "./../../../../../Asset/Image/OtherIcon/Button.webp";
 // import { LazyMotion, domAnimation, m } from 'framer-motion';
@@ -8,7 +8,7 @@ import { selectPageLoading } from '../../../../../Redux/features/users/userSound
 
 export default function HomeButton(props) {
     const navigate = useNavigate();
-    const userRole = useSelector(selectuserRole);
+    const userRole = useSelector(selectUserRole);
     const loading = useSelector(selectPageLoading);
     function handler() {
         console.log(loading);

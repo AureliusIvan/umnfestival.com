@@ -1,6 +1,6 @@
 @use "src/index" as index;
 
-.Cool-Title {
+.cool-title {
   @include index.prevent-select;
   font-family: index.$font;
   text-shadow: index.$text-shadow;

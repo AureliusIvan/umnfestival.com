@@ -1,6 +1,6 @@
 @use "src/index" as index;
 
-.Loading-Screen {
+.loading-screen {
   @include index.full-screen;
   @include index.center;
   position: fixed;

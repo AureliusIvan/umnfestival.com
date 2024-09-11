@@ -4,6 +4,7 @@ import React from "react";
 import Logo from "../../Asset/Image/Ufest Logo/ufestlogocolor.webp"
 import {NavLink} from "react-router-dom";
 
+
 export default function NavbarDesktop() {
   return (<>
         <section id="NavbarDesktop">

@@ -10,16 +10,6 @@ export function Autocomplete(props) {
   );
 }
 
-const ButtonLazy = lazy(() => import("@mui/material/Button"));
-
-export function Button(props) {
-  return (
-      <Suspense fallback={""}>
-        <ButtonLazy {...props} />
-      </Suspense>
-  );
-}
-
 const DividerLazy = lazy(() => import("@mui/material/Divider"));
 
 export function Divider(props) {

@@ -22,28 +22,27 @@ const GridItem2 = styled(MuiGrid)(({theme}) => ({
   gap: '20px',
 }));
 
-
 function LinkCard(props) {
-  return (<Grid
-      item lg={2}
-      md={2}
-      sm={2}
-      xs={2}>
-    <a
-        className="Footer-Link-Card"
-        href={props.href}>
-      <img
-          loading="lazy"
-          alt="social media icon"
-          className="Card-Image"
-          decoding='async'
-          title={props.title}
-          src={props.image}/>
-    </a>
-
-  </Grid>)
+  return (
+      <Grid
+          item lg={2}
+          md={2}
+          sm={2}
+          xs={2}>
+        <a
+            className="Footer-Link-Card"
+            href={props.href}>
+          <img
+              loading="lazy"
+              alt="social media icon"
+              className="Card-Image"
+              decoding='async'
+              title={props.title}
+              src={props.image}/>
+        </a>
+      </Grid>
+  )
 }
-
 
 function Title({children}) {
   return (

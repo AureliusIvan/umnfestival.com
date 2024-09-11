@@ -13,7 +13,7 @@ const initialState = {
     isLogin: false,
     isRegister: false,
     isJoin: false,
-    
+
 };
 
 const userDataSlice = createSlice({
@@ -45,6 +45,6 @@ const userDataSlice = createSlice({
 
 export const selectUser = (state) => state.userData;
 
-export const { userLogin, userRegister, setUserToken, userSetJoin } = userDataSlice.actions;
+export const { userSetJoin } = userDataSlice.actions;
 
 export default userDataSlice.reducer;

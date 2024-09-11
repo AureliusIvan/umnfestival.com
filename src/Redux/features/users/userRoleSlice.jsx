@@ -1,4 +1,3 @@
-import React from 'react'
 import {createSlice} from '@reduxjs/toolkit';
 
 const initialState = {
@@ -54,25 +53,9 @@ const userRoleSlice = createSlice({
 })
 
 
-export const selectuserRole = (state) => state.userRole.userRole;
-
-export const selectuserName = (state) => state.userRole.userName;
-
-export const selectuserNim = (state) => state.userRole.userNim;
-
-export const selectuserEmail = (state) => state.userRole.userEmail;
-
-export const selectuserToken = (state) => state.userRole.userToken;
-
-export const selectuserDivision = (state) => state.userRole.userDivision;
-
-export const selectLoading = (state) => state.userRole.loading;
-
-export const selectuserFile = (state) => state.userRole.file;
+export const selectUserRole = (state) => state.userRole.userRole;
 
 export const checkVerify = (state) => state.userRole.isVerify;
-
-export const checkJoin = (state) => state.userRole.isJoin;
 
 export const {
   isJoinAdded,

@@ -4,48 +4,48 @@
 $border: none;
 
 .HomeButton {
+  border: $border;
+  @include index.prevent-select;
+  position: relative;
+  cursor: pointer;
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  aspect-ratio: 11/4;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none !important;
+  overflow: hidden;
+
+  .background {
     border: $border;
     @include index.prevent-select;
-    position: relative;
-    cursor: pointer;
+    position: absolute;
     width: 100%;
-    max-width: 100%;
-    display: flex;
-    aspect-ratio: 11/4;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none !important;
-    overflow: hidden;
+    height: 100%;
+    top: 0;
+    left: 0;
+    scale: 1.7;
+    transform-origin: center;
+    object-fit: contain;
+    transform: translateX(-1.5%);
+    isolation: isolate;
+    z-index: -1;
+  }
 
-    .background {
-        border: $border;
-        @include index.prevent-select;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        scale: 1.7;
-        transform-origin: center;
-        object-fit: contain;
-        transform: translateX(-1.5%);
-        isolation: isolate;
-        z-index: -1;
-    }
-
-    .front {
-        border: $border ;
-        padding: 20px 45px;
-        color: index.$white;
-        text-align: center;
-        font-family: index.$font;
-        // font-size: clamp(5rem, 4vw, 6rem);
-        font-size: clamp(2.2rem, 2vw, 3rem);
-    }
+  .front {
+    border: $border;
+    padding: 20px 45px;
+    color: index.$white;
+    text-align: center;
+    font-family: index.$font;
+    // font-size: clamp(5rem, 4vw, 6rem);
+    font-size: clamp(2.2rem, 2vw, 3rem);
+  }
 
 }
 
 .HomeButton:hover {
-    opacity: 0.5;
+  opacity: 0.5;
 }

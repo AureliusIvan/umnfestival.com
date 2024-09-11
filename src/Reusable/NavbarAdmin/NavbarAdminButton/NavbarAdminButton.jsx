@@ -1,4 +1,5 @@
 import "./NavbarButtonAdmin.scss"
+
 import { useNavigate, useLocation } from "react-router-dom"
 
 export default function NavbarButtonAdmin(props) {

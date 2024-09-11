@@ -1,37 +1,37 @@
 @use "src/index" as index;
 
 .Audio-Play-Button-Wrapper {
-    @include index.center;
-    margin: 10px;
-    background-color: index.$white;
-    box-shadow: 0 0 5px rgba(0, 0, 0, .05), 2px 2px 5px rgba(0, 0, 0, .1);
-    border-radius: 50%;
-    width: 34px;
+  @include index.center;
+  margin: 10px;
+  background-color: index.$white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .05), 2px 2px 5px rgba(0, 0, 0, .1);
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  // transform: scale(0.5) translate(-100px, -65px);
+  transform: translate(0, -5px);
+
+  .AudioPlayButton {
+    background-color: rgb(64, 64, 64, 0);
+    transform: scale(0.5);
+    box-sizing: border-box;
+    width: 0;
     height: 34px;
-    // transform: scale(0.5) translate(-100px, -65px);
-    transform: translate(0, -5px);
-
-    .AudioPlayButton {
-        background-color: rgb(64, 64, 64, 0);
-        transform: scale(0.5);
-        box-sizing: border-box;
-        width: 0;
-        height: 34px;
-        border-style: solid;
-        border-width: 17px 0 17px 30px;
-        border-color: transparent transparent transparent index.$yellow;
-        cursor: pointer;
-        will-change: border-width;
-        transition: all .2s ease;
+    border-style: solid;
+    border-width: 17px 0 17px 30px;
+    border-color: transparent transparent transparent index.$yellow;
+    cursor: pointer;
+    will-change: border-width;
+    transition: all .2s ease;
 
 
-        &.paused {
-            border-style: double;
-            border-width: 0px 0 0px 30px;
-        }
-
-        &:hover {
-            border-color: transparent transparent transparent #404040;
-        }
+    &.paused {
+      border-style: double;
+      border-width: 0px 0 0px 30px;
     }
+
+    &:hover {
+      border-color: transparent transparent transparent #404040;
+    }
+  }
 }

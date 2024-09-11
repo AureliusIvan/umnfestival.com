@@ -1,6 +1,5 @@
 import "./LoadingScreen.scss"
 
-
 export default function LoadingScreen() {
     return (
         <div

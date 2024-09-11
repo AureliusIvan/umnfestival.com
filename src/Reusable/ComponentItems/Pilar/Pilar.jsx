@@ -1,27 +1,26 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import "./Pilar.scss"
-import { m, domAnimation, LazyMotion } from "framer-motion";
-import { useMediaQuery } from "@mui/material";
-import { useState } from 'react';
+import {m, domAnimation, LazyMotion} from "framer-motion";
+import {useMediaQuery} from "@mui/material";
+import {useState} from 'react';
 
 function Pilar() {
-    const [isMobile] = useState(useMediaQuery("(max-width: 700px)"));
-    return (<>
-        {isMobile ? "" : <>
-            <LazyMotion features={domAnimation}>
-                <m.div
-                    rel="preload" decoding="async" className="PilarComponent left"
-                >
-                </m.div>
-                <m.div
+  const [isMobile] = useState(useMediaQuery("(max-width: 700px)"));
+  return (<>
+    {isMobile ? "" : <>
+      <LazyMotion features={domAnimation}>
+        <m.div
+            rel="preload" decoding="async" className="PilarComponent left"
+        >
+        </m.div>
+        <m.div
 
-                    rel="preload" decoding="async" className="PilarComponent right"
-                >
-                </m.div>
-            </LazyMotion>
-        </>
-        }
-    </>)
+            rel="preload" decoding="async" className="PilarComponent right"
+        >
+        </m.div>
+      </LazyMotion>
+    </>}
+  </>)
 }
 
 export default Pilar;

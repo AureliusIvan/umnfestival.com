@@ -1,146 +1,146 @@
 @use "src/index" as index;
 
 #About {
+  @include index.center;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  pointer-events: all;
+
+
+  // testing 123
+  &::after {
+    content: "";
+    filter: brightness(0.8) contrast(80%);
+    @include index.background("./../../../Asset/Image/Background/Homebg.webp");
+    background-attachment: scroll;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+
+
+  .swiper {
+    width: 100vw !important;
+    height: 100vh !important;
+    overflow: visible;
+  }
+
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: all;
+    $nth: 1;
+
+    @while $nth >1 {
+
+      &:nth-child(#{$nth}) {
+        background-image: url(./../../../Asset/Image/OtherIcon/paperfull.webp);
+        background-position: center;
+        background-size: cover;
+      }
+
+      $nth: $nth+1;
+
+    }
+  }
+
+
+  .Carousel-Swiper-Slide {
+    @include index.prevent-select;
     @include index.center;
-    flex-direction: column;
-    min-height: 100vh;
-    position: relative;
-    overflow-x: hidden;
+    width: 150px;
+    height: auto;
+    background-color: rgb(252, 199, 199, 0);
+    margin: 0;
+    height: 100%;
     pointer-events: all;
 
+    &:hover {
+      width: 100%;
+      height: 100%;
+      filter: brightness(0.5);
+      transition: 0.3s;
+      position: relative;
 
-    // testing 123
-    &::after {
-        content: "";
-        filter: brightness(0.8) contrast(80%);
-        @include index.background("./../../../Asset/Image/Background/Homebg.webp");
-        background-attachment: scroll;
+      &::before {
+        filter: none;
+        font-family: index.$font2;
+        content: 'Click to see more';
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-    }
-
-
-    .swiper {
-        width: 100vw !important;
-        height: 100vh !important;
-        overflow: visible;
-    }
-
-    .swiper-slide {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        pointer-events: all;
-        $nth: 1;
-
-        @while $nth >1 {
-
-            &:nth-child(#{$nth}) {
-                background-image: url(./../../../Asset/Image/OtherIcon/paperfull.webp);
-                background-position: center;
-                background-size: cover;
-            }
-
-            $nth: $nth+1;
-
-        }
-    }
-
-
-    .Carousel-Swiper-Slide {
-        @include index.prevent-select;
-        @include index.center;
-        width: 150px;
-        height: auto;
-        background-color: rgb(252, 199, 199, 0);
-        margin: 0;
-        height: 100%;
-        pointer-events: all;
-
-        &:hover {
-            width: 100%;
-            height: 100%;
-            filter: brightness(0.5);
-            transition: 0.3s;
-            position: relative;
-
-            &::before {
-                filter: none;
-                font-family: index.$font2;
-                content: 'Click to see more';
-                position: absolute;
-                margin: auto;
-                top: 45%;
-                right: 0;
-                left: 0;
-                color: white;
-                font-size: 20px;
-            }
-        }
-
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        @media screen and (max-width: index.$sm) {
-            width: 100%;
-        }
-
-
-        .Carousel-Image {
-            image-resolution: 300dpi;
-            height: 90%;
-            width: auto;
-            object-fit: cover;
-            position: relative;
-            animation: spin 20s linear infinite;
-        }
-    }
-
-    .About-Title {
-        @include index.center;
-        translate: scale(0.2);
-        position: relative;
-        margin: 0;
-
-        @media screen and (max-width: index.$md) {
-            translate: scale(0.2);
-        }
-    }
-
-    .GridItem {
-        @include index.center;
-    }
-
-    .Title {
-        @include index.center;
-        font-family: index.$font;
-        text-align: center;
-        font-size: 50px;
-        font-weight: bolder;
-        color: index.$yellow;
-        text-shadow: 2px 0px 9px rgba(0, 0, 0, 1);
-        height: 100%;
-        margin: 20px;
-
-        @media screen and (max-width: index.$md) {
-            font-size: 30px;
-        }
-
-    }
-
-    .progress {
-        position: fixed;
-        left: 0;
+        margin: auto;
+        top: 45%;
         right: 0;
-        height: 5px;
-        background: var(--accent);
-        bottom: 100px;
+        left: 0;
+        color: white;
+        font-size: 20px;
+      }
     }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @media screen and (max-width: index.$sm) {
+      width: 100%;
+    }
+
+
+    .Carousel-Image {
+      image-resolution: 300dpi;
+      height: 90%;
+      width: auto;
+      object-fit: cover;
+      position: relative;
+      animation: spin 20s linear infinite;
+    }
+  }
+
+  .About-Title {
+    @include index.center;
+    translate: scale(0.2);
+    position: relative;
+    margin: 0;
+
+    @media screen and (max-width: index.$md) {
+      translate: scale(0.2);
+    }
+  }
+
+  .GridItem {
+    @include index.center;
+  }
+
+  .Title {
+    @include index.center;
+    font-family: index.$font;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bolder;
+    color: index.$yellow;
+    text-shadow: 2px 0px 9px rgba(0, 0, 0, 1);
+    height: 100%;
+    margin: 20px;
+
+    @media screen and (max-width: index.$md) {
+      font-size: 30px;
+    }
+
+  }
+
+  .progress {
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: var(--accent);
+    bottom: 100px;
+  }
 
 }

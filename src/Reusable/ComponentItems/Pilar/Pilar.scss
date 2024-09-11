@@ -1,22 +1,22 @@
 @use "src/index" as index;
 
 .PilarComponent {
-    position: fixed;
-    width: 80vh;
-    height: 110vh;
-    bottom: -30px;
-    transform: scale(1.11) !important;
-    -webkit-filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.5));
-    filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.5));
-    z-index: index.$z-index-1;
+  position: fixed;
+  width: 80vh;
+  height: 110vh;
+  bottom: -30px;
+  transform: scale(1.11) !important;
+  -webkit-filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.5));
+  z-index: index.$z-index-1;
 
-    &.left {
-        @include index.image('./../../../Asset/Image/Background/pilarLeft.webp');
-        left: -192px;
-    }
+  &.left {
+    @include index.image('./../../../Asset/Image/Background/pilarLeft.webp');
+    left: -192px;
+  }
 
-    &.right {
-        @include index.image('./../../../Asset/Image/Background/pilarRight.webp');
-        right: -192px;
-    }
+  &.right {
+    @include index.image('./../../../Asset/Image/Background/pilarRight.webp');
+    right: -192px;
+  }
 }

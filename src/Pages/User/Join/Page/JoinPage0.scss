@@ -2,24 +2,24 @@
 
 .JoinPage0 {
 
-    // padding-top: 20px;
-    .subtitle {
-        padding-top: 10px;
-        padding-bottom: 10px;
-        font-family: index.$font2;
-        color: rgb(45, 45, 45);
-    }
+  // padding-top: 20px;
+  .subtitle {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: index.$font2;
+    color: rgb(45, 45, 45);
+  }
 
-    .desc {
-        font-family: index.$font2;
+  .desc {
+    font-family: index.$font2;
 
-        @media screen and (max-width: index.$sm) {
-            display: none;
-        }
+    @media screen and (max-width: index.$sm) {
+      display: none;
     }
+  }
 
-    .title {
-        // font-weight: bold;
-        font-family: index.$font2;
-    }
+  .title {
+    // font-weight: bold;
+    font-family: index.$font2;
+  }
 }

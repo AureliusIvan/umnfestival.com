@@ -1,127 +1,111 @@
 @use '../../../index.scss' as index;
 
-// $color : red;
-
 .Navbar-Mobile-Button {
-    @include index.prevent-select;
-    // background-color: #f8b632;
-    background-color: rgb(0, 255, 255, 0);
-    position: fixed;
-    border-style: none;
-    width: 50px;
-    height: 50px;
-    top: 20px;
-    right: 15px;
-    border-radius: 50%;
-    z-index: index.$z-index-6;
-    pointer-events: all;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: left;
-    padding: 10px;
+  @include index.prevent-select;
+  background-color: rgb(0, 255, 255, 0);
+  position: fixed;
+  border-style: none;
+  width: 50px;
+  height: 50px;
+  top: 20px;
+  right: 15px;
+  border-radius: 50%;
+  z-index: index.$z-index-6;
+  pointer-events: all;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  padding: 10px;
 
-    .bar {
-        height: 5px;
-        background-color: rgb(255, 255, 255);
-        border-radius: 2px;
-        margin: 2px;
-        position: absolute;
+  .bar {
+    height: 5px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 2px;
+    margin: 2px;
+    position: absolute;
 
-        &.up {
-            width: 27px;
-        }
-
-        &.down {
-            width: 22px;
-        }
+    &.up {
+      width: 27px;
     }
 
+    &.down {
+      width: 22px;
+    }
+  }
+
 }
-
-
-
 
 
 #navbar-mobile-menu-button {
-    @include index.prevent-select;
-    @include index.orangegrad;
-    // background: rgb(176, 114, 21);
-    // background: -moz-linear-gradient(90deg, rgba(176, 114, 21, 1) 0%, rgba(245, 214, 63, 1) 5%, rgba(255, 241, 173, 1) 20%, rgba(245, 214, 63, 1) 35%, rgba(255, 198, 113) 50%, rgba(255, 198, 113) 65%, rgba(245, 214, 63, 1) 70%, rgba(255, 241, 173, 1) 80%, rgba(245, 214, 63, 1) 95%, rgba(245, 172, 63, 1) 100%);
-    // background: -webkit-linear-gradient(90deg, rgba(176, 114, 21, 1) 0%, rgba(245, 214, 63, 1) 5%, rgba(255, 241, 173, 1) 20%, rgba(245, 214, 63, 1) 35%, rgba(255, 198, 113) 50%, rgb(255, 198, 113) 65%, rgba(245, 214, 63, 1) 70%, rgba(255, 241, 173, 1) 80%, rgba(245, 214, 63, 1) 95%, rgba(245, 172, 63, 1) 100%);
-    // background: linear-gradient(90deg, rgba(176, 114, 21, 1) 0%, rgba(245, 214, 63, 1) 5%, rgba(255, 241, 173, 1) 20%, rgba(245, 214, 63, 1) 35%, rgba(255, 198, 113) 50%, rgba(255, 198, 113) 65%, rgba(245, 214, 63, 1) 70%, rgba(255, 241, 173, 1) 80%, rgba(245, 214, 63, 1) 95%, rgba(245, 172, 63, 1) 100%);
-    // filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#b07215", endColorstr="#f5ac3f", GradientType=1);
-    position: fixed;
-    border-style: none;
-    width: 30px;
-    height: 30px;
-    top: 20px;
-    right: 15px;
-    border-radius: 50%;
-    z-index: index.$z-index-6;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: left;
-    padding: 10px;
-    will-change: transform;
+  @include index.prevent-select;
+  @include index.orangegrad;
+  position: fixed;
+  border-style: none;
+  width: 30px;
+  height: 30px;
+  top: 20px;
+  right: 15px;
+  border-radius: 50%;
+  z-index: index.$z-index-6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  padding: 10px;
+  will-change: transform;
 }
 
 .Navbar-Mobile-Menu-Container {
-    @include index.prevent-select;
-    @include index.center;
-    text-shadow: 5px 0px 9px index.$black;
-    z-index: index.$z-index-7;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    width: 100vw;
-    height: 40vh;
-    transform: scale3d(1, 1, 1);
-    will-change: display, transform, opacity;
+  @include index.prevent-select;
+  @include index.center;
+  text-shadow: 5px 0px 9px index.$black;
+  z-index: index.$z-index-7;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 100vw;
+  height: 40vh;
+  transform: scale3d(1, 1, 1);
+  will-change: display, transform, opacity;
 
 
+  .Navbar-Mobile-Menu-Card {
+    text-align: center;
 
+    .Navbar-Menu-Button {
+      border: none;
+      background-color: rgb(255, 255, 255, 0);
+      text-shadow: index.$text-shadow;
+      font-family: index.$font;
+      color: index.$white;
+      z-index: index.$z-index-6;
+      margin: 10px;
+      font-size: 40px;
+      font-weight: 700;
+      pointer-events: all;
+      position: relative;
 
+      .ActiveLine {
+        position: absolute;
+        margin: auto;
+        top: 10px;
+        bottom: 0;
+        left: 0;
+        right: 0;
 
-    .Navbar-Mobile-Menu-Card {
-        text-align: center;
-
-        .Navbar-Menu-Button {
-            border: none;
-            background-color: rgb(255, 255, 255, 0);
-            text-shadow: index.$text-shadow;
-            font-family: index.$font;
-            color: index.$white;
-            z-index: index.$z-index-6;
-            margin: 10px;
-            font-size: 40px;
-            font-weight: 700;
-            pointer-events: all;
-            position: relative;
-
-            .ActiveLine {
-                position: absolute;
-                margin: auto;
-                top: 10px;
-                bottom: 0;
-                left: 0;
-                right: 0;
-
-                .path {
-                    stroke-dasharray: 100;
-                    stroke-dashoffset: 0;
-                }
-            }
+        .path {
+          stroke-dasharray: 100;
+          stroke-dashoffset: 0;
         }
-
-
+      }
     }
+  }
 
-    .Navbar-Menu-Button-Active {
-        color: index.$yellow;
-    }
+  .Navbar-Menu-Button-Active {
+    color: index.$yellow;
+  }
 }

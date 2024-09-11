@@ -2,9 +2,9 @@
 // import start here
 import "./User.scss";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { Suspense, lazy, useCallback } from "react";
+import {Suspense, lazy, useCallback} from "react";
 import LoadingScreen from "../../Reusable/LoadingScreen/LoadingScreen";
-import { Route, Routes, Navigate, Outlet } from "react-router-dom";
+import {Route, Routes, Navigate, Outlet} from "react-router-dom";
 import VerifyEmail from "./VerifyEmail/VerifyEmail";
 import ProtectedRoute from "../../Route/Components/ProtectedRoute";
 import EnterAnimation from "../../Reusable/Animation/EnterAnimation/EnterAnimation";
@@ -12,8 +12,8 @@ import ProtectedRoutePathVerify from "../../Route/Components/ProtectedRouteVerif
 import ProtectedRouteClosed from "../../Route/Components/ProtectedRouteClosed";
 import ProtectedRoutePreUlm from "../../Route/Components/ProtectedRoutePreUlympic";
 import JoinClosed from "./Join/JoinClosed";
-import Preulympic, { PreulympicForm } from "./Preulympic/Preulympic";
-import { PreulympicUser } from "./Preulympic/PreulympicUser";
+import Preulympic, {PreulympicForm} from "./Preulympic/Preulympic";
+import {PreulympicUser} from "./Preulympic/PreulympicUser";
 // import PreulympicRegistration from "./Preulympic/PreulympicRegistration";
 import PreulympicRebelSquad from "./Preulympic/PreulympicRebelSquad";
 import PreulympicPayment from "./Preulympic/PreulympicPayment";
@@ -45,110 +45,110 @@ export default function User() {
 
   // prevent about page to re-rendered
   const AboutCallback = useCallback(() => {
-    return <About />
+    return <About/>
   }, [])
   // prevent division page to re-rendered
   const DivisionCallback = useCallback(() => {
-    return <Division />
+    return <Division/>
   }, [])
 
   // return is here
   return (
-    <div id="User-Page">
-      {/* must calling Router first before calling Route */}
-      {/* Routes is more like wrapper for the Route */}
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <Navbar />
-              <Outlet />
-              <Footer />
-            </>
-          }
-        >
+      <div id="User-Page">
+        {/* must calling Router first before calling Route */}
+        {/* Routes is more like wrapper for the Route */}
+        <Routes>
           <Route
-            path="/"
-            element={
-              <Home />
-            }
-          />
-          <Route path="/preulympic" element={<Preulympic />} />
-          <Route
-            path="Announcement"
-            element={
-              <Suspense fallback={<LoadingScreen />}>
-                <Announcement />
-              </Suspense>
-            }
-          />
-          <Route
-            path="about"
-            element={
-              <Suspense fallback={<LoadingScreen />}>
-                <AboutCallback />
-              </Suspense>
-            }
-          />
-          <Route
-            path="division"
-            element={
-              <Suspense fallback={<LoadingScreen />}>
-                <DivisionCallback />
-              </Suspense>
-            }
-          />
-          
-          <Route
-            path="register"
-            element={
-              <ProtectedRoute user={"guest"}>
-                <Suspense fallback={<LoadingScreen />}>
-                  <Register />
-                </Suspense>
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="register/verify"
-            element={
-              <ProtectedRoute user={"user"}>
-                {/* <ProtectedRoutePath path="/register/verify"> */}
-                <VerifyEmail />
-                {/* </ProtectedRoutePath> */}
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="verify"
-            element={
-              <ProtectedRoute user={"user"}>
-                <VerifyEmail />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="recruitment"
-            element={
-              <>
-                <ProtectedRoute user={"user"}>
-                  <ProtectedRoutePathVerify>
-                    <ProtectedRouteClosed status={0}>
-                      <Suspense fallback={<LoadingScreen />}>
-                        <Join />
-                      </Suspense>
-                    </ProtectedRouteClosed>
-                  </ProtectedRoutePathVerify>
-                </ProtectedRoute>
-              </>
-            }
-          />
-          <Route path="/comingsoon" element={<ComingSoon />} />
-          <Route path="/joinclosed" element={<JoinClosed />} />
-          <Route path="*" element={<Navigate to="/" />} />
-        </Route>
-      </Routes>
-    </div>
+              path="/"
+              element={
+                <>
+                  <Navbar/>
+                  <Outlet/>
+                  <Footer/>
+                </>
+              }
+          >
+            <Route
+                path="/"
+                element={
+                  <Home/>
+                }
+            />
+            <Route path="/preulympic" element={<Preulympic/>}/>
+            <Route
+                path="Announcement"
+                element={
+                  <Suspense fallback={<LoadingScreen/>}>
+                    <Announcement/>
+                  </Suspense>
+                }
+            />
+            <Route
+                path="about"
+                element={
+                  <Suspense fallback={<LoadingScreen/>}>
+                    <AboutCallback/>
+                  </Suspense>
+                }
+            />
+            <Route
+                path="division"
+                element={
+                  <Suspense fallback={<LoadingScreen/>}>
+                    <DivisionCallback/>
+                  </Suspense>
+                }
+            />
+
+            <Route
+                path="register"
+                element={
+                  <ProtectedRoute user={"guest"}>
+                    <Suspense fallback={<LoadingScreen/>}>
+                      <Register/>
+                    </Suspense>
+                  </ProtectedRoute>
+                }
+            />
+            <Route
+                path="register/verify"
+                element={
+                  <ProtectedRoute user={"user"}>
+                    {/* <ProtectedRoutePath path="/register/verify"> */}
+                    <VerifyEmail/>
+                    {/* </ProtectedRoutePath> */}
+                  </ProtectedRoute>
+                }
+            />
+            <Route
+                path="verify"
+                element={
+                  <ProtectedRoute user={"user"}>
+                    <VerifyEmail/>
+                  </ProtectedRoute>
+                }
+            />
+            <Route
+                path="recruitment"
+                element={
+                  <>
+                    <ProtectedRoute user={"user"}>
+                      <ProtectedRoutePathVerify>
+                        <ProtectedRouteClosed status={0}>
+                          <Suspense fallback={<LoadingScreen/>}>
+                            <Join/>
+                          </Suspense>
+                        </ProtectedRouteClosed>
+                      </ProtectedRoutePathVerify>
+                    </ProtectedRoute>
+                  </>
+                }
+            />
+            <Route path="/comingsoon" element={<ComingSoon/>}/>
+            <Route path="/joinclosed" element={<JoinClosed/>}/>
+            <Route path="*" element={<Navigate to="/"/>}/>
+          </Route>
+        </Routes>
+      </div>
   );
 }

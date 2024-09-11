@@ -1,326 +1,324 @@
 // $border : 1px solid rgba(224, 189, 92, 255);
-$border : none;
+$border: none;
 
 .home {
-    .bgImg {
+  .bgImg {
+    border: $border;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    filter: brightness(50%);
+  }
+
+  .HeroSection {
+    padding-top: 10vh;
+    border: $border;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    .UMNFestivalHeroLogo {
+      border: $border;
+      // width: 30%;
+      width: 34.9rem;
+      max-width: 100%;
+      scale: 1.5;
+      overflow: hidden;
+    }
+
+    .mainTitle {
+      border: $border;
+      width: 34.9rem;
+      max-width: 100%;
+
+    }
+  }
+
+  .ConceptSection {
+    border: $border;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 20px;
+
+    @media screen and (max-width: 750px) {
+      flex-direction: column;
+    }
+
+    .paperIntro {
+      border: $border;
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 1/1;
+      width: 45%;
+      height: fit-content;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      @media screen and (max-width: 800px) {
+        width: 100%;
+        aspect-ratio: 1/1;
+        height: fit-content;
+      }
+
+      .paperBackground {
         border: $border;
-        position: fixed;
+        position: absolute;
         top: 0;
         left: 0;
-        z-index: -1;
+        width: 100%;
+        scale: 1.1;
+      }
+
+      .contentIntro {
         width: 100%;
         height: 100%;
-        filter: brightness(50%);
-    }
-
-    .HeroSection {
-        padding-top: 10vh;
+        // background-color: rgba(255, 244, 236, 0.75);
         border: $border;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-
-        .UMNFestivalHeroLogo {
-            border: $border;
-            // width: 30%;
-            width: 34.9rem;
-            max-width: 100%;
-            scale: 1.5;
-            overflow: hidden;
-        }
-
-        .mainTitle {
-            border: $border;
-            width: 34.9rem;
-            max-width: 100%;
-
-        }
-    }
-
-    .ConceptSection {
-        border: $border;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        gap: 5px;
-        margin-top: 20px;
-
-        @media screen and (max-width: 750px) {
-            flex-direction: column;
-        }
-
-        .paperIntro {
-            border: $border;
-            position: relative;
-            overflow: hidden;
-            aspect-ratio: 1/1;
-            width: 45%;
-            height: fit-content;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            @media screen and (max-width: 800px) {
-                width: 100%;
-                aspect-ratio: 1/1;
-                height: fit-content;
-            }
-
-            .paperBackground {
-                border: $border;
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                scale: 1.1;
-            }
-
-            .contentIntro {
-                width: 100%;
-                height: 100%;
-                // background-color: rgba(255, 244, 236, 0.75);
-                border: $border;
-                font-family: Louis George Cafe;
-                color: #FFFFFF;
-                text-align: center;
-                // padding: 10rem 10rem;
-                padding-inline: clamp(7rem, 10vw, 12rem);
-                padding-top: clamp(10rem, 10vw, 13rem);
-                filter: drop-shadow(0px 4px 2px rgba(0, 0, 0, 0.6));
-
-                .contentTitleImage {
-                    border: $border;
-                    width: 100%;
-                    height: clamp(5rem, 10vw, 7rem);
-                    margin-top: 2rem;
-                    object-fit: contain;
-                }
-
-                p {
-                    border: $border;
-                    font-size: clamp(2rem, 1.7vw, 3rem);
-                    width: 100%;
-
-                    @media screen and (max-width: 760px) {
-                        font-size: clamp(1.2rem, 4vw, 4.5rem);
-                        // padding-inline: 2rem;
-                    }
-
-                }
-            }
-
-        }
-
-
-    }
-
-
-    .TemaTaglineSection {
-        border: $border;
-        margin-block: 50px;
-
-        .containerTT {
-            border: $border;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 1rem;
-            padding-inline: 2rem;
-
-            .titleTT {
-                border: $border;
-                background-color: rgba(255, 255, 240, 0.9);
-                color: rgba(91, 97, 142, 0.9);
-                font-family: Louis George Cafe;
-                font-size: clamp(1.8rem, 2vw, 3.5rem);
-                padding: 2.1px 5.1rem;
-                margin: 0px auto;
-                width: max-content;
-                border-radius: 35px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .contentTT {
-                border: $border;
-                margin-top: 10px;
-                margin-bottom: 50px;
-                margin-inline: 8rem;
-                object-fit: contain;
-                max-width: 100%;
-            }
-        }
-
-    }
-
-    .containerVM {
-        border: $border;
+        font-family: Louis George Cafe;
+        color: #FFFFFF;
         text-align: center;
-        filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
-        overflow: hidden;
+        // padding: 10rem 10rem;
+        padding-inline: clamp(7rem, 10vw, 12rem);
+        padding-top: clamp(10rem, 10vw, 13rem);
+        filter: drop-shadow(0px 4px 2px rgba(0, 0, 0, 0.6));
 
-
-        .titleVM {
-            border: $border;
-            object-fit: contain;
-            max-width: 100%;
+        .contentTitleImage {
+          border: $border;
+          width: 100%;
+          height: clamp(5rem, 10vw, 7rem);
+          margin-top: 2rem;
+          object-fit: contain;
         }
 
-        .contentVM {
-            border: $border;
-            background-color: rgba(255, 244, 236, 0.75);
-            border-radius: 25px;
-            padding: 25px;
-            width: 80%;
-            margin: 0px auto 50px;
-            font-family: Louis George Cafe;
-            font-size: 24px;
-            color: #5B618E;
-            transition: 300ms;
+        p {
+          border: $border;
+          font-size: clamp(2rem, 1.7vw, 3rem);
+          width: 100%;
+
+          @media screen and (max-width: 760px) {
+            font-size: clamp(1.2rem, 4vw, 4.5rem);
+            // padding-inline: 2rem;
+          }
 
         }
+      }
 
-        .contentVM:hover {
-            scale: 1.05;
-        }
-    }
-
-    .titleEvent {
-        border: $border;
-        width: 30%;
-        margin: 0px 34% -200px 36%;
-    }
-
-    .containerEvent {
-        border: $border;
-        position: relative;
-
-        .eventTimeline {
-            width: 99%;
-        }
-
-        .eventSpartan {
-            transition: 300ms;
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            margin-bottom: 14.3%;
-            margin-right: 25%;
-            scale: 1.2;
-        }
-
-        .eventSpartan:hover {
-            scale: 1.3;
-        }
-
-        .event {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            text-align: center;
-            color: white;
-            background-color: rgba($color: #000000, $alpha: 0.6);
-            width: fit-content;
-            font-size: 1.7em;
-            padding: 8px 27px;
-            border-radius: 40px;
-            height: 2.5%;
-            display: flex;
-            align-items: center;
-            font-family: Rocket-Vintage;
-            color: rgba(224, 189, 92, 255);
-            transition: 300ms;
-        }
-
-        .event:hover {
-            scale: 1.2;
-            background-color: rgba($color: #000000, $alpha: 0.8);
-            border: 3px solid rgba(224, 189, 92, 255);
-        }
-
-        #eventUnify {
-            margin-bottom: 55%;
-            margin-right: 72.5%;
-        }
-
-        #eventUcare {
-            margin-bottom: 50%;
-            margin-right: 24%;
-        }
-
-        #eventUlympic {
-            margin-bottom: 39%;
-            margin-right: 65%;
-        }
-
-        #eventUnveiling {
-            margin-bottom: 24.5%;
-            margin-right: 47%;
-        }
-
-        #eventColorRun {
-            margin-bottom: 20%;
-            margin-right: 10%;
-        }
-
-        #eventPreUlympic {
-            margin-bottom: 7%;
-            margin-right: 26%;
-        }
     }
 
 
+  }
 
 
-    .PartnershipSection {
+  .TemaTaglineSection {
+    border: $border;
+    margin-block: 50px;
+
+    .containerTT {
+      border: $border;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      padding-inline: 2rem;
+
+      .titleTT {
         border: $border;
+        background-color: rgba(255, 255, 240, 0.9);
+        color: rgba(91, 97, 142, 0.9);
+        font-family: Louis George Cafe;
+        font-size: clamp(1.8rem, 2vw, 3.5rem);
+        padding: 2.1px 5.1rem;
+        margin: 0px auto;
+        width: max-content;
+        border-radius: 35px;
         display: flex;
-        flex-direction: column;
-        justify-content: center;
         align-items: center;
-        gap: 1rem;
-        min-height: fit-content;
-        padding: 50px 50px;
+        justify-content: center;
+      }
 
-        .titlePartner {
-            object-fit: cover;
-            border: $border;
-            width: 100%;
-            max-width: 43rem;
-            transform-origin: center;
-        }
-
-        .containerPartner {
-            border: $border;
-            display: grid;
-            grid-template-columns: 1fr 1px 1fr;
-            justify-content: space-between;
-            align-items: center;
-            grid-gap: 10px;
-            width: 80%;
-
-            @media screen and (max-width: 600px) {
-                grid-template-columns: 1fr;
-                grid-gap: 10px;
-            }
-
-            .contentPartnerLine {
-                height: 80%;
-                width: inherit;
-                background-color: white;
-            }
-        }
+      .contentTT {
+        border: $border;
+        margin-top: 10px;
+        margin-bottom: 50px;
+        margin-inline: 8rem;
+        object-fit: contain;
+        max-width: 100%;
+      }
     }
 
-    //for mobile
-    @media only screen and (max-width: 600px) {
-        .bgImg {
-            content: url("./../../../Asset/Image/Background/Homebgphone.png");
-        }
+  }
+
+  .containerVM {
+    border: $border;
+    text-align: center;
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
+    overflow: hidden;
+
+
+    .titleVM {
+      border: $border;
+      object-fit: contain;
+      max-width: 100%;
     }
+
+    .contentVM {
+      border: $border;
+      background-color: rgba(255, 244, 236, 0.75);
+      border-radius: 25px;
+      padding: 25px;
+      width: 80%;
+      margin: 0px auto 50px;
+      font-family: Louis George Cafe;
+      font-size: 24px;
+      color: #5B618E;
+      transition: 300ms;
+
+    }
+
+    .contentVM:hover {
+      scale: 1.05;
+    }
+  }
+
+  .titleEvent {
+    border: $border;
+    width: 30%;
+    margin: 0px 34% -200px 36%;
+  }
+
+  .containerEvent {
+    border: $border;
+    position: relative;
+
+    .eventTimeline {
+      width: 99%;
+    }
+
+    .eventSpartan {
+      transition: 300ms;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      margin-bottom: 14.3%;
+      margin-right: 25%;
+      scale: 1.2;
+    }
+
+    .eventSpartan:hover {
+      scale: 1.3;
+    }
+
+    .event {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      text-align: center;
+      color: white;
+      background-color: rgba($color: #000000, $alpha: 0.6);
+      width: fit-content;
+      font-size: 1.7em;
+      padding: 8px 27px;
+      border-radius: 40px;
+      height: 2.5%;
+      display: flex;
+      align-items: center;
+      font-family: Rocket-Vintage;
+      color: rgba(224, 189, 92, 255);
+      transition: 300ms;
+    }
+
+    .event:hover {
+      scale: 1.2;
+      background-color: rgba($color: #000000, $alpha: 0.8);
+      border: 3px solid rgba(224, 189, 92, 255);
+    }
+
+    #eventUnify {
+      margin-bottom: 55%;
+      margin-right: 72.5%;
+    }
+
+    #eventUcare {
+      margin-bottom: 50%;
+      margin-right: 24%;
+    }
+
+    #eventUlympic {
+      margin-bottom: 39%;
+      margin-right: 65%;
+    }
+
+    #eventUnveiling {
+      margin-bottom: 24.5%;
+      margin-right: 47%;
+    }
+
+    #eventColorRun {
+      margin-bottom: 20%;
+      margin-right: 10%;
+    }
+
+    #eventPreUlympic {
+      margin-bottom: 7%;
+      margin-right: 26%;
+    }
+  }
+
+
+  .PartnershipSection {
+    border: $border;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    min-height: fit-content;
+    padding: 50px 50px;
+
+    .titlePartner {
+      object-fit: cover;
+      border: $border;
+      width: 100%;
+      max-width: 43rem;
+      transform-origin: center;
+    }
+
+    .containerPartner {
+      border: $border;
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr;
+      justify-content: space-between;
+      align-items: center;
+      grid-gap: 10px;
+      width: 80%;
+
+      @media screen and (max-width: 600px) {
+        grid-template-columns: 1fr;
+        grid-gap: 10px;
+      }
+
+      .contentPartnerLine {
+        height: 80%;
+        width: inherit;
+        background-color: white;
+      }
+    }
+  }
+
+  //for mobile
+  @media only screen and (max-width: 600px) {
+    .bgImg {
+      content: url("./../../../Asset/Image/Background/Homebgphone.png");
+    }
+  }
 
 }

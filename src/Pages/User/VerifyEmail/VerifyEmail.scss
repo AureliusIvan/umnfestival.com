@@ -1,58 +1,57 @@
 @use "src/index" as index;
 
 .verifyEmail {
-    @include index.background("./../../../Asset/Image/Background/Homebg.webp");
-    @include index.center;
-    height: 100%;
-    min-height: 120vh;
-    background-attachment: local;
+  @include index.background("./../../../Asset/Image/Background/Homebg.webp");
+  @include index.center;
+  height: 100%;
+  min-height: 120vh;
+  background-attachment: local;
 
 
+  .content {
+    display: flex;
+    flex-direction: column;
+    @include index.form-layout("./../../../Asset/Image/OtherIcon/paperfull.webp");
+    margin-top: 10vh;
 
-    .content {
-        display: flex;
-        flex-direction: column;
-        @include index.form-layout("./../../../Asset/Image/OtherIcon/paperfull.webp");
-        margin-top: 10vh;
-
-        @media screen and (max-width: index.$sm) {
-            height: auto;
-            width: 100%;
-            margin-inline: 20px;
-        }
-
-        .Title {
-            font-size: 30px;
-            font-family: index.$font;
-            color: index.$blue;
-        }
-
-        .Button {
-            background-color: rgb(84, 255, 32);
-            border: 3px solid white;
-            outline: 3px solid rgb(84, 255, 32);
-            border-radius: 50px;
-            margin-top: 20px;
-            padding: 10px;
-            font-size: 20px;
-            font-family: index.$font2;
-            pointer-events: all;
-            cursor: pointer;
-            transition: 0.3s;
-
-            &:hover {
-                background-color: rgb(64, 167, 32);
-                color: whitesmoke;
-            }
-        }
-
-        .Message {
-            font-size: 15px;
-            font-family: index.$font2;
-            margin-top: 20px;
-            background-color: rgb(213, 213, 213);
-            border-radius: 10px;
-            padding: 10px;
-        }
+    @media screen and (max-width: index.$sm) {
+      height: auto;
+      width: 100%;
+      margin-inline: 20px;
     }
+
+    .Title {
+      font-size: 30px;
+      font-family: index.$font;
+      color: index.$blue;
+    }
+
+    .Button {
+      background-color: rgb(84, 255, 32);
+      border: 3px solid white;
+      outline: 3px solid rgb(84, 255, 32);
+      border-radius: 50px;
+      margin-top: 20px;
+      padding: 10px;
+      font-size: 20px;
+      font-family: index.$font2;
+      pointer-events: all;
+      cursor: pointer;
+      transition: 0.3s;
+
+      &:hover {
+        background-color: rgb(64, 167, 32);
+        color: whitesmoke;
+      }
+    }
+
+    .Message {
+      font-size: 15px;
+      font-family: index.$font2;
+      margin-top: 20px;
+      background-color: rgb(213, 213, 213);
+      border-radius: 10px;
+      padding: 10px;
+    }
+  }
 }

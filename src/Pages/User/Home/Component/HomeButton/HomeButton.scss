@@ -1,11 +1,10 @@
 @use "src/index" as index;
 
-// $border: 1px solid red;
 $border: none;
 
 .HomeButton {
-  border: $border;
   @include index.prevent-select;
+  border: $border;
   position: relative;
   cursor: pointer;
   width: 100%;
@@ -19,8 +18,8 @@ $border: none;
   overflow: hidden;
 
   .background {
-    border: $border;
     @include index.prevent-select;
+    border: $border;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -40,7 +39,6 @@ $border: none;
     color: index.$white;
     text-align: center;
     font-family: index.$font;
-    // font-size: clamp(5rem, 4vw, 6rem);
     font-size: clamp(2.2rem, 2vw, 3rem);
   }
 

@@ -9,10 +9,10 @@ import {Navigate} from 'react-router-dom';
  * @param {Object} props.children
  */
 const ProtectedRouteClosed = ({children, status}) => {
-  if (status !== 1) {
-    return <Navigate to="/joinclosed"/>
-  }
-  return children;
+    if (status !== 1) {
+        return <Navigate to="/joinclosed"/>
+    }
+    return children;
 }
 
 export default ProtectedRouteClosed;
